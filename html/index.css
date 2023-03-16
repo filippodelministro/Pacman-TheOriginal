@@ -1,47 +1,33 @@
 
+body{
+    background-color: black;
+}
+
 .player{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: rgb(125, 125, 125);
     position: absolute;
     right: 5%;
     top: 10%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-
 }
 
 header{
     width: auto;
     height: auto;
-    font-family: 'Courier New', Courier, monospace;
+    text-align: center;
     font-size: large;
-    color: rgb(255, 200, 0);
-    background-color: black;
-    text-align: center;
-    padding: 40%;
-    text-align: center;
-}
-
-/*
-.menu{
     font-family: 'Courier New', Courier, monospace;
-    border: 1px solid;
-    border-color: black;
-    background-color: gray;
-    width: 120px;
-    height: 100px;
-    margin: 10px;
-    position: absolute;    
-    left: -110px;
-    top: 1;
-    transition-duration: 0.6s;
+    color: rgb(255, 200, 0);
+
+    position: relative;
+    top: auto;
+    margin-top: 20%;
+    left: auto;
+    right: auto;
 }
 
-.menu:hover{
-    left: -25px;
-    transition-duration: 0.6s;
-}
-*/
 
-.menu a{
+.menu a, button{
     color: whitesmoke;
     font-style: normal;
     font-family: monospace;
@@ -50,8 +36,27 @@ header{
     text-decoration: none;
 }
 
-.menu a:hover{
+.menu button{
+    background-color: black;
+    border: none;
+}
+
+#rule{
+    display: none;
+    
+}
+
+.menu button:hover, a:hover, details:hover{
     color: rgb(255, 200, 0);
+}
+
+
+.menu p{
+    color: whitesmoke;
+    background-color: rgb(38, 38, 38);
+    font-size: small;
+    padding: 3%;
+    text-align: center;
 }
 
 
@@ -59,3 +64,5 @@ address{
     font-family: 'Courier New', Courier, monospace;
     font-size: xx-small;
 }
+
+
