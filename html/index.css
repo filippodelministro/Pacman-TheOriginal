@@ -1,0 +1,61 @@
+
+.player{
+    color: rgb(125, 125, 125);
+    position: absolute;
+    right: 5%;
+    top: 10%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+header{
+    width: auto;
+    height: auto;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: large;
+    color: rgb(255, 200, 0);
+    background-color: black;
+    text-align: center;
+    padding: 40%;
+    text-align: center;
+}
+
+/*
+.menu{
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid;
+    border-color: black;
+    background-color: gray;
+    width: 120px;
+    height: 100px;
+    margin: 10px;
+    position: absolute;    
+    left: -110px;
+    top: 1;
+    transition-duration: 0.6s;
+}
+
+.menu:hover{
+    left: -25px;
+    transition-duration: 0.6s;
+}
+*/
+
+.menu a{
+    color: whitesmoke;
+    font-style: normal;
+    font-family: monospace;
+    font-size: smaller;
+    text-align: center;
+    text-decoration: none;
+}
+
+.menu a:hover{
+    color: rgb(255, 200, 0);
+}
+
+
+address{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: xx-small;
+}
