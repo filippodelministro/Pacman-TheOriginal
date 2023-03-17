@@ -18,6 +18,18 @@
   cursor: pointer;
 }
 
+.player img{
+  width: 5%;
+  height: 5%;
+}
+
+.player div{
+  position: static;
+  right: 5%;
+  top: 5%;
+  padding: 2%;
+} 
+
 header{
     width: auto;
     height: auto;
