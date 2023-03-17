@@ -1,16 +1,21 @@
 
 .theoriginal {
-    background-color: black;
-    color: whitesmoke;
-    font-family: monospace;
+  background-color: black;
+  color: whitesmoke;
+  font-family: monospace;
 }
 
 .player{
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: rgb(125, 125, 125);
-    position: absolute;
-    right: 5%;
-    top: 10%;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: rgb(125, 125, 125);
+  position: absolute;
+  right: 5%;
+  top: 10%;
+}
+
+.player:hover{
+  color: rgb(189, 189, 189);
+  cursor: pointer;
 }
 
 header{
@@ -36,40 +41,18 @@ header{
     font-size: smaller;
     text-align: center;
     text-decoration: none;
-}
-
-.menu button{
+    cursor: pointer;
     background-color: black;
     border: none;
 }
 
-#rule{
-    display: none;
-    
-}
 
-.menu button:hover, a:hover{
+.menu a:hover, button:hover{
     color: rgb(255, 200, 0);
 }
 
 
-.menu p{
-    color: whitesmoke;
-    background-color: rgb(38, 38, 38);
-    font-size: small;
-    padding: 3%;
-    text-align: center;
-}
-
-
-address{
-    font-family: 'Courier New', Courier, monospace;
-    font-size: xx-small;
-}
-
-
-
-/*HOW TO CSS*/
+/* -----------    HOW TO     ---------------   */
 
 .info{
   color: rgb(99, 99, 99);;
@@ -86,12 +69,11 @@ address{
   font-weight: 500;
 }
 
-
 .info details[open] summary ~ * {
   animation: open 0.3s ease-in-out;
 }
 
-@keyframes open {
+@keyframes open{
   0% {
     opacity: 0;
   }
@@ -99,11 +81,11 @@ address{
     opacity: 1;
   }
 }
-.info details summary::-webkit-details-marker {
+.info details summary::-webkit-details-marker{
   display: none;
 }
 
-.info details summary {
+.info details summary{
   width: 100%;
   padding: 0.5rem 0;
   border-top: 1px solid white;
@@ -114,7 +96,7 @@ address{
   list-style: none;
 }
 
-.info details summary:after {
+.info details summary:after{
   content: "+";
   color: whitesmoke;
   position: absolute;
@@ -126,21 +108,20 @@ address{
   transform-origin: center;
   transition: 200ms linear;
 }
-.info details[open] summary:after {
+
+.info details[open] summary:after{
   transform: rotate(45deg);
   font-size: 2rem;
 }
-.info details summary {
+
+.info details summary{
   outline: 0;
 }
-.info details p {
+
+.info details p{
   font-size: 0.95rem;
   margin: 0 0 1rem;
   padding-top: 1rem;
-}
-
-.info details summary :hover{
-  color: whitesmoke;
 }
 
 .info details:hover{
