@@ -6,6 +6,7 @@ header{
     margin: auto;
     border-bottom: 1px dotted rgb(125, 125, 125);
     padding: 2%;
+    background-color: black;
 }
 
 .bar{
@@ -59,7 +60,6 @@ header{
     font-family: monospace;
     text-align: center;
 }
-  
 .home{
     color: rgb(177, 0, 0);
 }
@@ -70,9 +70,17 @@ header{
     margin: auto;
 }
 
-.menu :hover{
+.menu a:hover {
     color: rgb(177, 0, 0);
     translate: 2;
+}
+
+.theoriginal button{
+  font-family: monospace;
+  background-color: black;
+  color: whitesmoke;
+  padding: 3%;
+  cursor: pointer;
 }
 
 
@@ -93,6 +101,7 @@ header{
     color: rgb(255, 200, 0);
     translate: 2;
 }
+
 
 
 /*    ------------    SNAKE     ---------------*/
