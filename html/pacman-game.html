@@ -7,12 +7,22 @@
     </head>
    
     
-    <body class="theoriginal">
+    <body class="theoriginal" onkeydown="getKeyAndMove(event)">
 
+        <h3>JavaScript - Move Object with Arrow Keys using JavaScript Function.</h3>
+        <h3>Use Arrow keys to move object left, top, right and down.</h4>
         <div id="playground">
-            <div id="pacman" onkeypress="detecKey(e)">
-            </div>
+            <div id="pacman" onkeypress="detectKey(e)"></div>
+
+            <div id="dots"></div>
+
         </div>
+
+
+        <br><br><br>
+        <p id="demo1"></p>
+        <p id="demo2"></p>
+
 
 
     </body>
