@@ -14,56 +14,45 @@
         </nav>
     </header>
     
-    <h2 class="pacman">THE ORIGINALS: PACMAN</h2>
-        
-
-    <br><br><br><br><br>
-
+    
     <body class="theoriginal">
-
       
-        <button type="menu" onmouseover="prova()">
-            click here to play
-        </button>
-
-        <br><br><br><br><br>
-
-        <a onmouseleave="imageAppear()" onmouseover="imageAppear()">Click Me</a>
-
+      <h2 class="pacman">THE ORIGINALS: PACMAN</h2>
+        <a id="gameButton" onmouseleave="imageAppear()" onmouseover="imageAppear()">Click here to play</a>
         <div id="menuImage">
-          This is my DIV element.
+          <div id="menuImagePacman">
+            <img id="menuImagePacman" src="./../images/ghost.png" alt="none">
+          </div>
         </div> 
 
-        <br><br><br><br><br>
-
-        <div class="info">
-            <section>
-                <h1>
-                  How to
-                </h1>
-                <details>
-                  <summary>The Game</summary>
-                  <p>
-                    Il gioco più famoso degli anni '80: mangia tutte le palline gialle fino a completare
-                    l'intera mappa, ma attenzione ai cattivi!
-                  </p>
-                </details>
-                <details>
-                  <summary>Commands</summary>
-                  <p>
-                    <!--todo: mettere immagini tasti e cambiare se utente cambia impostazioni -->
-                    ↑  :UP <br>
-                    ↓  :DOWN <br>
-                    ← :LEFT <br>
-                    → :RIGHT <br>
-                  </p>
-                </details>
-                <details>
-                  <summary>Information</summary>
-                  <p>Game born in 1987 by [...] </p>
-                </details>
-            </section>
-        </div>
+      <div class="info">
+          <section>
+              <h1>
+                How to
+              </h1>
+              <details>
+                <summary>The Game</summary>
+                <p>
+                  Il gioco più famoso degli anni '80: mangia tutte le palline gialle fino a completare
+                  l'intera mappa, ma attenzione ai cattivi!
+                </p>
+              </details>
+              <details>
+                <summary>Commands</summary>
+                <p>
+                  <!--todo: mettere immagini tasti e cambiare se utente cambia impostazioni -->
+                  ↑  :UP <br>
+                  ↓  :DOWN <br>
+                  ← :LEFT <br>
+                  → :RIGHT <br>
+                </p>
+              </details>
+              <details>
+                <summary>Information</summary>
+                <p>Game born in 1987 by [...] </p>
+              </details>
+          </section>
+      </div>
 
         
     </body>

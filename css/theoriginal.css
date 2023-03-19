@@ -84,21 +84,6 @@ header{
 }
 
 
-#menuImage{
-  display: none;
-  position: absolute;
-
-  left: 0;
-}
-
-
-#menuImagePacman{
-  position: absolute;
-  
-  left: 5%;
-}  
-
-
 /*    ------------    PACMAN     ---------------*/
 
 
@@ -117,47 +102,31 @@ header{
     translate: 2;
 }
 
-
-
-/*    ------------    SNAKE     ---------------*/
-
-
-.snake{
-    color: rgb(0, 131, 7);
-}
-
-.snake a{
-    color: whitesmoke;
-    text-decoration: none;
-    margin: auto;
-}
-
-.snake :hover{
-    color: rgb(0, 131, 7);
-    translate: 2;
+#menuImage{
+  display: none;
+  position: absolute;
+  top: 180px;
+  left: 0;
 }
 
 
-/*    ------------    TETRIS     ---------------*/
+#menuImagePacman{
+  position: absolute;
+  transition-delay: 1s;
+  top: 20%;
+  left: 5%;
+}  
 
 
-.tetris{
-    color: rgb(201, 4, 201);
+#gameButton{
+  border: 1px solid;
+  border-color:  rgb(255, 200, 0);
+  font-family: monospace;
+  background-color: black;
+  color: whitesmoke;
+  padding: 0.8%;
+  cursor: pointer;
 }
-
-.tetris a{
-    color: whitesmoke;
-    text-decoration: none;
-    margin: auto;
-}
-
-.tetris :hover{
-    color: rgb(201, 4, 201);
-    translate: 2;
-}
-
-
-
 
 
 /* -----------    HOW TO     ---------------   */
@@ -168,8 +137,8 @@ header{
   
   .info section{
     font-family: monospace;
-    padding-top: 4rem;
-    width: 50%;
+    padding-top: 2rem;
+    width: 20%;
     margin: auto;
   }
   .info h1 {
