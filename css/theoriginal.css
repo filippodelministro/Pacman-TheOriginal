@@ -84,6 +84,21 @@ header{
 }
 
 
+#menuImage{
+  display: none;
+  position: absolute;
+
+  left: 0;
+}
+
+
+#menuImagePacman{
+  position: absolute;
+  
+  left: 5%;
+}  
+
+
 /*    ------------    PACMAN     ---------------*/
 
 

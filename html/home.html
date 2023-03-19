@@ -3,6 +3,7 @@
     <head>
         <title>The Original</title>
         <link rel="stylesheet" href="./../css/theoriginal.css"> 
+        <script src="./../js/theoriginal.js"></script>
     </head>
     
     <header>
@@ -22,21 +23,22 @@
         <h2 class="home">THE ORIGINALS</h2>
         <nav class="menu">
             <div>
-                <a href="./pacman.html">pacman</a> <br></div>
-                <a href="./snake.html">snake</a> <br> </div>
-                <a href="./tetris.html">tetris</a> <br> </div>
+                <a href="./pacman.html" onmouseleave="imageAppear()" onmouseover="imageAppear()">pacman</a> <br>
+                <a href="./snake.html" onmouseleave="imageAppear()" onmouseover="imageAppear()">snake</a> <br>
+                <a href="./tetris.html" onmouseleave="imageAppear()" onmouseover="imageAppear()">tetris</a> <br>
             </div>
         </nav>
         
+
+        <div id="menuImage">
+            <div id="menuImagePacman">
+                <img id="menuImagePacman" src="./../images/ghost.png" alt="none">
+            </div>
+        </div> 
+
         <br><br><br><br><br>
 
-        <div class="imm">
-            <img clas="imm" src="./../images/ghost.png" alt="none">
-        </div>
 
-        <button>
-            click here to play
-        </button>
         <br><br><br><br><br>
 
         <div class="prova">
