@@ -46,6 +46,10 @@ function pause(e){
 
 function handlePauseMenu(e){
     document.getElementById("demo3").innerHTML = e.keyCode;
+
+    switch(e.keyCode){
+        case 27: start(); break;        //resume [ESC]
+    }
 }
 
 
