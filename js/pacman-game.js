@@ -1,20 +1,25 @@
 
 var game_on = false;
+var pause_on = false;
 document.addEventListener('keyup', keyPressed);
 
-function keyPressed(e) {
-    if(game_on == true){
-        if(e.keyCode == 32){     //pause
-            pause();
+function keyPressed(e){
+    if(game_on){
+        if(!pause_on){
+            if(e.keyCode == 32)         //pause
+                pause(e);
+            else move(e);
         }
         else{
-            move(e);
+            if(e.keyCode == 32)
+                start();
+            else handlePauseMenu(e);
         }
     }
     else{
-        if(e.keyCode == 32){     //pause
-            start();
-        }
+        game_on = true;
+        pause_on = false;
+        move(e);
     }
 }
 
@@ -26,17 +31,21 @@ function start(){
     document.getElementById("pause-menu").style.display = "none";
     document.getElementById("pause-menu-overlay").style.display = "none";
     game_on = true;
+    pause_on = false;
 }
-
-
-function pause(){
+function pause(e){
     document.getElementById("demo1").innerHTML = "GAME PAUSED"
     document.getElementById("startinfo").innerHTML = "press space to start the game";
     document.getElementById("demo2").style.display = "none";
 
     document.getElementById("pause-menu").style.display = "block";
     document.getElementById("pause-menu-overlay").style.display = "block";
-    game_on = false; 
+    pause_on = true;
+    // handlePauseMenu(e);
+}
+
+function handlePauseMenu(e){
+    document.getElementById("demo3").innerHTML = e.keyCode;
 }
 
 
