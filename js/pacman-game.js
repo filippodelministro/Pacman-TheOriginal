@@ -6,7 +6,7 @@ document.addEventListener('keyup', keyPressed);
 function keyPressed(e){
     if(game_on){
         if(!pause_on){
-            if(e.keyCode == 32)         //pause
+            if(e.keyCode == 32 || e.keyCode == 27)         //pause
                 pause(e);
             else move(e);
         }
