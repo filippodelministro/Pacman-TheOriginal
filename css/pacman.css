@@ -83,3 +83,53 @@
 #navigationBar.game {
     display: flex;
 } */
+
+
+/** ------ PAUSE-MENU  ------ */
+
+#pause-menu{
+    position: relative;
+    display: none;
+    top: 120px;
+    margin-left: auto;
+    margin-right: auto;
+    
+    z-index: 3;
+    height: 120px;
+    width: 200px;
+    border: 2px solid rgb(0, 0, 0);
+    background-color: rgb(176, 176, 176);
+    padding: 0.5%;
+}
+
+.pause-menu nav{
+    position: fixed;
+    top: 20px;
+    align-items: center;
+    padding: 3%;
+}
+.pause-menu a{
+    position: relative;
+    top: 25px;
+    color: black;
+    text-decoration: none;
+    font-size: larger;
+}
+.pause-menu :hover{
+    background-color: rgb(255, 200, 0);
+    font-weight: bolder;
+}
+
+#pause-menu-overlay{
+    position: fixed; /* Sit on top of the page content */
+    display: none; /* Hidden by default */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 200, 0, 0.4); 
+    z-index: 2;
+    cursor: pointer;
+}

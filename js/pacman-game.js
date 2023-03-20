@@ -22,6 +22,9 @@ function start(){
     document.getElementById("demo1").innerHTML = "GAME ON"
     document.getElementById("startinfo").innerHTML = "[running] press space to pause the game";
     document.getElementById("demo2").style.display = "block";
+
+    document.getElementById("pause-menu").style.display = "none";
+    document.getElementById("pause-menu-overlay").style.display = "none";
     game_on = true;
 }
 
@@ -30,6 +33,9 @@ function pause(){
     document.getElementById("demo1").innerHTML = "GAME PAUSED"
     document.getElementById("startinfo").innerHTML = "press space to start the game";
     document.getElementById("demo2").style.display = "none";
+
+    document.getElementById("pause-menu").style.display = "block";
+    document.getElementById("pause-menu-overlay").style.display = "block";
     game_on = false; 
 }
 
