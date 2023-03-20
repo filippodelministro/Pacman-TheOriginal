@@ -35,7 +35,7 @@
 
 /** ------ CHARACHTERS  ------ */
 #pacman {
-    position: absolute;
+    position: relative;
     height: 15px;
     width: 15px;
     background-color: rgb(255, 200, 0);

@@ -5,10 +5,11 @@
         <link rel="icon" type="image/png" href="./../images/ghost.png"/>
         <script src="./../js/pacman-game.js"></script>
         <link rel="stylesheet" href="./../css/pacman.css"> 
-
+        <meta charset="utf-8" />
+        <!-- 
         <script>
-            document.addEventListener('keydown', tastoPremuto);
-        </script>
+            document.addEventListener('keydown', keyPressed);
+        </script> -->
 
     </head>
    
@@ -41,15 +42,15 @@
                 <h4>Livello: </h4>
             </div>
 
-            <p id="startinfo">Press to start the game</p>
+            <p id="startinfo">Press space to start the game</p>
             
-            <div onkeydown="start()">
-                <div id="pacman"></div>
-                <div id="playground"></div>
-            </div>
+            <!-- <div onkeydown="start()"></div> -->
+            <div id="playground"></div>
+            <div id="pacman"></div>
             
             <p id="demo1"></p>
-            <p id="demo2"></p>
+            <p id="demo2"></p
+
         </main>
     </body>
 
