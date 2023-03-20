@@ -38,6 +38,11 @@ function pause(e){
     document.getElementById("startinfo").innerHTML = "press space to start the game";
     document.getElementById("demo2").style.display = "none";
 
+
+    //todo: usare questo per singola HIDE/SHOW
+    // document.querySelectorAll(".pause-menu").forEach(a=>a.style.display = "initial")
+
+
     document.getElementById("pause-menu").style.display = "block";
     document.getElementById("pause-menu-overlay").style.display = "block";
     pause_on = true;
@@ -70,7 +75,9 @@ function move(e) {
 
 function moveLeft() {
     document.getElementById("demo3").innerHTML = "moveLeft()";
+
+    // document.getElementById("pacman").style.left = "5px";
     pm = document.getElementById("pacman");
-    pm.style.left = parseInt(pm.style.left) - 5 + "px";
+    pm.style.left = parseInt(pm.style.left) -5 + "px";
 }
 
