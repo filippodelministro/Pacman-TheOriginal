@@ -3,9 +3,10 @@
     background-color: black;
     color: whitesmoke;
     font-family: monospace;
+    text-align: center;
 }
 
-.theoriginal h4{
+.theoriginal > h4{
     text-align: center;
 }
 
@@ -13,12 +14,13 @@
 /** ------ PLAYGROUND  ------ */
 
 #playground{
-    height: 400px;
-    width: 500px;
+    height: 420px;
+    width: 495px;
     border: 2px solid whitesmoke;
     margin-left: auto;
     margin-right: auto;
     background-color: rgb(29, 29, 29);
+    padding: 0.5%;
 }
 
 #dots{

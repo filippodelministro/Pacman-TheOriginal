@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="it-IT">
     <head>
-        <title>The Original</title>
-        <link rel="stylesheet" href="./../css/pacman.css"> 
+        <title>theorigin alPacman</title>
+        <link rel="icon" type="image/png" href="./../images/ghost.png"/>
         <script src="./../js/pacman-game.js"></script>
+        <link rel="stylesheet" href="./../css/pacman.css"> 
+
+        <script>
+            document.addEventListener('keydown', tastoPremuto);
+        </script>
+
     </head>
    
     
-    <body class="theoriginal" onkeydown="getKeyAndMove(event)">
+    <!-- <body class="theoriginal" onkeydown="getKeyAndMove(event)">
 
 
         <div id="navigationBar" class="game">
             <h4 class="theoriginal">Level 1</h4>
         </div>
 
-        
+
         <div id="playground">
             <div id="pacman" onkeypress="detectKey(e)"></div>
 
@@ -26,10 +32,24 @@
         <br><br><br>
         <p id="demo1"></p>
         <p id="demo2"></p>
+    </body> -->
 
+    <body  class="theoriginal">
+        
+        <main>
+            <div id="navigationBar" class="game">
+                <h4>Livello: </h4>
+            </div>
 
-
+            <p id="startinfo">Press <code>space</code> to start the game</p>
+            
+            <div onkeydown="start()">
+                <div id="pacman"></div>
+                <div id="playground"></div>
+            </div>
+            
+            <p id="demo1"></p>
+        </main>
     </body>
-
 
 </html>         

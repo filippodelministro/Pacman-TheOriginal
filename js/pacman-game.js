@@ -1,16 +1,16 @@
-
+/*
 var level = 0;
 
 function start(level){
     playground = document.getElementById("playground");
     playground.style.cursor = "none";
     pacmanInit()
-    // game = new Game(level);
+    game = new Game(level);
 }
 
-// function Game(level){
-//     document.addEventListener("keyup", this.key)
-// }
+function Game(level){
+    document.addEventListener("keyup", this.key)
+}
 
 
 function pacmanInit() {
@@ -46,5 +46,30 @@ function moveDown() {
 }
 
 
-window.onload = start;
 
+*/
+
+var game_on;
+document.addEventListener('keydown', keyPressed);
+
+function keyPressed(e) {
+    if (e.keyCode == 32){   // space
+        if(game_on){
+            game_on = false;
+            pause();
+        }
+        else{
+            game_on = true;
+            start();
+        }
+    } 
+}
+
+function start(){
+    document.getElementById("demo1").innerHTML = "GAME ON"
+}
+
+
+function pause(){
+    document.getElementById("demo1").innerHTML = "GAME PAUSED"
+}
