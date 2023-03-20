@@ -1,7 +1,6 @@
 
 /*    ------------    HOME     ---------------*/
 
-
 header{
     margin: auto;
     border-bottom: 1px dotted rgb(125, 125, 125);
@@ -17,7 +16,7 @@ header{
 
 .bar nav{
     width:max-content;
-    position: relative;
+    position: relative;     /*? forse FIXED*/
 }
 
 .bar a{

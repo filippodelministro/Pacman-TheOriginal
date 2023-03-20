@@ -6,24 +6,21 @@
     text-align: center;
 }
 
-.theoriginal > h4{
-    text-align: center;
-}
-
-
 /** ------ PLAYGROUND  ------ */
 
 #playground{
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+
     height: 420px;
     width: 495px;
     border: 2px solid whitesmoke;
-    margin-left: auto;
-    margin-right: auto;
     background-color: rgb(29, 29, 29);
     padding: 0.5%;
 }
 
-#dots{
+/* #dots{
     position: absolute;
     height: 5px;
     width: 5px;
@@ -31,19 +28,21 @@
     border-radius: 50%;
     margin-top: 3px;
     margin-left: 3px;
-}
+} */
 
 /** ------ CHARACHTERS  ------ */
 #pacman {
-    position: relative;
+    position: absolute;
     height: 15px;
     width: 15px;
     background-color: rgb(255, 200, 0);
-/*     border-radius: 50%; */
-/*     margin-top: 3px; */
-/*     margin-left: 3px; */
-}
+    border-radius: 50%;
 
+    left: 200px;
+    top: 345px;
+
+}
+/* 
 .ghosts {
     height: 15px;
     width: 15px;
@@ -62,13 +61,14 @@
 }
 .ghosts.pink{
     background-color: pink;
-}
+} */
 
 
 /* todo: cambiare */
 /* ------ NAVIGATION BAR  ------ */
-#navigationBar {
-    position: relative;
+
+/* #navigationBar {
+    position: relative;     /*? forse FIXED
     height: 2.7vw;
     background-color: grey;
     width: 95%;
@@ -76,7 +76,10 @@
     margin-right: auto;
     font-family: "Candara";
     font-weight: bold;
+
+    z-index: 100px;
 }
+
 #navigationBar.game {
     display: flex;
-}
+} */
