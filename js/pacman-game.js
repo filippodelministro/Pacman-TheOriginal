@@ -24,27 +24,14 @@ function keyPressed(e){
 }
 
 function start(){
-    document.getElementById("demo1").innerHTML = "GAME ON"
-    document.getElementById("startinfo").innerHTML = "[running] press space to pause the game";
-    document.getElementById("demo2").style.display = "block";
-
-    document.getElementById("pause-menu").style.display = "none";
-    document.getElementById("pause-menu-overlay").style.display = "none";
+    document.getElementById("pause-menu-container").style.visibility = "hidden";
+    
     game_on = true;
     pause_on = false;
 }
 function pause(e){
-    document.getElementById("demo1").innerHTML = "GAME PAUSED"
-    document.getElementById("startinfo").innerHTML = "press space to start the game";
-    document.getElementById("demo2").style.display = "none";
+    document.getElementById("pause-menu-container").style.visibility = "visible";
 
-
-    //todo: usare questo per singola HIDE/SHOW
-    // document.querySelectorAll(".pause-menu").forEach(a=>a.style.display = "initial")
-
-
-    document.getElementById("pause-menu").style.display = "block";
-    document.getElementById("pause-menu-overlay").style.display = "block";
     pause_on = true;
     // handlePauseMenu(e);
 }
