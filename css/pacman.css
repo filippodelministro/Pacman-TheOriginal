@@ -87,22 +87,25 @@
 
 
 #pause-menu-container{
-    position: flex;
-    visibility: hidden;
-    z-index: 2;
+    position: absolute;     
+    visibility: hidden;     
+    z-index: 1;
+    
+    width: 100%; 
+    height: 100%; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(70, 70, 70, 0.7); 
 }
 
 .pause-menu{
-    position: absolute;
-    display: hidden;
-    top: 150px;
-    left: 200px;
-    /* right: 50%; */
-    /* margin: 0 auto; */
-    /* margin-right: auto; */
-    /* margin-left: auto; */
+    position: relative;
+    top: 30%;
+    margin: 0 auto;
+    z-index: 2;
     
-    z-index: 3;
     height: 120px;
     width: 200px;
     border: 2px solid rgb(0, 0, 0);
@@ -112,19 +115,6 @@
 
 .pause-menu h4{
     background-color: yellow;
-}
-
-.pause-menu-overlay{
-    position: fixed;    /* on top of the page content */
-    display: hidden;      /* hidden by default */
-    width: 100%; 
-    height: 100%; 
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(70, 70, 70, 0.7); 
-    z-index: 1;
 }
 
 .pause-menu a{

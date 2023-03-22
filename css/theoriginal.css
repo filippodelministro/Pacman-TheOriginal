@@ -112,6 +112,7 @@ header{
 #menuImagePacman{
   position: absolute;
   transition-delay: 1s;
+  transition: 2s;
   top: 20%;
   left: 5%;
 }  
