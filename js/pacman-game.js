@@ -19,12 +19,13 @@ function keyPressed(e){
     else{
         game_on = true;
         pause_on = false;
-        move(e);
+        start();
     }
 }
 
 function start(){
     document.getElementById("pause-menu-container").style.visibility = "hidden";
+    document.getElementById("startinfo").style.visibility = "hidden";
     
     game_on = true;
     pause_on = false;
