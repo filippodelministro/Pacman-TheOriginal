@@ -47,15 +47,25 @@ function handlePauseMenu(e){
 
 //  moving functions
 function move(e) {
-    // let pm = document.getElementById("pacman");
-    document.getElementById("demo2").innerHTML = e.keyCode;
-
-    // var key_code = e.which || e.keyCode;
-    switch (e.keyCode) {
-        case 37: moveLeft(); break;
-        case 38: moveUp(); break;
-        case 39: moveRight(); break;
-        case 40: moveDown(); break;
+    
+    var posLeft = document.getElementById("pacman").offsetLeft;
+    var posTop = document.getElementById("pacman").offsetTop;
+    e = e || window.event;
+    if (e.keyCode == '38') {
+        // up arrow
+        document.getElementById("pacman").style.marginTop  = (posTop-5)+"px";
+    }
+    else if (e.keyCode == '40') {
+        // down arrow
+        document.getElementById("pacman").style.marginTop  = (posTop+5)+"px";
+    }
+    else if (e.keyCode == '37') {
+       // left arrow
+        document.getElementById("pacman").style.marginLeft  = (posLeft-5)+"px";
+    }
+    else if (e.keyCode == '39') {
+       // right arrow
+        document.getElementById("pacman").style.marginLeft  = (posLeft+5)+"px";
     }
 }
 

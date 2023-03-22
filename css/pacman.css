@@ -31,14 +31,14 @@
 
 /** ------ CHARACHTERS  ------ */
 #pacman {
-    position: absolute;
+    position: relative;
     height: 15px;
     width: 15px;
     background-color: rgb(255, 200, 0);
     border-radius: 50%;
-
-    left: 200px;
-    top: 345px;
+    transition: 0.2s;
+    /* left: 200px;
+    top: 345px; */
 }
 /* 
 .ghosts {
