@@ -29,6 +29,12 @@ function start(){
     game_on = true;
     pause_on = false;
 }
+function resume(){
+    document.getElementById("pause-menu-container").style.visibility = "hidden";
+    
+    game_on = true;
+    pause_on = false;
+}
 function pause(e){
     document.getElementById("pause-menu-container").style.visibility = "visible";
 
