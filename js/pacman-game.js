@@ -53,7 +53,7 @@ function handlePauseMenu(e){
 
 
 //  moving functions
-function move(e) {
+function changeDirection(e) {
     
     var posLeft = document.getElementById("pacman").offsetLeft;
     var posTop = document.getElementById("pacman").offsetTop;
@@ -69,7 +69,8 @@ function move(e) {
 
     if (e.keyCode == '38') {
         // up arrows
-        document.getElementById("pacman").style.marginTop  = (posTop-25)+"px";
+        // document.getElementById("pacman").style.marginTop  = (posTop-25)+"px";
+        direction = "up"
     }
     else if (e.keyCode == '40') {
         // down arrow
@@ -86,26 +87,40 @@ function move(e) {
 }
 
 
-function init(){
-    document.getElementById("demo1").innerHTML = "init()";
-    Pacman = new Pacman();
-    // startgame();
-}
+// function init(){
+//     document.getElementById("demo1").innerHTML = "init()";
+//     Pacman = new Pacman();
+//     // startgame();
+// }
 
 var intervalId; // to keep track of the interval ID
-
+var direction = "right";
 // function to move the element
-function moveElement() {
-  var element = document.getElementById("pacman");
-  var currentLeft = parseInt(element.style.left || 0, 10);
-  var newLeft = currentLeft + 5; // move 5 pixels to the right
-  element.style.left = newLeft + "px";
+function move() {
+    var element = document.getElementById("pacman");
+
+    switch(direction){
+        case "right": {
+            var currentLeft = parseInt(element.style.left || 0, 10);
+            var newLeft = currentLeft + 5; // move 5 pixels to the right
+            element.style.left = newLeft + "px";
+            break;
+        };
+        case "up": {
+            var currentTop = parseInt(element.style.top || 0, 10);
+            var newTop = currentTop - 5; // move 5 pixels to the right
+            element.style.top = newTop + "px";
+            break;
+        };
+    }
 }
 
+
 // start moving the element
-intervalId = setInterval(moveElement, 50); // move every 50 milliseconds
+intervalId = setInterval(move, 50); // move every 50 milliseconds
 
 // stop moving when a key is pressed
 document.addEventListener("keydown", function(event) {
-  clearInterval(intervalId); // stop the interval
+    clearInterval(intervalId); // stop the interval
 });
+
