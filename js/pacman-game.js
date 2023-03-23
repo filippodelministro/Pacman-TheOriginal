@@ -84,3 +84,28 @@ function move(e) {
         document.getElementById("pacman").style.marginLeft  = (posLeft+25)+"px";
     }
 }
+
+
+function init(){
+    document.getElementById("demo1").innerHTML = "init()";
+    Pacman = new Pacman();
+    // startgame();
+}
+
+var intervalId; // to keep track of the interval ID
+
+// function to move the element
+function moveElement() {
+  var element = document.getElementById("pacman");
+  var currentLeft = parseInt(element.style.left || 0, 10);
+  var newLeft = currentLeft + 5; // move 5 pixels to the right
+  element.style.left = newLeft + "px";
+}
+
+// start moving the element
+intervalId = setInterval(moveElement, 50); // move every 50 milliseconds
+
+// stop moving when a key is pressed
+document.addEventListener("keydown", function(event) {
+  clearInterval(intervalId); // stop the interval
+});

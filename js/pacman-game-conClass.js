@@ -1,162 +1,87 @@
-// document.addEventListener('keydown', keyPressed);
-onload = init;
 
-// function keyPressed(e){
-//     if(this.gameOn){
-//         if(this.pauseOn){
-//             // sono in pausa
-//             if(e.keyCode == '32' || e.KeyCode == '27')
-//                 resume();
-//         }
-//         else{
-//             // sto giocando
-//             if(e.keyCode == '32' || e.KeyCode == '27')
-//                 pause();
-//             else
-//                 this.changeDirection(e);
-//         }
-//     }
-//     else{
-//         this.resume();
-//     }
-// }
+function Pacman(x, y, radius, mouthAngle, color) {
+    this.x = x;
+    this.y = y;
+    this.radius = radius;
+    this.mouthAngle = mouthAngle;
+    this.color = color;
+  
+    this.draw = function(ctx) {
+      ctx.beginPath();
+      ctx.fillStyle = this.color;
+      ctx.arc(this.x, this.y, this.radius, (this.mouthAngle + 0.2) * Math.PI, (1.8 - this.mouthAngle) * Math.PI, false);
+      ctx.lineTo(this.x, this.y);
+      ctx.fill();
+      ctx.closePath();
+    };
+    
+    this.move = function(dx, dy) {
+      this.x += dx;
+      this.y += dy;
+    };
+  
+    this.setMouthAngle = function(angle) {
+      this.mouthAngle = angle;
+    };
+  }
+  
+  // usage
 
-function init(){
-    document.getElementById("demo1").innerHTML = "init()";
-    Pacman = new Pacman();
-    // startgame();
+  function init(){
+
+    document.getElementById("demo1").innerHTML = "init()"
+
+    var canvas = document.getElementById("playground");
+    var ctx = canvas.getContext("2d");
+    var pacman = new Pacman(100, 100, 50, 0.3, "yellow");
+    pacman.draw(ctx);
+    pacman.setMouthAngle(0.5);
+    pacman.move(50, 0);
+    pacman.draw(ctx);  
 }
-function Pacman(){
-    // document.getElementById("demo1").innerHTML = "Pacman()";
-
-    this.gameOn = true;
-    this.pauseOn = false;
-
-    this.direction = '39';
-
-    this.lives = MAX_LIFE;
-    // document.addEventListener('keydown', this.command);
-    document.addEventListener('keydown', command);
-    document.getElementById("demo2").innerHTML = "Pacman2()";
-    this.startgame();
-}
 
 
-//!NOT WORKING Pacman.prototype.command = 
-//!NOT WORKING     function(e) {
 
-function command(e){
-    document.getElementById("demo1").innerHTML = "command()";
-    if(this.pauseOn){
-        // sono in pausa
-        if(e.keyCode == '32' || e.KeyCode == '27'){
-            document.getElementById("demo3").innerHTML = "command()> arrivato resume()";   
-            //!NOT WORKING this.resume();
-            resume();
 
+
+document.addEventListener('keydown', keyPressed);
+
+function keyPressed(e){
+    if(game_on){
+        if(!pause_on){
+            if(e.keyCode == 32 || e.keyCode == 27)         //pause
+                pause(e);
+            else move(e);
+        }
+        else{
+            if(e.keyCode == 32)
+                start();
+            else handlePauseMenu(e);
         }
     }
     else{
-        // sto giocando
-        if(e.keyCode == '32' || e.KeyCode == '27'){
-            document.getElementById("demo3").innerHTML = "command()> arrivato Pause()";   
-            //!NOT WORKING this.pause();
-            pause();
-        }
-        else
-            //!NOT WORKING this.changeDirection();
-            changeDirection(e);
+        game_on = true;
+        pause_on = false;
+        start();
     }
 }
-Pacman.prototype.startgame = 
-    function() {
-        document.getElementById("demo2").innerHTML = "startgame()";
-        this.gameOn = true;
-        this.pauseOn = false;
 
-        this.move();
-        // while(this.gameOn){
-        //     move();
-        //     break;
-        // }
-    }
-Pacman.prototype.move = 
-    function(){
-        document.getElementById("demo1").innerHTML = "move()";
-        
-        //? lo fa una votla sola
-        let cont = 0;
-        while(cont <= 3){
-            var posLeft = document.getElementById("pacman").offsetLeft;
-            document.getElementById("pacman").style.marginLeft = (posLeft+25)+"px";
-            cont++;
-        }
-
-    }
-
-
-
-
-//! NOT WORKING 
-// Pacman.prototype.pause = 
-//     function(){
-//         document.getElementById("demo1").innerHTML = "pause()";
-//         document.getElementById("pause-menu-container").style.visibility = "visible";
-
-//         this.pauseOn = true;
-//         // handlePauseMenu(e);
-//     }
-// Pacman.prototype.resume = 
-//     function(){
-//         document.getElementById("startinfo").style.visibility = "hidden";
-//         document.getElementById("demo1").innerHTML = "resume()";
-        
-//         document.getElementById("pause-menu-container").style.visibility = "hidden";
-//         this.pauseOn = false;
-//         // handlePauseMenu(e);
-//     }
-// Pacman.prototype.changeDirection = 
-//     function(e){
-//         document.getElementById("demo1").innerHTML = "changeDirection()";
-//         document.getElementById("demo2").innerHTML = e.KeyCode;
-//     }
-
-
-function pause(){
-    document.getElementById("demo1").innerHTML = "pause()";
+function start(){
+    document.getElementById("pause-menu-container").style.visibility = "hidden";
+    document.getElementById("startinfo").style.visibility = "hidden";
+    
+    game_on = true;
+    pause_on = false;
+}
+function resume(){
+    document.getElementById("pause-menu-container").style.visibility = "hidden";
+    
+    game_on = true;
+    pause_on = false;
+}
+function pause(e){
     document.getElementById("pause-menu-container").style.visibility = "visible";
 
-    this.pauseOn = true;
+    pause_on = true;
     // handlePauseMenu(e);
 }
-
-function resume(){
-    document.getElementById("startinfo").style.visibility = "hidden";
-    document.getElementById("demo1").innerHTML = "resume()";
-    
-    document.getElementById("pause-menu-container").style.visibility = "hidden";
-    this.pauseOn = false;
-}
-function changeDirection(e){
-    document.getElementById("demo1").innerHTML = "changeDirection()";
-    document.getElementById("demo2").innerHTML = e.KeyCode;
-}
-
-
-// if(game_on){
-//     if(!pause_on){
-//         if(e.keyCode == 32 || e.keyCode == 27)         //pause
-//             pause(e);
-//         else move(e);
-//     }
-//     else{
-//         if(e.keyCode == 32)
-//             start();
-//         else handlePauseMenu(e);
-//     }
-// }
-// else{
-//     game_on = true;
-//     pause_on = false;
-//     move(e);
-// }
