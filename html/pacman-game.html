@@ -10,30 +10,31 @@
         <meta charset="utf-8" />
     </head>
 
-    <body class="theoriginal">
+    <body onload="init()" class="theoriginal">
         
         <main>
             <div id="navigationBar" class="game">
             </div>
 
-            <p id="startinfo">
+            <!-- <p id="startinfo">
                 <span class="blink">[press any key to start the game]</span>
-            </p>
-            
-            <div id="playground">
-                <div id="pacman"></div>
+            </p> -->
+
+
+            <div>
+                <canvas id="canvas" width="800" height="600">
+                    Sorry, browser does not support canvas.
+                    </canvas>
+                <!-- <div id="pacman"></div> -->
             </div>
+            <img src="./../images/1.jpeg" id="bar" style="display:none"/>
+
 
             <div id="gameinfo">
                 <h3>PLAYERNAME</h3>
                 <p>score:</p>
             </div>
 
-            <div id="timer" class="timer"> 
-                <p id="minute" class=" barraInformazioni timer"></p>:<p id="second" class="timer"></p>
-            </div>
-            
-            
 
             <div id="pause-menu-container">
                 <nav class="pause-menu">
@@ -47,7 +48,7 @@
             </div>
             <div class="pause-menu-overlay"></div> 
 
-            
+          
             <p id="demo1"></p>
             <p id="demo2"></p>
             <p id="demo3"></p>
