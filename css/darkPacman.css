@@ -1,0 +1,35 @@
+
+html{
+    background-color: rgb(21, 8, 55);
+    font-family: monospace;
+}
+
+
+#center-ghost img{
+    /* position: absolute;
+    margin-left: 0 auto; */
+    width: 200px;
+    top: 20%;
+}
+
+
+.centered {
+    display: flex;
+    /* text-align: center; */
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+
+}
+
+.div-centered {
+    display: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50%;
+}   
+
+#ghost{
+    width: 200px;
+}
+
