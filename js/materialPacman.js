@@ -2,16 +2,17 @@ var lightmode = true;
 
 function changeView(){
     if(lightmode){
-        var link = document.querySelector("link[href='./../css/lightPacman.css']");
-        link.href = "./../css/darkPacman.css";
         lightmode = false;
+     
+        var link = document.querySelector("link[href='./../css/material/materialLight.css']");
+        link.href = "./../css/material/materialDark.css";
     }
     else{
-        var link = document.querySelector("link[href='./../css/darkPacman.css']");
-        link.href = "./../css/lightPacman.css";
         lightmode = true;
+     
+        var link = document.querySelector("link[href='./../css/material/materialDark.css']");
+        link.href = "./../css/material/materialLight.css";
     }
-
 }
 
 

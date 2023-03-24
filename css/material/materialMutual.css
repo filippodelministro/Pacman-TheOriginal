@@ -1,0 +1,60 @@
+body{
+    font-family: 'Roboto Mono';
+}
+
+#center-ghost img{
+    /* position: absolute;
+    margin-left: 0 auto; */
+    width: 200px;
+    top: 20%;
+}
+
+
+.centered {
+    display: flex;
+    text-align: center;
+    justify-content: 400px;
+    align-items: center;
+    height: 500px;
+
+    width: 500px;
+    height: 250px;
+/*     left: 50%; */
+    top: 20%;
+    margin-top: 100px;
+    margin-left: 25%;
+/*     margin: auto; */
+}
+
+.centered h2{
+    display: flex;
+    text-align: center;
+/*     padding: 20px; */
+    font-size: xx-large;
+}
+
+
+.div-centered {
+    display: absolute;
+    /* margin-left: auto;
+    margin-right: auto; */
+    top: 20%;
+}   
+
+#ghost{
+    width: 200px;
+}
+
+
+a{
+    text-decoration: none;
+}
+
+button{
+    background: none;
+    font-family: 'Roboto Mono';
+    border: none;
+    font-weight: 100;
+}
+
+
