@@ -26,6 +26,12 @@ function begin(){
 
     document.getElementById("pause-menu-container").style.visibility = "hidden";
     document.getElementById("startinfo").style.visibility = "hidden";
+
+
+    var playground = document.getElementById("playground");
+    document.getElementById("playgroundLeft").innerHTML = "Left: " + playground.offsetLeft;
+    document.getElementById("playgroundTop").innerHTML = "Top: " + playground.offsetTop;
+
     
     game_on = true;
     pause_on = false;
@@ -113,6 +119,9 @@ function move() {
     var pacman = document.getElementById("pacman");
     var playground = document.getElementById("playground");
 
+    document.getElementById("pacmanLeft").innerHTML = "Left: " + pacman.offsetLeft;
+    document.getElementById("pacmanTop").innerHTML = "Top: " + pacman.offsetTop;
+
 
     var playgroundLeft = playground.offsetLeft;
     var playgroundRight = playgroundLeft + playground.offsetWidth;
@@ -168,6 +177,9 @@ function startMoving() {
         intervalId = setInterval(move, speed); 
         isMoving = true;
     }
+
+    document.getElementById("pacmanSpeed").innerHTML = "Speed: " + speed;
+
 }
 
 function stopMoving() {
