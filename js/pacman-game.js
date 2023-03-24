@@ -4,6 +4,7 @@ var pause_on = false;
 var intervalId;
 var direction;
 var isMoving = false; 
+var speed;
 
 document.addEventListener('keydown', keyPressed);
 
@@ -30,6 +31,7 @@ function begin(){
     pause_on = false;
 
     direction = "right";
+    speed = 50;
     startMoving();
 }
 
@@ -87,6 +89,9 @@ function handlePauseMenu(e){
 function changeDirection(e) {
     e = e || window.event;
 
+    if(!isMoving)           //when Pacman collide whit something
+        startMoving();
+
     if (e.keyCode == '38') {
         direction = "up";
     }
@@ -104,35 +109,52 @@ function changeDirection(e) {
 
 function move() {
     document.getElementById("demo1").innerHTML = "move()";
-    var element = document.getElementById("pacman");
+
+    var pacman = document.getElementById("pacman");
+    var playground = document.getElementById("playground");
+
+
+    var playgroundLeft = playground.offsetLeft;
+    var playgroundRight = playgroundLeft + playground.offsetWidth;
+    var playgroundTop = playground.offsetTop;
+    var playgroundBottom = playgroundTop + playground.offsetHeight;
+
+    var pacmanLeft = pacman.offsetLeft;
+    var pacmanTop = pacman.offsetTop;
 
     switch(direction){
         case "right": {
-            document.getElementById("demo2").innerHTML = "move> right";
-            var currentLeft = parseInt(element.style.left || 0, 10);
-            var newLeft = currentLeft + 5; // move 5 pixels to the right
-            element.style.left = newLeft + "px";
-            break;
+            if(pacman.offsetLeft < playground.offsetLeft){   
+                document.getElementById("demo2").innerHTML = "move> right";
+                var currentLeft = parseInt(pacman.style.left || 0, 10);
+                var newLeft = currentLeft + 5; // move 5 pixels to the right
+                pacman.style.left = newLeft + "px";
+                break;
+            }
+            else{
+                stopMoving();
+                break;
+            }
         };
         case "up": {
             document.getElementById("demo2").innerHTML = "move> up";
-            var currentTop = parseInt(element.style.top || 0, 10);
+            var currentTop = parseInt(pacman.style.top || 0, 10);
             var newTop = currentTop - 5; // move 5 pixels to the right
-            element.style.top = newTop + "px";
+            pacman.style.top = newTop + "px";
             break;
         };
         case "left": {
             document.getElementById("demo2").innerHTML = "move> left";
-            var currentLeft = parseInt(element.style.left || 0, 10);
+            var currentLeft = parseInt(pacman.style.left || 0, 10);
             var newLeft = currentLeft - 5; // move 5 pixels to the right
-            element.style.left = newLeft + "px";
+            pacman.style.left = newLeft + "px";
             break;
         };
         case "down": {
             document.getElementById("demo2").innerHTML = "move> down";
-            var currentTop = parseInt(element.style.top || 0, 10);
+            var currentTop = parseInt(pacman.style.top || 0, 10);
             var newTop = currentTop + 5; // move 5 pixels to the right
-            element.style.top = newTop + "px";
+            pacman.style.top = newTop + "px";
             break;
         };
   
@@ -143,7 +165,7 @@ function move() {
 function startMoving() {
     document.getElementById("demo3").innerHTML = "startMoving()";
     if (!isMoving) {
-        intervalId = setInterval(move, 50); // move every 50 milliseconds
+        intervalId = setInterval(move, speed); 
         isMoving = true;
     }
 }
@@ -154,3 +176,17 @@ function stopMoving() {
     clearInterval(intervalId); // stop the interval
     isMoving = false;
 }
+
+
+
+
+var playground = document.getElementById("playground");
+var Pacman = document.getElementById("pacman");
+
+var playgroundLeft = playground.offsetLeft;
+var playgroundRight = playgroundLeft + playground.offsetWidth;
+var playgroundTop = playground.offsetTop;
+var playgroundBottom = playgroundTop + playground.offsetHeight;
+
+var PacmanLeft = Pacman.offsetLeft;
+var PacmanTop = Pacman.offsetTop;
