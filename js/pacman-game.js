@@ -2,50 +2,91 @@
 var game_on = false;
 var pause_on = false;
 document.addEventListener('keydown', keyPressed);
+// document.addEventListener('keydown', keyPressed);
+
+// function keyPressed(e){
+//     if(game_on){
+//         if(!pause_on){
+//             if(e.keyCode == 32 || e.keyCode == 27)         //pause
+//                 pause(e);
+//             else move(e);
+//         }
+//         else{
+//             if(e.keyCode == 32)
+//                 start();
+//             else handlePauseMenu(e);
+//         }
+//     }
+//     else{
+//         game_on = true;
+//         pause_on = false;
+//         start();
+//     }
+// }
+
 
 function keyPressed(e){
-    if(game_on){
-        if(!pause_on){
-            if(e.keyCode == 32 || e.keyCode == 27)         //pause
-                pause(e);
-            else move(e);
-        }
-        else{
-            if(e.keyCode == 32)
-                start();
-            else handlePauseMenu(e);
-        }
-    }
-    else{
-        game_on = true;
-        pause_on = false;
-        start();
-    }
+    document.getElementById("demo1").innerHTML = "keyPressed(e)";
+
+    if(game_on)
+        keyPressedonGame(e);
+    else
+        begin();
 }
 
-function start(){
+function begin(){
+    document.getElementById("demo1").innerHTML = "begin()";
+
     document.getElementById("pause-menu-container").style.visibility = "hidden";
     document.getElementById("startinfo").style.visibility = "hidden";
     
     game_on = true;
     pause_on = false;
 }
+
+
+function keyPressedonGame(e){
+    document.getElementById("demo1").innerHTML = "keyPressedonGame(e)";
+
+    if(!pause_on){
+        //in game
+        if(e.keyCode == 32 || e.keyCode == 27)
+            pause(e);
+        else{
+            changeDirection(e);
+        }
+    }
+    else{
+        //in pause
+        if(e.keyCode == 32 || e.keyCode == 27)
+            resume();
+        else{
+            handlePauseMenu(e);
+        }
+    }
+}
+
 function resume(){
+    document.getElementById("demo2").innerHTML = "resume()";
+
+
     document.getElementById("pause-menu-container").style.visibility = "hidden";
     
-    game_on = true;
+    // game_on = true;
     pause_on = false;
 }
 function pause(e){
+    document.getElementById("demo2").innerHTML = "pause()";
+
     document.getElementById("pause-menu-container").style.visibility = "visible";
 
     pause_on = true;
-    // handlePauseMenu(e);
 }
 
 function handlePauseMenu(e){
-    document.getElementById("demo3").innerHTML = e.keyCode;
+    document.getElementById("demo3").innerHTML = "handelPauseMenu()";
 
+    //todo: handle menu con arrow
     switch(e.keyCode){
         case 27: start(); break;        //resume [ESC]
     }
@@ -87,15 +128,17 @@ function changeDirection(e) {
 }
 
 
-// function init(){
-//     document.getElementById("demo1").innerHTML = "init()";
-//     Pacman = new Pacman();
-//     // startgame();
-// }
+function init(){
+    document.getElementById("demo1").innerHTML = "init()";
+    // Pacman = new Pacman();
+    // startgame();
+}
 
 var intervalId; // to keep track of the interval ID
 var direction = "right";
-// function to move the element
+
+// start moving the element
+// intervalId = setInterval(move, 50); // move every 50 milliseconds
 function move() {
     var element = document.getElementById("pacman");
 
@@ -114,13 +157,9 @@ function move() {
         };
     }
 }
-
-
-// start moving the element
-intervalId = setInterval(move, 50); // move every 50 milliseconds
-
 // stop moving when a key is pressed
-document.addEventListener("keydown", function(event) {
+document.addEventListener("keydown", function(event) {setInterval
     clearInterval(intervalId); // stop the interval
 });
 
+// onload = init();
