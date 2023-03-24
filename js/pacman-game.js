@@ -1,28 +1,16 @@
 
 var game_on = false;
 var pause_on = false;
+var intervalId;
+var direction;
 document.addEventListener('keydown', keyPressed);
-// document.addEventListener('keydown', keyPressed);
 
-// function keyPressed(e){
-//     if(game_on){
-//         if(!pause_on){
-//             if(e.keyCode == 32 || e.keyCode == 27)         //pause
-//                 pause(e);
-//             else move(e);
-//         }
-//         else{
-//             if(e.keyCode == 32)
-//                 start();
-//             else handlePauseMenu(e);
-//         }
-//     }
-//     else{
-//         game_on = true;
-//         pause_on = false;
-//         start();
-//     }
-// }
+
+var intervalId; // to keep track of the interval ID
+var isMoving = false; // to keep track of whether the element is currently moving
+
+// start moving the element
+// intervalId = setInterval(move, 50);
 
 
 function keyPressed(e){
@@ -42,6 +30,9 @@ function begin(){
     
     game_on = true;
     pause_on = false;
+
+    direction = "right";
+    startMoving();
 }
 
 
@@ -74,8 +65,10 @@ function resume(){
     
     // game_on = true;
     pause_on = false;
+    startMoving();
 }
 function pause(e){
+    stopMoving();
     document.getElementById("demo2").innerHTML = "pause()";
 
     document.getElementById("pause-menu-container").style.visibility = "visible";
@@ -100,66 +93,109 @@ function changeDirection(e) {
     var posTop = document.getElementById("pacman").offsetTop;
     e = e || window.event;
 
-    //!not working
-    // switch(e.keyCode){
-    //     case '37': document.getElementById("pacman").style.marginLeft  = (posLeft-25)+"px"; break;
-    //     case '38': document.getElementById("pacman").style.marginTop  = (posTop-25)+"px"; break;
-    //     case '39': document.getElementById("pacman").style.marginLeft  = (posLeft+25)+"px"; break;
-    //     case '40': document.getElementById("pacman").style.marginTop  = (posTop+25)+"px"; break;
-    // }
-
     if (e.keyCode == '38') {
         // up arrows
         // document.getElementById("pacman").style.marginTop  = (posTop-25)+"px";
-        direction = "up"
+        direction = "up";
     }
     else if (e.keyCode == '40') {
         // down arrow
-        document.getElementById("pacman").style.marginTop  = (posTop+25)+"px";
+        // document.getElementById("pacman").style.marginTop  = (posTop+25)+"px";
+        direction = "down";
+
     }
     else if (e.keyCode == '37') {
        // left arrow
-        document.getElementById("pacman").style.marginLeft  = (posLeft-25)+"px";
+        // document.getElementById("pacman").style.marginLeft  = (posLeft-25)+"px";
+        direction = "left";
+
     }
     else if (e.keyCode == '39') {
        // right arrow
-        document.getElementById("pacman").style.marginLeft  = (posLeft+25)+"px";
+        // document.getElementById("pacman").style.marginLeft  = (posLeft+25)+"px";
+        direction = "right";
+
     }
 }
 
 
-function init(){
-    document.getElementById("demo1").innerHTML = "init()";
-    // Pacman = new Pacman();
-    // startgame();
-}
+// function init(){
+//     document.getElementById("demo1").innerHTML = "init()";
+//     // Pacman = new Pacman();
+//     // startgame();
+// }
 
-var intervalId; // to keep track of the interval ID
-var direction = "right";
 
 // start moving the element
 // intervalId = setInterval(move, 50); // move every 50 milliseconds
 function move() {
+    document.getElementById("demo1").innerHTML = "move()";
     var element = document.getElementById("pacman");
 
     switch(direction){
         case "right": {
+            document.getElementById("demo2").innerHTML = "move> right";
             var currentLeft = parseInt(element.style.left || 0, 10);
             var newLeft = currentLeft + 5; // move 5 pixels to the right
             element.style.left = newLeft + "px";
             break;
         };
         case "up": {
+            document.getElementById("demo2").innerHTML = "move> up";
             var currentTop = parseInt(element.style.top || 0, 10);
             var newTop = currentTop - 5; // move 5 pixels to the right
             element.style.top = newTop + "px";
             break;
         };
+        case "left": {
+            document.getElementById("demo2").innerHTML = "move> left";
+            var currentLeft = parseInt(element.style.left || 0, 10);
+            var newLeft = currentLeft - 5; // move 5 pixels to the right
+            element.style.left = newLeft + "px";
+            break;
+        };
+        case "down": {
+            document.getElementById("demo2").innerHTML = "move> down";
+            var currentTop = parseInt(element.style.top || 0, 10);
+            var newTop = currentTop + 5; // move 5 pixels to the right
+            element.style.top = newTop + "px";
+            break;
+        };
+  
+        
     }
 }
-// stop moving when a key is pressed
-document.addEventListener("keydown", function(event) {setInterval
-    clearInterval(intervalId); // stop the interval
-});
+// // stop moving when a key is pressed
 
-// onload = init();
+// document.addEventListener("keydown", function(event) {
+//     clearInterval(intervalId); // stop the interval
+// });
+
+
+function startMoving() {
+    document.getElementById("demo3").innerHTML = "startMoving()";
+    if (!isMoving) {
+        intervalId = setInterval(move, 50); // move every 50 milliseconds
+        isMoving = true;
+    }
+}
+
+// stop moving the element
+function stopMoving() {
+    document.getElementById("demo3").innerHTML = "stopMoving()";
+
+    clearInterval(intervalId); // stop the interval
+    isMoving = false;
+}
+
+// listen for keyboard input
+// document.addEventListener("keydown", function(event) {
+//   if (event.code === "ArrowRight") { // start moving when right arrow is pressed
+//     startMoving();
+//   } else if (event.code === "Space") { // stop moving when spacebar is pressed
+//     stopMoving();
+//   }
+// });
+
+
+
