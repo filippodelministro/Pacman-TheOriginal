@@ -145,17 +145,17 @@ function move() {
 
     switch(direction){
         case "right": {
-            // if(pacman.offsetLeft < playground.offsetLeft){   
+            if(pacman.offsetLeft + pacman.offsetWidth < playground.offsetLeft + playground.offsetWidth){   
                 document.getElementById("demo2").innerHTML = "move> right";
                 var currentLeft = parseInt(pacman.style.left || 0, 10);
                 var newLeft = currentLeft + 5; // move 5 pixels to the right
                 pacman.style.left = newLeft + "px";
                 break;
-            // }
-            // else{
-            //     stopMoving();
-            //     break;
-            // }
+            }
+            else{
+                stopMoving();
+                break;
+            }
         };
         case "up": {
             if(pacman.offsetTop> playground.offsetTop){   
@@ -171,11 +171,17 @@ function move() {
             }
         };
         case "left": {
-            document.getElementById("demo2").innerHTML = "move> left";
-            var currentLeft = parseInt(pacman.style.left || 0, 10);
-            var newLeft = currentLeft - 5; // move 5 pixels to the right
-            pacman.style.left = newLeft + "px";
-            break;
+            if(pacman.offsetLeft > playground.offsetLeft){   
+                document.getElementById("demo2").innerHTML = "move> left";
+                var currentLeft = parseInt(pacman.style.left || 0, 10);
+                var newLeft = currentLeft - 5; // move 5 pixels to the right
+                pacman.style.left = newLeft + "px";
+                break;
+            }
+            else{
+                stopMoving();
+                break;
+            }
         };
         case "down": {
             if(pacman.offsetTop + pacman.offsetHeight < playground.offsetTop + playground.offsetHeight){ 
@@ -212,17 +218,3 @@ function stopMoving() {
     clearInterval(intervalId); // stop the interval
     isMoving = false;
 }
-
-
-
-
-// var playground = document.getElementById("playground");
-// var Pacman = document.getElementById("pacman");
-
-// var playgroundLeft = playground.offsetLeft;
-// var playgroundRight = playgroundLeft + playground.offsetWidth;
-// var playgroundTop = playground.offsetTop;
-// var playgroundBottom = playgroundTop + playground.offsetHeight;
-
-// var PacmanLeft = Pacman.offsetLeft;
-// var PacmanTop = Pacman.offsetTop;
