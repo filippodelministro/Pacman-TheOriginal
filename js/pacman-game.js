@@ -1,8 +1,11 @@
 
 var game_on = false;
 var pause_on = false;
-var intervalId;
-var direction;
+var PacmanMoving;
+var BlueGhostMoving;
+
+var Pacmandirection;
+var BlueGhostdirection;
 var isMoving = false; 
 var speed;
 
@@ -32,7 +35,9 @@ function begin(){
     game_on = true;
     pause_on = false;
 
-    direction = "right";
+    Pacmandirection = "right";
+    BlueGhostdirection = changeDirectionGhost();
+
     speed = 50;
     startMoving();
 }
@@ -93,6 +98,7 @@ function pause(e){
     pause_on = true;
 }
 
+//todo
 function handlePauseMenu(e){
     document.getElementById("demo3").innerHTML = "handelPauseMenu()";
 
@@ -111,17 +117,17 @@ function changeDirection(e) {
         startMoving();
 
     if (e.keyCode == '38') {
-        direction = "up";
+        Pacmandirection = "up";
     }
     else if (e.keyCode == '40') {
-        direction = "down";
+        Pacmandirection = "down";
     }
     else if (e.keyCode == '37') {
-        direction = "left";
+        Pacmandirection = "left";
 
     }
     else if (e.keyCode == '39') {
-        direction = "right";
+        Pacmandirection = "right";
     }
 }
 
@@ -134,7 +140,7 @@ function move() {
     document.getElementById("pacmanLeft").innerHTML = "Left: " + pacman.offsetLeft;
     document.getElementById("pacmanTop").innerHTML = "Top: " + pacman.offsetTop;
 
-    switch(direction){
+    switch(Pacmandirection){
         case "right": {
             if(pacman.offsetLeft + pacman.offsetWidth < playground.offsetLeft + playground.offsetWidth){   
                 document.getElementById("demo2").innerHTML = "move> right";
@@ -187,15 +193,15 @@ function move() {
                 break;
             }
         };
-  
-        
     }
 }
 
 function startMoving() {
     document.getElementById("demo3").innerHTML = "startMoving()";
     if (!isMoving) {
-        intervalId = setInterval(move, speed); 
+        PacmanMoving = setInterval(move, speed);
+        BlueGhostMoving = setInterval(moveGhosts, speed); 
+
         isMoving = true;
     }
 
@@ -206,6 +212,83 @@ function startMoving() {
 function stopMoving() {
     document.getElementById("demo3").innerHTML = "stopMoving()";
 
-    clearInterval(intervalId); // stop the interval
+    clearInterval(PacmanMoving); // stop the interval
     isMoving = false;
+
+    clearInterval(BlueGhostMoving); // stop the interval
+
 }
+
+
+
+function moveGhosts(){
+    document.getElementById("demo1").innerHTML = "moveGhosts()";
+
+    var ghost = document.getElementById("blue-ghost");
+    var playground = document.getElementById("playground");
+
+    // document.getElementById("ghostLeft").innerHTML = "Left: " + ghost.offsetLeft;
+    // document.getElementById("ghostTop").innerHTML = "Top: " + ghost.offsetTop;
+
+    switch(BlueGhostdirection){
+        case "right": {
+            if(ghost.offsetLeft + ghost.offsetWidth < playground.offsetLeft + playground.offsetWidth){   
+                document.getElementById("demo2").innerHTML = "move> right";
+                var currentLeft = parseInt(ghost.style.left || 0, 10);
+                var newLeft = currentLeft + 5; // move 5 pixels to the right
+                ghost.style.left = newLeft + "px";
+                break;
+            }
+            else{
+                changeDirectionGhost();
+                // break;
+            }
+        };
+        case "up": {
+            if(ghost.offsetTop> playground.offsetTop){   
+                document.getElementById("demo2").innerHTML = "move> up";
+                var currentTop = parseInt(ghost.style.top || 0, 10);
+                var newTop = currentTop - 5; // move 5 pixels to the right
+                ghost.style.top = newTop + "px";
+                break;
+            }
+            else{
+                changeDirectionGhost();
+                // break;
+            }
+        };
+        case "left": {
+            if(ghost.offsetLeft > playground.offsetLeft){   
+                document.getElementById("demo2").innerHTML = "move> left";
+                var currentLeft = parseInt(ghost.style.left || 0, 10);
+                var newLeft = currentLeft - 5; // move 5 pixels to the right
+                ghost.style.left = newLeft + "px";
+                break;
+            }
+            else{
+                changeDirectionGhost();
+                // break;
+            }
+        };
+        case "down": {
+            if(ghost.offsetTop + ghost.offsetHeight < playground.offsetTop + playground.offsetHeight){ 
+                document.getElementById("demo2").innerHTML = "move> down";
+                var currentTop = parseInt(ghost.style.top || 0, 10);
+                var newTop = currentTop + 5; // move 5 pixels to the right
+                ghost.style.top = newTop + "px";
+                break;
+            }
+            else{
+                changeDirectionGhost();
+                // break;s
+            }
+        };
+    }
+}
+
+function changeDirectionGhost() {
+    const options = ["right", "left", "up", "down"];
+    const randomIndex = Math.floor(Math.random() * options.length);
+    return options[randomIndex];
+  }
+  
