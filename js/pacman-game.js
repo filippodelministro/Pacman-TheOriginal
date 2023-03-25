@@ -134,15 +134,6 @@ function move() {
     document.getElementById("pacmanLeft").innerHTML = "Left: " + pacman.offsetLeft;
     document.getElementById("pacmanTop").innerHTML = "Top: " + pacman.offsetTop;
 
-
-    var playgroundLeft = playground.offsetLeft;
-    var playgroundRight = playgroundLeft + playground.offsetWidth;
-    var playgroundTop = playground.offsetTop;
-    var playgroundBottom = playgroundTop + playground.offsetHeight;
-
-    var pacmanLeft = pacman.offsetLeft;
-    var pacmanTop = pacman.offsetTop;
-
     switch(direction){
         case "right": {
             if(pacman.offsetLeft + pacman.offsetWidth < playground.offsetLeft + playground.offsetWidth){   

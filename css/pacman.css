@@ -58,26 +58,28 @@
     background-color: rgb(255, 200, 0);
     border-radius: 50%;
 }
-/* 
+
 .ghosts {
+    position: relative;
     height: 15px;
     width: 15px;
     border-radius: 50%;
-    margin-top: 3px;
-    margin-left: 3px;
+
+    /* margin-top: 3px;
+    margin-left: 3px; */
 }
-.ghosts.blue{
+#blue-ghost{
     background-color: blue;
 }
-.ghosts.red{
+#red-ghost{
     background-color: red;
 }
-.ghosts.orange{
+#orange-ghost{
     background-color: orange;
 }
-.ghosts.pink{
+#pink-ghost{
     background-color: pink;
-} */
+}
 
 
 
