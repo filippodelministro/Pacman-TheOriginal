@@ -1,5 +1,13 @@
 body{
     font-family: 'Roboto Mono';
+
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
 }
 
 #center-ghost img{
@@ -35,10 +43,11 @@ body{
 
 
 .div-centered {
-    display: absolute;
+    position: relative;
+    /* display: absolute; */
     /* margin-left: auto;
     margin-right: auto; */
-    top: 20%;
+    /* top: 20%; */
 }   
 
 #ghost{
@@ -58,3 +67,14 @@ button{
 }
 
 
+.container{
+    width: 90%;
+    height: 80%;
+    padding: 20px;
+    /* border: 1px solid black; */
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* background-color: blue; */
+}
