@@ -16,9 +16,9 @@
 
     <header>
         <nav id="menu">
-            <a class="menu-item" href="./materialPacman.html">home</a>  
-            <a class="menu-item" href="./settings.html">about</a> 
-            <a class="menu-item" href="./pacman.html">instructions</a> 
+            <button class="menu-item" onclick="appear('about')">about</button>  
+            <button class="menu-item" onclick="appear('command')">command</button> 
+            <button class="menu-item" onclick="appear('instructions')">instructions</button> 
         </nav>
         
     </header>
@@ -32,7 +32,7 @@
             <section class="main-section">
 
                 <h2>PACMAN: THE ORIGINAL.</h2>
-                <p>The mostplayed game in the 80</p>
+                <p>The most played game in the '80</p>
 
             </section>
 
@@ -48,6 +48,25 @@
             </a>
             
 
+
+
+            <section id="instructions" class="appear">
+                <h4>instructions</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Et malesuada fames ac turpis. Eros in cursus turpis massa tincidunt dui ut ornare.</p>
+            </section>
+            <section id="command" class="appear">
+                <h4>commands</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Et malesuada fames ac turpis. Eros in cursus turpis massa tincidunt dui ut ornare.</p>
+            </section>
+            <section id="about" class="appear">
+                <h4>about</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis hendrerit dolor magna eget est lorem ipsum dolor sit. Et malesuada fames ac turpis. Eros in cursus turpis massa tincidunt dui ut ornare.</p>
+            </section>
+
+
+<!-- 
+
+
             <div class="centered">
                 <button>
                     <a href="./pacman-game.html">
@@ -59,7 +78,7 @@
                 </button>
                 <img id="ghost" src="./../images/ghost.png" alt="ghost" class="div-centered">
             </div> 
-            
+             -->
 
             <button title="Click here for DarkMode" onclick="changeView()" >
                 <span id="darkmode" class="material-icons icons">dark_mode</span>
@@ -68,7 +87,8 @@
 
             
         </div>
-            
+           
+
     </body>
 </html>         
 

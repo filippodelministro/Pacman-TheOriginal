@@ -155,3 +155,21 @@ header{
 .main-section p{
     color: rgb(69, 69, 69);
 }
+
+
+.appear{
+    position: absolute;
+    top: 20%;
+
+    width: 300px;
+    height: 300px;
+    background-color: rgb(210, 210, 210);
+    padding: 2%;
+    text-align: justify;
+
+    visibility: hidden;
+}
+
+.appear h2, h3, h4{
+    text-decoration: underline;
+}

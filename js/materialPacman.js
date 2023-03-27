@@ -1,4 +1,12 @@
-var lightmode = true;
+
+//todo: create a global var for all the pages
+onload=init;
+
+//fix: dont work as a global var
+var lightmode;
+function init(){
+    lightmode = true;
+}
 
 function changeView(){
     if(lightmode){
@@ -16,3 +24,15 @@ function changeView(){
 }
 
 
+function appear(name){
+    // document.getElementById("demo1").innerHTML = "appear_instructions()";
+
+    // if(num===0){
+        var el = document.getElementById(name);
+        if(el.style.visibility === "hidden")
+            el.style.visibility = "visible";
+        else
+            el.style.visibility = "hidden";
+    // }
+
+}
