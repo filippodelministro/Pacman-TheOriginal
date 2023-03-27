@@ -78,3 +78,30 @@ button{
     /* align-items: center; */
     /* background-color: blue; */
 }
+
+
+.icons:hover{
+    color: grey;
+    cursor: pointer;
+}
+
+#account{
+    position: absolute;
+    left: 87%;
+    /* left: 2%; */
+}
+
+
+#settings{
+    position: absolute;
+    left: 90%;
+    /* left: 2%; */
+}
+
+
+#darkmode{
+    position: absolute;
+    left: 90%;
+    top: 75%
+    /* left: 2%; */
+}

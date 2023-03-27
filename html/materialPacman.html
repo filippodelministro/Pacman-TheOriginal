@@ -19,16 +19,16 @@
         <div id="container" class="container">
 
 
-            <div class="icons">
-                <a href="./player.html">
-                    <span class="material-icons">
-                        account_circle
-                    </span>
-                </a>
+            <a id="account" href="./player.html" class="icons">
+                <span class="material-icons">
+                    account_circle
+                </span>
+            </a>
+            <a id="settings" href="./settings.html" class="icons">
                 <span class="material-icons">
                     settings
                 </span>
-            </div>
+            </a>
             
         
             <div class="centered">
@@ -43,8 +43,9 @@
                 <img id="ghost" src="./../images/ghost.png" alt="ghost" class="div-centered">
             </div> 
             
-           <button onclick="changeView()">
-                <span id="darkmode" class="material-icons">dark_mode</span>
+
+            <button onclick="changeView()" >
+                <span id="darkmode" class="material-icons icons">dark_mode</span>
             </button>
             
 
