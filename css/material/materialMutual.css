@@ -80,6 +80,9 @@ button{
     /* background-color: blue; */
 }
 
+.icons{
+    position: absolute;
+}
 
 .icons:hover{
     color: grey;
@@ -87,28 +90,27 @@ button{
 }
 
 #account{
-    position: absolute;
+    /* position: absolute; */
     left: 87%;
     /* left: 2%; */
 }
 
 
 #settings{
-    position: absolute;
+    /* position: absolute; */
     left: 90%;
     /* left: 2%; */
 }
 
 
 #darkmode{
-    position: absolute;
+    /* position: absolute; */
     left: 90%;
     top: 85%
     /* left: 2%; */
 }
 
 header{
-    position: relative;
     width: 100px;
     height: 300px;
 
@@ -118,8 +120,11 @@ header{
 }
 
 #menu{
-    padding: 5%;
+    position: absolute;
+    margin-left: 0 auto;
+    /* padding: 5%; */
     writing-mode:sideways-lr;
+    text-align: center;
 }
 
 .menu-item:hover{
@@ -128,4 +133,25 @@ header{
     top: 3%; 
     /* font-size: larger;  */
     font-weight: bolder;
+    
+}
+
+
+.main-section{
+    position: absolute;
+
+    margin: 0;
+    padding: 0;
+
+    width: 350px;
+    height: 400px;
+}
+
+.main-section h2, p{
+    margin: auto;
+    padding: auto;
+}
+
+.main-section p{
+    color: rgb(69, 69, 69);
 }

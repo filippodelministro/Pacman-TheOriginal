@@ -1,25 +1,48 @@
 <!DOCTYPE html>
 <html lang="it-IT">
     <head>
-        <title>The Original</title>
-        <link rel="stylesheet" href="./../css/theoriginal.css"> 
+        <title>materialPacman</title>
+        <link rel="icon" type="image/png" href="./../images/ghost.png"/>
+        <link rel="stylesheet" href="./../css/material/materialLight.css">
+        <link rel="stylesheet" href="./../css/material/materialMutual.css"> 
+        <script src="./../js/materialPacman.js"></script>
+        <script src="./../js/pacman-game.js"></script>
+        <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,1,-25" /> -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+
     </head>
+
+ 
+    <header> <nav id="menu"></nav></header>
     
-    <header>
-        <nav class="bar">
-            <a id="settings" href="./settings.html">settings</a>
-            <a id="menu" href="./home.html">menu</a>
-            <a id="player" href="./player.html">player</a>
-        </nav>
-    </header>
-    
+    <body>
 
-    <h2 class="home">PLAYER PAGE</h2>
+   
+        <div id="container" class="container">
 
-    <br><br><br><br><br>
 
-    <body class="theoriginal">
-       
+            <a id="settings" href="./materialPacman.html" class="icons">
+                <span class="material-icons">
+                    arrow_back_ios
+                </span>
+            </a>
+        
+            <section class="main-section">
+
+                <h2>ACCOUNT PAGE</h2>
+                <p>Info about the player</p>
+
+            </section>
+
+
+            <button title="Click here for DarkMode" onclick="changeView()" >
+                <span id="darkmode" class="material-icons icons">dark_mode</span>
+            </button>
+            
+
+            
+        </div>
     </body>
 
 
