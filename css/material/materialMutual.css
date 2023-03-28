@@ -10,46 +10,6 @@ body{
 
 }
 
-#center-ghost img{
-    /* position: absolute;
-    margin-left: 0 auto; */
-    width: 200px;
-    top: 20%;
-}
-
-
-.centered {
-    display: flex;
-    text-align: center;
-    justify-content: 400px;
-    align-items: center;
-    height: 500px;
-
-    width: 500px;
-    height: 250px;
-/*     left: 50%; */
-    top: 20%;
-    margin-top: 100px;
-    margin-left: 25%;
-/*     margin: auto; */
-}
-
-.centered h2{
-    display: flex;
-    text-align: center;
-/*     padding: 20px; */
-    font-size: xx-large;
-}
-
-
-.div-centered {
-    position: relative;
-    /* display: absolute; */
-    /* margin-left: auto;
-    margin-right: auto; */
-    /* top: 20%; */
-}   
-
 #ghost{
     width: 200px;
 }
@@ -137,22 +97,22 @@ header{
 }
 
 
-.main-section{
+.title-section{
     position: absolute;
 
     margin: 0;
     padding: 0;
 
     width: 350px;
-    height: 400px;
+    height: 100px;
 }
 
-.main-section h2, p{
+.title-section h2, p{
     margin: auto;
     padding: auto;
 }
 
-.main-section p{
+.title-section p{
     color: rgb(69, 69, 69);
 }
 
@@ -163,13 +123,42 @@ header{
 
     width: 300px;
     height: 300px;
-    background-color: rgb(210, 210, 210);
     padding: 2%;
-    text-align: justify;
+    /* margin-left: -2%; */
+    /* text-align: justify; */
 
+    /*todo: transition: 5ms; */
     visibility: hidden;
 }
 
 .appear h2, h3, h4{
     text-decoration: underline;
+}
+
+
+.main-section{
+    position: absolute;
+
+    width: 320px;
+    height: 350px;
+
+    left: 45%;
+    top: 25%;
+
+    /* background-color: aqua; */
+}
+
+.main-section button{
+    position: relative;
+    /* text-align: center; */
+
+    left: 10%;
+    top: 3%;
+    /* margin-left: 2%; */
+}
+
+.main-section h2, p{
+    margin: auto;
+    padding: auto;
+    /* text-align: center; */
 }
