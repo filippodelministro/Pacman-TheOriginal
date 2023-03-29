@@ -33,7 +33,7 @@ function Game(){
 }
 
 Game.prototype.keyPressedonGame = function(e){
-    document.getElementById("demo1").innerHTML = "game.js: keyPressedonGame(e)";
+    // document.getElementById("demo1").innerHTML = "game.js: keyPressedonGame(e)";
 
     if(!this.pause_on){
         //in game

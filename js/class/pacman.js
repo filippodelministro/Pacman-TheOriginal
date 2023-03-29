@@ -13,32 +13,37 @@ function Pacman(){
 }
 
 Pacman.prototype.changeDirection = function(e){
-    document.getElementById("demo1").innerHTML = "PACMAN: changeDirection(e)";
-
     e = e || window.event;
 
     if(!this.moving)           //when Pacman collide whit something
         this.startMoving();
+    else{
 
-    //todo use swicth
-    // switch(e.keyCode){
-    //     case '38'
-    // }
+        //todo use swicth
+        // switch(e.keyCode){
+        //     case "37" : this.direction = "left"; break;
+        //     case "38" : this.direction = "up"; break;
+        //     case "39" : this.direction = "right"; break;
+        //     case "40" : this.direction = "down"; break;
+        // }
     
-    if (e.keyCode == '38') {
-        this.direction = "up";
-    }
-    else if (e.keyCode == '40') {
-        this.direction = "down";
-    }
-    else if (e.keyCode == '37') {
-        this.direction = "left";
+        if (e.keyCode == '38') {
+            this.direction = "up";
+        }
+        else if (e.keyCode == '40') {
+            this.direction = "down";
+        }
+        else if (e.keyCode == '37') {
+            this.direction = "left";
 
+        }
+        else if (e.keyCode == '39') {
+            this.direction = "right";
+        }
     }
-    else if (e.keyCode == '39') {
-        this.direction = "right";
-    }
-    document.getElementById("demo3").innerHTML = "Direction: " + this.direction;
+    document.getElementById("pacmanDirection").innerHTML = "Direction:" + this.direction;
+    document.getElementById("demo4").innerHTML = "Direction:" + this.direction;
+
 }
 
 
@@ -53,7 +58,6 @@ Pacman.prototype.startMoving = function(){
     }
 
     document.getElementById("pacmanSpeed").innerHTML = "Speed: " + this.speed;
-    document.getElementById("pacmanDirection").innerHTML = "Direction: " + this.direction;
 }
 
 Pacman.prototype.stopMoving = function(){
@@ -65,32 +69,24 @@ Pacman.prototype.stopMoving = function(){
 
 Pacman.prototype.move = function(){
 
-    document.getElementById("demo2").innerHTML = "PACMAN: move()";
+    document.getElementById("demo1").innerHTML = "PACMAN: move()";
+    document.getElementById("demo2").innerHTML = "move():" + this.direction;
+
     
     var pacman = document.getElementById("pacman");
     var playground = document.getElementById("playground");
-
-    document.getElementById("demo2").innerHTML = "PACMAN: move()2";
-
     
     // document.getElementById("pacmanLeft").innerHTML = "Left: " + pacman.offsetLeft;
     // document.getElementById("pacmanTop").innerHTML = "Top: " + pacman.offsetTop;
-    document.getElementById("demo1").innerHTML = "Speed: " + this.speed;
-    document.getElementById("pacmanDirection").innerHTML = "Direction: " + this.direction;
-
-    
-    if(this.direction ===  0)
-        document.getElementById("demo3").innerHTML = "move> right";
-    // else
-    //     document.getElementById("demo3").innerHTML = "NOPE";
+    // document.getElementById("demo1").innerHTML = "Speed: " + this.speed;
 
 
     switch(this.direction){
         case "right": {
-            document.getElementById("demo2").innerHTML = "move> right";
+            // document.getElementById("demo2").innerHTML = "move> right";
 
             if(pacman.offsetLeft + pacman.offsetWidth < playground.offsetLeft + playground.offsetWidth){   
-                document.getElementById("demo2").innerHTML = "move> right";
+                document.getElementById("demo4").innerHTML = "move> right";
                 var currentLeft = parseInt(pacman.style.left || 0, 10);
                 var newLeft = currentLeft + 5; // move 5 pixels to the right
                 pacman.style.left = newLeft + "px";
@@ -103,7 +99,7 @@ Pacman.prototype.move = function(){
         };
         case "up": {
             if(pacman.offsetTop> playground.offsetTop){   
-                document.getElementById("demo2").innerHTML = "move> up";
+                document.getElementById("demo4").innerHTML = "move> up";
                 var currentTop = parseInt(pacman.style.top || 0, 10);
                 var newTop = currentTop - 5; // move 5 pixels to the right
                 pacman.style.top = newTop + "px";
@@ -116,7 +112,7 @@ Pacman.prototype.move = function(){
         };
         case "left": {
             if(pacman.offsetLeft > playground.offsetLeft){   
-                document.getElementById("demo2").innerHTML = "move> left";
+                document.getElementById("demo4").innerHTML = "move> left";
                 var currentLeft = parseInt(pacman.style.left || 0, 10);
                 var newLeft = currentLeft - 5; // move 5 pixels to the right
                 pacman.style.left = newLeft + "px";
@@ -129,7 +125,7 @@ Pacman.prototype.move = function(){
         };
         case "down": {
             if(pacman.offsetTop + pacman.offsetHeight < playground.offsetTop + playground.offsetHeight){ 
-                document.getElementById("demo2").innerHTML = "move> down";
+                document.getElementById("demo4").innerHTML = "move> down";
                 var currentTop = parseInt(pacman.style.top || 0, 10);
                 var newTop = currentTop + 5; // move 5 pixels to the right
                 pacman.style.top = newTop + "px";
@@ -141,9 +137,8 @@ Pacman.prototype.move = function(){
             }
         };
         default : document.getElementById("demo2").innerHTML = "ERROR IN DIRECTION";
-
     }
 
-    /*
-    */
+    document.getElementById("pacmanDirection").innerHTML = "Direction: " + this.direction;
+
 }
