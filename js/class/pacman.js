@@ -17,33 +17,27 @@ Pacman.prototype.changeDirection = function(e){
 
     if(!this.moving)           //when Pacman collide whit something
         this.startMoving();
-    else{
+   
+    //todo use swicth
+    // switch(e.keyCode){
+    //     case "37" : this.direction = "left"; break;
+    //     case "38" : this.direction = "up"; break;
+    //     case "39" : this.direction = "right"; break;
+    //     case "40" : this.direction = "down"; break;
 
-        //todo use swicth
-        // switch(e.keyCode){
-        //     case "37" : this.direction = "left"; break;
-        //     case "38" : this.direction = "up"; break;
-        //     case "39" : this.direction = "right"; break;
-        //     case "40" : this.direction = "down"; break;
-        // }
-    
-        if (e.keyCode == '38') {
-            this.direction = "up";
-        }
-        else if (e.keyCode == '40') {
-            this.direction = "down";
-        }
-        else if (e.keyCode == '37') {
-            this.direction = "left";
-
-        }
-        else if (e.keyCode == '39') {
-            this.direction = "right";
-        }
+    if (e.keyCode == '38') {
+        this.direction = "up";
     }
-    document.getElementById("pacmanDirection").innerHTML = "Direction:" + this.direction;
-    document.getElementById("demo4").innerHTML = "Direction:" + this.direction;
+    else if (e.keyCode == '40') {
+        this.direction = "down";
+    }
+    else if (e.keyCode == '37') {
+        this.direction = "left";
 
+    }
+    else if (e.keyCode == '39') {
+        this.direction = "right";
+    }
 }
 
 
@@ -52,7 +46,8 @@ Pacman.prototype.startMoving = function(){
 
 
     if (!this.moving) {
-        this.interval = setInterval(this.move, this.speed);
+        // this.interval = setInterval(this.move, this.speed);
+        this.interval = setInterval(this.move.bind(this), this.speed);
 
         this.moving = true;
     }
