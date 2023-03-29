@@ -33,8 +33,7 @@ function Game(){
 }
 
 Game.prototype.keyPressedonGame = function(e){
-    // document.getElementById("demo1").innerHTML = "game.js: keyPressedonGame(e)";
-
+    
     if(!this.pause_on){
         //in game
         if(e.keyCode == 32 || e.keyCode == 27)            
