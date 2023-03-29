@@ -15,33 +15,6 @@ document.addEventListener('keydown', keyPressed);
 
 //* HANDLE KEYBOARD FUNCTIONS
 
-function keyPressed(e){
-    document.getElementById("demo1").innerHTML = "keyPressed(e)";
-
-    if(game_on)
-        keyPressedonGame(e);
-    else
-        begin();
-}
-
-function begin(){
-    document.getElementById("demo1").innerHTML = "begin()";
-
-    document.getElementById("pause-menu-container").style.visibility = "hidden";
-    document.getElementById("startinfo").style.visibility = "hidden";
-
-    showStaticInfo();
-    
-    game_on = true;
-    pause_on = false;
-
-    Pacmandirection = "right";
-    BlueGhostdirection = changeDirectionGhost();
-
-    speed = 50;
-    startMoving();
-}
-
 
 function showStaticInfo(){
     var playground = document.getElementById("playground");
@@ -56,27 +29,6 @@ function showStaticInfo(){
     document.getElementById("pacmanHeight").innerHTML = "Height: " + pacman.offsetHeight;
 
     
-}
-
-function keyPressedonGame(e){
-    document.getElementById("demo1").innerHTML = "keyPressedonGame(e)";
-
-    if(!pause_on){
-        //in game
-        if(e.keyCode == 32 || e.keyCode == 27)
-            pause(e);
-        else{
-            changeDirection(e);
-        }
-    }
-    else{
-        //in pause
-        if(e.keyCode == 32 || e.keyCode == 27)
-            resume();
-        else{
-            handlePauseMenu(e);
-        }
-    }
 }
 
 function resume(){
@@ -108,28 +60,6 @@ function handlePauseMenu(e){
     }
 }
 
-
-//*  MOVING FUNCTIONS
-function changeDirection(e) {
-    e = e || window.event;
-
-    if(!isMoving)           //when Pacman collide whit something
-        startMoving();
-
-    if (e.keyCode == '38') {
-        Pacmandirection = "up";
-    }
-    else if (e.keyCode == '40') {
-        Pacmandirection = "down";
-    }
-    else if (e.keyCode == '37') {
-        Pacmandirection = "left";
-
-    }
-    else if (e.keyCode == '39') {
-        Pacmandirection = "right";
-    }
-}
 
 function move() {
     document.getElementById("demo1").innerHTML = "move()";
@@ -291,4 +221,86 @@ function changeDirectionGhost() {
     const randomIndex = Math.floor(Math.random() * options.length);
     return options[randomIndex];
   }
-  
+
+
+
+
+
+
+//* GAME ---------------------------------------------------
+
+
+function keyPressed(e){
+    document.getElementById("demo1").innerHTML = "keyPressed(e)";
+
+    if(game_on)
+        keyPressedonGame(e);
+    else
+        begin();
+}
+
+
+function begin(){
+    document.getElementById("demo1").innerHTML = "begin()";
+
+    document.getElementById("pause-menu-container").style.visibility = "hidden";
+    document.getElementById("startinfo").style.visibility = "hidden";
+
+    showStaticInfo();
+    
+    game_on = true;
+    pause_on = false;
+
+    Pacmandirection = "right";
+    BlueGhostdirection = changeDirectionGhost();
+
+    speed = 50;
+    startMoving();
+}
+
+
+function keyPressedonGame(e){
+    document.getElementById("demo1").innerHTML = "keyPressedonGame(e)";
+
+    if(!pause_on){
+        //in game
+        if(e.keyCode == 32 || e.keyCode == 27)
+            pause(e);
+        else{
+            changeDirection(e);
+        }
+    }
+    else{
+        //in pause
+        if(e.keyCode == 32 || e.keyCode == 27)
+            resume();
+        else{
+            handlePauseMenu(e);
+        }
+    }
+}
+
+
+
+
+//*  PACMAN ---------------------------------------------------
+function changeDirection(e) {
+    e = e || window.event;
+
+    if(!isMoving)           //when Pacman collide whit something
+        startMoving();
+
+    if (e.keyCode == '38') {
+        Pacmandirection = "up";
+    }
+    else if (e.keyCode == '40') {
+        Pacmandirection = "down";
+    }
+    else if (e.keyCode == '37') {
+        Pacmandirection = "left";
+
+    }
+    else if (e.keyCode == '39') {
+        Pacmandirection = "right";
+    }
+}
