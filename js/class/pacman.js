@@ -3,14 +3,17 @@
 function Pacman(){
     this.pause = false;
     this.moving = false;
-    this.direction = "right";
-
+    
+    this.x;
+    this.y;
+    
+    this.direction = "right";     //todo
     this.speed = 50;
     this.interval;
 }
 
 Pacman.prototype.changeDirection = function(e){
-    document.getElementById("demo3").innerHTML = "PACMAN: changeDirection(e)";
+    document.getElementById("demo1").innerHTML = "PACMAN: changeDirection(e)";
 
     e = e || window.event;
 
@@ -35,6 +38,7 @@ Pacman.prototype.changeDirection = function(e){
     else if (e.keyCode == '39') {
         this.direction = "right";
     }
+    document.getElementById("demo3").innerHTML = "Direction: " + this.direction;
 }
 
 
@@ -49,6 +53,7 @@ Pacman.prototype.startMoving = function(){
     }
 
     document.getElementById("pacmanSpeed").innerHTML = "Speed: " + this.speed;
+    document.getElementById("pacmanDirection").innerHTML = "Direction: " + this.direction;
 }
 
 Pacman.prototype.stopMoving = function(){
@@ -58,19 +63,32 @@ Pacman.prototype.stopMoving = function(){
     this.moving = false;
 }
 
-Pacman.prototype.move = function(e){
+Pacman.prototype.move = function(){
 
-    document.getElementById("demo2").innerHTML = "move()";
-    /*
-
+    document.getElementById("demo2").innerHTML = "PACMAN: move()";
+    
     var pacman = document.getElementById("pacman");
     var playground = document.getElementById("playground");
 
-    document.getElementById("pacmanLeft").innerHTML = "Left: " + pacman.offsetLeft;
-    document.getElementById("pacmanTop").innerHTML = "Top: " + pacman.offsetTop;
+    document.getElementById("demo2").innerHTML = "PACMAN: move()2";
 
-    switch(Pacmandirection){
+    
+    // document.getElementById("pacmanLeft").innerHTML = "Left: " + pacman.offsetLeft;
+    // document.getElementById("pacmanTop").innerHTML = "Top: " + pacman.offsetTop;
+    document.getElementById("demo1").innerHTML = "Speed: " + this.speed;
+    document.getElementById("pacmanDirection").innerHTML = "Direction: " + this.direction;
+
+    
+    if(this.direction ===  0)
+        document.getElementById("demo3").innerHTML = "move> right";
+    // else
+    //     document.getElementById("demo3").innerHTML = "NOPE";
+
+
+    switch(this.direction){
         case "right": {
+            document.getElementById("demo2").innerHTML = "move> right";
+
             if(pacman.offsetLeft + pacman.offsetWidth < playground.offsetLeft + playground.offsetWidth){   
                 document.getElementById("demo2").innerHTML = "move> right";
                 var currentLeft = parseInt(pacman.style.left || 0, 10);
@@ -122,6 +140,10 @@ Pacman.prototype.move = function(e){
                 break;
             }
         };
+        default : document.getElementById("demo2").innerHTML = "ERROR IN DIRECTION";
+
     }
+
+    /*
     */
 }
