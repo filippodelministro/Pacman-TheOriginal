@@ -1,13 +1,16 @@
 
 
 function Pacman(){
+    this.pacman = document.getElementById("pacman");
+
+
     this.pause = false;
     this.moving = false;
     
     this.x = 0;
     this.y = 0;
     
-    this.direction = "right";     //todo
+    this.direction = "right";     //? cambiare in meglio?
     this.speed = 10;
     this.interval;
 }
@@ -18,25 +21,11 @@ Pacman.prototype.changeDirection = function(e){
     if(!this.moving)           //when Pacman collide whit something
         this.startMoving();
    
-    //todo use swicth
-    // switch(e.keyCode){
-    //     case "37" : this.direction = "left"; break;
-    //     case "38" : this.direction = "up"; break;
-    //     case "39" : this.direction = "right"; break;
-    //     case "40" : this.direction = "down"; break;
-
-    if (e.keyCode == '38') {
-        this.direction = "up";
-    }
-    else if (e.keyCode == '40') {
-        this.direction = "down";
-    }
-    else if (e.keyCode == '37') {
-        this.direction = "left";
-
-    }
-    else if (e.keyCode == '39') {
-        this.direction = "right";
+    switch(e.keyCode){
+        case 37 : this.direction = "left"; break;
+        case 38 : this.direction = "up"; break;
+        case 39 : this.direction = "right"; break;
+        case 40 : this.direction = "down"; break;
     }
     document.getElementById("pacmanDirection").innerHTML = "Direction: " + this.direction;
 }
@@ -78,6 +67,7 @@ Pacman.prototype.move = function(){
         case "right": {
             if(pacman.offsetLeft + pacman.offsetWidth < playground.offsetLeft + playground.offsetWidth){   
                 this.translateRight();
+                //fix: translateRight(this.pacman)  //make this work in utility.js
                 break;
             }
             else{
