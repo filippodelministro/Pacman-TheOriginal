@@ -1,67 +1,136 @@
 
-//*  MOVING GHOSTS
 
-function moveGhosts(){
-    document.getElementById("demo1").innerHTML = "moveGhosts()";
+function Ghost(){
+    // this.ghost = document.getElementById("ghost");
 
-    var ghost = document.getElementById("blue-ghost");
+
+    this.pause = false;
+    this.moving = false;
+    
+    this.x = 0;
+    this.y = 0;
+    
+    this.direction = this.changeDirection();
+    this.speed = 20;
+    this.interval;
+}
+
+Ghost.prototype.changeDirection = function(){
+
+    if(!this.moving)           //when Ghost collide whit something
+        this.startMoving();
+   
+    var ran = Math.floor(Math.random() * DIRECTIONS.length);
+    this.direction = DIRECTIONS(ran);
+    
+    document.getElementById("pacmanDirection").innerHTML = "Direction: " + this.direction;
+}
+
+
+Ghost.prototype.startMoving = function(){
+    document.getElementById("demo3").innerHTML = "PACMAN: startMoving()";
+
+    if (!this.moving) {
+        this.interval = setInterval(this.move.bind(this), this.speed);
+        // this.interval = setInterval(this.moveT.bind(this), this.speed);
+        this.moving = true;
+    }
+
+    document.getElementById("pacmanSpeed").innerHTML = "Speed: " + this.speed;
+}
+
+Ghost.prototype.stopMoving = function(){
+    document.getElementById("demo3").innerHTML = "PACMAN: stopMoving()";
+
+    clearInterval(this.interval); // stop the interval
+    this.moving = false;
+}
+
+Ghost.prototype.move = function(){
+
+    document.getElementById("demo1").innerHTML = "PACMAN: move()";
+    document.getElementById("demo2").innerHTML = "move():" + this.direction;
+
+    
+    var pacman = document.getElementById("pacman");
     var playground = document.getElementById("playground");
+    
+    // document.getElementById("pacmanLeft").innerHTML = "Left: " + pacman.offsetLeft;
+    // document.getElementById("pacmanTop").innerHTML = "Top: " + pacman.offsetTop;
+    // document.getElementById("demo1").innerHTML = "Speed: " + this.speed;
 
-    // document.getElementById("ghostLeft").innerHTML = "Left: " + ghost.offsetLeft;
-    // document.getElementById("ghostTop").innerHTML = "Top: " + ghost.offsetTop;
-
-    switch(direction){
+    switch(this.direction){
         case "right": {
-            if(ghost.offsetLeft + ghost.offsetWidth < playground.offsetLeft + playground.offsetWidth){   
-                document.getElementById("demo2").innerHTML = "move> right";
-                var currentLeft = parseInt(ghost.style.left || 0, 10);
-                var newLeft = currentLeft + 5; // move 5 pixels to the right
-                ghost.style.left = newLeft + "px";
+            if(pacman.offsetLeft + pacman.offsetWidth < playground.offsetLeft + playground.offsetWidth){   
+                this.translateRight();
+                //fix: translateRight(this.pacman)  //make this work in utility.js
                 break;
             }
             else{
-                stopMoving();
+                this.stopMoving();
                 break;
             }
         };
         case "up": {
-            if(ghost.offsetTop> playground.offsetTop){   
-                document.getElementById("demo2").innerHTML = "move> up";
-                var currentTop = parseInt(ghost.style.top || 0, 10);
-                var newTop = currentTop - 5; // move 5 pixels to the right
-                ghost.style.top = newTop + "px";
+            if(pacman.offsetTop> playground.offsetTop){   
+                this.translateUp();
                 break;
             }
             else{
-                stopMoving();
+                this.stopMoving();
                 break;
             }
         };
         case "left": {
-            if(ghost.offsetLeft > playground.offsetLeft){   
-                document.getElementById("demo2").innerHTML = "move> left";
-                var currentLeft = parseInt(ghost.style.left || 0, 10);
-                var newLeft = currentLeft - 5; // move 5 pixels to the right
-                ghost.style.left = newLeft + "px";
+            if(pacman.offsetLeft > playground.offsetLeft){   
+                this.translateLeft();
                 break;
             }
             else{
-                stopMoving();
+                this.stopMoving();
                 break;
             }
         };
         case "down": {
-            if(ghost.offsetTop + ghost.offsetHeight < playground.offsetTop + playground.offsetHeight){ 
-                document.getElementById("demo2").innerHTML = "move> down";
-                var currentTop = parseInt(ghost.style.top || 0, 10);
-                var newTop = currentTop + 5; // move 5 pixels to the right
-                ghost.style.top = newTop + "px";
+            if(pacman.offsetTop + pacman.offsetHeight < playground.offsetTop + playground.offsetHeight){ 
+                this.translateDown();
                 break;
             }
             else{
-                stopMoving();
+                this.stopMoving();
                 break;
             }
         };
+        default : document.getElementById("demo2").innerHTML = "ERROR IN DIRECTION";
     }
+}
+
+
+Ghost.prototype.translateRight = function(){
+    this.pacman = document.getElementById("pacman");
+
+    this.x += 1;
+    this.pacman.style.left = `${this.x}px`;
+}
+
+Ghost.prototype.translateLeft = function(){
+    this.pacman = document.getElementById("pacman");
+
+    this.x -= 1;
+    this.pacman.style.left = `${this.x}px`;
+}
+
+
+Ghost.prototype.translateUp = function(){
+    this.pacman = document.getElementById("pacman");
+
+    this.y -= 1;
+    this.pacman.style.top = `${this.y}px`;
+}
+
+Ghost.prototype.translateDown = function(){
+    this.pacman = document.getElementById("pacman");
+
+    this.y += 1;
+    this.pacman.style.top = `${this.y}px`;
 }
