@@ -3,32 +3,27 @@
 //fix this
 
 function translateRight(element){
-    document.getElementById("demo1").innerHTML = "translateRigth()";
-
-    element.x += 1;
-    element.style.left = `${element.x}px`;
+    const currentPosition = parseInt(element.style.left, 10) || 0;
+    const newPosition = currentPosition + 1;
+    element.style.left = `${newPosition}px`;
 }
 
 function translateLeft(element){
-    document.getElementById("demo1").innerHTML = "translateLeft()";
-
-    element.x -= 1;
-    element.style.left = `${element.x}px`;
+    const currentPosition = parseInt(element.style.left, 10) || 0;
+    const newPosition = currentPosition - 1;
+    element.style.left = `${newPosition}px`;
 }
 
 
 function translateUp(element){
-    document.getElementById("demo1").innerHTML = "translateUp()";
-
-    element.y -= 1;
-    element.style.top = `${element.y}px`;
+    const currentPosition = parseInt(element.style.top, 10) || 0;
+    const newPosition = currentPosition - 1;
+    element.style.top = `${newPosition}px`;
 }
 
 
 function translateDown(element){
-    document.getElementById("demo1").innerHTML = "translateDown()";
-
-    element.y -= 1;
-    element.style.top = `${element.y}px`;
+    const currentPosition = parseInt(element.style.top, 10) || 0;
+    const newPosition = currentPosition + 1;
+    element.style.top = `${newPosition}px`;
 }
-

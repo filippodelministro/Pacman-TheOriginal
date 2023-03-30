@@ -24,7 +24,7 @@ function init(){
 function Game(){
     this.pause_on = false;
     this.pacman = new Pacman();
-    this.ghost = new Ghost();
+    // this.ghost = new Ghost();
     // const playground = new Playground();
     // const food = new Food();
     // const ghost = new Ghost();
