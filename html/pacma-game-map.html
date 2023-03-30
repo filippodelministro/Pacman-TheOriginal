@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+    <head>
+        <title>Prova</title>
+      </head>
+ 
+      <style>
+
+        .container {
+        display: grid;
+        grid-template-columns: repeat(9, 50px);
+        grid-template-rows: repeat(2, 50px) 50px repeat(2, 50px);
+        grid-gap: 0;
+        width: 450px;
+        height: 250px;
+        background-color: black;
+      }
+
+      .cell {
+        width: 50px;
+        height: 50px;
+        border: 1px solid white;
+      }
+
+      .wall {
+        background-color: blue;
+      }
+
+      .empty {
+        background-color: black;
+      }
+
+      .tunnel {
+        background-color: black;
+        border-left: none;
+        border-right: none;
+      }
+
+
+    </style>
+
+    <!-- <div class="container">
+        <div class="ghost">
+            <div class="eye"></div>
+            <div class="pupil"></div>
+            <div class="mouth"></div>
+        </div>
+    </div> -->
+
+    <div class="container">
+      <div class="cell wall"></div>
+      <div class="cell wall"></div>
+      <div class="cell wall"></div>
+      <div class="cell empty"></div>
+      <div class="cell empty"></div>
+      <div class="cell wall"></div>
+      <div class="cell wall"></div>
+      <div class="cell wall"></div>
+      <div class="cell wall"></div>
+      <div class="cell wall"></div>
+      <div class="cell empty tunnel"></div>
+      <div class="cell wall"></div>
+      <div class="cell wall"></div>
+      <div class="cell wall"></div>
+      <div class="cell empty"></div>
+      <div class="cell empty"></div>
+      <div class="cell wall"></div>
+      <div class="cell wall"></div>
+      <div class="cell wall"></div>
+    </div>
+    
+   
+  
+      
+</html>
