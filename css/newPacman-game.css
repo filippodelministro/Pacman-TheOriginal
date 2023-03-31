@@ -1,0 +1,30 @@
+.playground{
+    display: flex;
+    width: 550px;
+    height: 550px;
+
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    background-color: grey;
+
+}
+
+.map{
+    width: 450px;
+    height: 450px;
+
+    z-index: 3;
+    position: absolute;
+}  
+
+
+#pacman {
+    position: relative;
+    height: 20px;
+    width: 20px;
+    background-color: rgb(255, 200, 0);
+    border-radius: 50%;
+
+    z-index: 5;
+}

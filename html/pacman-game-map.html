@@ -1,75 +1,48 @@
 <!DOCTYPE html>
 <html lang="it-IT">
     <head>
-        <title>Prova</title>
-      </head>
- 
-      <style>
+        <title>newPacman-game</title>
+        <!-- <link rel="icon" type="image/png" href="./../images/ghost.png"/> -->
+        <script src="./../js/game.js"></script>        
+        <script src="./../js/pacman.js"></script>
+        <script src="./../js/ghosts.js"></script>
+        <script src="./../js/const.js"></script>
+        <script src="./../js/utility.js"></script>
+        <link rel="stylesheet" href="./../css/pacman-game-map.css"> 
+        <meta charset="utf-8" />
+    </head>
 
-        .container {
-        display: grid;
-        grid-template-columns: repeat(9, 50px);
-        grid-template-rows: repeat(2, 50px) 50px repeat(2, 50px);
-        grid-gap: 0;
-        width: 450px;
-        height: 250px;
-        background-color: black;
-      }
+    <body>
+        
+        <main>
 
-      .cell {
-        width: 50px;
-        height: 50px;
-        border: 1px solid white;
-      }
+            <body>
+              <div class="grid-container">
+              <div class="wall"></div>
+              <div class="food"></div>
+              <div class="food"></div>
+              <div class="food"></div>
+              <div class="food"></div>
+              <div class="food"></div>
+              <div class="food"></div>
+              <div class="food"></div>
+              <div class="food"></div>
+              <div class="wall"></div>
+              <div class="food"></div>
 
-      .wall {
-        background-color: blue;
-      }
+              <div class="wall"></div>
 
-      .empty {
-        background-color: black;
-      }
+              <div class="food"></div>
+              <div class="food"></div>
+              <div class="food"></div>
 
-      .tunnel {
-        background-color: black;
-        border-left: none;
-        border-right: none;
-      }
+              <div class="empty"></div>
+              <!-- Repeat these divs for each grid cell -->
+</div>
 
+              
+            </body>
+        </main>
+    </body>
 
-    </style>
-
-    <!-- <div class="container">
-        <div class="ghost">
-            <div class="eye"></div>
-            <div class="pupil"></div>
-            <div class="mouth"></div>
-        </div>
-    </div> -->
-
-    <div class="container">
-      <div class="cell wall"></div>
-      <div class="cell wall"></div>
-      <div class="cell wall"></div>
-      <div class="cell empty"></div>
-      <div class="cell empty"></div>
-      <div class="cell wall"></div>
-      <div class="cell wall"></div>
-      <div class="cell wall"></div>
-      <div class="cell wall"></div>
-      <div class="cell wall"></div>
-      <div class="cell empty tunnel"></div>
-      <div class="cell wall"></div>
-      <div class="cell wall"></div>
-      <div class="cell wall"></div>
-      <div class="cell empty"></div>
-      <div class="cell empty"></div>
-      <div class="cell wall"></div>
-      <div class="cell wall"></div>
-      <div class="cell wall"></div>
-    </div>
-    
-   
-  
-      
-</html>
+</html>         
