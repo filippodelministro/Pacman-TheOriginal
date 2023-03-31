@@ -32,7 +32,6 @@ Pacman.prototype.changeDirection = function(e){
             break;
         }
     }
-    document.getElementById("pacmanDirection").innerHTML = "Direction: " + this.direction;
 }
 
 Pacman.prototype.refresh = function(){
@@ -42,36 +41,21 @@ Pacman.prototype.refresh = function(){
 
 
 Pacman.prototype.startMoving = function(){
-    // document.getElementById("demo3").innerHTML = "PACMAN: startMoving()";
-
     if (!this.moving) {
         this.interval = setInterval(this.move.bind(this), this.speed);
         // this.interval = setInterval(this.moveT.bind(this), this.speed);
         this.moving = true;
     }
-
-    document.getElementById("pacmanSpeed").innerHTML = "Speed: " + this.speed;
 }
 
 Pacman.prototype.stopMoving = function(){
-    // document.getElementById("demo3").innerHTML = "PACMAN: stopMoving()";
-
     clearInterval(this.interval); // stop the interval
     this.moving = false;
 }
 
-Pacman.prototype.move = function(){
-
-    // document.getElementById("demo1").innerHTML = "PACMAN: move()";
-    // document.getElementById("demo2").innerHTML = "move():" + this.direction;
-
-    
+Pacman.prototype.move = function(){    
     var pacman = document.getElementById("pacman");
     var playground = document.getElementById("playground");
-    
-    // document.getElementById("pacmanLeft").innerHTML = "Left: " + pacman.offsetLeft;
-    // document.getElementById("pacmanTop").innerHTML = "Top: " + pacman.offsetTop;
-    // document.getElementById("demo1").innerHTML = "Speed: " + this.speed;
 
     switch(this.direction){
         case "right": {
@@ -119,7 +103,6 @@ Pacman.prototype.move = function(){
                 break;
             }
         };
-        // default : document.getElementById("demo2").innerHTML = "ERROR IN DIRECTION";
     }
 }
 

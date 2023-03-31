@@ -6,89 +6,50 @@
         <script src="./../js/game.js"></script>        
         <script src="./../js/pacman.js"></script>
         <script src="./../js/ghosts.js"></script>
+        <script src="./../js/map.js"></script>
         <script src="./../js/const.js"></script>
         <script src="./../js/utility.js"></script>
 
-        <script src="./../js/pacman-map.js"></script>
 
         <link rel="stylesheet" href="./../css/pacman-game.css"> 
         <meta charset="utf-8" />
     </head>
 
-    <body class="theoriginal">
-        
-        <main>
+    <body>
 
-            <p id="startinfo">
-                <span class="blink">[press any key to start the game]</span>
-            </p>
+        <p id="startinfo">
+            <span class="blink">[press any key to start the game]</span>
+        </p>
 
-
-
-            <div class="playground">   
-                <div class="map" onclick="addFood()">
-                    <div id="pacman"></div>
-                    
-                    <div id="blue-ghost" class="ghost"></div>
-                    <div id="red-ghost" class="ghost"></div>
-                    <div id="pink-ghost" class="ghost"></div>
-                    <div id="orange-ghost" class="ghost"></div>
+        <div class="playground">   
+            <div class="map" onclick="addFood()">
+                <div id="pacman"></div>
                 
-                </div>
+                <div id="blue-ghost" class="ghost"></div>
+                <div id="red-ghost" class="ghost"></div>
+                <div id="pink-ghost" class="ghost"></div>
+                <div id="orange-ghost" class="ghost"></div>
+            
             </div>
+        </div>
+
+        <div id="gameinfo">
+            <h3>PLAYERNAME</h3>
+            <p>score:</p>
+        </div>
 
 
-
-
-            <div id="gameinfo">
-                <h3>PLAYERNAME</h3>
-                <p>score:</p>
-            </div>
-
-
-            <div id="pause-menu-container">
-                <nav class="pause-menu">
-                    <a onclick="game.resume()">resume</a> <br>
-                    <a href="./pacman-game.html">restart</a> <br>
-                    <a href="./settings.html">settings</a> <br>
-                    <a href="./materialPacman.html">exit</a> <br>
-                </nav>
-                <h3 class="blink">PAUSE</h3>
-                <p class="blink">[press ESC to resume]</p>
-            </div>
-            <div class="pause-menu-overlay"></div> 
-
-          
-
-            <br><br><br><br>
-            <p id="demo1">demo1</p>
-            <p id="demo2">demo2</p>
-            <p id="demo3">demo3</p>
-            <p id="demo4">demo4</p>
-
-
-            <aside id="pacmaninfo">
-                <ul>
-                    <li id="pacmanLeft">Left: </li>
-                    <li id="pacmanTop">Top: </li>
-                    <li id="pacmanSpeed">Speed: </li>
-                    <li id="pacmanWidth">Width: </li>
-                    <li id="pacmanHeight">Height: </li>
-                    <li id="pacmanDirection">Direction: </li>
-                </ul>
-            </aside>
-
-
-            <aside id="playgroundinfo">
-                <ul>
-                    <li id="playgroundLeft">Left: </li>
-                    <li id="playgroundTop">Top: </li>
-                    <li id="playgroundWidth">Width: </li>
-                    <li id="playgroundHeight">Height: </li>
-                </ul>
-            </aside>
-
-        </main>
+        <div id="pause-menu-container">
+            <nav class="pause-menu">
+                <a onclick="game.resume()">resume</a> <br>
+                <a href="./pacman-game.html">restart</a> <br>
+                <a href="./settings.html">settings</a> <br>
+                <a href="./home.html">exit</a> <br>
+            </nav>
+            <h3 class="blink">PAUSE</h3>
+            <p class="blink">[press ESC to resume]</p>
+        </div>
+        <div class="pause-menu-overlay"></div> 
     </body>
 
 </html>         

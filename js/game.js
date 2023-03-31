@@ -5,14 +5,12 @@ function keyPressed(e) {
         window.location = './materialPacman.html';
 
     else{
-        // document.getElementById("demo1").innerHTML = "keyPressed()"
         init();
     }
 }
 
 
 function init(){
-    // document.getElementById("demo1").innerHTML = "game.js: init()"
 
     document.getElementById("pause-menu-container").style.visibility = "hidden";
     document.getElementById("startinfo").style.visibility = "hidden";
@@ -54,7 +52,6 @@ Game.prototype.keyPressedonGame = function(e){
 }
 
 Game.prototype.pause = function(e){
-    // document.getElementById("demo1").innerHTML = "game.js: pause()";
     this.pause_on = true;
 
     document.getElementById("pause-menu-container").style.visibility = "visible";
@@ -64,7 +61,6 @@ Game.prototype.pause = function(e){
 
 
 Game.prototype.resume = function(e){
-    // document.getElementById("demo1").innerHTML = "game.js: resume()";
     this.pause_on = false;
 
     document.getElementById("pause-menu-container").style.visibility = "hidden";
@@ -76,6 +72,5 @@ Game.prototype.resume = function(e){
 
 Game.prototype.handlePauseMenu = function(e){
     //todo: handle this case
-    // document.getElementById("demo2").innerHTML = "game.js: handlePauseMenu()";
 
 }
