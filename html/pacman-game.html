@@ -8,6 +8,9 @@
         <script src="./../js/ghosts.js"></script>
         <script src="./../js/const.js"></script>
         <script src="./../js/utility.js"></script>
+
+        <script src="./../js/pacman-map.js"></script>
+
         <link rel="stylesheet" href="./../css/pacman-game.css"> 
         <meta charset="utf-8" />
     </head>
@@ -22,19 +25,16 @@
 
 
 
-            <div id="playground">
-
-                <iframe src="./pacman-game-map.html" width="550px" height="550px">
-                    
+            <div class="playground">   
+                <div class="map" onclick="addFood()">
                     <div id="pacman"></div>
                     
                     <div id="blue-ghost" class="ghost"></div>
                     <div id="red-ghost" class="ghost"></div>
                     <div id="pink-ghost" class="ghost"></div>
                     <div id="orange-ghost" class="ghost"></div>
-
-                </iframe>>
-
+                
+                </div>
             </div>
 
 

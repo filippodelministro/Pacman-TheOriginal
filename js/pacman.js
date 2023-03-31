@@ -42,7 +42,7 @@ Pacman.prototype.refresh = function(){
 
 
 Pacman.prototype.startMoving = function(){
-    document.getElementById("demo3").innerHTML = "PACMAN: startMoving()";
+    // document.getElementById("demo3").innerHTML = "PACMAN: startMoving()";
 
     if (!this.moving) {
         this.interval = setInterval(this.move.bind(this), this.speed);
@@ -54,7 +54,7 @@ Pacman.prototype.startMoving = function(){
 }
 
 Pacman.prototype.stopMoving = function(){
-    document.getElementById("demo3").innerHTML = "PACMAN: stopMoving()";
+    // document.getElementById("demo3").innerHTML = "PACMAN: stopMoving()";
 
     clearInterval(this.interval); // stop the interval
     this.moving = false;
@@ -62,8 +62,8 @@ Pacman.prototype.stopMoving = function(){
 
 Pacman.prototype.move = function(){
 
-    document.getElementById("demo1").innerHTML = "PACMAN: move()";
-    document.getElementById("demo2").innerHTML = "move():" + this.direction;
+    // document.getElementById("demo1").innerHTML = "PACMAN: move()";
+    // document.getElementById("demo2").innerHTML = "move():" + this.direction;
 
     
     var pacman = document.getElementById("pacman");
@@ -119,7 +119,7 @@ Pacman.prototype.move = function(){
                 break;
             }
         };
-        default : document.getElementById("demo2").innerHTML = "ERROR IN DIRECTION";
+        // default : document.getElementById("demo2").innerHTML = "ERROR IN DIRECTION";
     }
 }
 

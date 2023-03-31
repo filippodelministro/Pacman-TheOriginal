@@ -8,7 +8,7 @@
 
 /** ------ PLAYGROUND  ------ */
 
-#playground{
+.playground{
     position: flex;
 
     margin-top: auto;
@@ -51,12 +51,49 @@
 } */
 
 /** ------ CHARACHTERS  ------ */
-#pacman {
+.playground{
+    display: flex;
+    width: 550px;
+    height: 550px;
+
+    justify-content: center;
+    align-items: center;
+    /* height: 100vh; */
+    background-color: grey;
+
+}
+
+.map{
+    display: grid;
     position: relative;
+    grid-template-columns: repeat(15, 30px);
+    grid-template-rows: repeat(15, 30px);
+    width: 450px;
+    height: 450px;
+    background-color: green;
+
+}  
+
+.food {
+    position: relative;
+
+    background-color: red;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin: auto;
+    z-index: 3;
+
+}
+  
+#pacman {
+    position: absolute;
     height: 20px;
     width: 20px;
     background-color: rgb(255, 200, 0);
     border-radius: 50%;
+
+    z-index: 5;
 }
 
 .ghost {
