@@ -29,7 +29,7 @@ function Game(){
     
     document.addEventListener('keydown', this.keyPressedonGame.bind(this));
     this.pacman.startMoving();
-    this.ghost.startMoving();
+    // this.ghost.startMoving();
 
 }
 
@@ -56,7 +56,7 @@ Game.prototype.pause = function(e){
 
     document.getElementById("pause-menu-container").style.visibility = "visible";
     this.pacman.stopMoving();
-    this.ghost.stopMoving();
+    // this.ghost.stopMoving();
 }
 
 
@@ -66,7 +66,7 @@ Game.prototype.resume = function(e){
     document.getElementById("pause-menu-container").style.visibility = "hidden";
 
     this.pacman.startMoving();
-    this.ghost.startMoving();
+    // this.ghost.startMoving();
 }
 
 
