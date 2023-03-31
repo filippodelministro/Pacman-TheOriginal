@@ -57,6 +57,7 @@ Pacman.prototype.move = function(){
     var pacman = document.getElementById("pacman");
     var map = document.getElementById("map");
 
+    //todo: add the padding 
     switch(this.direction){
         case "right": {
             if(pacman.offsetLeft + pacman.offsetWidth < map.offsetLeft + map.offsetWidth){   
