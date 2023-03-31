@@ -11,11 +11,15 @@
 }
 
 .map{
+    margin: 0;
+    padding: 0;
     width: 450px;
     height: 450px;
-
+    /* justify-content: center;
+    align-items: center; */
     z-index: 3;
     position: absolute;
+    background-color: aqua;
 }  
 
 
