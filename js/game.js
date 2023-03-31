@@ -2,7 +2,7 @@ document.addEventListener('keydown', keyPressed);
 
 function keyPressed(e) {
     if (e.keyCode == 8) // backspace
-        window.location = './materialPacman.html';
+        window.location = './home.html';
 
     else{
         init();

@@ -55,13 +55,13 @@ Pacman.prototype.stopMoving = function(){
 
 Pacman.prototype.move = function(){    
     var pacman = document.getElementById("pacman");
-    var playground = document.getElementById("playground");
+    var map = document.getElementById("map");
 
     switch(this.direction){
         case "right": {
-            if(pacman.offsetLeft + pacman.offsetWidth < playground.offsetLeft + playground.offsetWidth){   
+            if(pacman.offsetLeft + pacman.offsetWidth < map.offsetLeft + map.offsetWidth){   
                 // this.translateRight();
-                translateRight(this.pacman)  //make this work in utility.js
+                translateRight(this.pacman) 
                 break;
             }
             else{
@@ -70,7 +70,7 @@ Pacman.prototype.move = function(){
             }
         };
         case "up": {
-            if(pacman.offsetTop> playground.offsetTop){   
+            if(pacman.offsetTop> map.offsetTop){   
                 // this.translateUp();
                 translateUp(this.pacman);
 
@@ -82,7 +82,7 @@ Pacman.prototype.move = function(){
             }
         };
         case "left": {
-            if(pacman.offsetLeft > playground.offsetLeft){   
+            if(pacman.offsetLeft > map.offsetLeft){   
                 // this.translateLeft();
                 translateLeft(this.pacman);
                 break;
@@ -93,7 +93,7 @@ Pacman.prototype.move = function(){
             }
         };
         case "down": {
-            if(pacman.offsetTop + pacman.offsetHeight < playground.offsetTop + playground.offsetHeight){ 
+            if(pacman.offsetTop + pacman.offsetHeight < map.offsetTop + map.offsetHeight){ 
                 // this.translateDown();
                 translateDown(this.pacman);
                 break;

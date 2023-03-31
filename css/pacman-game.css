@@ -7,52 +7,40 @@ body {
 }
 
 /** ------ PLAYGROUND  ------ */
-
 .playground{
-    position: flex;
+    display: flex;
+    position: relative;
+
+    width: 540px;
+    height: 540px;
 
     margin-top: auto;
     margin-left: auto;
     margin-right: auto;
 
-    height: 550px;
-    width: 550px;
     outline: 3px solid whitesmoke;
-    background-color: rgb(0, 0, 0);
-}
 
-#gameinfo{
-    position: absolute;
-    text-align: left;
-    left: 100px;
-    top: 130px;
-}
-
-
-/** ------ CHARACHTERS  ------ */
-.playground{
-    display: flex;
-    width: 550px;
-    height: 550px;
-
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
     /* height: 100vh; */
     background-color: grey;
-
 }
 
 .map{
     display: grid;
     position: relative;
-    grid-template-columns: repeat(15, 30px);
-    grid-template-rows: repeat(15, 30px);
-    width: 450px;
-    height: 450px;
+    left: 0;
+    top: 0;
+    grid-template-columns: repeat(18, 30px);
+    grid-template-rows: repeat(18, 30px);
+    width: 540px;
+    height: 540px;
     background-color: black;
-
 }  
 
+
+
+/** ------ CHARACHTERS  ------ */
 .food {
     position: relative;
 
@@ -71,6 +59,8 @@ body {
     width: 20px;
     background-color: rgb(255, 200, 0);
     border-radius: 50%;
+    margin: auto;
+
 }
 
 .ghost {
@@ -79,6 +69,8 @@ body {
     width: 20px;
     height: 20px;
     border-radius: 60px 60px 0 0;
+    margin: auto;
+
   }
   
 #blue-ghost{
@@ -102,6 +94,7 @@ body {
 #pause-menu-container{
     position: absolute;     
     visibility: hidden;     
+    font-size: small;
     z-index: 1;
 
     width: 100%; 
@@ -117,6 +110,8 @@ body {
     position: relative;
     top: 30%;
     margin: 0 auto;
+    font-family: 'Roboto Mono';
+
     z-index: 5;
     
     height: 120px;
@@ -133,7 +128,9 @@ body {
 .pause-menu a{
     /* margin: 0 auto; */
     position: relative;
-    top: 25px;
+    top: 15px;
+    font-size: small;
+
     color: black;
     text-decoration: none;
     font-size: larger;
@@ -163,36 +160,9 @@ body {
 
 /** ------ INFO  ------ */
 
-#pacmaninfo{
-    position: fixed;
-    background-color: rgb(27, 27, 27);
-    border: 2px solid white;
-    height: 100px;
-    width: 300px;
-    left: 1000px;
-    top: 300px;
-}
-#pacmaninfo ul{
+#gameinfo{
     position: absolute;
-    list-style: none;
-    /* left: auto; */
-    margin-left: 2px ;
+    text-align: left;
+    left: 100px;
+    top: 130px;
 }
-
-#playgroundinfo{
-    position: fixed;
-    background-color: rgb(27, 27, 27);
-    border: 2px solid white;
-    height: 100px;
-    width: 300px;
-    left: 1000px;
-    top: 100px;
-}
-#playgroundinfo ul{
-    position: absolute;
-    list-style: none;
-    /* left: auto; */
-    margin-left: 2px ;
-}
-
-
