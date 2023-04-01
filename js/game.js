@@ -22,15 +22,25 @@ function init(){
 function Game(){
     this.pause_on = false;
     this.pacman = new Pacman();
-    // this.ghost = new Ghost();
+
+    this.ghosts = [
+        new Ghost('blue-ghost'),
+        new Ghost('red-ghost'),
+        new Ghost('pink-ghost'),
+        new Ghost('orange-ghost')
+    ];
+
     // const playground = new Playground();
     // const food = new Food();
     // const ghost = new Ghost();
     
     document.addEventListener('keydown', this.keyPressedonGame.bind(this));
     this.pacman.startMoving();
-    // this.ghost.startMoving();
 
+    //todo: put in a unique function
+    for (let i = 0; i < this.ghosts.length; i++) {
+        this.ghosts[i].startMoving();
+    }
 }
 
 Game.prototype.keyPressedonGame = function(e){
@@ -56,7 +66,11 @@ Game.prototype.pause = function(e){
 
     document.getElementById("pause-menu-container").style.visibility = "visible";
     this.pacman.stopMoving();
-    // this.ghost.stopMoving();
+
+    //todo: put in a unique function
+    for (let i = 0; i < this.ghosts.length; i++) {
+        this.ghosts[i].stopMoving();
+    }
 }
 
 
@@ -66,7 +80,10 @@ Game.prototype.resume = function(e){
     document.getElementById("pause-menu-container").style.visibility = "hidden";
 
     this.pacman.startMoving();
-    // this.ghost.startMoving();
+    //todo: put in a unique function
+    for (let i = 0; i < this.ghosts.length; i++) {
+        this.ghosts[i].startMoving();
+    }
 }
 
 

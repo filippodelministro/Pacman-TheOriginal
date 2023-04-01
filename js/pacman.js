@@ -11,7 +11,7 @@ function Pacman(){
     this.y = 0;
     
     this.direction = "right";     //? cambiare in meglio?
-    this.speed = 10;
+    this.speed = 15;
     this.interval;
 }
 
@@ -57,10 +57,14 @@ Pacman.prototype.move = function(){
     var pacman = document.getElementById("pacman");
     var map = document.getElementById("map");
 
+    //fix: padding problem
+    const pacmanPaddingRight = parseFloat(getComputedStyle(pacman).paddingRight);
+    // console.log(pacmanPaddingRight);
+
     //todo: add the padding 
     switch(this.direction){
         case "right": {
-            if(pacman.offsetLeft + pacman.offsetWidth < map.offsetLeft + map.offsetWidth){   
+            if(pacman.offsetLeft + pacman.offsetWidth  < map.offsetLeft + map.offsetWidth){   
                 // this.translateRight();
                 translateRight(this.pacman) 
                 break;
@@ -106,33 +110,3 @@ Pacman.prototype.move = function(){
         };
     }
 }
-
-
-// Pacman.prototype.translateRight = function(){
-//     this.pacman = document.getElementById("pacman");
-
-//     this.x += 1;
-//     this.pacman.style.left = `${this.x}px`;
-// }
-
-// Pacman.prototype.translateLeft = function(){
-//     this.pacman = document.getElementById("pacman");
-
-//     this.x -= 1;
-//     this.pacman.style.left = `${this.x}px`;
-// }
-
-
-// Pacman.prototype.translateUp = function(){
-//     this.pacman = document.getElementById("pacman");
-
-//     this.y -= 1;
-//     this.pacman.style.top = `${this.y}px`;
-// }
-
-// Pacman.prototype.translateDown = function(){
-//     this.pacman = document.getElementById("pacman");
-
-//     this.y += 1;
-//     this.pacman.style.top = `${this.y}px`;
-// }

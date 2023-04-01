@@ -1,9 +1,6 @@
 
 
 function Ghost(){
-    // this.ghost = document.getElementById("ghost");
-
-
     this.pause = false;
     this.moving = false;
     
@@ -11,8 +8,9 @@ function Ghost(){
     this.y = 0;
     
     // this.direction = this.changeDirection();
-    this.changeDirection();
-    this.speed = 5;
+    // this.changeDirection();
+    this.direction = "right";
+    this.speed = 20;
     this.interval;
 }
 
@@ -23,49 +21,31 @@ Ghost.prototype.changeDirection = function(){
    
     var ran = Math.floor(Math.random() * DIRECTIONS.length);
     this.direction = DIRECTIONS[ran];   
-
-    // document.getElementById("demo4").innerHTML = "GHOST: diretion = " + this.direction;
-
 }
 
 
 Ghost.prototype.startMoving = function(){
-    document.getElementById("demo3").innerHTML = "GHOST: startMoving()";
-
     if (!this.moving) {
         this.interval = setInterval(this.move.bind(this), this.speed);
         // this.interval = setInterval(this.moveT.bind(this), this.speed);
         this.moving = true;
     }
-
-    document.getElementById("pacmanSpeed").innerHTML = "Speed: " + this.speed;
 }
 
 Ghost.prototype.stopMoving = function(){
-    document.getElementById("demo3").innerHTML = "GHOST: stopMoving()";
-
     clearInterval(this.interval); // stop the interval
     this.moving = false;
 }
 
 Ghost.prototype.move = function(){
-
-    document.getElementById("demo1").innerHTML = "GHOST: move()";
-    document.getElementById("demo2").innerHTML = "move():" + this.direction;
-
-    
-    var element = document.getElementById("blue-ghost");
+    var element = document.querySelectorAll('.ghost');
+    element.forEach((element) )
     var playground = document.getElementById("playground");
-    
-    // document.getElementById("pacmanLeft").innerHTML = "Left: " + element.offsetLeft;
-    // document.getElementById("pacmanTop").innerHTML = "Top: " + element.offsetTop;
-    // document.getElementById("demo1").innerHTML = "Speed: " + this.speed;
-
     switch(this.direction){
         case "right": {
             if(element.offsetLeft + element.offsetWidth < playground.offsetLeft + playground.offsetWidth){   
-                this.translateRight();
-                //fix: translateRight(this.element)  //make this work in utility.js
+                // this.translateRight();
+                translateRight(this.element)  //make this work in utility.js
                 break;
             }
             else{
@@ -104,7 +84,6 @@ Ghost.prototype.move = function(){
                 break;
             }
         };
-        default : document.getElementById("demo2").innerHTML = "ERROR IN DIRECTION";
     }
 }
 
