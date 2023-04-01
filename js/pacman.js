@@ -1,18 +1,15 @@
 
 
 function Pacman(){
-    this.pacman = document.getElementById("pacman");
-
+    this.id = "pacman";
+    this.element = document.getElementById(this.id);
 
     this.pause = false;
     this.moving = false;
-    
-    this.x = 0;
-    this.y = 0;
-    
+
     this.direction = "right";     //? cambiare in meglio?
     this.speed = 15;
-    this.interval;
+    this.moveInterval;
 }
 
 Pacman.prototype.changeDirection = function(e){
@@ -39,74 +36,54 @@ Pacman.prototype.refresh = function(){
     this.startMoving();
 }
 
-
 Pacman.prototype.startMoving = function(){
     if (!this.moving) {
-        this.interval = setInterval(this.move.bind(this), this.speed);
-        // this.interval = setInterval(this.moveT.bind(this), this.speed);
+        this.moveInterval = setInterval(this.move.bind(this), this.speed);
         this.moving = true;
     }
 }
 
 Pacman.prototype.stopMoving = function(){
-    clearInterval(this.interval); // stop the interval
+    clearInterval(this.moveInterval);
     this.moving = false;
 }
 
 Pacman.prototype.move = function(){    
-    var pacman = document.getElementById("pacman");
     var map = document.getElementById("map");
+    translate(this);
 
     //fix: padding problem
     const pacmanPaddingRight = parseFloat(getComputedStyle(pacman).paddingRight);
-    // console.log(pacmanPaddingRight);
 
     //todo: add the padding 
     switch(this.direction){
         case "right": {
-            if(pacman.offsetLeft + pacman.offsetWidth  < map.offsetLeft + map.offsetWidth){   
-                // this.translateRight();
-                translateRight(this.pacman) 
-                break;
-            }
-            else{
+            if(this.element.offsetLeft + this.element.offsetWidth  < map.offsetLeft + map.offsetWidth)
+                translateRight(this.element) 
+            else
                 this.stopMoving();
-                break;
-            }
+            break;
         };
         case "up": {
-            if(pacman.offsetTop> map.offsetTop){   
-                // this.translateUp();
-                translateUp(this.pacman);
-
-                break;
-            }
-            else{
+            if(this.element.offsetTop > map.offsetTop)   
+                translateUp(this.element);
+            else
                 this.stopMoving();
-                break;
-            }
+            break;
         };
         case "left": {
-            if(pacman.offsetLeft > map.offsetLeft){   
-                // this.translateLeft();
-                translateLeft(this.pacman);
-                break;
-            }
-            else{
+            if(this.element.offsetLeft > map.offsetLeft)
+                translateLeft(this.element);
+            else
                 this.stopMoving();
-                break;
-            }
+            break;
         };
         case "down": {
-            if(pacman.offsetTop + pacman.offsetHeight < map.offsetTop + map.offsetHeight){ 
-                // this.translateDown();
-                translateDown(this.pacman);
-                break;
-            }
-            else{
+            if(this.element.offsetTop + this.element.offsetHeight < map.offsetTop + map.offsetHeight)
+                translateDown(this.element);
+            else
                 this.stopMoving();
-                break;
-            }
+            break;
         };
     }
 }

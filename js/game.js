@@ -11,7 +11,6 @@ function keyPressed(e) {
 
 
 function init(){
-
     document.getElementById("pause-menu-container").style.visibility = "hidden";
     document.getElementById("startinfo").style.visibility = "hidden";
 
@@ -21,8 +20,8 @@ function init(){
 
 function Game(){
     this.pause_on = false;
-    this.pacman = new Pacman();
 
+    this.pacman = new Pacman();
     this.ghosts = [
         new Ghost('blue-ghost'),
         new Ghost('red-ghost'),

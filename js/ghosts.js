@@ -1,50 +1,35 @@
-
-
-function Ghost(){
-    this.pause = false;
-    this.moving = false;
-    
-    this.x = 0;
-    this.y = 0;
-    
-    // this.direction = this.changeDirection();
-    // this.changeDirection();
-    this.direction = "right";
-    this.speed = 20;
-    this.interval;
+class Ghost {
+    constructor(id) {
+      this.id = id;
+      this.element = document.getElementById(id);
+      this.speed = 2;
+      this.changeDirection();       //random direction
+      this.moveInterval = null;
+      this.moving = false;
+    }
 }
-
-Ghost.prototype.changeDirection = function(){
-
-    // if(!this.moving)          
-    //     this.startMoving();
-   
-    var ran = Math.floor(Math.random() * DIRECTIONS.length);
-    this.direction = DIRECTIONS[ran];   
-}
-
 
 Ghost.prototype.startMoving = function(){
     if (!this.moving) {
-        this.interval = setInterval(this.move.bind(this), this.speed);
-        // this.interval = setInterval(this.moveT.bind(this), this.speed);
+        this.moveInterval = setInterval(this.move.bind(this), this.speed);
         this.moving = true;
     }
 }
 
+
 Ghost.prototype.stopMoving = function(){
-    clearInterval(this.interval); // stop the interval
+    clearInterval(this.moveInterval);
     this.moving = false;
 }
 
+
 Ghost.prototype.move = function(){
-    var element = document.querySelectorAll('.ghost');
-    element.forEach((element) )
-    var playground = document.getElementById("playground");
+    var map = document.getElementById("map");
+
     switch(this.direction){
-        case "right": {
-            if(element.offsetLeft + element.offsetWidth < playground.offsetLeft + playground.offsetWidth){   
-                translateRight(this.element)
+        case "right" :{
+            if(this.element.offsetLeft + this.element.offsetWidth  < map.offsetLeft + map.offsetWidth){   
+                translateRight(this.element) 
                 break;
             }
             else{
@@ -52,10 +37,9 @@ Ghost.prototype.move = function(){
                 break;
             }
         };
-        case "up": {
-            if(element.offsetTop> playground.offsetTop){   
-                // this.translateUp();
-                translateUp(this.element)
+        case "up" :{
+            if(this.element.offsetTop > map.offsetTop ){   
+                translateUp(this.element) 
                 break;
             }
             else{
@@ -63,10 +47,9 @@ Ghost.prototype.move = function(){
                 break;
             }
         };
-        case "left": {
-            if(element.offsetLeft > playground.offsetLeft){   
-                // this.translateLeft();
-                translateLeft(this.element)
+        case "left" :{
+            if(this.element.offsetLeft > map.offsetLeft ){   
+                translateLeft(this.element) 
                 break;
             }
             else{
@@ -74,10 +57,9 @@ Ghost.prototype.move = function(){
                 break;
             }
         };
-        case "down": {
-            if(element.offsetTop + element.offsetHeight < playground.offsetTop + playground.offsetHeight){ 
-                // this.translateDown();
-                translateDown(this.element)
+        case "down" :{
+            if(this.element.offsetTop + this.element.offsetHeight < map.offsetLeft + map.offsetHeight ){   
+                translateDown(this.element) 
                 break;
             }
             else{
@@ -86,4 +68,10 @@ Ghost.prototype.move = function(){
             }
         };
     }
+}
+
+Ghost.prototype.changeDirection = function(){
+    const directions = ['up', 'down', 'right', 'left'];
+    const randomIndex = Math.floor(Math.random() * directions.length);
+    this.direction = directions[randomIndex];
 }

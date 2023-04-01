@@ -27,3 +27,12 @@ function translateDown(element){
     const newPosition = currentPosition + 2;
     element.style.top = `${newPosition}px`;
 }
+
+
+function translate(element){
+    console.log("translate> " + element.id + ": " + element.direction);
+    // switch(element.direction){
+    // }
+
+
+}
