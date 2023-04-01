@@ -36,11 +36,7 @@ function Game(){
     
     document.addEventListener('keydown', this.keyPressedonGame.bind(this));
     this.pacman.startMoving();
-
-    //todo: put in a unique function
-    for (let i = 0; i < this.ghosts.length; i++) {
-        this.ghosts[i].startMoving();
-    }
+    this.startMovingGhosts();
 }
 
 Game.prototype.keyPressedonGame = function(e){
@@ -66,11 +62,7 @@ Game.prototype.pause = function(e){
 
     document.getElementById("pause-menu-container").style.visibility = "visible";
     this.pacman.stopMoving();
-
-    //todo: put in a unique function
-    for (let i = 0; i < this.ghosts.length; i++) {
-        this.ghosts[i].stopMoving();
-    }
+    this.stopMovingGhosts();
 }
 
 
@@ -80,12 +72,21 @@ Game.prototype.resume = function(e){
     document.getElementById("pause-menu-container").style.visibility = "hidden";
 
     this.pacman.startMoving();
-    //todo: put in a unique function
-    for (let i = 0; i < this.ghosts.length; i++) {
-        this.ghosts[i].startMoving();
-    }
+    this.startMovingGhosts();
 }
 
+
+Game.prototype.startMovingGhosts = function(){
+    for (let i = 0; i < this.ghosts.length; i++) {
+        this.ghosts[i].startMoving();
+    } 
+}    
+
+Game.prototype.stopMovingGhosts = function(){
+    for (let i = 0; i < this.ghosts.length; i++) {
+        this.ghosts[i].stopMoving();
+    } 
+}    
 
 Game.prototype.handlePauseMenu = function(e){
     //todo: handle this case

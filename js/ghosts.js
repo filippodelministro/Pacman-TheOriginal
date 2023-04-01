@@ -44,19 +44,18 @@ Ghost.prototype.move = function(){
     switch(this.direction){
         case "right": {
             if(element.offsetLeft + element.offsetWidth < playground.offsetLeft + playground.offsetWidth){   
-                // this.translateRight();
-                translateRight(this.element)  //make this work in utility.js
+                translateRight(this.element)
                 break;
             }
             else{
-                // this.stopMoving();
                 this.changeDirection();
                 break;
             }
         };
         case "up": {
             if(element.offsetTop> playground.offsetTop){   
-                this.translateUp();
+                // this.translateUp();
+                translateUp(this.element)
                 break;
             }
             else{
@@ -66,7 +65,8 @@ Ghost.prototype.move = function(){
         };
         case "left": {
             if(element.offsetLeft > playground.offsetLeft){   
-                this.translateLeft();
+                // this.translateLeft();
+                translateLeft(this.element)
                 break;
             }
             else{
@@ -76,7 +76,8 @@ Ghost.prototype.move = function(){
         };
         case "down": {
             if(element.offsetTop + element.offsetHeight < playground.offsetTop + playground.offsetHeight){ 
-                this.translateDown();
+                // this.translateDown();
+                translateDown(this.element)
                 break;
             }
             else{
@@ -85,34 +86,4 @@ Ghost.prototype.move = function(){
             }
         };
     }
-}
-
-
-Ghost.prototype.translateRight = function(){
-    this.element = document.getElementById("blue-ghost");
-
-    this.x += 1;
-    this.element.style.left = `${this.x}px`;
-}
-
-Ghost.prototype.translateLeft = function(){
-    this.element = document.getElementById("blue-ghost");
-
-    this.x -= 1;
-    this.element.style.left = `${this.x}px`;
-}
-
-
-Ghost.prototype.translateUp = function(){
-    this.element = document.getElementById("blue-ghost");
-
-    this.y -= 1;
-    this.element.style.top = `${this.y}px`;
-}
-
-Ghost.prototype.translateDown = function(){
-    this.element = document.getElementById("blue-ghost");
-
-    this.y += 1;
-    this.element.style.top = `${this.y}px`;
 }
