@@ -1,15 +1,18 @@
 
 
-function Pacman(){
-    this.id = "pacman";
-    this.element = document.getElementById(this.id);
+class Pacman{
+    constructor(){
+        this.id = "pacman";
+        this.element = document.getElementById(this.id);
 
-    this.pause = false;
-    this.moving = false;
+        this.pause = false;
+        this.moving = false;
 
-    this.direction = "right";     //? cambiare in meglio?
-    this.speed = 15;
-    this.moveInterval;
+        this.direction = "right";     //? cambiare in meglio?
+        this.speed = 15;
+        this.moveInterval;
+    }
+    
 }
 
 Pacman.prototype.changeDirection = function(e){

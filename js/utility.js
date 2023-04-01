@@ -29,6 +29,19 @@ function translateDown(element){
 }
 
 
+
+//todo: unify this for Pacman and Ghost
+function move(element){    
+    switch(element.direction){
+        case 'up': translateUp(element); break;
+        case 'down': translateDown(element); break;
+        case 'left': translateLeft(element); break;
+        case 'right': translateRight(element); break;
+        default: break;
+    }
+}
+
+
 function translate(element){
     console.log("translate> " + element.id + ": " + element.direction);
     // switch(element.direction){

@@ -16,10 +16,16 @@ function init(){
 
     document.removeEventListener('keydown', keyPressed);
     game = new Game();
+    map = new Map();
+    map.addFood();
+    
 }
 
 function Game(){
     this.pause_on = false;
+
+
+    // this.map.addWallsToCells(3, 5, 6);
 
     this.pacman = new Pacman();
     this.ghosts = [
@@ -29,7 +35,6 @@ function Game(){
         new Ghost('orange-ghost')
     ];
 
-    // const playground = new Playground();
     // const food = new Food();
     // const ghost = new Ghost();
     

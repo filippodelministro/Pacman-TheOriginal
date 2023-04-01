@@ -49,12 +49,12 @@ body {
     width: 10px;
     height: 10px;
     margin: auto;
-    z-index: 3;
-
+    z-index: 1;
 }
  
 .movable{
     position: relative;
+    z-index: 2;
     /* left: 0;
     top: 0; */
 }
@@ -101,7 +101,7 @@ body {
     position: absolute;     
     visibility: hidden;     
     font-size: small;
-    z-index: 1;
+    z-index: 5;
 
     width: 100%; 
     height: 100%; 
