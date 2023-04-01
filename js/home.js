@@ -1,6 +1,6 @@
 
 //todo: create a global var for all the pages
-onload=init;
+// onload=init;
 
 //fix: dont work as a global var
 var lightmode;
