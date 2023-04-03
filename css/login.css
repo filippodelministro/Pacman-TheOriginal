@@ -1,0 +1,54 @@
+
+.login-container {
+    margin-top: 20%;
+    background-color: rgb(210, 210, 210);
+    padding: 50px 50px;
+    border: 2px solid black;
+    box-shadow: 6px 6px 1px rgb(0, 195, 255) /*? ??*/
+}
+
+input {
+    /* display: block; */
+    width: 100%;
+    font-size: 14pt;
+    line-height: 28pt;
+    font-family: "Roboto Mono";
+    margin-bottom: 28pt;
+    border: none;
+    border-bottom: 5px solid black;
+    background: whitesmoke;
+    min-width: 250px;
+    outline: none;
+    color: black;
+}
+
+input:hover{
+    color: black;
+}
+
+input:focus {
+    border-bottom: 5px solid rgb(0, 195, 255);
+}
+
+.login-container button {
+    display: block;
+    margin: 0 auto;
+    line-height: 28pt;
+    padding: 0 20px;
+    background: rgb(0, 195, 255);
+    letter-spacing: 3px;
+    outline: none;
+    border: 1px solid black;
+}
+.login-container button:hover {
+    background: black;
+    color: white;
+}
+
+.register-info{
+    font-size: 11pt;
+    /* line-height: 28pt; */
+    margin-top: 5%;
+    text-align: center;
+    text-decoration: underline;
+}
