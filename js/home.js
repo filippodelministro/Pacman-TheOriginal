@@ -24,24 +24,7 @@ function changeView(){
 }
 
 
-// function appear(name){
-//     // document.getElementById("demo1").innerHTML = "appear_instructions()";
-
-//     // if(num===0){
-//         var el = document.getElementById(name);
-//         if(el.style.visibility === "hidden")
-//             el.style.visibility = "visible";
-//         else
-//             el.style.visibility = "hidden";
-//     // }
-
-// }
-
-
-
-
 function sposta(){
-    console.log("diocnae");
     const div = document.getElementById("main-section");
     const app = document.getElementById("about");
     app.style.display = "block";
