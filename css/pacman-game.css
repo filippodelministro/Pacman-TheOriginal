@@ -11,8 +11,8 @@ body {
     display: flex;
     position: relative;
 
-    width: 540px;
-    height: 540px;
+    width: 510px;
+    height: 510px;
 
     margin-top: auto;
     margin-left: auto;
@@ -31,30 +31,32 @@ body {
     position: relative;
     left: 0;
     top: 0;
-    grid-template-columns: repeat(18, 30px);
-    grid-template-rows: repeat(18, 30px);
-    width: 540px;
-    height: 540px;
+    grid-template-columns: repeat(17, 30px);
+    grid-template-rows: repeat(17, 30px);
+    width: 510px;
+    height: 510px;
     background-color: black;
 }  
 
 
 
 /** ------ CHARACHTERS  ------ */
-.food {
-    position: relative;
 
+.wall{
+    background-color: purple;
+
+}
+.food {
     background-color: white;
     border-radius: 50%;
     width: 10px;
     height: 10px;
     margin: auto;
-    z-index: 1;
 }
  
 .movable{
     position: relative;
-    z-index: 2;
+    z-index: 5;
     /* left: 0;
     top: 0; */
 }
@@ -70,8 +72,6 @@ body {
 }
 
 .ghost {
-    /* position: relative; */
-
     width: 20px;
     height: 20px;
     border-radius: 60px 60px 0 0;
@@ -91,8 +91,6 @@ body {
 #pink-ghost{
     background-color: pink;
 }
-
-
 
 /** ------ PAUSE-MENU  ------ */
 

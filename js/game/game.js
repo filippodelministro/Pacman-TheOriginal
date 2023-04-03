@@ -15,10 +15,13 @@ function init(){
     document.getElementById("startinfo").style.visibility = "hidden";
 
     document.removeEventListener('keydown', keyPressed);
-    game = new Game();
     map = new Map();
-    map.addFood();
-    
+    map.fillMap();
+
+    game = new Game();
+    // map.addFood();
+    // map.addWallsToCells([0, 1, 2, 16, 17, 18]); // place walls in cells with indexes 0, 1, 2, 16, 17, 18
+
 }
 
 function Game(){

@@ -1,11 +1,11 @@
 class Ghost {
     constructor(id) {
-      this.id = id;
-      this.element = document.getElementById(id);
-      this.speed = 2;
-      this.changeDirection();       //random direction
-      this.moveInterval = null;
-      this.moving = false;
+        this.id = id;
+        this.element = document.getElementById(id);
+        this.speed = 2;
+        this.changeDirection();       //random direction
+        this.moveInterval = null;
+        this.moving = false;
     }
 }
 
