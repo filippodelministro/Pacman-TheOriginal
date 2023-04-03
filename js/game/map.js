@@ -5,18 +5,10 @@ class Map{
     constructor(){
         this.id = "map";
         this.cellsWithWalls = map1;
+        this.fillMap();
     }
 }
 
-Map.prototype.addFood = function(){
-    const gridContainer = document.querySelector('.map');
-    for (let i = 0; i < MAP_DIM * MAP_DIM; i++) {
-        const food = document.createElement('div');
-        food.classList.add('food');
-        gridContainer.appendChild(food);
-    }
-}
- 
 Map.prototype.fillMap = function(){
     const gridContainer = document.querySelector('.map');
     for (let i = 0; i < MAP_DIM * MAP_DIM; i++) {
@@ -44,7 +36,7 @@ const map1 = [
     119, 120, 121, 122, 124, 126, 127, 128, 130, 132, 133, 134, 135,
     143, 144, 145,
     153, 154, 155, 156,, 158, 164, 166, 167, 168, 169,
-    175, 176, 178, 180, 181, 188, 189, 190, 192, 195, 198, 200, 201, 202,
+    175, 176, 178, 180, 181, 188, 189, 190, 192, 193, 195, 197, 198, 200, 201, 202,
     207, 217,
     221, 222, 224, 226, 228, 229, 230, 232, 234, 236, 237,
     243, 246, 249,

@@ -2,8 +2,14 @@
 
 class Pacman{
     constructor(){
-        this.id = "pacman";
+        this.id = "pacman"  ;
         this.element = document.getElementById(this.id);
+
+
+        this.row = 0;
+        this.col = 0;
+        this.x = 0;
+        this.y = 0;
 
         this.pause = false;
         this.moving = false;
@@ -53,7 +59,6 @@ Pacman.prototype.stopMoving = function(){
 
 Pacman.prototype.move = function(){    
     var map = document.getElementById("map");
-    translate(this);
 
     //fix: padding problem
     const pacmanPaddingRight = parseFloat(getComputedStyle(pacman).paddingRight);
@@ -61,29 +66,33 @@ Pacman.prototype.move = function(){
     //todo: add the padding 
     switch(this.direction){
         case "right": {
-            if(this.element.offsetLeft + this.element.offsetWidth  < map.offsetLeft + map.offsetWidth)
+            if(this.element.offsetLeft + this.element.offsetWidth  < map.offsetLeft + map.offsetWidth){
                 translateRight(this.element) 
+            }
             else
                 this.stopMoving();
             break;
         };
         case "up": {
-            if(this.element.offsetTop > map.offsetTop)   
+            if(this.element.offsetTop > map.offsetTop){
                 translateUp(this.element);
+            }
             else
                 this.stopMoving();
             break;
         };
         case "left": {
-            if(this.element.offsetLeft > map.offsetLeft)
+            if(this.element.offsetLeft > map.offsetLeft){
                 translateLeft(this.element);
+            }
             else
                 this.stopMoving();
             break;
         };
         case "down": {
-            if(this.element.offsetTop + this.element.offsetHeight < map.offsetTop + map.offsetHeight)
+            if(this.element.offsetTop + this.element.offsetHeight < map.offsetTop + map.offsetHeight){
                 translateDown(this.element);
+            }
             else
                 this.stopMoving();
             break;

@@ -2,7 +2,7 @@
 
 //fix this
 
-function translateRight(element){
+function  translateRight(element){
     const currentPosition = parseInt(element.style.left, 10) || 0;
     const newPosition = currentPosition + 2;
     element.style.left = `${newPosition}px`;
@@ -42,10 +42,28 @@ function move(element){
 }
 
 
-function translate(element){
-    console.log("translate> " + element.id + ": " + element.direction);
-    // switch(element.direction){
-    // }
+
+//BOHHH
+
+function checkPosition(element){
+    console.log("checkPosition> " + element.id + "\tcol: " + element.col);
 
 
+    var nextCol = element.col + 1;
+    if(map1[nextCol] !=0){
+        return false;
+    }
+
+    return true;
+}
+
+function translateRight1(element){
+    const currentPosition = parseInt(element.style.left, 10) || 0;
+ 
+    const newPosition = currentPosition + CELL_SIZE;
+    // const newPosition = currentPosition + CELL_SIZE;
+    // console.log("translateRight1> " + element.id + "\tcurrent: " + currentPosition);
+    // console.log("translateRight1> " + element.id + "\tnew: " + newPosition);
+
+    element.style.left = `${newPosition}px`;
 }

@@ -15,9 +15,7 @@ function init(){
     document.getElementById("startinfo").style.visibility = "hidden";
 
     document.removeEventListener('keydown', keyPressed);
-    map = new Map();
-    map.fillMap();
-
+ 
     game = new Game();
     // map.addFood();
     // map.addWallsToCells([0, 1, 2, 16, 17, 18]); // place walls in cells with indexes 0, 1, 2, 16, 17, 18
@@ -29,6 +27,8 @@ function Game(){
 
 
     // this.map.addWallsToCells(3, 5, 6);
+
+    this.map = new Map();
 
     this.pacman = new Pacman();
     this.ghosts = [
