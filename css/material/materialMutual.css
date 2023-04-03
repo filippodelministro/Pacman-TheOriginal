@@ -128,7 +128,11 @@ header{
     /* text-align: justify; */
 
     /*todo: transition: 5ms; */
-    visibility: hidden;
+    /* visibility: hidden; */
+
+    /* left: 100%; */
+    display: none;
+    transition: left 2s ease;
 }
 
 .appear h2, h3, h4{
@@ -142,9 +146,10 @@ header{
     width: 320px;
     height: 350px;
 
-    left: 45%;
+    left: 20%;
     top: 30%;
 
+    transition: all 2s ease;
     /* background-color: aqua; */
 }
 
