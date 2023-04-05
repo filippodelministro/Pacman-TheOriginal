@@ -120,22 +120,26 @@ header{
     /* transition: translate 2s ease; */
 }
 
-.appear h2, h3, h4{
+.menu-section h2, h3, h4{
     text-decoration: underline;
 }
 
+.appear{
+    display: block;
+}
 
 .main-section{
     position: absolute;
     width: 300px;
     height: 300px;
-    left: 20%;
-    top: 30%;
-    transition: transform 2s ease;
+    /* left: 20%; */
+    top: 28%;
+    transition: transform 1s ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    /* background-color: yellow; */
 }
 
 #ghost{

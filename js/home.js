@@ -24,10 +24,16 @@ function changeView(){
 }
 
 
-function sposta(){
-    const div = document.getElementById("main-section");
-    const app = document.getElementById("about");
-    app.style.display = "block";
+function appear(sectionId) {
+    var sections = document.querySelectorAll('.menu-section');
+        sections.forEach(function(section) {
+            section.classList.remove('appear');
+    });
+  
+    var section = document.getElementById(sectionId);
+    section.classList.add('appear');
 
-    div.style.transform = 'translateX(400px)';
+    const div = document.getElementById("main-section");
+    div.style.transform = 'translateX(350px)';
 }
+
