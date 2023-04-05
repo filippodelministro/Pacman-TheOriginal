@@ -10,11 +10,6 @@ body{
 
 }
 
-#ghost{
-    width: 200px;
-}
-
-
 a{
     text-decoration: none;
 }
@@ -34,6 +29,8 @@ button{
     padding: 10px;
 }
 
+
+/** --------------------- ICONS --------------------- */
 .icons{
     position: absolute;
 }
@@ -44,41 +41,43 @@ button{
 }
 
 #account{
-    /* position: absolute; */
     left: 87%;
     /* left: 2%; */
 }
 
-
 #settings{
-    /* position: absolute; */
     left: 90%;
     /* left: 2%; */
 }
 
 
 #darkmode{
-    /* position: absolute; */
     left: 90%;
     top: 85%
     /* left: 2%; */
 }
 
+/** --------------------- MENu --------------------- */
+
 header{
-    width: 100px;
-    height: 300px;
+    
+    /* width: 50px;
+    height: 300px; */
 
     /* padding: 5%; */
     margin-left: 7%;
-    /* align-items: center; */
-}
-
-#menu{
-    position: absolute;
+    
     margin-left: 0 auto;
     writing-mode:sideways-lr;
     text-align: center;
 }
+
+/* #menu{
+    position: absolute;
+    margin-left: 0 auto;
+    writing-mode:sideways-lr;
+    text-align: center;
+} */
 
 .menu-item:hover{
     position: relative;
@@ -88,6 +87,7 @@ header{
     
 }
 
+/** --------------------- SECTIONS --------------------- */
 
 .title-section{
     position: absolute;
@@ -108,16 +108,15 @@ header{
     color: rgb(69, 69, 69);
 }
 
-
 .appear{
     position: absolute;
-    top: 20%;
+    top: 25%;
 
     width: 300px;
     height: 300px;
     padding: 2%;
     display: none;
-    transition: left 2s ease;
+    /* transition: all 2s ease; */
 }
 
 .appear h2, h3, h4{
@@ -128,13 +127,21 @@ header{
 .main-section{
     position: absolute;
 
-    width: 320px;
-    height: 350px;
+    width: 300px;
+    height: 300px;
+    /* padding: 2%; */
 
     left: 20%;
     top: 30%;
+    background-color: yellow;
 
     transition: all 2s ease;
+}
+
+#ghost{
+    position: relative;
+    margin-top: 0 auto;
+    width: 200px;
 }
 
 .main-section button{
