@@ -36,4 +36,3 @@ function appear(sectionId) {
     const div = document.getElementById("main-section");
     div.style.transform = 'translateX(350px)';
 }
-

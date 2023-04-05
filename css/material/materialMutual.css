@@ -112,12 +112,16 @@ header{
     position: absolute;
     top: 25%;
     background-color: rgb(210, 210, 210);
+    border: 2px solid black;
 
     width: 300px;
     height: 300px;
     padding: 2%;
-    display: none;
-    /* transition: translate 2s ease; */
+    /* display: none; */
+    /* transition: all 2s ease; */
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateY(500px); /* sposta la sezione di 50px verso il basso */
 }
 
 .menu-section h2, h3, h4{
@@ -125,7 +129,9 @@ header{
 }
 
 .appear{
-    display: block;
+    /* display: block; */
+    opacity: 1;
+    transform: translateY(0); /* rimuove lo spostamento verso il basso */
 }
 
 .main-section{
@@ -134,7 +140,7 @@ header{
     height: 300px;
     /* left: 20%; */
     top: 28%;
-    transition: transform 1s ease;
+    transition: transform 0.7s ease-in-out;
     display: flex;
     flex-direction: column;
     justify-content: center;
