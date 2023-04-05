@@ -8,6 +8,9 @@ body{
     align-items: center;
     height: 100vh;
 
+    
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 a{
@@ -21,7 +24,6 @@ button{
     font-weight: 100;
 }
 
-
 .container{
     position: flex;
     width: 80%;
@@ -34,27 +36,19 @@ button{
 .icons{
     position: absolute;
 }
-
 .icons:hover{
     color: grey;
     cursor: pointer;
 }
-
 #account{
     left: 87%;
-    /* left: 2%; */
 }
-
 #settings{
     left: 90%;
-    /* left: 2%; */
 }
-
-
 #darkmode{
     left: 90%;
     top: 85%
-    /* left: 2%; */
 }
 
 /** --------------------- MENu --------------------- */
@@ -71,13 +65,6 @@ header{
     writing-mode:sideways-lr;
     text-align: center;
 }
-
-/* #menu{
-    position: absolute;
-    margin-left: 0 auto;
-    writing-mode:sideways-lr;
-    text-align: center;
-} */
 
 .menu-item:hover{
     position: relative;
@@ -109,6 +96,7 @@ header{
 }
 
 .menu-section{
+
     position: absolute;
     top: 25%;
     background-color: rgb(210, 210, 210);
@@ -118,8 +106,8 @@ header{
     height: 300px;
     padding: 2%;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
-    transform: translateY(500px); /* sposta la sezione di 50px verso il basso */
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    transform: translateY(500px);
 }
 
 .menu-section h2, h3, h4{
@@ -128,21 +116,19 @@ header{
 
 .appear{
     opacity: 1;
-    transform: translateY(0); /* rimuove lo spostamento verso il basso */
+    transform: translateY(0); 
 }
 
 .main-section{
     position: absolute;
     width: 300px;
     height: 300px;
-    /* left: 20%; */
     top: 28%;
     transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* background-color: yellow; */
 }
 
 #ghost{
