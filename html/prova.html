@@ -18,7 +18,7 @@
                 display: grid;
                 width: 500px;
                 height: 500px;
-                gap: 1px;
+                /* gap: 1px; */
                 grid-template-columns: repeat(10, 50px); /* 10 colonne da 50px ciascuna */
                 grid-template-rows: repeat(10, 50px); /* 10 righe da 50px ciascuna */
                 background-color: blue;
@@ -58,7 +58,6 @@
 
     <body>
         <div class="container">              
-            <div id="pacman"></div>
             <div class="grid">
                 <div class="cell wall"></div>
                 <div class="cell food"></div>
@@ -151,6 +150,8 @@
                 <div class="cell food"></div>
                 <div class="cell food"></div>
             </div>
+            <div id="pacman"></div>
+
         </div>
         
 
@@ -165,20 +166,20 @@
             document.addEventListener('keydown', event => {
                 if (event.key === 'ArrowUp') {
                     // muovi Pacman verso l'alto
-                    movePacman(0, -1);
-                    pacman.style.top = (top - 50) + 'px';
+                    if(movePacman(0, -1))
+                        translateUp("pacman");
                 } else if (event.key === 'ArrowDown') {
                     // muovi Pacman verso il basso
-                    movePacman(0, 1);
-                    pacman.style.top = (top + 50) + 'px';
+                    if(movePacman(0, 1))
+                        translateDown("pacman");
                 } else if (event.key === 'ArrowLeft') {
                     // muovi Pacman verso sinistra
-                    movePacman(-1, 0);
-                    pacman.style.left = (left - 50) + 'px';
+                    if(movePacman(-1, 0))
+                        translateLeft("pacman");
                 } else if (event.key === 'ArrowRight') {
                     // muovi Pacman verso destra
-                    movePacman(1, 0);
-                    pacman.style.left = (left + 50) + 'px';
+                    if(movePacman(1, 0))
+                        translateRight("pacman");
                 }
             });
 
@@ -190,7 +191,7 @@
                 const newCell = getCell(newPosition.x, newPosition.y);
                 if (!newCell || newCell.classList.contains('wall')) {
                     // la nuova posizione non è valida, non fare nulla
-                    return;
+                    return false;
                 }
                 
                 // sposta Pacman alla nuova posizione
@@ -211,6 +212,7 @@
                 
                 // aggiorna la posizione di Pacman
                 pacmanPosition = newPosition;
+                return true;
             }
 
             function getCell(x, y) {
@@ -222,7 +224,37 @@
                 return cells[y * 10 + x];
             }
 
+            function translateRight(id){
+                const element= document.getElementById(id);
 
+                const currentPosition = parseInt(element.style.left, 10) || 0;
+                const newPosition = currentPosition + 50;
+                element.style.left = `${newPosition}px`;
+            }
+
+            function translateLeft(id){
+                const element= document.getElementById(id);
+
+                const currentPosition = parseInt(element.style.left, 10) || 0;
+                const newPosition = currentPosition - 50;
+                element.style.left = `${newPosition}px`;
+            }
+
+            function translateUp(id){
+                const element= document.getElementById(id);
+
+                const currentPosition = parseInt(element.style.top, 10) || 0;
+                const newPosition = currentPosition - 50;
+                element.style.top = `${newPosition}px`;
+            }
+
+            function translateDown(id){
+                const element= document.getElementById(id);
+
+                const currentPosition = parseInt(element.style.top, 10) || 0;
+                const newPosition = currentPosition + 50;
+                element.style.top = `${newPosition}px`;
+            }
 
         </script>
     </body>
