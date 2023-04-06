@@ -4,6 +4,8 @@
 class Map{
     constructor(){
         this.id = "map";
+        this.count = 0;
+        // this.gridContainer = [];
         this.cellsWithWalls = map1;
         this.fillMap();
     }
@@ -12,15 +14,16 @@ class Map{
 Map.prototype.fillMap = function(){
     const gridContainer = document.querySelector('.map');
     for (let i = 0; i < MAP_DIM * MAP_DIM; i++) {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+
         if (this.cellsWithWalls.includes(i)) {
-            const wall = document.createElement('div');
-            wall.classList.add('wall');
-            gridContainer.appendChild(wall);
+            cell.classList.add('wall');
         } else {
-            const food = document.createElement('div');
-            food.classList.add('food');
-            gridContainer.appendChild(food);
+            cell.classList.add('food');
         }
+        gridContainer.appendChild(cell);
+        this.count++;
     }
 }
 

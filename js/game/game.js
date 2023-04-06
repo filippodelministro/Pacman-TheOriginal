@@ -30,6 +30,8 @@ function Game(){
 
     this.map = new Map();
 
+    // console.log("lenght: " + this.map.gridContainer.length );
+
     this.pacman = new Pacman();
     this.ghosts = [
         new Ghost('blue-ghost'),
@@ -37,9 +39,6 @@ function Game(){
         new Ghost('pink-ghost'),
         new Ghost('orange-ghost')
     ];
-
-    // const food = new Food();
-    // const ghost = new Ghost();
     
     document.addEventListener('keydown', this.keyPressedonGame.bind(this));
     this.pacman.startMoving();
