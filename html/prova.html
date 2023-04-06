@@ -4,6 +4,8 @@
 
         <title>Prova</title>
         <script src="./../js/game/prova.js"></script>
+        <script src="./../js/game/const.js"></script>
+
 
         <link rel="stylesheet" href="./../css/prova.css"> 
         <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
@@ -11,6 +13,13 @@
     </head>
 
     <body>
+        <p id="startinfo">
+            <span class="blink">[press any key to start the game]</span>
+        </p>
+
+
+
+
         <div class="container">              
             <div class="grid">
                 <div class="cell wall"></div>
@@ -119,9 +128,18 @@
         </div>
         
 
-        <script>
-           
-        </script>
+        <div id="pause-menu-container">
+            <nav class="pause-menu">
+                <a onclick="game.resume()">resume</a> <br>
+                <a href="./pacman-game.html">restart</a> <br>
+                <a href="./settings.html">settings</a> <br>
+                <a href="./home.html">exit</a> <br>
+            </nav>
+            <h3 class="blink">PAUSE</h3>
+            <p class="blink">[press ESC to resume]</p>
+        </div>
+        <div class="pause-menu-overlay"></div> 
+
     </body>
 
 </html>

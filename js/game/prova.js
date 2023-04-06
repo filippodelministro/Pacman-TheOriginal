@@ -1,4 +1,23 @@
 
+document.addEventListener('keydown', keyPressed);
+
+function keyPressed(e) {
+    if (e.keyCode == 8) // backspace
+        window.location = './home.html';
+
+    else{
+        init();
+    }
+}
+
+
+function init(){
+    document.getElementById("pause-menu-container").style.visibility = "hidden";
+    document.getElementById("startinfo").style.visibility = "hidden";
+
+    document.removeEventListener('keydown', keyPressed);
+}
+
 let grid;
 let cells;
 let pacman;
@@ -67,18 +86,18 @@ function movePacman(dx, dy) {
 
 function getCell(x, y) {
     // restituisce la cella della griglia corrispondente alla posizione (x, y)
-    if (x < 0 || x >= 17 || y < 0 || y >= 17) {
+    if (x < 0 || x >= MAP_DIM || y < 0 || y >= MAP_DIM) {
         // la posizione è al di fuori della griglia, non restituire alcuna cella
         return null;
     }
-    return cells[y * 17 + x];
+    return cells[y * MAP_DIM + x];
 }
 
 function translateRight(id){
     const element= document.getElementById(id);
 
     const currentPosition = parseInt(element.style.left, 10) || 0;
-    const newPosition = currentPosition + 30;
+    const newPosition = currentPosition + CELL_SIZE;
     element.style.left = `${newPosition}px`;
 }
 
@@ -86,7 +105,7 @@ function translateLeft(id){
     const element= document.getElementById(id);
 
     const currentPosition = parseInt(element.style.left, 10) || 0;
-    const newPosition = currentPosition - 30;
+    const newPosition = currentPosition - CELL_SIZE;
     element.style.left = `${newPosition}px`;
 }
 
@@ -94,7 +113,7 @@ function translateUp(id){
     const element= document.getElementById(id);
 
     const currentPosition = parseInt(element.style.top, 10) || 0;
-    const newPosition = currentPosition - 30;
+    const newPosition = currentPosition - CELL_SIZE;
     element.style.top = `${newPosition}px`;
 }
 
@@ -102,6 +121,6 @@ function translateDown(id){
     const element= document.getElementById(id);
 
     const currentPosition = parseInt(element.style.top, 10) || 0;
-    const newPosition = currentPosition + 30;
+    const newPosition = currentPosition + CELL_SIZE;
     element.style.top = `${newPosition}px`;
 }
