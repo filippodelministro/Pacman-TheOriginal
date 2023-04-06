@@ -5,6 +5,8 @@ class Map{
     constructor(){
         this.id = "map";
         this.count = 0;
+        // this.grid = document.querySelector('.grid');
+        // this.cells = this.grid.querySelectorAll('.cell');
         // this.gridContainer = [];
         this.cellsWithWalls = map1;
         this.fillMap();
@@ -25,6 +27,18 @@ Map.prototype.fillMap = function(){
         gridContainer.appendChild(cell);
         this.count++;
     }
+}
+
+Map.prototype.getCell = function(x, y){
+    const grid = document.querySelector('.grid');
+    cells = grid.querySelectorAll('.cell');
+
+    // restituisce la cella della griglia corrispondente alla posizione (x, y)
+    if (x < 0 || x >= MAP_DIM || y < 0 || y >= MAP_DIM) {
+        // la posizione è al di fuori della griglia, non restituire alcuna cella
+        return null;
+    }
+    return cells[y * MAP_DIM + x];
 }
 
 
