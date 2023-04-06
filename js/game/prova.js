@@ -23,7 +23,9 @@ function init(){
 function Game(){
     this.pause_on = false;
 
-    document.addEventListener('keydown', this.keyPressedonGame.bind(this));
+    this.map = new Map();
+
+    // document.addEventListener('keydown', this.keyPressedonGame.bind(this));
 
 }
 
