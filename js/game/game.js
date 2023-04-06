@@ -47,7 +47,6 @@ function Game(){
 }
 
 Game.prototype.keyPressedonGame = function(e){
-    
     if(!this.pause_on){
         //in game
         if(e.keyCode == 32 || e.keyCode == 27)            
