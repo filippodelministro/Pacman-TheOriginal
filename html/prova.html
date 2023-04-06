@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+    <head>
+
+        <meta charset="utf-8">
+
+        <style>
+            .container {
+                position: relative;
+                width: 500px; /* larghezza della griglia */
+                height: 500px; /* altezza della griglia */
+                background-color: black;
+                padding: 10px;
+                z-index: 1;
+            }
+
+            .grid {
+                display: grid;
+                width: 500px;
+                height: 500px;
+                gap: 1px;
+                grid-template-columns: repeat(10, 50px); /* 10 colonne da 50px ciascuna */
+                grid-template-rows: repeat(10, 50px); /* 10 righe da 50px ciascuna */
+                background-color: blue;
+            }
+            
+            .cell {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .wall {
+                background-color: purple;
+            }
+            
+            .food {
+                background-color: white;
+                border-radius: 50%;
+                width: 5px;
+                height: 5px;
+                margin: auto;
+            }
+            #pacman{
+                position: absolute;
+                height: 20px;
+                width: 20px;
+                background-color: rgb(255, 200, 0);
+                border-radius: 50%;
+                /* background-size: contain; */
+                grid-column: 2; /* posizione iniziale di Pacman */
+                grid-row: 2;
+                z-index: 4;
+            }
+      </style>
+      
+      
+    </head>
+
+    <body>
+        <div class="container">              
+            <div id="pacman"></div>
+            <div class="grid">
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell wall"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+                <div class="cell food"></div>
+            </div>
+        </div>
+        
+
+        <script>
+           const grid = document.querySelector('.grid');
+            const cells = grid.querySelectorAll('.cell');
+            const pacman = document.getElementById("pacman");
+
+            let pacmanPosition = { x: 0, y: 0 }; // posizione iniziale di Pacman
+
+            // gestire gli input utente per muovere Pacman
+            document.addEventListener('keydown', event => {
+                if (event.key === 'ArrowUp') {
+                    // muovi Pacman verso l'alto
+                    movePacman(0, -1);
+                    pacman.style.top = (top - 50) + 'px';
+                } else if (event.key === 'ArrowDown') {
+                    // muovi Pacman verso il basso
+                    movePacman(0, 1);
+                    pacman.style.top = (top + 50) + 'px';
+                } else if (event.key === 'ArrowLeft') {
+                    // muovi Pacman verso sinistra
+                    movePacman(-1, 0);
+                    pacman.style.left = (left - 50) + 'px';
+                } else if (event.key === 'ArrowRight') {
+                    // muovi Pacman verso destra
+                    movePacman(1, 0);
+                    pacman.style.left = (left + 50) + 'px';
+                }
+            });
+
+            function movePacman(dx, dy) {
+                // calcola la nuova posizione di Pacman
+                const newPosition = { x: pacmanPosition.x + dx, y: pacmanPosition.y + dy };
+                
+                // verifica se la nuova posizione è valida (non è una parete o al di fuori della griglia)
+                const newCell = getCell(newPosition.x, newPosition.y);
+                if (!newCell || newCell.classList.contains('wall')) {
+                    // la nuova posizione non è valida, non fare nulla
+                    return;
+                }
+                
+                // sposta Pacman alla nuova posizione
+                pacman.style.gridColumn = newPosition.x + 1; // le colonne sono numerate a partire da 1, non da 0
+                pacman.style.gridRow = newPosition.y + 1; // le righe sono numerate a partire da 1, non da 0
+                
+                // gestisci le interazioni di Pacman con gli elementi della griglia
+                if (newCell.classList.contains('food')) {
+                    // Pacman ha mangiato del cibo
+                    newCell.classList.remove('food');
+                    // newCell.classList.add('empty');
+
+                    // gestisci il comportamento di Pacman dopo aver mangiato del cibo
+                } else {
+                    // Pacman si è mosso su una cella vuota
+                    // gestisci il comportamento di Pacman quando si muove su una cella vuota
+                }
+                
+                // aggiorna la posizione di Pacman
+                pacmanPosition = newPosition;
+            }
+
+            function getCell(x, y) {
+                // restituisce la cella della griglia corrispondente alla posizione (x, y)
+                if (x < 0 || x >= 10 || y < 0 || y >= 10) {
+                    // la posizione è al di fuori della griglia, non restituire alcuna cella
+                    return null;
+                }
+                return cells[y * 10 + x];
+            }
+
+
+
+        </script>
+    </body>
+
+</html>
