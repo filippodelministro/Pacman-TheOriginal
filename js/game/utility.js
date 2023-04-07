@@ -29,25 +29,20 @@ function checkAndMove(el){
         case 'down': dx = 0; dy = 1; break; 
     }
 
-    switch(checkNext(el, dx, dy)){
-        case HIT_WALL: return;
-        case HIT_FOOD: {
-        
-                //todo: handle Pacman eating food
-                break;
-            }
-        default: return;
-    };
+    let hit = checkNext(el, dx, dy);
 
-    console.log("utility.js: checkAndMove: hit food ");
-    //hitted food
-    el.x += dx;
-    el.y += dy; 
-
-    moveElement(el, dx, dy);
+    if(hit != HIT_WALL){
+        el.x += dx;
+        el.y += dy; 
+            
+        moveElement(el, dx, dy);
+    }
+    
+    return hit;
 }
 
 function checkNext(el, dx, dy){
+//check the next cell and ret the hitten value
     const newX = el.x + dx;
     const newY = el.y + dy;
 
@@ -58,10 +53,10 @@ function checkNext(el, dx, dy){
     }
 
     if (newCell.classList.contains('food')) {
-        newCell.classList.remove('food');
 
         //todo: handle Pacman eating food
+        return HIT_FOOD;
     }
     
-    return HIT_FOOD;
+    return HIT_EMPTY;
 }

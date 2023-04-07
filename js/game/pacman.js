@@ -46,5 +46,14 @@ Pacman.prototype.changeDirection = function(e){
 
 
 Pacman.prototype.movePacman = function(){
-    checkAndMove(this);
+    let hit = checkAndMove(this);
+
+    switch(hit){
+        case HIT_FOOD: {
+            const newCell = getCell(this.x, this.y);
+            newCell.classList.remove('food');
+        } break;
+        default: break;
+    };
+
 }    
