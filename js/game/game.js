@@ -25,6 +25,8 @@ function Game(){
     this.map = new Map();
     this.pacman = new Pacman();
     document.addEventListener('keydown', this.keyPressedonGame.bind(this));
+
+    this.pacman.startMoving();
 }
 
 Game.prototype.keyPressedonGame = function(e){
@@ -34,7 +36,7 @@ Game.prototype.keyPressedonGame = function(e){
         if(e.keyCode == 32 || e.keyCode == 27)            
             this.pause(e);
         else{
-            this.changeDirection(e);
+            this.pacman.changeDirection(e);
         }
     }
     else{
@@ -49,27 +51,27 @@ Game.prototype.keyPressedonGame = function(e){
 
 //* ------------ MOVING PACMAN ------------
 
-Game.prototype.changeDirection = function(e){
+// Game.prototype.changeDirection = function(e){
 
-    if (e.keyCode === 38) {
-        // muovi Pacman verso l'alto
-        if(this.movePacman(0, -1))
-            translateUp("pacman");
-    } else if (e.keyCode === 40) {
-        // muovi Pacman verso il basso
-        if(this.movePacman(0, 1))
-            translateDown("pacman");
-    } else if (e.keyCode === 37) {
-        // muovi Pacman verso sinistra
-        if(this.movePacman(-1, 0))
-            translateLeft("pacman");
-    } else if (e.keyCode === 39) {
-        // muovi Pacman verso destra
-        if(this.movePacman(1, 0))
-            translateRight("pacman");
-    }
+//     if (e.keyCode === 38) {
+//         // muovi Pacman verso l'alto
+//         if(this.movePacman(0, -1))
+//             translateUp("pacman");
+//     } else if (e.keyCode === 40) {
+//         // muovi Pacman verso il basso
+//         if(this.movePacman(0, 1))
+//             translateDown("pacman");
+//     } else if (e.keyCode === 37) {
+//         // muovi Pacman verso sinistra
+//         if(this.movePacman(-1, 0))
+//             translateLeft("pacman");
+//     } else if (e.keyCode === 39) {
+//         // muovi Pacman verso destra
+//         if(this.movePacman(1, 0))
+//             translateRight("pacman");
+//     }
 
-}
+// }
 
 Game.prototype.movePacman = function(dx, dy){
     const newX = this.pacman.x + dx;
@@ -107,7 +109,7 @@ Game.prototype.pause = function(e){
     this.pause_on = true;
 
     document.getElementById("pause-menu-container").style.visibility = "visible";
-    // this.pacman.stopMoving();
+    this.pacman.stopMoving();
     // this.stopMovingGhosts();
 
     console.log("PAUSE> pacmanx: " + this.pacman.x + " pacmany: " + this.pacman.y);
@@ -118,6 +120,6 @@ Game.prototype.resume = function(e){
 
     document.getElementById("pause-menu-container").style.visibility = "hidden";
 
-    // this.pacman.startMoving();
+    this.pacman.startMoving();
     // this.startMovingGhosts();
 }

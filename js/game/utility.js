@@ -26,6 +26,7 @@ function getCell(x, y){
 //trnslate element by one CELL_SIZE
 function translateRight(id){
     const element= document.getElementById(id);
+    // console.log("utility.js: translateRight" + element.direction);
 
     const currentPosition = parseInt(element.style.left, 10) || 0;
     const newPosition = currentPosition + CELL_SIZE;
@@ -55,3 +56,20 @@ function translateDown(id){
     const newPosition = currentPosition + CELL_SIZE;
     element.style.top = `${newPosition}px`;
 }
+
+// //todo: pass just the element!!
+// function translate(el){
+//     console.log("utility.js: translateRight " + el.direction);
+
+//     switch(el.direction){
+//         case 'right': {
+//             const currentPosition = parseInt(el.style.left, 10) || 0;
+//             const newPosition = currentPosition + CELL_SIZE;
+//             element.style.left = `${newPosition}px`;
+//         } break;
+//     }
+
+
+//     this.element.style.left = (this.x * CELL_SIZE) + "px";
+//     this.element.style.top = (this.y * CELL_SIZE) + "px";
+// }
