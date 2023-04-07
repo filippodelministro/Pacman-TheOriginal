@@ -9,7 +9,6 @@ function keyPressed(e) {
     }
 }
 
-
 function init(){
     document.getElementById("pause-menu-container").style.visibility = "hidden";
     document.getElementById("startinfo").style.visibility = "hidden";
@@ -17,45 +16,16 @@ function init(){
     document.removeEventListener('keydown', keyPressed);
  
     game = new Game();
-    // map.addFood();
-    // map.addWallsToCells([0, 1, 2, 16, 17, 18]); // place walls in cells with indexes 0, 1, 2, 16, 17, 18
-
 }
+
 
 function Game(){
     this.pause_on = false;
 
-
-    // this.map.addWallsToCells(3, 5, 6);
-
     this.map = new Map();
-
-    // console.log("lenght: " + this.map.gridContainer.length );
-
     this.pacman = new Pacman();
-    // this.ghosts = [
-    //     new Ghost('blue-ghost'),
-    //     new Ghost('red-ghost'),
-    //     new Ghost('pink-ghost'),
-    //     new Ghost('orange-ghost')
-    // ];
-    
     document.addEventListener('keydown', this.keyPressedonGame.bind(this));
-    // this.pacman.startMoving();
-    // this.startMovingGhosts();
 }
-
-Game.prototype.getCells = function(){
-    const grid = document.querySelector('.map');
-    const cells = grid.querySelectorAll('.cell');
-    // restituisce la cella della griglia corrispondente alla posizione (x, y)
-    if (x < 0 || x >= MAP_DIM || y < 0 || y >= MAP_DIM) {
-        // la posizione è al di fuori della griglia, non restituire alcuna cella
-        return null;
-    }
-    return cells[y * MAP_DIM + x];
-}
-
 
 Game.prototype.keyPressedonGame = function(e){
     
@@ -63,8 +33,9 @@ Game.prototype.keyPressedonGame = function(e){
         //in game
         if(e.keyCode == 32 || e.keyCode == 27)            
             this.pause(e);
-        else
-            this.pacman.changeDirection(e);
+        else{
+            this.changeDirection(e);
+        }
     }
     else{
         //in pause
@@ -75,15 +46,73 @@ Game.prototype.keyPressedonGame = function(e){
     }
 }
 
+
+//* ------------ MOVING PACMAN ------------
+
+Game.prototype.changeDirection = function(e){
+
+    if (e.keyCode === 38) {
+        // muovi Pacman verso l'alto
+        if(this.movePacman(0, -1))
+            translateUp("pacman");
+    } else if (e.keyCode === 40) {
+        // muovi Pacman verso il basso
+        if(this.movePacman(0, 1))
+            translateDown("pacman");
+    } else if (e.keyCode === 37) {
+        // muovi Pacman verso sinistra
+        if(this.movePacman(-1, 0))
+            translateLeft("pacman");
+    } else if (e.keyCode === 39) {
+        // muovi Pacman verso destra
+        if(this.movePacman(1, 0))
+            translateRight("pacman");
+    }
+
+}
+
+Game.prototype.movePacman = function(dx, dy){
+    const newX = this.pacman.x + dx;
+    const newY = this.pacman.y + dy;
+
+    const newCell = getCell(newX, newY);
+    if (!newCell || newCell.classList.contains('wall')) {
+        //position is not valid!
+        return false;
+    }
+    
+    pacman.style.gridColumn = newX + 1; 
+    pacman.style.gridRow = newY + 1; 
+    
+    //pacman interacts whit other elements of the grid
+    if (newCell.classList.contains('food')) {
+        newCell.classList.remove('food');
+
+        //todo: handle Pacman eating food
+    }
+
+    // todo: handle Pacman touching ghosts
+
+    
+    //if here we can move pacman
+    this.pacman.x = newX;
+    this.pacman.y = newY;
+    return true;
+}
+
+
+
+//* ------------ PAUSE FUNCTIONS ------------
 Game.prototype.pause = function(e){
     this.pause_on = true;
 
     document.getElementById("pause-menu-container").style.visibility = "visible";
     // this.pacman.stopMoving();
     // this.stopMovingGhosts();
+
+    console.log("PAUSE> pacmanx: " + this.pacman.x + " pacmany: " + this.pacman.y);
+
 }
-
-
 Game.prototype.resume = function(e){
     this.pause_on = false;
 
@@ -91,21 +120,4 @@ Game.prototype.resume = function(e){
 
     // this.pacman.startMoving();
     // this.startMovingGhosts();
-}
-
-Game.prototype.startMovingGhosts = function(){
-    for (let i = 0; i < this.ghosts.length; i++) {
-        this.ghosts[i].startMoving();
-    } 
-}    
-
-Game.prototype.stopMovingGhosts = function(){
-    for (let i = 0; i < this.ghosts.length; i++) {
-        this.ghosts[i].stopMoving();
-    } 
-}    
-
-Game.prototype.handlePauseMenu = function(e){
-    //todo: handle this case
-
 }

@@ -10,22 +10,13 @@ body {
 .playground{
     display: flex;
     position: relative;
-
     width: 510px;
     height: 510px;
-
     margin-top: auto;
     margin-left: auto;
     margin-right: auto;
-
     outline: 3px solid whitesmoke;
-
-    /* justify-content: center;
-    align-items: center; */
-    /* height: 100vh; */
-    background-color: grey;
 }
-
 .map{
     display: grid;
     position: relative;
@@ -37,15 +28,10 @@ body {
     height: 510px;
     background-color: black;
 }  
-
 .cell {
     width: 30px;
     height: 30px;
-    /* border: 2px solid yellow; */
 }
-
-/** ------ CHARACHTERS  ------ */
-
 .wall{
     background-color: purple;
 
@@ -57,6 +43,7 @@ body {
     height: 5px;
     margin: auto;
 }
+/** ------ CHARACHTERS  ------ */
  
 .movable{
     position: absolute;
@@ -71,6 +58,7 @@ body {
     width: 20px;
     background-color: rgb(255, 200, 0);
     border-radius: 50%;
+    margin: 1%;
 }
 
 .ghost {
