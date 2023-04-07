@@ -8,7 +8,7 @@ class Pacman{
         this.x = 8;
         this.y = 9;
         this.direction = "right";
-        this.speed = 1000;
+        this.speed = 800;
         this.initPosition();
     }    
 }
@@ -25,7 +25,7 @@ Pacman.prototype.refresh = function(){
 
 Pacman.prototype.startMoving = function(){
     if (!this.moving) {
-        this.moveInterval = setInterval(this.move.bind(this), this.speed);
+        this.moveInterval = setInterval(this.movePacman.bind(this), this.speed);
         this.moving = true;
     }
 }
@@ -44,61 +44,7 @@ Pacman.prototype.changeDirection = function(e){
     }
 }
 
-Pacman.prototype.move = function(){
-    // translate(this);
 
-
-    switch(this.direction){
-        case 'left':{
-            if(this.checkPosition(-1, 0))
-                translateLeft("pacman");
-                // translate(this);
-
-        } break;
-        case 'up':{
-            if(this.checkPosition(0, -1))
-                translateUp("pacman");
-        } break;
-        case 'right':{
-            if(this.checkPosition(1, 0))
-                translateRight("pacman");
-                // translate(this);
-        } break;
-        case 'down':{
-            if(this.checkPosition(0, 1))
-                translateDown("pacman");
-        } break;
-    }
-}
-
-Pacman.prototype.checkPosition = function(dx, dy){
-    const newX = this.x + dx;
-    const newY = this.y + dy;
-
-    console.log("CHECKPOSITION: this.x: " + this.x + " this.y: " + this.y);
-
-    pacman.style.gridColumn = newX + 1; 
-    pacman.style.gridRow = newY + 1; 
-
-    const newCell = getCell(newX, newY);
-    if (!newCell || newCell.classList.contains('wall')) {
-        //position is not valid!
-        console.log("pacman.js CHECKPOSITION> falsee");
-        return false;
-    }
-
-    //pacman interacts whit other elements of the grid
-    if (newCell.classList.contains('food')) {
-        newCell.classList.remove('food');
-
-        //todo: handle Pacman eating food
-    }
-
-    // todo: handle Pacman touching ghosts
-
-    
-    //if here we can move pacman
-    this.x = newX;
-    this.y = newY;
-    return true;
-}
+Pacman.prototype.movePacman = function(){
+    checkAndMove(this);
+}    

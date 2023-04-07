@@ -49,61 +49,6 @@ Game.prototype.keyPressedonGame = function(e){
 }
 
 
-//* ------------ MOVING PACMAN ------------
-
-// Game.prototype.changeDirection = function(e){
-
-//     if (e.keyCode === 38) {
-//         // muovi Pacman verso l'alto
-//         if(this.movePacman(0, -1))
-//             translateUp("pacman");
-//     } else if (e.keyCode === 40) {
-//         // muovi Pacman verso il basso
-//         if(this.movePacman(0, 1))
-//             translateDown("pacman");
-//     } else if (e.keyCode === 37) {
-//         // muovi Pacman verso sinistra
-//         if(this.movePacman(-1, 0))
-//             translateLeft("pacman");
-//     } else if (e.keyCode === 39) {
-//         // muovi Pacman verso destra
-//         if(this.movePacman(1, 0))
-//             translateRight("pacman");
-//     }
-
-// }
-
-Game.prototype.movePacman = function(dx, dy){
-    const newX = this.pacman.x + dx;
-    const newY = this.pacman.y + dy;
-
-    const newCell = getCell(newX, newY);
-    if (!newCell || newCell.classList.contains('wall')) {
-        //position is not valid!
-        return false;
-    }
-    
-    pacman.style.gridColumn = newX + 1; 
-    pacman.style.gridRow = newY + 1; 
-    
-    //pacman interacts whit other elements of the grid
-    if (newCell.classList.contains('food')) {
-        newCell.classList.remove('food');
-
-        //todo: handle Pacman eating food
-    }
-
-    // todo: handle Pacman touching ghosts
-
-    
-    //if here we can move pacman
-    this.pacman.x = newX;
-    this.pacman.y = newY;
-    return true;
-}
-
-
-
 //* ------------ PAUSE FUNCTIONS ------------
 Game.prototype.pause = function(e){
     this.pause_on = true;

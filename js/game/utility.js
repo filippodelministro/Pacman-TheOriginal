@@ -1,16 +1,4 @@
 
-//todo: unify this for Pacman and Ghost
-function move(element){    
-    switch(element.direction){
-        case 'up': translateUp(element); break;
-        case 'down': translateDown(element); break;
-        case 'left': translateLeft(element); break;
-        case 'right': translateRight(element); break;
-        default: break;
-    }
-}
-
-
 function getCell(x, y){
     //return cell number if position passed is valid
     const grid = document.querySelector('.map');
@@ -21,55 +9,59 @@ function getCell(x, y){
     return cells[y * MAP_DIM + x];
 }
 
-
-//* ------------ MOVING ELEMENTS ------------
-//trnslate element by one CELL_SIZE
-function translateRight(id){
-    const element= document.getElementById(id);
-    // console.log("utility.js: translateRight" + element.direction);
-
-    const currentPosition = parseInt(element.style.left, 10) || 0;
-    const newPosition = currentPosition + CELL_SIZE;
-    element.style.left = `${newPosition}px`;
+function moveElement(el, dx, dy){
+    const currLeft = parseInt(el.element.style.left, 10) || 0;
+    const currTop = parseInt(el.element.style.top, 10) || 0;
+    const newLeft = currLeft + dx * CELL_SIZE;
+    const newTop = currTop + dy * CELL_SIZE;
+    el.element.style.top = `${newTop}px`;
+    el.element.style.left = `${newLeft}px`;
 }
 
-function translateLeft(id){
-    const element= document.getElementById(id);
+function checkAndMove(el){
+    let dx = 0;
+    let dy = 0;
 
-    const currentPosition = parseInt(element.style.left, 10) || 0;
-    const newPosition = currentPosition - CELL_SIZE;
-    element.style.left = `${newPosition}px`;
+    switch(el.direction){
+        case 'left' : dx = -1; dy = 0; break;
+        case 'right': dx = 1; dy = 0; break;
+        case 'up' : dx = 0; dy = -1; break;
+        case 'down': dx = 0; dy = 1; break; 
+    }
+
+    switch(checkNext(el, dx, dy)){
+        case HIT_WALL: return;
+        case HIT_FOOD: {
+        
+                //todo: handle Pacman eating food
+                break;
+            }
+        default: return;
+    };
+
+    console.log("utility.js: checkAndMove: hit food ");
+    //hitted food
+    el.x += dx;
+    el.y += dy; 
+
+    moveElement(el, dx, dy);
 }
 
-function translateUp(id){
-    const element= document.getElementById(id);
+function checkNext(el, dx, dy){
+    const newX = el.x + dx;
+    const newY = el.y + dy;
 
-    const currentPosition = parseInt(element.style.top, 10) || 0;
-    const newPosition = currentPosition - CELL_SIZE;
-    element.style.top = `${newPosition}px`;
+    const newCell = getCell(newX, newY);
+    if (!newCell || newCell.classList.contains('wall')) {
+        //position is not valid!
+        return HIT_WALL;
+    }
+
+    if (newCell.classList.contains('food')) {
+        newCell.classList.remove('food');
+
+        //todo: handle Pacman eating food
+    }
+    
+    return HIT_FOOD;
 }
-
-function translateDown(id){
-    const element= document.getElementById(id);
-
-    const currentPosition = parseInt(element.style.top, 10) || 0;
-    const newPosition = currentPosition + CELL_SIZE;
-    element.style.top = `${newPosition}px`;
-}
-
-// //todo: pass just the element!!
-// function translate(el){
-//     console.log("utility.js: translateRight " + el.direction);
-
-//     switch(el.direction){
-//         case 'right': {
-//             const currentPosition = parseInt(el.style.left, 10) || 0;
-//             const newPosition = currentPosition + CELL_SIZE;
-//             element.style.left = `${newPosition}px`;
-//         } break;
-//     }
-
-
-//     this.element.style.left = (this.x * CELL_SIZE) + "px";
-//     this.element.style.top = (this.y * CELL_SIZE) + "px";
-// }
