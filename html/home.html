@@ -13,21 +13,16 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
         <meta charset="utf-8" />            
-    </head>
-    
-
-    <header>
-        <nav>
-            <button class="menu-item" onclick="appear('about')">about</button>  
-            <button class="menu-item" onclick="appear('command')">command</button> 
-            <button class="menu-item" onclick="appear('instructions')">instructions</button> 
-        </nav>
-    </header>
-            
+    </head>    
     <body>
-
-        
-        <div id="container" class="container">
+        <header>
+            <nav>
+                <button class="menu-item" onclick="appear('about')">about</button>  
+                <button class="menu-item" onclick="appear('command')">command</button> 
+                <button class="menu-item" onclick="appear('instructions')">instructions</button> 
+            </nav>
+        </header>
+        <main id="container" class="container">
             <section class="title-section">
                 <h2>PACMAN: THE ORIGINAL.</h2>
                 <p>The most played game in the '80</p>
@@ -48,8 +43,8 @@
 
             <section id="about" class="menu-section">
                 <h4>about</h4>
-                <p>Pac-Man is one of the most known game in the world: surely one of the most played inside americans arcade in '90.<br>
-                    Realead in Japan by NAMCO it immediately become famous for his simple layout and his challenging gameplay.
+                <p><mark>Pac-Man</mark> is one of the most known game in the world: surely one of the most played inside americans arcade in '90.<br>
+                    Released in Japan <b>by NAMCO</b> it immediately become famous worldwide for his simple layout and his challenging gameplay.
                 </p>
             </section>
             <section id="command" class="menu-section">
@@ -58,7 +53,10 @@
             </section>
             <section id="instructions" class="menu-section">
                 <h4>instructions</h4>
-                <p></p>
+                <p>Move Pacman and try to eat all the food in the map. <br> Pay attention to the <mark>ghost</mark>! They can also move
+                    around the map trying to catch you: if they do, you will lose a life. <br>
+                    Eat <b>cherry</b> to make ghosts harmless and eat them to gain extra points! 
+                </p>
             </section>
             
 
@@ -77,9 +75,10 @@
                 <span id="darkmode" class="material-icons icons">dark_mode</span>
             </button>
             
-        </div>
-           
-
-
+        </main>
+        
+        <footer class="retro-footer">
+            <p>&copy; 2023 Pacman - The Original | <a href="https://github.com/filippodelministro">Filippo Del Ministro</a></p>
+        </footer>
     </body>
 </html>         
