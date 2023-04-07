@@ -3,9 +3,9 @@ class Ghost {
         this.id = name;
         this.element = document.getElementById(this.id);
       
-        this.x = 12;
-        this.y = 12;
-        this.speed = 400;
+        this.x = 7;
+        this.y = 8;
+        this.speed = 200;
         this.direction = "up";
         this.initPosition();
     }

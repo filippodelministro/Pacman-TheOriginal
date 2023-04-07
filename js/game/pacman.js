@@ -7,8 +7,8 @@ class Pacman{
 
         this.x = 8;
         this.y = 9;
-        this.direction = "right";
-        this.speed = 800;
+        this.direction;
+        this.speed = 300;
         this.initPosition();
     }    
 }
