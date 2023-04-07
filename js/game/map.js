@@ -1,45 +1,45 @@
 
 
 
-class Map{
-    constructor(){
-        this.id = "map";
-        this.count = 0;
-        // this.grid = document.querySelector('.grid');
-        // this.cells = this.grid.querySelectorAll('.cell');
-        // this.gridContainer = [];
-        this.cellsWithWalls = map1;
-        this.fillMap();
-    }
-}
+// class Map{
+//     constructor(){
+//         this.id = "map";
+//         this.count = 0;
+//         // this.grid = document.querySelector('.grid');
+//         // this.cells = this.grid.querySelectorAll('.cell');
+//         // this.gridContainer = [];
+//         this.cellsWithWalls = map1;
+//         this.fillMap();
+//     }
+// }
 
-Map.prototype.fillMap = function(){
-    const gridContainer = document.querySelector('.map');
-    for (let i = 0; i < MAP_DIM * MAP_DIM; i++) {
-        const cell = document.createElement('div');
-        cell.classList.add('cell');
+// Map.prototype.fillMap = function(){
+//     const gridContainer = document.querySelector('.map');
+//     for (let i = 0; i < MAP_DIM * MAP_DIM; i++) {
+//         const cell = document.createElement('div');
+//         cell.classList.add('cell');
 
-        if (this.cellsWithWalls.includes(i)) {
-            cell.classList.add('wall');
-        } else {
-            cell.classList.add('food');
-        }
-        gridContainer.appendChild(cell);
-        this.count++;
-    }
-}
+//         if (this.cellsWithWalls.includes(i)) {
+//             cell.classList.add('wall');
+//         } else {
+//             cell.classList.add('food');
+//         }
+//         gridContainer.appendChild(cell);
+//         this.count++;
+//     }
+// }
 
-Map.prototype.getCell = function(x, y){
-    const grid = document.querySelector('.grid');
-    cells = grid.querySelectorAll('.cell');
+// Map.prototype.getCell = function(x, y){
+//     const grid = document.querySelector('.grid');
+//     cells = grid.querySelectorAll('.cell');
 
-    // restituisce la cella della griglia corrispondente alla posizione (x, y)
-    if (x < 0 || x >= MAP_DIM || y < 0 || y >= MAP_DIM) {
-        // la posizione è al di fuori della griglia, non restituire alcuna cella
-        return null;
-    }
-    return cells[y * MAP_DIM + x];
-}
+//     // restituisce la cella della griglia corrispondente alla posizione (x, y)
+//     if (x < 0 || x >= MAP_DIM || y < 0 || y >= MAP_DIM) {
+//         // la posizione è al di fuori della griglia, non restituire alcuna cella
+//         return null;
+//     }
+//     return cells[y * MAP_DIM + x];
+// }
 
 
 const map1 = [

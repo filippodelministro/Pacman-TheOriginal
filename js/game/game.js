@@ -45,6 +45,18 @@ function Game(){
     // this.startMovingGhosts();
 }
 
+Game.prototype.getCells = function(){
+    const grid = document.querySelector('.map');
+    const cells = grid.querySelectorAll('.cell');
+    // restituisce la cella della griglia corrispondente alla posizione (x, y)
+    if (x < 0 || x >= MAP_DIM || y < 0 || y >= MAP_DIM) {
+        // la posizione è al di fuori della griglia, non restituire alcuna cella
+        return null;
+    }
+    return cells[y * MAP_DIM + x];
+}
+
+
 Game.prototype.keyPressedonGame = function(e){
     
     if(!this.pause_on){
