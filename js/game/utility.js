@@ -9,6 +9,16 @@ function getCell(x, y){
     return cells[y * MAP_DIM + x];
 }
 
+function getCell1(map, x, y){
+    //return cell number if position passed is valid
+    if(x < 0 || x >= MAP_DIM || y < 0 || y >= MAP){
+        return null;
+    }
+
+    return map[y * MAP_DIM + x];
+}
+
+
 function moveElement(el, dx, dy){
     const currLeft = parseInt(el.element.style.left, 10) || 0;
     const currTop = parseInt(el.element.style.top, 10) || 0;

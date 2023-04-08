@@ -34,8 +34,14 @@ body {
 }
 .wall{
     background-color: purple;
-
 }
+.tunnel{
+    background-color: gray;
+}
+.spawn{
+    background-color: rgb(47, 0, 47);
+}
+
 .food {
     background-color: white;
     border-radius: 50%;
