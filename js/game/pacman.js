@@ -46,9 +46,17 @@ Pacman.prototype.changeDirection = function(e){
 
 
 Pacman.prototype.movePacman = function(){
-    game.getCell(this.x, this.y);
-    
 
+
+    //todo: use getCell on next cell: use with this.direction
+    let on = game.getCell(this.x, this.y);
+
+    switch(on){
+        case 0: console.log("wall"); break;
+        case 1: console.log("food"); break;
+        case 2: console.log("cross"); break;
+        case 3: console.log("tunnel"); break;
+    }
     // let hit = checkAndMove(this);
 
     // switch(hit){
