@@ -22,8 +22,11 @@ function init(){
 function Game(){
     this.pause_on = false;
 
-    this.score = 0
+    this.score = 0;
     this.map = new Map();
+
+    console.log("foodElements: "+ this.map.foodElements)
+
     this.pacman = new Pacman();
     this.ghosts = [
         new Ghost('blue-ghost'),
@@ -94,9 +97,29 @@ Game.prototype.addPoints = function(type){
     console.log("game.js> ADDPOINTS> this.pacman.score: " + this.score);
 
     let points = (type == "food" ) ? FOOD_POINTS : GHOST_POINTS;
+   
 
     this.score += points;
 
     points = document.getElementById("score");
     points.textContent = this.score;
+
+    this.foodElements--;
+    console.log("game.js> ADDPOINTS> foodElements: " + this.map.foodElements);
+
+    if(type == "food"){
+        this.map.foodElements--;
+    }
+    if(!this.map.foodElements){
+        game.gameOver("win");
+    }
+    
+}
+
+
+//* ------------ GAME FUNCTIONS ------------
+Game.prototype.gameOver = function(type){
+    if(type == "win"){
+        this.pause();
+    }
 }

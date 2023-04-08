@@ -1,6 +1,7 @@
 
 function Map(){
     this.map = map1;
+    this.foodElements = 0;
     this.fillMap();
 }
 
@@ -15,6 +16,7 @@ Map.prototype.fillMap = function(){
             cell.classList.add('wall');
         } else {
             cell.classList.add('food');
+            this.foodElements++;
         }
         gridContainer.appendChild(cell);
     }

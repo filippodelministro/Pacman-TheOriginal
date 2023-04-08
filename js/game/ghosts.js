@@ -6,7 +6,6 @@ class Ghost {
         this.x = 7;
         this.y = 8;
         this.speed = 200;
-        this.direction = "up";
         this.initPosition();
     }
 }
@@ -15,11 +14,12 @@ class Ghost {
 Ghost.prototype.initPosition = function(){
     this.element.style.left = (this.x * CELL_SIZE) + "px";
     this.element.style.top = (this.y * CELL_SIZE) + "px";
-    // this.direction = this.randomDirection();
+    this.direction = this.randomDirection();
 }
 
 Ghost.prototype.startMoving = function(){
     if (!this.moving) {
+        //fix: need implementation to make them more "smart"
         this.moveInterval = setInterval(this.move.bind(this), this.speed);
         this.moving = true;
     }
