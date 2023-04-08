@@ -1,25 +1,22 @@
 
 function Map(){
-    this.map = map1;
+    this.cells = [MAP_DIM * MAP_DIM];
     this.foodElements = 0;
-    this.fillMap();
+    this.fillMap(map1);
 }
 
 
-Map.prototype.fillMap = function(){
+Map.prototype.fillMap = function(mapDesc){
+    mapDesc;
+
     const gridContainer = document.querySelector('.map');
     for (let i = 0; i < MAP_DIM * MAP_DIM; i++) {
+        this.cells[i] = mapDesc[i];
+
+        //create HTML to visualize the map
         const cell = document.createElement('div');
         cell.classList.add('cell');
-
-        // if (this.map.includes(i)) {
-        //     cell.classList.add('wall');
-        // } else {
-        //     cell.classList.add('food');
-        //     this.foodElements++;
-        // }
-        
-        switch(this.map[i]){
+        switch(mapDesc[i]){
             case 0: cell.classList.add('wall'); break;
             case 1: cell.classList.add('food'); break
             case 2: {

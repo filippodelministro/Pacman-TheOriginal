@@ -25,8 +25,7 @@ function Game(){
     this.score = 0;
     this.map = new Map();
 
-    console.log("foodElements: "+ this.map.foodElements)
-
+    console.log("game> this.map.cells[1]: " + this.map.cells[1]);
     this.pacman = new Pacman();
     this.ghosts = [
         new Ghost('blue-ghost'),
@@ -122,4 +121,14 @@ Game.prototype.gameOver = function(type){
     if(type == "win"){
         this.pause();
     }
+}
+
+
+Game.prototype.getCell = function(x, y){
+    //return cell number if position passed is valid
+    if(x < 0 || x >= MAP_DIM || y < 0 || y >= MAP_DIM){
+        return null;
+    }
+
+    return this.map.cells[y * MAP_DIM + x];
 }

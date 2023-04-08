@@ -46,16 +46,19 @@ Pacman.prototype.changeDirection = function(e){
 
 
 Pacman.prototype.movePacman = function(){
-    let hit = checkAndMove(this);
+    game.getCell(this.x, this.y);
+    
 
-    switch(hit){
-        case HIT_FOOD: {
-            const newCell = getCell(this.x, this.y);
-            newCell.classList.remove('food');
+    // let hit = checkAndMove(this);
 
-            game.addPoints('food');
-        } break;
-        default: break;
-    };
+    // switch(hit){
+    //     case HIT_FOOD: {
+    //         const newCell = getCell(this.x, this.y);
+    //         newCell.classList.remove('food');
+
+    //         game.addPoints('food');
+    //     } break;
+    //     default: break;
+    // };
 
 }    
