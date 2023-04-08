@@ -22,6 +22,7 @@ function init(){
 function Game(){
     this.pause_on = false;
 
+    this.score = 0
     this.map = new Map();
     this.pacman = new Pacman();
     this.ghosts = [
@@ -86,3 +87,16 @@ Game.prototype.stopMovingGhosts = function(){
         this.ghosts[i].stopMoving();
     } 
 }    
+
+
+//* ------------ POINTS FUNCTIONS ------------
+Game.prototype.addPoints = function(type){
+    console.log("game.js> ADDPOINTS> this.pacman.score: " + this.score);
+
+    let points = (type == "food" ) ? FOOD_POINTS : GHOST_POINTS;
+
+    this.score += points;
+
+    points = document.getElementById("score");
+    points.textContent = this.score;
+}

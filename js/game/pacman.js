@@ -52,6 +52,8 @@ Pacman.prototype.movePacman = function(){
         case HIT_FOOD: {
             const newCell = getCell(this.x, this.y);
             newCell.classList.remove('food');
+
+            game.addPoints('food');
         } break;
         default: break;
     };
