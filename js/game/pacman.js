@@ -47,15 +47,36 @@ Pacman.prototype.changeDirection = function(e){
 
 Pacman.prototype.movePacman = function(){
 
+    let posX = this.x;
+    let posY = this.y;
 
-    //todo: use getCell on next cell: use with this.direction
-    let on = game.getCell(this.x, this.y);
+    switch(this.direction){
+        case "left" : posX -= 1; break;
+        case "up" : posY -= 1; break;
+        case "right" : posX += 1; break;
+        case "down" : posY += 1; break;
+    }
 
-    switch(on){
-        case 0: console.log("wall"); break;
-        case 1: console.log("food"); break;
-        case 2: console.log("cross"); break;
-        case 3: console.log("tunnel"); break;
+    let next = game.getCell(posX, posY);
+
+    switch(next){
+        case WALL: console.log("wall"); break;
+        case FOOD: {
+            console.log("food");
+            // game.map[posX][posY] = 0;
+            moveElement(this, posX, posY);
+            this.x = posX;
+            this.y = posY;
+            game.map[[this.x, this.y]] = EMPTY;
+            
+            //remove food from HTML
+            const grid = document.querySelector('.map');
+            const cells = grid.querySelectorAll('.cell');
+            cells[this.y * MAP_DIM + this.x].classList.remove('food');
+            break;
+        }    
+        case CROSS: console.log("cross"); break;
+        case TUNN: console.log("tunnel"); break;
     }
     // let hit = checkAndMove(this);
 
