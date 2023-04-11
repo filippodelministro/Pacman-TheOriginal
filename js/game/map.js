@@ -17,7 +17,6 @@ Map.prototype.fillMap = function(mapDesc){
             case WALL: cell.classList.add('wall'); break;
             case FOOD: cell.classList.add('food'); break
             case CRSS: {
-                cell.classList.add('crss');
                 cell.classList.add('food');
                 break;
             }
@@ -27,7 +26,7 @@ Map.prototype.fillMap = function(mapDesc){
                 break;
             }
             case SPWN: {
-                cell.classList.add('wall');
+                // cell.classList.add('wall');
                 cell.classList.add('spawn');
                 // cell.classList.add('food'); 
                 break;
@@ -69,9 +68,9 @@ Map.prototype.fillMap = function(mapDesc){
 // ]
 
 const map1 = [
-    FOOD, FOOD, FOOD, FOOD, CRSS, FOOD, FOOD, FOOD, WALL, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD,
+    FOOD, FOOD, FOOD, FOOD, CRSS, FOOD, FOOD, FOOD, WALL, FOOD, FOOD, FOOD, CRSS, FOOD, FOOD, FOOD, FOOD,
     FOOD, WALL, WALL, WALL, FOOD, WALL, WALL, FOOD, WALL, FOOD, WALL, WALL, FOOD, WALL, WALL, WALL, FOOD,
-    FOOD, WALL, WALL, WALL, CRSS, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, WALL, WALL, WALL, FOOD,
+    FOOD, WALL, WALL, WALL, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, WALL, WALL, WALL, FOOD,
     FOOD, FOOD, FOOD, FOOD, CRSS, WALL, FOOD, WALL, WALL, WALL, FOOD, WALL, CRSS, FOOD, FOOD, FOOD, CRSS,
     FOOD, WALL, WALL, WALL, FOOD, WALL, FOOD, FOOD, WALL, FOOD, FOOD, WALL, FOOD, WALL, WALL, WALL, FOOD,
     FOOD, FOOD, FOOD, FOOD, CRSS, WALL, WALL, FOOD, WALL, FOOD, WALL, WALL, CRSS, FOOD, FOOD, FOOD, FOOD,
@@ -83,7 +82,7 @@ const map1 = [
     FOOD, WALL, WALL, WALL, FOOD, WALL, WALL, FOOD, WALL, FOOD, WALL, WALL, FOOD, WALL, WALL, WALL, FOOD,
     FOOD, FOOD, FOOD, WALL, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, WALL, FOOD, FOOD, FOOD,
     WALL, WALL, FOOD, WALL, FOOD, WALL, FOOD, WALL, WALL, WALL, FOOD, WALL, FOOD, WALL, FOOD, WALL, WALL,
-    FOOD, FOOD, CRSS, FOOD, CRSS, WALL, FOOD, FOOD, WALL, FOOD, FOOD, WALL, FOOD, FOOD, CRSS, FOOD, FOOD,
+    FOOD, FOOD, CRSS, FOOD, CRSS, WALL, FOOD, FOOD, WALL, FOOD, FOOD, WALL, CRSS, FOOD, CRSS, FOOD, FOOD,
     FOOD, WALL, WALL, WALL, WALL, WALL, WALL, FOOD, WALL, FOOD, WALL, WALL, WALL, WALL, WALL, WALL, FOOD,
-    FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, CRSS, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD
+    FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, CRSS, FOOD, CRSS, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD
 ]

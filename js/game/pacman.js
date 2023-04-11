@@ -61,7 +61,6 @@ Pacman.prototype.movePacman = function(){
     let next = game.getCell(posX, posY);
 
     switch(next){
-        case WALL: break;
         case FOOD: {
             this.x = posX;
             this.y = posY;
@@ -69,8 +68,15 @@ Pacman.prototype.movePacman = function(){
             game.removeFood(this.x, this.y);
             game.addPoints(FOOD);
             break;
-        }    
-        case CROSS: break;
+        }
+        case CRSS:{
+            this.x = posX;
+            this.y = posY;
+            moveElement(this, this.x, this.y);
+            game.removeFood(this.x, this.y);
+            game.addPoints(FOOD);
+            break;
+        }
         case TUNN: {
             if(this.x == 1)
                 this.x = MAP_DIM - 1;
@@ -78,11 +84,6 @@ Pacman.prototype.movePacman = function(){
             moveElement(this, this.x, this.y);
             break;
         }
-        case EMPTY: {
-            this.x = posX;
-            this.y = posY;
-            moveElement(this, this.x, this.y);
-            break;
-        }
+        default: break;
     }
 }    

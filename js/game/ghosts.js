@@ -60,7 +60,6 @@ Ghost.prototype.moveGhost = function(){
         case DOWN : posY += 1; break;
     }
 
-    //todo: else
     let next = game.getCell(posX, posY);
 
     switch(next){
