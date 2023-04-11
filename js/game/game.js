@@ -93,20 +93,15 @@ Game.prototype.stopMovingGhosts = function(){
 
 //* ------------ POINTS FUNCTIONS ------------
 Game.prototype.addPoints = function(type){
-    console.log("game.js> ADDPOINTS> this.pacman.score: " + this.score);
-
-    let points = (type == "food" ) ? FOOD_POINTS : GHOST_POINTS;
-   
-
+    let points = (type == FOOD ) ? FOOD_POINTS : GHOST_POINTS;
     this.score += points;
 
     points = document.getElementById("score");
     points.textContent = this.score;
 
     this.foodElements--;
-    console.log("game.js> ADDPOINTS> foodElements: " + this.map.foodElements);
 
-    if(type == "food"){
+    if(type == FOOD){
         this.map.foodElements--;
     }
     if(!this.map.foodElements){
@@ -131,4 +126,13 @@ Game.prototype.getCell = function(x, y){
     }
 
     return this.map.cells[y * MAP_DIM + x];
+}
+
+Game.prototype.removeFood = function(x, y){
+    this.map.cells[y * MAP_DIM + x] = EMPTY;
+
+    //remove food from HTML
+    const grid = document.querySelector('.map');
+    const cells = grid.querySelectorAll('.cell');
+    cells[y * MAP_DIM + x].classList.remove('food');
 }

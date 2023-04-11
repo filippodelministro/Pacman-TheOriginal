@@ -5,7 +5,6 @@ function Map(){
     this.fillMap(map1);
 }
 
-
 Map.prototype.fillMap = function(mapDesc){
     const gridContainer = document.querySelector('.map');
     for (let i = 0; i < MAP_DIM * MAP_DIM; i++) {

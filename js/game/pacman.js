@@ -67,12 +67,8 @@ Pacman.prototype.movePacman = function(){
             this.x = posX;
             this.y = posY;
             moveElement(this, this.x, this.y);
-            game.map[[this.x, this.y]] = EMPTY;
-            
-            //remove food from HTML
-            const grid = document.querySelector('.map');
-            const cells = grid.querySelectorAll('.cell');
-            cells[this.y * MAP_DIM + this.x].classList.remove('food');
+            game.removeFood(this.x, this.y);
+            game.addPoints(FOOD);
             break;
         }    
         case CROSS: console.log("cross"); break;
@@ -85,17 +81,12 @@ Pacman.prototype.movePacman = function(){
             moveElement(this, this.x, this.y);
             break;
         }
+        case EMPTY: {
+            console.log("empty");
+            this.x = posX;
+            this.y = posY;
+            moveElement(this, this.x, this.y);
+            break;
+        }
     }
-    // let hit = checkAndMove(this);
-
-    // switch(hit){
-    //     case HIT_FOOD: {
-    //         const newCell = getCell(this.x, this.y);
-    //         newCell.classList.remove('food');
-
-    //         game.addPoints('food');
-    //     } break;
-    //     default: break;
-    // };
-
 }    
