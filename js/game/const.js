@@ -7,7 +7,7 @@ const WALL = 2;
 const EMPTY = 3;
 const TUNN = 4;
 const SPWN = 5;
-const CROSS = 6;
+const CRSS = 6;
 
 const FOOD_POINTS = 10;
 const GHOST_POINTS = 200;

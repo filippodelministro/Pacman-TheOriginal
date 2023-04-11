@@ -17,7 +17,7 @@ Ghost.prototype.initPosition = function(){
     this.element.style.left = (this.x * CELL_SIZE) + "px";
     this.element.style.top = (this.y * CELL_SIZE) + "px";
     this.moving = false;
-    this.randomDirection();
+    this.changeDirection();
 }
 Ghost.prototype.startMoving = function(){
     if (!this.moving) {
@@ -41,6 +41,13 @@ Ghost.prototype.moveGhost = function(){
     let on = game.getCell(this.x, this.y);
     if(on == SPWN){
         this.leaveSpawn();
+
+        // return;
+    }
+
+    if(on == CRSS){
+        this.randomDirection();
+        // return;
     }
 
     
@@ -53,19 +60,14 @@ Ghost.prototype.moveGhost = function(){
         case DOWN : posY += 1; break;
     }
 
+    //todo: else
     let next = game.getCell(posX, posY);
 
     switch(next){
         case WALL: {
-            this.randomDirection(); 
+            this.changeDirection(); 
             break;
         }
-        case FOOD: {
-            this.x = posX;
-            this.y = posY;
-            moveElement(this, this.x, this.y);
-            break;
-        }    
         case TUNN: {
             console.log("tunnel");
             if(this.x == 1)
@@ -74,17 +76,29 @@ Ghost.prototype.moveGhost = function(){
             moveElement(this, this.x, this.y);
             break;
         }
-        case EMPTY: {
+        case SPWN:{
+            this.changeDirection();
+            break;
+        }
+        case null: {    //map's border 
+            this.randomDirection(); 
+            break;
+        }
+        default:{
             this.x = posX;
             this.y = posY;
             moveElement(this, this.x, this.y);
-            break;
-        }
-        default: this.randomDirection();
+        } 
     }   
 }    
 
-Ghost.prototype.randomDirection = function(){
+Ghost.prototype.randomDirection = function(direction){
+    const randomIndex = Math.floor(Math.random() * 10); 
+    if(randomIndex < 4)         //30% to change direction
+        this.changeDirection();
+}
+
+Ghost.prototype.changeDirection = function(){
     const directions = [UP, DOWN, RIGHT, LEFT];
     const randomIndex = Math.floor(Math.random() * 4); 
     this.direction = directions[randomIndex];
