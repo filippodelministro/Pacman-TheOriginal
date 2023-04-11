@@ -21,19 +21,14 @@ Ghost.prototype.initPosition = function(){
 }
 Ghost.prototype.startMoving = function(){
     if (!this.moving) {
-        //fix: need implementation to make them more "smart"
         this.moveInterval = setInterval(this.moveGhost.bind(this), this.speed);
         this.moving = true;
-        console.log("startMoving: " + this.moving);
-
     }
 }
 Ghost.prototype.stopMoving = function(){
     clearInterval(this.moveInterval);
     this.moving = false;
 }
-
-
 
 Ghost.prototype.moveGhost = function(){
     
@@ -63,31 +58,22 @@ Ghost.prototype.moveGhost = function(){
     let next = game.getCell(posX, posY);
 
     switch(next){
-        case WALL: {
-            this.changeDirection(); 
-            break;
-        }
-        case TUNN: {
-            console.log("tunnel");
-            if(this.x == 1)
-                this.x = MAP_DIM - 1;
-            else this.x = 0;
-            moveElement(this, this.x, this.y);
-            break;
-        }
-        case SPWN:{
-            this.changeDirection();
-            break;
-        }
-        case null: {    //map's border 
-            this.randomDirection(); 
-            break;
-        }
-        default:{
+        case FOOD: {
             this.x = posX;
             this.y = posY;
             moveElement(this, this.x, this.y);
-        } 
+        }
+        case CRSS: {
+            this.x = posX;
+            this.y = posY;
+            moveElement(this, this.x, this.y);
+        }
+        case EMPTY:{
+            this.x = posX;
+            this.y = posY;
+            moveElement(this, this.x, this.y);
+        }
+        default: this.changeDirection();
     }   
 }    
 

@@ -19,11 +19,6 @@ Pacman.prototype.initPosition = function(){
     this.direction = RIGHT;
 }
 
-Pacman.prototype.refresh = function(){
-    this.stopMoving();
-    this.startMoving();
-}
-
 Pacman.prototype.startMoving = function(){
     if (!this.moving) {
         this.moveInterval = setInterval(this.movePacman.bind(this), this.speed);
@@ -44,7 +39,6 @@ Pacman.prototype.changeDirection = function(e){
         case 40: this.direction = DOWN; break;
     }
 }
-
 
 Pacman.prototype.movePacman = function(){
 

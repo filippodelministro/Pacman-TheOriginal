@@ -22,13 +22,10 @@ Map.prototype.fillMap = function(mapDesc){
             }
             case TUNN: {
                 cell.classList.add('tunnel');
-                // cell.classList.add('food'); 
                 break;
             }
             case SPWN: {
-                // cell.classList.add('wall');
                 cell.classList.add('spawn');
-                // cell.classList.add('food'); 
                 break;
             }
         }
@@ -37,35 +34,6 @@ Map.prototype.fillMap = function(mapDesc){
         gridContainer.appendChild(cell);
     }
 }
-
-
-
-/*
-    0> wall
-    1> food
-    2> crss: used to move ghosts
-    3> tunnel: used to go to the other side
-    4> spawn> used to make ghosts spawn
-*/
-// const map1 = [
-//     1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1,
-//     1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1,
-//     1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1,
-//     1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1,
-//     1, 0, 0, 0, 1, 0, 1, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1,
-//     1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1,
-//     0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0,
-//     0, 0, 0, 0, 1, 0, 1, 4, 4, 4, 1, 0, 1, 0, 0, 0, 0,
-//     3, 1, 1, 1, 1, 1, 1, 4, 4, 4, 1, 1, 1, 1, 1, 1, 3,
-//     0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0,
-//     1, 1, 1, 1, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 1,
-//     1, 0, 0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0, 0, 1,
-//     1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1,
-//     0, 0, 1, 0, 1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0,
-//     1, 1, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 1, 1,
-//     1, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1,
-//     1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1
-// ]
 
 const map1 = [
     FOOD, FOOD, FOOD, FOOD, CRSS, FOOD, FOOD, FOOD, WALL, FOOD, FOOD, FOOD, CRSS, FOOD, FOOD, FOOD, FOOD,
