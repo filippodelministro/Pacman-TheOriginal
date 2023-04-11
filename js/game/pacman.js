@@ -64,9 +64,9 @@ Pacman.prototype.movePacman = function(){
         case FOOD: {
             console.log("food");
             // game.map[posX][posY] = 0;
-            moveElement(this, posX, posY);
             this.x = posX;
             this.y = posY;
+            moveElement(this, this.x, this.y);
             game.map[[this.x, this.y]] = EMPTY;
             
             //remove food from HTML
@@ -76,7 +76,15 @@ Pacman.prototype.movePacman = function(){
             break;
         }    
         case CROSS: console.log("cross"); break;
-        case TUNN: console.log("tunnel"); break;
+        case TUNN: {
+            console.log("tunnel");
+
+            if(this.x == 1)
+                this.x = MAP_DIM - 1;
+            else this.x = 0;
+            moveElement(this, this.x, this.y);
+            break;
+        }
     }
     // let hit = checkAndMove(this);
 
