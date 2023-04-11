@@ -25,17 +25,16 @@ function Game(){
     this.score = 0;
     this.map = new Map();
 
-    console.log("game> this.map.cells[1]: " + this.map.cells[1]);
     this.pacman = new Pacman();
-    // this.ghosts = [
-    //     new Ghost('blue-ghost'),
-    //     new Ghost('red-ghost'),
-    //     new Ghost('pink-ghost'),
-    //     new Ghost('orange-ghost')
-    // ];
+    this.ghosts = [
+        new Ghost('blue-ghost', 7, 8),
+        new Ghost('pink-ghost', 9, 8),
+        new Ghost('orange-ghost', 8, 8),
+        new Ghost('red-ghost', 8, 6)
+    ];
     document.addEventListener('keydown', this.keyPressedonGame.bind(this));
     this.pacman.startMoving();
-    // this.startMovingGhosts();
+    this.startMovingGhosts();
 }
 
 Game.prototype.keyPressedonGame = function(e){
@@ -64,7 +63,7 @@ Game.prototype.pause = function(e){
 
     document.getElementById("pause-menu-container").style.visibility = "visible";
     this.pacman.stopMoving();
-    // this.stopMovingGhosts();
+    this.stopMovingGhosts();
 
     console.log("PAUSE> pacmanx: " + this.pacman.x + " pacmany: " + this.pacman.y);
 
@@ -75,7 +74,7 @@ Game.prototype.resume = function(e){
     document.getElementById("pause-menu-container").style.visibility = "hidden";
 
     this.pacman.startMoving();
-    // this.startMovingGhosts();
+    this.startMovingGhosts();
 }
 
 Game.prototype.startMovingGhosts = function(){
@@ -90,6 +89,9 @@ Game.prototype.stopMovingGhosts = function(){
     } 
 }    
 
+Game.prototype.handlePauseMenu = function(e){
+    console.log("TODO: handle pause menu");
+}
 
 //* ------------ POINTS FUNCTIONS ------------
 Game.prototype.addPoints = function(type){

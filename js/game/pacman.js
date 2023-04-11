@@ -16,6 +16,7 @@ class Pacman{
 Pacman.prototype.initPosition = function(){
     this.element.style.left = (this.x * CELL_SIZE) + "px";
     this.element.style.top = (this.y * CELL_SIZE) + "px";
+    this.direction = RIGHT;
 }
 
 Pacman.prototype.refresh = function(){
@@ -37,10 +38,10 @@ Pacman.prototype.stopMoving = function(){
 
 Pacman.prototype.changeDirection = function(e){
     switch(e.keyCode){
-        case 37: this.direction = "left"; break;
-        case 38: this.direction = "up"; break;
-        case 39: this.direction = "right"; break;
-        case 40: this.direction = "down"; break;
+        case 37: this.direction = LEFT; break;
+        case 38: this.direction = UP; break;
+        case 39: this.direction = RIGHT; break;
+        case 40: this.direction = DOWN; break;
     }
 }
 
@@ -51,19 +52,17 @@ Pacman.prototype.movePacman = function(){
     let posY = this.y;
 
     switch(this.direction){
-        case "left" : posX -= 1; break;
-        case "up" : posY -= 1; break;
-        case "right" : posX += 1; break;
-        case "down" : posY += 1; break;
+        case LEFT : posX -= 1; break;
+        case UP : posY -= 1; break;
+        case RIGHT : posX += 1; break;
+        case DOWN : posY += 1; break;
     }
 
     let next = game.getCell(posX, posY);
 
     switch(next){
-        case WALL: console.log("wall"); break;
+        case WALL: break;
         case FOOD: {
-            console.log("food");
-            // game.map[posX][posY] = 0;
             this.x = posX;
             this.y = posY;
             moveElement(this, this.x, this.y);
@@ -71,10 +70,8 @@ Pacman.prototype.movePacman = function(){
             game.addPoints(FOOD);
             break;
         }    
-        case CROSS: console.log("cross"); break;
+        case CROSS: break;
         case TUNN: {
-            console.log("tunnel");
-
             if(this.x == 1)
                 this.x = MAP_DIM - 1;
             else this.x = 0;
@@ -82,7 +79,6 @@ Pacman.prototype.movePacman = function(){
             break;
         }
         case EMPTY: {
-            console.log("empty");
             this.x = posX;
             this.y = posY;
             moveElement(this, this.x, this.y);

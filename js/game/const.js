@@ -1,5 +1,4 @@
 const MAX_LIFE = 5;
-const DIRECTIONS = ["right", "left", "up", "down"];
 const MAP_DIM = 17;
 const CELL_SIZE = 30;
 
@@ -12,3 +11,8 @@ const CROSS = 6;
 
 const FOOD_POINTS = 10;
 const GHOST_POINTS = 200;
+
+const RIGHT = 500;
+const LEFT = 501;
+const UP = 502;
+const DOWN = 503;

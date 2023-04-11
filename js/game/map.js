@@ -27,6 +27,7 @@ Map.prototype.fillMap = function(mapDesc){
                 break;
             }
             case SPWN: {
+                cell.classList.add('wall');
                 cell.classList.add('spawn');
                 // cell.classList.add('food'); 
                 break;
