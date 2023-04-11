@@ -55,7 +55,7 @@ Pacman.prototype.movePacman = function(){
     let next = game.getCell(posX, posY);
 
     switch(next){
-        case FOOD: {
+        case FOOD: CRSS: {
             this.x = posX;
             this.y = posY;
             moveElement(this, this.x, this.y);
@@ -69,6 +69,12 @@ Pacman.prototype.movePacman = function(){
             moveElement(this, this.x, this.y);
             game.removeFood(this.x, this.y);
             game.addPoints(FOOD);
+            break;
+        }
+        case EMPTY: {
+            this.x = posX;
+            this.y = posY;
+            moveElement(this, this.x, this.y);
             break;
         }
         case TUNN: {

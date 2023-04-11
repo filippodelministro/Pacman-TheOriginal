@@ -34,16 +34,16 @@ Ghost.prototype.moveGhost = function(){
     
     //check if the ghost is the spawn:
     let on = game.getCell(this.x, this.y);
+
+    //FIX
     if(on == SPWN){
-        this.leaveSpawn();
-
+        console.log("SPAWN");
+        setTimeout(this.leaveSpawn(), 5000);
         // return;
     }
 
-    if(on == CRSS){
+    if(on == CRSS)
         this.randomDirection();
-        // return;
-    }
 
     
     let posX = this.x;
@@ -90,7 +90,6 @@ Ghost.prototype.changeDirection = function(){
 }
 
 Ghost.prototype.leaveSpawn = function(){
-
     moveElement(this, this.x, this.y - 1);
     moveElement(this, this.x, this.y - 1);
     this.randomDirection();
