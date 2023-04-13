@@ -96,13 +96,14 @@ Game.prototype.addPoints = function(type){
     points = document.getElementById("score");
     points.textContent = this.score;
 
-    this.foodElements--;
-
     if(type == FOOD){
         this.map.foodElements--;
     }
+
+    // console.log("food: " + this.map.foodElements);
+
     if(!this.map.foodElements){
-        game.gameOver("win");
+        this.gameOver("win");
     }
     
 }
@@ -111,6 +112,7 @@ Game.prototype.addPoints = function(type){
 //* ------------ GAME FUNCTIONS ------------
 Game.prototype.gameOver = function(type){
     if(type == "win"){
+        //todo: win screen
         this.pause();
     }
 }

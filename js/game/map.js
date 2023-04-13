@@ -15,19 +15,18 @@ Map.prototype.fillMap = function(mapDesc){
         cell.classList.add('cell');
         switch(mapDesc[i]){
             case WALL: cell.classList.add('wall'); break;
-            case FOOD: cell.classList.add('food'); break
+            case FOOD:{
+                this.foodElements++;
+                cell.classList.add('food');
+                break
+            } 
             case CRSS: {
                 cell.classList.add('food');
+                this.foodElements++;
                 break;
             }
-            case TUNN: {
-                cell.classList.add('tunnel');
-                break;
-            }
-            case SPWN: {
-                cell.classList.add('spawn');
-                break;
-            }
+            case TUNN: cell.classList.add('tunnel'); break;
+            case SPWN: cell.classList.add('spawn'); break;
         }
 
 
