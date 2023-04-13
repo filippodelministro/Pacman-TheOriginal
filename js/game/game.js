@@ -100,8 +100,6 @@ Game.prototype.addPoints = function(type){
         this.map.foodElements--;
     }
 
-    // console.log("food: " + this.map.foodElements);
-
     if(!this.map.foodElements){
         this.gameOver("win");
     }
@@ -113,6 +111,10 @@ Game.prototype.addPoints = function(type){
 Game.prototype.gameOver = function(type){
     if(type == "win"){
         //todo: win screen
+        this.pause();
+    }
+    else if(type == "lose"){
+        //todo: lose screen
         this.pause();
     }
 }
