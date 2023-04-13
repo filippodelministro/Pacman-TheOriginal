@@ -8,15 +8,17 @@ class Pacman{
         this.x = 8;
         this.y = 9;
         this.direction;
+        this.life;
         this.speed = 300;
-        this.initPosition();
+        this.init();
     }    
 }
 
-Pacman.prototype.initPosition = function(){
+Pacman.prototype.init = function(){
     this.element.style.left = (this.x * CELL_SIZE) + "px";
     this.element.style.top = (this.y * CELL_SIZE) + "px";
     this.direction = RIGHT;
+    this.life = MAX_LIFE;
 }
 
 Pacman.prototype.startMoving = function(){
@@ -42,6 +44,11 @@ Pacman.prototype.changeDirection = function(e){
 
 Pacman.prototype.movePacman = function(){
 
+    if(game.checkPacmanCollision()){
+        this.PacmanHit();
+    }
+
+
     let posX = this.x;
     let posY = this.y;
 
@@ -55,7 +62,7 @@ Pacman.prototype.movePacman = function(){
     let next = game.getCell(posX, posY);
 
     switch(next){
-        case FOOD: CRSS: {
+        case FOOD: {
             this.x = posX;
             this.y = posY;
             moveElement(this, this.x, this.y);
@@ -87,3 +94,9 @@ Pacman.prototype.movePacman = function(){
         default: break;
     }
 }    
+
+Pacman.prototype.PacmanHit = function(){
+    this.life -= 1;
+    life = document.getElementById("life");
+    life.textContent = this.life;
+}

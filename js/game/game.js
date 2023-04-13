@@ -133,3 +133,12 @@ Game.prototype.removeFood = function(x, y){
     const cells = grid.querySelectorAll('.cell');
     cells[y * MAP_DIM + x].classList.remove('food');
 }
+
+Game.prototype.checkPacmanCollision = function(){
+    if(this.pacman.x == this.ghosts[0].x && this.pacman.y == this.ghosts[0].y) return true;
+    if(this.pacman.x == this.ghosts[1].x && this.pacman.y == this.ghosts[1].y) return true;
+    if(this.pacman.x == this.ghosts[2].x && this.pacman.y == this.ghosts[2].y) return true;
+    if(this.pacman.x == this.ghosts[3].x && this.pacman.y == this.ghosts[3].y) return true;
+    
+    return false;   
+}
