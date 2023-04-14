@@ -4,7 +4,7 @@
     background-color: rgb(210, 210, 210);
     padding: 50px 50px;
     border: 2px solid black;
-    box-shadow: 6px 6px 1px rgb(0, 195, 255) /*? ??*/
+    box-shadow: 6px 6px 1px #00c2d7; /*? ??*/
 }
 
 input {
@@ -27,7 +27,7 @@ input:hover{
 }
 
 input:focus {
-    border-bottom: 5px solid rgb(0, 195, 255);
+    border-bottom: 5px solid #00c2d7;
 }
 
 .login-container button {
@@ -35,7 +35,7 @@ input:focus {
     margin: 0 auto;
     line-height: 28pt;
     padding: 0 20px;
-    background: rgb(0, 195, 255);
+    background: #00c2d7;
     letter-spacing: 3px;
     outline: none;
     border: 1px solid black;
