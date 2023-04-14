@@ -15,11 +15,11 @@ class Pacman{
 }
 
 Pacman.prototype.init = function(){
+    this.initPosition();
     this.element.style.left = (this.x * CELL_SIZE) + "px";
     this.element.style.top = (this.y * CELL_SIZE) + "px";
     this.direction = RIGHT;
     this.life = MAX_LIFE;
-    this.initPosition();
 }
 
 Pacman.prototype.initPosition = function(){

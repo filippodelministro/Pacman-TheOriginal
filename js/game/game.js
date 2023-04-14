@@ -1,54 +1,53 @@
-document.addEventListener('keydown', keyPressed);
 
+//init game to load elements, then wait for Keypress to start moving
+onload = init;
+function init(){
+    game = new Game();
+    document.addEventListener('keydown', keyPressed);
+}
 function keyPressed(e) {
     if (e.keyCode == 8) // backspace
-        window.location = './home.html';
-
+    window.location = './home.html';
+    
     else{
-        init();
+        game.startGame();
     }
 }
 
-function init(){
+Game.prototype.startGame = function(e){
     document.getElementById("pause-menu-container").style.visibility = "hidden";
     document.getElementById("startinfo").style.visibility = "hidden";
 
     document.removeEventListener('keydown', keyPressed);
- 
-    game = new Game();
-}
 
+    document.addEventListener('keydown', this.keyPressedonGame.bind(this));
+    this.pacman.startMoving();
+    this.startMovingGhosts();
+}
 
 function Game(){
     this.pause_on = false;
-
     this.score = 0;
     this.map = new Map();
-
     this.pacman = new Pacman();
     this.ghosts = [
         new Ghost('blue-ghost', 7, 8),
         new Ghost('pink-ghost', 9, 8),
         new Ghost('orange-ghost', 8, 8),
         new Ghost('red-ghost', 8, 6)
-    ];
-    document.addEventListener('keydown', this.keyPressedonGame.bind(this));
-    this.pacman.startMoving();
-    this.startMovingGhosts();
+    ];  
 }
 
-Game.prototype.keyPressedonGame = function(e){
-    
-    if(!this.pause_on){
-        //in game
+Game.prototype.keyPressedonGame = function(e){    
+//handle gaming commands
+    if(!this.pause_on){     //in game
         if(e.keyCode == 32 || e.keyCode == 27)            
             this.pause(e);
         else{
             this.pacman.changeDirection(e);
         }
     }
-    else{
-        //in pause
+    else{                   //in pause
         if(e.keyCode == 32 || e.keyCode == 27)
             this.resume();
         else
