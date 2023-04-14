@@ -5,8 +5,8 @@ class Pacman{
         this.id = "pacman"  ;
         this.element = document.getElementById(this.id);
 
-        this.x = 8;
-        this.y = 9;
+        this.x;
+        this.y;
         this.direction;
         this.life;
         this.speed = 300;
@@ -19,6 +19,12 @@ Pacman.prototype.init = function(){
     this.element.style.top = (this.y * CELL_SIZE) + "px";
     this.direction = RIGHT;
     this.life = MAX_LIFE;
+    this.initPosition();
+}
+
+Pacman.prototype.initPosition = function(){
+    this.x = PACMAN_X;
+    this.y = PACMAN_Y;
 }
 
 Pacman.prototype.startMoving = function(){
@@ -100,6 +106,8 @@ Pacman.prototype.PacmanHit = function(){
     life = document.getElementById("life");
     life.textContent = this.life;
 
-    if(!this.life)
+    if(!this.life) 
         game.gameOver("lose");
+
+    this.initPosition();
 }

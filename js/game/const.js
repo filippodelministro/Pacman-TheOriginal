@@ -16,3 +16,8 @@ const RIGHT = 500;
 const LEFT = 501;
 const UP = 502;
 const DOWN = 503;
+
+// ------  POSITIONING  ------
+const PACMAN_X = 8;
+const PACMAN_Y = 12;
+// const GHOST_X = 
