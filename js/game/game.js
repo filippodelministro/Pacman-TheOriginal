@@ -1,7 +1,9 @@
 
 //init game to load elements, then wait for Keypress to start moving
 onload = init;
+var playground;
 function init(){
+    playground = document.getElementById("playground");
     game = new Game();
     document.addEventListener('keydown', keyPressed);
 }

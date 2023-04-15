@@ -2,24 +2,28 @@
 
 class Pacman{
     constructor(){
-        this.id = "pacman"  ;
-        this.element = document.getElementById(this.id);
-
         this.x;
         this.y;
         this.direction;
         this.life;
         this.speed = 300;
+        this.element = null;
         this.init();
     }    
 }
 
 Pacman.prototype.init = function(){
+    this.element = document.createElement("div");
+    this.element.setAttribute("id", "pacman");
+    this.element.classList.add("movable");
+    playground.appendChild(this.element);
+
     this.initPosition();
     this.element.style.left = (this.x * CELL_SIZE) + "px";
     this.element.style.top = (this.y * CELL_SIZE) + "px";
     this.direction = RIGHT;
     this.life = MAX_LIFE;
+
 }
 
 Pacman.prototype.initPosition = function(){
