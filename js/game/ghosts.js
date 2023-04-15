@@ -1,8 +1,6 @@
 class Ghost {
     constructor(name, x, y) {
         this.id = name;
-        this.element = document.getElementById(this.id);
-      
         this.x = x;
         this.y = y;
         this.moving = false;
@@ -15,6 +13,13 @@ class Ghost {
 
 
 Ghost.prototype.initPosition = function(){
+    this.element = document.createElement("div");
+    this.element.setAttribute("id", this.id);
+    this.element.classList.add(this.id);
+    this.element.classList.add("movable");
+    this.element.classList.add("ghost");
+    playground.appendChild(this.element);
+
     this.element.style.left = (this.x * CELL_SIZE) + "px";
     this.element.style.top = (this.y * CELL_SIZE) + "px";
     this.moving = false;
@@ -38,7 +43,6 @@ Ghost.prototype.moveGhost = function(){
 
     //FIX
     if(on == SPWN){
-        console.log("SPAWN");
         setTimeout(this.leaveSpawn(), 5000);
         // return;
     }

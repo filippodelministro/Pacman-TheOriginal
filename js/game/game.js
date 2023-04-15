@@ -154,5 +154,6 @@ Game.prototype.GhostVulnerable = function(){
         this.ghosts[i].vulnerable = true;
         const ghost = document.getElementById(this.ghosts[i].id);
         ghost.classList.add('vulnerable');
+        ghost.classList.remove(this.ghosts[i].id);
     }
 }

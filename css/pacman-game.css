@@ -87,19 +87,19 @@ body {
 
 .vulnerable{
     background-color: blue;
-    border: 10px solid white;
+    /* border: 10px solid white; */
 }
 
-#blue-ghost{
+.blue-ghost{
     background-color: blue;
 }
-#red-ghost{
+.red-ghost{
     background-color: red;
 }
-#orange-ghost{
+.orange-ghost{
     background-color: orange;
 }
-#pink-ghost{
+.pink-ghost{
     background-color: pink;
 }
 
@@ -170,7 +170,7 @@ body {
     100% {
       opacity: 1;
     }
-  }
+}
 
 
 /** ------ INFO  ------ */
