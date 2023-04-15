@@ -128,13 +128,13 @@ Game.prototype.getCell = function(x, y){
     return this.map.cells[y * MAP_DIM + x];
 }
 
-Game.prototype.removeFood = function(x, y){
+Game.prototype.remove = function(type, x, y){
     this.map.cells[y * MAP_DIM + x] = EMPTY;
 
     //remove food from HTML
     const grid = document.querySelector('.map');
     const cells = grid.querySelectorAll('.cell');
-    cells[y * MAP_DIM + x].classList.remove('food');
+    cells[y * MAP_DIM + x].classList.remove(type);
 }
 
 Game.prototype.checkPacmanCollision = function(){
@@ -144,4 +144,13 @@ Game.prototype.checkPacmanCollision = function(){
     if(this.pacman.x == this.ghosts[3].x && this.pacman.y == this.ghosts[3].y) return true;
     
     return false;   
+}
+
+Game.prototype.GhostVulnerable = function(){
+    console.log("TODO: ghost vulnerable");
+    for(let i = 0; i < this.ghosts.length; i++){
+        this.ghosts[i].vulnerable = true;
+        const ghost = document.getElementById(this.ghosts[i].id);
+        ghost.classList.add('vulnerable');
+    }
 }

@@ -8,6 +8,7 @@ const EMPTY = 3;
 const TUNN = 4;
 const SPWN = 5;
 const CRSS = 6;
+const BIGF = 7;
 
 const FOOD_POINTS = 10;
 const GHOST_POINTS = 200;

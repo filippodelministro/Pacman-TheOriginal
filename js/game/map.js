@@ -25,6 +25,7 @@ Map.prototype.fillMap = function(mapDesc){
                 this.foodElements++;
                 break;
             }
+            case BIGF: cell.classList.add('bigFood'); break;
             case TUNN: cell.classList.add('tunnel'); break;
             case SPWN: cell.classList.add('spawn'); break;
         }
@@ -38,7 +39,7 @@ const map1 = [
     FOOD, FOOD, FOOD, FOOD, CRSS, FOOD, FOOD, FOOD, WALL, FOOD, FOOD, FOOD, CRSS, FOOD, FOOD, FOOD, FOOD,
     FOOD, WALL, WALL, WALL, FOOD, WALL, WALL, FOOD, WALL, FOOD, WALL, WALL, FOOD, WALL, WALL, WALL, FOOD,
     FOOD, WALL, WALL, WALL, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, FOOD, WALL, WALL, WALL, FOOD,
-    FOOD, FOOD, FOOD, FOOD, CRSS, WALL, FOOD, WALL, WALL, WALL, FOOD, WALL, CRSS, FOOD, FOOD, FOOD, CRSS,
+    BIGF, FOOD, FOOD, FOOD, CRSS, WALL, FOOD, WALL, WALL, WALL, FOOD, WALL, CRSS, FOOD, FOOD, FOOD, CRSS,
     FOOD, WALL, WALL, WALL, FOOD, WALL, FOOD, FOOD, WALL, FOOD, FOOD, WALL, FOOD, WALL, WALL, WALL, FOOD,
     FOOD, FOOD, FOOD, FOOD, CRSS, WALL, WALL, FOOD, WALL, FOOD, WALL, WALL, CRSS, FOOD, FOOD, FOOD, FOOD,
     WALL, WALL, WALL, WALL, FOOD, WALL, FOOD, CRSS, FOOD, CRSS, FOOD, WALL, FOOD, WALL, WALL, WALL, WALL,

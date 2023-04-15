@@ -72,7 +72,7 @@ Pacman.prototype.movePacman = function(){
             this.x = posX;
             this.y = posY;
             moveElement(this, this.x, this.y);
-            game.removeFood(this.x, this.y);
+            game.remove("food", this.x, this.y);
             game.addPoints(FOOD);
             break;
         }
@@ -80,7 +80,7 @@ Pacman.prototype.movePacman = function(){
             this.x = posX;
             this.y = posY;
             moveElement(this, this.x, this.y);
-            game.removeFood(this.x, this.y);
+            game.remove("food", this.x, this.y);
             game.addPoints(FOOD);
             break;
         }
@@ -96,6 +96,13 @@ Pacman.prototype.movePacman = function(){
             else this.x = 0;
             moveElement(this, this.x, this.y);
             break;
+        }
+        case BIGF: {
+            this.x = posX;
+            this.y = posY;
+            moveElement(this, this.x, this.y);
+            game.remove("bigFood", this.x, this.y);
+            game.GhostVulnerable();
         }
         default: break;
     }

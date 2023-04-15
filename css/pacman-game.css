@@ -51,6 +51,14 @@ body {
     height: 5px;
     margin: auto;
 }
+
+.bigFood {
+    background-color: white;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    margin: auto;
+}
 /** ------ CHARACHTERS  ------ */
  
 .movable{
@@ -75,8 +83,13 @@ body {
     border-radius: 60px 60px 0 0;
     margin: 1%;
     transition: transform 0.3s ease;
-  }
-  
+}
+
+.vulnerable{
+    background-color: blue;
+    border: 10px solid white;
+}
+
 #blue-ghost{
     background-color: blue;
 }
