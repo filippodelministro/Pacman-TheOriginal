@@ -78,6 +78,11 @@ Ghost.prototype.moveGhost = function(){
             this.y = posY;
             moveElement(this, this.x, this.y);
         }
+        case BIGF: {
+            this.x = posX;
+            this.y = posY;
+            moveElement(this, this.x, this.y);
+        }
         default: this.changeDirection();
     }   
 }    
