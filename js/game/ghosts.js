@@ -5,7 +5,6 @@ class Ghost {
         this.y = y;
         this.moving = false;
         this.direction;
-        this.vulnerable = false;
         this.speed = 200;
         this.initPosition();
     }

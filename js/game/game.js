@@ -29,8 +29,13 @@ Game.prototype.startGame = function(e){
 
 function Game(){
     this.pause_on = false;
+    this.gameover = false;
     this.score = 0;
+    this.ghostsKilled = 0;
+
+    this.vulnerability = false;
     this.map = new Map();
+    this.foodRemaining = this.map.foodElements;
     this.pacman = new Pacman();
     this.ghosts = [
         new Ghost('blue-ghost', 7, 8),
@@ -42,19 +47,22 @@ function Game(){
 
 Game.prototype.keyPressedonGame = function(e){    
 //handle gaming commands
-    if(!this.pause_on){     //in game
-        if(e.keyCode == 32 || e.keyCode == 27)            
-            this.pause(e);
-        else{
-            this.pacman.changeDirection(e);
+    if(!this.gameover){
+        if(!this.pause_on){     //in game
+            if(e.keyCode == 32 || e.keyCode == 27)            
+                this.pause(e);
+            else{
+                this.pacman.changeDirection(e);
+            }
+        }
+        else{                   //in pause
+            if(e.keyCode == 32 || e.keyCode == 27)
+                this.resume();
+            else
+                this.handlePauseMenu(e);    //todo
         }
     }
-    else{                   //in pause
-        if(e.keyCode == 32 || e.keyCode == 27)
-            this.resume();
-        else
-            this.handlePauseMenu(e);    //todo
-    }
+
 }
 
 
@@ -98,28 +106,19 @@ Game.prototype.addPoints = function(type){
     points.textContent = this.score;
 
     if(type == FOOD){
-        this.map.foodElements--;
+        this.foodRemaining--;
     }
 
-    if(!this.map.foodElements){
-        this.gameOver("win");
+    // if(!this.foodRemaining){
+    if(this.foodRemaining == this.map.foodElements - 3){     //!levare: è per testare
+        // this.gameOver("win");
+        this.win();
     }
     
 }
 
 
 //* ------------ GAME FUNCTIONS ------------
-Game.prototype.gameOver = function(type){
-    if(type == "win"){
-        //todo: win screen
-        this.pause();
-    }
-    else if(type == "lose"){
-        //todo: lose screen
-        this.pause();
-    }
-}
-
 
 Game.prototype.getCell = function(x, y){
     //return cell number if position passed is valid
@@ -139,7 +138,13 @@ Game.prototype.remove = function(type, x, y){
     cells[y * MAP_DIM + x].classList.remove(type);
 }
 
+//fix: need implementation
 Game.prototype.checkPacmanCollision = function(){
+    if(this.vulnerability){
+        //todo: vulnerability
+        
+    }
+
     if(this.pacman.x == this.ghosts[0].x && this.pacman.y == this.ghosts[0].y) return true;
     if(this.pacman.x == this.ghosts[1].x && this.pacman.y == this.ghosts[1].y) return true;
     if(this.pacman.x == this.ghosts[2].x && this.pacman.y == this.ghosts[2].y) return true;
@@ -149,8 +154,8 @@ Game.prototype.checkPacmanCollision = function(){
 }
 
 Game.prototype.GhostVulnerable = function(){
+    this.vulnerability = true;
     for(let i = 0; i < this.ghosts.length; i++){
-        this.ghosts[i].vulnerable = true;
         const ghost = document.getElementById(this.ghosts[i].id);
         ghost.classList.add('vulnerable');
         ghost.classList.remove(this.ghosts[i].id);
@@ -159,10 +164,51 @@ Game.prototype.GhostVulnerable = function(){
 }
 
 Game.prototype.GhostVulnerableOff = function(){
+    this.vulnerability = false;
     for(let i = 0; i < this.ghosts.length; i++){
-        this.ghosts[i].vulnerable = true;
         const ghost = document.getElementById(this.ghosts[i].id);
         ghost.classList.remove('vulnerable');
         ghost.classList.add(this.ghosts[i].id);
     }
 }
+
+
+//* ------------ GAMEOVER FUNCTIONS ------------
+Game.prototype.win = function(){
+    this.gameover = true;
+    this.clearPlayground();
+    this.showStatistics();
+
+    var menu = document.getElementById("end-game-menu");
+    menu.style.visibility = "visible";
+}
+
+
+Game.prototype.clearPlayground = function(){
+    this.pacman.stopMoving();
+    this.stopMovingGhosts();
+    playground.remove();
+}
+
+Game.prototype.showStatistics = function() {
+    var section = document.createElement("div");
+    section.classList.add("game-stats");
+    
+    var ul = document.createElement("ul");
+    
+    var scoreLi = document.createElement("li");
+    scoreLi.textContent = `Score: ${this.score}`;
+    ul.appendChild(scoreLi);
+    
+    var ghostKilledLi = document.createElement("li");
+    ghostKilledLi.textContent = `Ghosts killed: ${this.ghostsKilled}`;
+    ul.appendChild(ghostKilledLi);
+
+    var levelLi = document.createElement("li");
+    levelLi.textContent = `Livel passed: ${this.level}`;
+    ul.appendChild(levelLi);
+    
+    section.appendChild(ul);
+    
+    document.body.appendChild(section);
+  }

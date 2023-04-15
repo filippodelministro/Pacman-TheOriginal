@@ -118,7 +118,8 @@ Pacman.prototype.PacmanHit = function(){
     life.textContent = this.life;
 
     if(!this.life) 
-        game.gameOver("lose");
+        game.lose();
+        // game.gameOver("lose");
 
     this.initPosition();
 }

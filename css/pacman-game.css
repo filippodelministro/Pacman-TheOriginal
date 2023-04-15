@@ -190,6 +190,30 @@ body {
 #gameinfo{
     position: absolute;
     text-align: left;
-    left: 100px;
+    left: -100px;
     top: 130px;
+}
+
+.game-stats{
+    position: fixed;
+    top: 20%;
+    left: 20%;
+
+    color: black;
+    font-size: 15px;
+    text-align: left;
+    width: 300px;
+    height: 100px;
+    background-color: rgb(210, 210, 210);
+    /* padding: 50px 50px; */
+    border: 2px solid black;
+    box-shadow: 6px 6px 1px #00c2d7; /*? ??*/
+}
+
+.game-stats li{
+    list-style: none;
+}
+
+.end-game-menu{
+    visibility: hidden; 
 }

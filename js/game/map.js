@@ -1,16 +1,17 @@
 
 function Map(){
+    // this.element = null;
     this.cells = [MAP_DIM * MAP_DIM];
     this.foodElements = 0;
     this.fillMap(map1);
 }
 
 Map.prototype.fillMap = function(mapDesc){
-    const gridContainer = document.querySelector('.map');
+    const map = document.querySelector('.map');
     for (let i = 0; i < MAP_DIM * MAP_DIM; i++) {
         this.cells[i] = mapDesc[i];
 
-        //create HTML to visualize the map
+        //create HTML to visualize the map: each cell has different CSS based on its element
         const cell = document.createElement('div');
         cell.classList.add('cell');
         switch(mapDesc[i]){
@@ -20,7 +21,7 @@ Map.prototype.fillMap = function(mapDesc){
                 cell.classList.add('food');
                 break
             } 
-            case CRSS: {
+            case CRSS: {                        //used to make ghost moving in random direction
                 cell.classList.add('food');
                 this.foodElements++;
                 break;
@@ -29,9 +30,7 @@ Map.prototype.fillMap = function(mapDesc){
             case TUNN: cell.classList.add('tunnel'); break;
             case SPWN: cell.classList.add('spawn'); break;
         }
-
-
-        gridContainer.appendChild(cell);
+        map.appendChild(cell);
     }
 }
 
