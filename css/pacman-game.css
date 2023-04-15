@@ -86,9 +86,21 @@ body {
 }
 
 .vulnerable{
-    background-color: blue;
-    /* border: 10px solid white; */
+    animation: vulnerable 0.5s infinite;
+    animation-timing-function: step-start;
+    /* background-color: blue; */
 }
+@keyframes vulnerable {
+    0% {
+      background-color: blue;
+    }
+    50% {
+      background-color: white;
+    }
+    100% {
+      background-color: blue;
+    }
+  }
 
 .blue-ghost{
     background-color: blue;

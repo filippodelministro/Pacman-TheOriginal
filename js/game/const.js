@@ -22,3 +22,7 @@ const DOWN = 503;
 const PACMAN_X = 8;
 const PACMAN_Y = 12;
 // const GHOST_X = 
+
+// ------  TIME VALUES ------
+
+VULNERABILITY_TIME = 6000;

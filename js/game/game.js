@@ -149,11 +149,20 @@ Game.prototype.checkPacmanCollision = function(){
 }
 
 Game.prototype.GhostVulnerable = function(){
-    console.log("TODO: ghost vulnerable");
     for(let i = 0; i < this.ghosts.length; i++){
         this.ghosts[i].vulnerable = true;
         const ghost = document.getElementById(this.ghosts[i].id);
         ghost.classList.add('vulnerable');
         ghost.classList.remove(this.ghosts[i].id);
+        setTimeout(this.GhostVulnerableOff.bind(this), VULNERABILITY_TIME);
+    }
+}
+
+Game.prototype.GhostVulnerableOff = function(){
+    for(let i = 0; i < this.ghosts.length; i++){
+        this.ghosts[i].vulnerable = true;
+        const ghost = document.getElementById(this.ghosts[i].id);
+        ghost.classList.remove('vulnerable');
+        ghost.classList.add(this.ghosts[i].id);
     }
 }
