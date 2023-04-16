@@ -2,11 +2,11 @@
 <html lang="it-IT">
     <head>
         <title>Pacman</title>
-        <link rel="icon" type="image/png" href="./../images/ghost.png"/>
-        <link rel="stylesheet" href="./../css/material/materialLight.css">
-        <link rel="stylesheet" href="./../css/material/materialMutual.css"> 
+        <link rel="icon" type="image/png" href="./images/ghost.png"/>
+        <link rel="stylesheet" href="./css/material/materialLight.css">
+        <link rel="stylesheet" href="./css/material/materialMutual.css"> 
         
-        <script src="./../js/home.js"></script>
+        <script src="./js/home.js"></script>
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
@@ -25,12 +25,12 @@
                 <h2>PACMAN: THE ORIGINAL.</h2>
                 <p>The most played game in the '80</p>
             </section>
-            <a id="account" href="./player.html" class="icons">
+            <a id="account" href="./php/player.php" class="icons">
                 <span class="material-icons">
                     account_circle
                 </span>
             </a>
-            <a id="settings" href="./settings.html" class="icons">
+            <a id="settings" href="./php/settings.php" class="icons">
                 <span class="material-icons">
                     settings
                 </span>
@@ -67,8 +67,8 @@
 
             <section class="main-section" id="main-section">
             
-                <img id="ghost" src="./../images/ghost.png" alt="ghost">
-                    <a href="./pacman-game.html"><h2>Play here</h2></a>
+                <img id="ghost" src="./images/ghost.png" alt="ghost">
+                    <a href="./php/pacman-game.php"><h2>Play here</h2></a>
 
             </section>
 

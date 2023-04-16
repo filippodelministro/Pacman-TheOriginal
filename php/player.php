@@ -5,30 +5,39 @@
         <link rel="icon" type="image/png" href="./../images/ghost.png"/>
         <link rel="stylesheet" href="./../css/material/materialLight.css">
         <link rel="stylesheet" href="./../css/material/materialMutual.css"> 
+        <link rel="stylesheet" href="./../css/login.css">
         <script src="./../js/home.js"></script>
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
 
     </head>
-    
-    <header> <nav id="menu"></nav></header>  
 
+ 
+    <header> <nav id="menu"></nav></header>
     
     <body>
-
-        
         <main id="container" class="container">
-
-            <a id="settings" href="./home.html" class="icons">
+            <a id="settings" href="./../index.php" class="icons">
                 <span class="material-icons">
                     arrow_back_ios
                 </span>
             </a>
-        
+
             <section class="title-section">
 
-                <h2>SETTINGS PAGE</h2>
-                <p>Info about the settings</p>
+                <h2>ACCOUNT PAGE</h2>
+                <p>Setup your account informations</p>
+
+                <div class="login-container">
+                    <form>
+                        <input type="text" placeholder="username" id="username"/>
+                        <input type="password" placeholder="password" id="password"/>
+                        <button type="button">SIGN UP</button>
+                        
+                    </form>
+                </div>
+
+                <p class="register-info">Register now</p>
 
             </section>
 
@@ -37,6 +46,7 @@
             </button>
             
 
+            
         </main>
         <!--? BOH -->
         <footer class="retro-footer">
