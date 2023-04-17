@@ -10,7 +10,6 @@
         <script src="./../js/game/ghosts.js"></script>
         <script src="./../js/game/utility.js"></script>
 
-
         <link rel="stylesheet" href="./../css/pacman-game.css"> 
         <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
 
@@ -56,5 +55,7 @@
         </div>
 
     </body>
-
+    <?php    
+        include "./utility/footer.php";
+    ?>
 </html>         
