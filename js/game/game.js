@@ -110,10 +110,10 @@ Game.prototype.addPoints = function(type){
     }
 
     // if(!this.foodRemaining){
-    if(this.foodRemaining == this.map.foodElements - 3){     //!levare: è per testare
-        // this.gameOver("win");
-        this.win();
-    }
+    // // if(this.foodRemaining == this.map.foodElements - 3){     //!levare: è per testare
+    //     // this.gameOver("win");
+    //     this.win();
+    // }
     
 }
 

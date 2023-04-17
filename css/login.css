@@ -1,3 +1,42 @@
+.container{
+    position: flex;
+    width: 80%;
+    height: 80%;
+    padding: 10px;
+}
+
+/** --------------------- ICONS --------------------- */
+.icons{
+    position: absolute;
+}
+.icons:hover{
+    color: grey;
+    cursor: pointer;
+}
+#back{
+    left: 90%;
+}
+#darkmode{
+    left: 90%;
+    top: 85%
+}
+
+/** --------------------- REGISTER BUTTON --------------------- */
+
+header{
+    margin-left: 7%;
+    margin-left: 0 auto;
+    writing-mode:sideways-lr;
+    text-align: center;
+}
+
+.menu-item:hover{
+    position: relative;
+    background-color: #808080;
+    top: 3%; 
+    font-weight: bolder;
+    
+}
 
 /** --------------------- SECTIONS --------------------- */
 
@@ -20,13 +59,33 @@
     color: rgb(69, 69, 69);
 }
 
+/** ------------ input ------------ */
 
-.input-container {
+.input-container{
+    position: absolute;
+    top: 25%;
     background-color: rgb(210, 210, 210);
-    padding: 50px 50px;
     border: 2px solid black;
+
+    width: 300px;
+    height: 300px;
     box-shadow: 6px 6px 1px #00c2d7; /*? ??*/
+    padding: 2%;
+    opacity: 0;
+    padding: 50px 50px;
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+    transform: translateY(500px);
 }
+
+.input-container h2, h3, h4{
+    text-decoration: underline;
+}
+ 
+.appear{
+    opacity: 1;
+    transform: translateY(0); 
+}
+
 
 input {
     /* display: block; */
@@ -66,27 +125,29 @@ input:focus {
     color: white;
 }
 
-.register-info{
-    font-size: 11pt;
-    /* line-height: 28pt; */
-    margin-top: 5%;
-    text-align: center;
-    text-decoration: underline;
+
+
+
+/** --------------------- FOOTER --------------------- */
+
+.retro-footer {
+    display: flex;
+    position: absolute;
+    color: rgb(173, 173, 173);
+    font-family: 'Press Start 2P', cursive;
+    font-size: 8px;
+    letter-spacing: 2px;
+    top: 88%;
+    left: 13%;
 }
 
-.login{
-    margin-top: 20%;
-    /* opacity: 1; */
+
+.retro-footer a {
+    color: rgb(173, 173, 173);
+    text-decoration: none;
 }
 
-.register{
-    margin-top: 20%;   
-    /* opacity: 0; */
-    transform: translateY(500px);
-
-}
-
-.appear{
-    opacity: 1;
-    transform: translateY(0); 
+.retro-footer a:hover {
+    /* color: rgb(0, 195, 255); */
+    color: white;
 }

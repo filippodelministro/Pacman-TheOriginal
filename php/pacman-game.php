@@ -40,9 +40,8 @@
         <div id="pause-menu-container">
             <nav class="pause-menu">
                 <a onclick="game.resume()">resume</a> <br>
-                <a href="./pacman-game.html">restart</a> <br>
-                <a href="./settings.html">settings</a> <br>
-                <a href="./home.html">exit</a> <br>
+                <a href="./pacman-game.php">restart</a> <br>
+                <a href="./../index.php">exit</a> <br>
             </nav>
             <h3 class="blink">PAUSE</h3>
             <p class="blink">[press ESC to resume]</p>
@@ -51,9 +50,8 @@
         
         <div id="end-game-menu" class="end-game-menu">
             <nav class="pause-menu">
-                <a href="./pacman-game.html">restart</a> <br>
-                <a href="./settings.html">select level</a> <br>
-                <a href="./home.html">exit</a> <br>
+                <a href="./pacman-game.php">restart</a> <br>
+                <a href="./../index.php">exit</a> <br>
             </nav>
         </div>
 

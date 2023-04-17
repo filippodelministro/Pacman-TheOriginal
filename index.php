@@ -26,7 +26,7 @@
                 <h2>PACMAN: THE ORIGINAL.</h2>
                 <p>The most played game in the '80</p>
             </section>
-            <a id="account" href="./php/player1.php" class="icons">
+            <a id="account" href="./php/player.php" class="icons">
                 <span class="material-icons">
                     account_circle
                 </span>
