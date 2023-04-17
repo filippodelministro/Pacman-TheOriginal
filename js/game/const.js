@@ -26,3 +26,5 @@ const PACMAN_Y = 12;
 // ------  TIME VALUES ------
 
 VULNERABILITY_TIME = 6000;
+
+const CHECK_DIRECTION_CLOCK = 15;

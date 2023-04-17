@@ -4,9 +4,12 @@ class Pacman{
     constructor(){
         this.x;
         this.y;
+        this.nextDirection = null;
         this.direction;
+        this.checkDirectionInterval = null;
+        this.moveInterval = null;
         this.life;
-        this.speed = 300;
+        this.speed = 15;
         this.element = null;
         this.init();
     }    
@@ -23,6 +26,8 @@ Pacman.prototype.init = function(){
     this.element.style.top = (this.y * CELL_SIZE) + "px";
     this.direction = RIGHT;
     this.life = MAX_LIFE;
+    this.x = this.x * CELL_SIZE;
+    this.y = this.y * CELL_SIZE;
 
 }
 
@@ -33,7 +38,9 @@ Pacman.prototype.initPosition = function(){
 
 Pacman.prototype.startMoving = function(){
     if (!this.moving) {
-        this.moveInterval = setInterval(this.movePacman.bind(this), this.speed);
+        this.moveInterval = setInterval(this.movePacman1.bind(this), this.speed);
+        // this.checkDirectionInterval = setInterval(this.checkDirectionPacman.bind(this), CHECK_DIRECTION_CLOCK);
+        // this.moveInterval = setInterval(this.movePacman.bind(this), this.speed);
         this.moving = true;
     }
 }
@@ -45,10 +52,10 @@ Pacman.prototype.stopMoving = function(){
 
 Pacman.prototype.changeDirection = function(e){
     switch(e.keyCode){
-        case 37: this.direction = LEFT; break;
-        case 38: this.direction = UP; break;
-        case 39: this.direction = RIGHT; break;
-        case 40: this.direction = DOWN; break;
+        case 37: this.nextDirection = LEFT; break;
+        case 38: this.nextDirection = UP; break;
+        case 39: this.nextDirection = RIGHT; break;
+        case 40: this.nextDirection = DOWN; break;
     }
 }
 
@@ -123,3 +130,19 @@ Pacman.prototype.PacmanHit = function(){
 
     this.initPosition();
 }
+
+
+Pacman.prototype.movePacman1 = function(){
+    console.log("movePacman1 x: " + this.x + ", y " + this.y);
+    switch(this.direction){
+        case LEFT: {if(this.x % CELL_SIZE === 0) this.checkDirectionPacman(); break;}
+        case RIGHT: {if(this.x % CELL_SIZE === 0) this.checkDirectionPacman(); break;}
+    }
+    moveElement1(this);
+}    
+
+
+Pacman.prototype.checkDirectionPacman = function(){
+    console.log("checkDirectionPacman> dir = " + this.direction);
+    this.direction = this.nextDirection;
+}   
