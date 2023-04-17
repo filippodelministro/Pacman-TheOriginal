@@ -13,8 +13,9 @@ function moveElement1(el) {
     // const currLeft = parseInt(el.element.style.left, 10) || 0;
     // const currTop = parseInt(el.element.style.top, 10) || 0;
     // el.element.style.transform = `translate(${currLeft + 1}px`;
-    
-
+    console.log("moveElement1");
+    //fix this
+    console.log(el.direction);
     switch(el.direction){
         case RIGHT:{
             const currLeft = parseInt(el.element.style.left, 10) || 0;

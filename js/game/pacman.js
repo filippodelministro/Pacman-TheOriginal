@@ -38,6 +38,7 @@ Pacman.prototype.initPosition = function(){
 
 Pacman.prototype.startMoving = function(){
     if (!this.moving) {
+        console.log("startMoving");
         this.moveInterval = setInterval(this.movePacman1.bind(this), this.speed);
         // this.checkDirectionInterval = setInterval(this.checkDirectionPacman.bind(this), CHECK_DIRECTION_CLOCK);
         // this.moveInterval = setInterval(this.movePacman.bind(this), this.speed);
@@ -143,6 +144,7 @@ Pacman.prototype.movePacman1 = function(){
 
 
 Pacman.prototype.checkDirectionPacman = function(){
+    console.log("checkDirectionPacman> x: " + this.x + ", y: " + this.y);
     console.log("checkDirectionPacman> dir = " + this.direction);
     this.direction = this.nextDirection;
 }   
