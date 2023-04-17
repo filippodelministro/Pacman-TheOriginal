@@ -25,6 +25,7 @@ Pacman.prototype.init = function(){
     this.element.style.left = (this.x * CELL_SIZE) + "px";
     this.element.style.top = (this.y * CELL_SIZE) + "px";
     this.direction = RIGHT;
+    this.nextDirection = RIGHT;
     this.life = MAX_LIFE;
     this.x = this.x * CELL_SIZE;
     this.y = this.y * CELL_SIZE;
@@ -138,6 +139,9 @@ Pacman.prototype.movePacman1 = function(){
     switch(this.direction){
         case LEFT: {if(this.x % CELL_SIZE === 0) this.checkDirectionPacman(); break;}
         case RIGHT: {if(this.x % CELL_SIZE === 0) this.checkDirectionPacman(); break;}
+        case UP: {if(this.y % CELL_SIZE === 0) this.checkDirectionPacman(); break;}
+        case DOWN: {if(this.y % CELL_SIZE === 0) this.checkDirectionPacman(); break;}
+
     }
     moveElement1(this);
 }    
