@@ -3,11 +3,11 @@
     <head>
         <title>Pacman</title>
         <link rel="icon" type="image/png" href="./images/ghost.png"/>
-        <link rel="stylesheet" href="./css/material/materialLight.css">
-        <link rel="stylesheet" href="./css/material/materialMutual.css"> 
-        <link rel="stylesheet" href="./css/index.css">
+        <link rel="stylesheet" href="./../css/material/materialLight.css">
+        <link rel="stylesheet" href="./../css/material/materialMutual.css"> 
+        <link rel="stylesheet" href="./../css/login1.css">
         
-        <script src="./js/effects/home.js"></script>
+        <script src="./../js/effects/login.js"></script>
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
@@ -16,37 +16,31 @@
     <body>
         <header>
             <nav>
-                <button class="menu-item" onclick="appear('about')">about</button>  
-                <button class="menu-item" onclick="appear('command')">command</button> 
-                <button class="menu-item" onclick="appear('instructions')">instructions</button> 
+                <button class="menu-item" onclick="appear('about')">register now</button>  
             </nav>
         </header>
+
         <main id="container" class="container">
             <section class="title-section">
-                <h2>PACMAN: THE ORIGINAL.</h2>
-                <p>The most played game in the '80</p>
+                <h2>PLAYER....</h2>
+                <p>todo:The most played game in the '80</p>
             </section>
-            <a id="account" href="./php/player1.php" class="icons">
+            <a id="back" href="./php/index.php" class="icons">
                 <span class="material-icons">
-                    account_circle
-                </span>
-            </a>
-            <a id="settings" href="./php/settings.php" class="icons">
-                <span class="material-icons">
-                    settings
+                    arrow_back_ios
                 </span>
             </a>
             
 
 
 
-            <section id="about" class="menu-section">
+            <div id="about" class="input-container">
                 <h4>about</h4>
                 <p><mark>Pac-Man</mark> is one of the most known game in the world: surely one of the most played inside americans arcade in '90.<br>
                     Released in Japan <b>by NAMCO</b> it immediately become famous worldwide for his simple layout and his challenging gameplay.
                 </p>
-            </section>
-            <section id="command" class="menu-section">
+            </div>
+            <div id="command" class="input-container">
                 <h4>commands</h4>
                 <p id="command">
                     <span class="material-icons key">north</span> :UP <br>
@@ -55,23 +49,9 @@
                     <span class="material-icons key">south</span> :DOWN <br>
                     <span class="material-icons key">space_bar</span> :pause/resume <br>
                 </p>
-            </section>
-            <section id="instructions" class="menu-section">
-                <h4>instructions</h4>
-                <p>Move Pacman and try to eat all the food in the map. <br> Pay attention to the <mark>ghost</mark>! They can also move
-                    around the map trying to catch you: if they do, you will lose a life. <br>
-                    Eat <b>cherry</b> to make ghosts harmless and eat them to gain extra points! 
-                </p>
-            </section>
-            
+            </div>
 
 
-            <section class="main-section" id="main-section">
-            
-                <img id="ghost" src="./images/ghost.png" alt="ghost">
-                    <a href="./php/pacman-game.php"><h2>Play here</h2></a>
-
-            </section>
 
 
             
