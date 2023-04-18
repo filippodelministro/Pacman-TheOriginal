@@ -123,7 +123,7 @@ Game.prototype.addPoints = function(type){
 Game.prototype.getCell = function(x, y){
     //return cell number if position passed is valid
     if(x < 0 || x >= MAP_DIM || y < 0 || y >= MAP_DIM){
-        return null;
+        return WALL;
     }
 
     return this.map.cells[y * MAP_DIM + x];

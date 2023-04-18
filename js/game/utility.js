@@ -10,6 +10,8 @@ function moveElement(el, dx, dy){
 
 
 function moveElement1(el) {
+    console.log("x> ", el.x, " y> ", el.y);
+
     el.x = el.x + el.direction.x * MOVING_PIXELS;
     el.y = el.y + el.direction.y * MOVING_PIXELS;
     
@@ -17,6 +19,22 @@ function moveElement1(el) {
     const currTop = parseInt(el.element.style.top, 10) || 0;
     el.element.style.left = currLeft + el.direction.x * MOVING_PIXELS + 'px';
     el.element.style.top = currTop + el.direction.y * MOVING_PIXELS + 'px';
+}
+
+//todo: make it easier
+function tunnel(el) {
+    const currLeft = parseInt(el.element.style.left, 10) || 0;
+    if(el.x == CELL_SIZE){
+        el.element.style.left = currLeft +  15 * CELL_SIZE + 'px';
+        el.x = el.x + 15 * CELL_SIZE;
+    }
+    else {
+        el.element.style.left = currLeft - 15 * CELL_SIZE + 'px';
+        el.x = el.x - 15 * CELL_SIZE;
+    }
+
+
+
 }
 
 function checkNextCell(el){

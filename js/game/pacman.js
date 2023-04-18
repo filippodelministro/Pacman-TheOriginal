@@ -73,6 +73,7 @@ Pacman.prototype.PacmanHit = function(){
 
 Pacman.prototype.movePacman = function(){
     //check if Pacman can change direction
+    var next = null;
     var coord = (this.direction.x == 0) ? this.y : this.x;
     if(coord % CELL_SIZE == 0){
         this.checkDirectionPacman();
@@ -91,14 +92,15 @@ Pacman.prototype.movePacman = function(){
             game.addPoints(FOOD);
             break;
         }
-        //fix TUNN
-        // case TUNN: {
-        //     this.x = (this.x/CELL_SIZE == 1) ? (MAP_DIM - 1)/CELL_SIZE : 1;
-        //     moveElement1(this);
-        //     break;
-        // }
-        case EMPTY: {moveElement1(this); break;}
-        default : break;
+        case TUNN: {
+            tunnel(this);
+            // moveElement1(this);
+            break;
+        }
+        case SPWN:
+        case WALL: break;
+        case EMPTY:
+        default : moveElement1(this);
     }
 }    
 
