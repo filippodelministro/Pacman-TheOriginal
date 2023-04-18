@@ -1,5 +1,5 @@
 const MAX_LIFE = 5;
-const MAP_DIM = 19;
+const MAP_DIM = 17;
 const CELL_SIZE = 30;
 
 const FOOD = 1;
