@@ -129,6 +129,15 @@ Game.prototype.getCell = function(x, y){
     return this.map.cells[y * MAP_DIM + x];
 }
 
+Game.prototype.getCell1 = function(x, y){
+    //return cell number if position passed is valid
+    if(x < 0 || x >= MAP_DIM || y < 0 || y >= MAP_DIM){
+        return null;
+    }
+
+    return this.map.cells[y * MAP_DIM + x];
+}
+
 Game.prototype.remove = function(type, x, y){
     this.map.cells[y * MAP_DIM + x] = EMPTY;
 

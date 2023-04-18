@@ -9,7 +9,7 @@ class Pacman{
         this.checkDirectionInterval = null;
         this.moveInterval = null;
         this.life;
-        this.speed = 15;
+        this.speed = 20;
         this.element = null;
         this.init();
     }    
@@ -24,8 +24,8 @@ Pacman.prototype.init = function(){
     this.initPosition();
     this.element.style.left = (this.x * CELL_SIZE) + "px";
     this.element.style.top = (this.y * CELL_SIZE) + "px";
-    this.direction = RIGHT;
-    this.nextDirection = RIGHT;
+    this.direction = {x:1, y:0};
+    this.nextDirection = {x:1, y:0};
     this.life = MAX_LIFE;
     this.x = this.x * CELL_SIZE;
     this.y = this.y * CELL_SIZE;
@@ -54,10 +54,10 @@ Pacman.prototype.stopMoving = function(){
 
 Pacman.prototype.changeDirection = function(e){
     switch(e.keyCode){
-        case 37: this.nextDirection = LEFT; break;
-        case 38: this.nextDirection = UP; break;
-        case 39: this.nextDirection = RIGHT; break;
-        case 40: this.nextDirection = DOWN; break;
+        case 37: this.nextDirection.x = -1; this.nextDirection.y = 0; break;    //left
+        case 38: this.nextDirection.x = 0; this.nextDirection.y = -1; break;    //
+        case 39: this.nextDirection.x = 1; this.nextDirection.y = 0; break;
+        case 40: this.nextDirection.x = 0; this.nextDirection.y = 1; break;
     }
 }
 
@@ -135,20 +135,31 @@ Pacman.prototype.PacmanHit = function(){
 
 
 Pacman.prototype.movePacman1 = function(){
-    console.log("movePacman1 x: " + this.x + ", y " + this.y);
-    switch(this.direction){
-        case LEFT: {if(this.x % CELL_SIZE === 0) this.checkDirectionPacman(); break;}
-        case RIGHT: {if(this.x % CELL_SIZE === 0) this.checkDirectionPacman(); break;}
-        case UP: {if(this.y % CELL_SIZE === 0) this.checkDirectionPacman(); break;}
-        case DOWN: {if(this.y % CELL_SIZE === 0) this.checkDirectionPacman(); break;}
+    var nextCell;
 
+    //check just the right coordination (using direction) to keep Pacman in column/rows of the grid
+    var coord = (this.direction.x == 0) ? this.y : this.x;
+    
+    console.log("x: ",  this.x, " y: ", this.y);
+    if(coord % CELL_SIZE == 0){
+        console.log("!!");
+        this.checkDirectionPacman();
+        // next = checkNextCell(this, signX, signY);
     }
+
+
     moveElement1(this);
 }    
 
+function checkNextCell(el, sign){
+    const nextX = this.x + sign * CELL_SIZE;
+    const nextY = this.y + sign * CELL_SIZE;
+
+    return game.getCell(nextX, nextY);
+}
+
 
 Pacman.prototype.checkDirectionPacman = function(){
-    console.log("checkDirectionPacman> x: " + this.x + ", y: " + this.y);
-    console.log("checkDirectionPacman> dir = " + this.direction);
-    this.direction = this.nextDirection;
+    this.direction.x = this.nextDirection.x;
+    this.direction.y = this.nextDirection.y
 }   
