@@ -41,7 +41,7 @@ function Game(){
         new Ghost('blue-ghost', 7, 8),
         new Ghost('pink-ghost', 9, 8),
         new Ghost('orange-ghost', 8, 8),
-        new Ghost('red-ghost', 8, 6)
+        new Ghost('red-ghost', 9, 8)
     ];  
 }
 
@@ -120,6 +120,7 @@ Game.prototype.addPoints = function(type){
 
 //* ------------ GAME FUNCTIONS ------------
 
+// todo: move to utility
 Game.prototype.getCell = function(x, y){
     //return cell number if position passed is valid
     if(x < 0 || x >= MAP_DIM || y < 0 || y >= MAP_DIM){

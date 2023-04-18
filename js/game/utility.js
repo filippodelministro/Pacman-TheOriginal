@@ -10,8 +10,6 @@ function moveElement(el, dx, dy){
 
 
 function moveElement1(el) {
-    console.log("x> ", el.x, " y> ", el.y);
-
     el.x = el.x + el.direction.x * MOVING_PIXELS;
     el.y = el.y + el.direction.y * MOVING_PIXELS;
     

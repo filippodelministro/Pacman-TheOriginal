@@ -94,7 +94,6 @@ Pacman.prototype.movePacman = function(){
         }
         case TUNN: {
             tunnel(this);
-            // moveElement1(this);
             break;
         }
         case SPWN:
