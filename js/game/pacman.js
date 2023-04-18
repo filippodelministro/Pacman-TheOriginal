@@ -106,4 +106,6 @@ Pacman.prototype.movePacman = function(){
 Pacman.prototype.checkDirectionPacman = function(){
     this.direction.x = this.nextDirection.x;
     this.direction.y = this.nextDirection.y
+
+    console.log(game.map.getDirectionsAvailable(this.x, this.y));
 }   

@@ -36,10 +36,6 @@ Map.prototype.fillMap = function(mapDesc){
     }
 }
 
-function stampaMap(){
-    console.log("north: ", this.cellsDir[0][0].north);
-}
-
 Map.prototype.fillMapDir = function(mapDesc){
     //for each cell check the nexts with true or false if elements can move there
     for(i = 0; i < MAP_DIM; i++) {
@@ -66,6 +62,17 @@ Map.prototype.checkCell = function(mapDesc, i, j){
     }
 }
 
+Map.prototype.getDirectionsAvailable = function(i, j){
+    // console.log(this.cellsDir[i][j]);
+
+    // var dirAvail = new Array(4);
+    // if(this.cellsDir[i][j].rx) dirAvail[0] = true; else dirAvail[0] = false;
+    // if(this.cellsDir[i][j].lx) dirAvail[1] = true; else dirAvail[1] = false;
+    // if(this.cellsDir[i][j].up) dirAvail[2] = true; else dirAvail[2] = false;
+    // if(this.cellsDir[i][j].dw) dirAvail[3] = true; else dirAvail[3] = false;
+    
+    // return dirAvail;
+}
 
 const map1 = [
     BIGF, FOOD, FOOD, FOOD, CRSS, FOOD, FOOD, FOOD, WALL, FOOD, FOOD, FOOD, CRSS, FOOD, FOOD, FOOD, BIGF,
