@@ -42,30 +42,22 @@ function stampaMap(){
 
 Map.prototype.fillMapDir = function(mapDesc){
     //for each cell check the nexts with true or false if elements can move there
-    for(let i = 0; i < MAP_DIM; i++) {
+    for(i = 0; i < MAP_DIM; i++) {
         this.cellsDir[i] = new Array(MAP_DIM);
         for(let j=0; j < MAP_DIM; j++){
             this.cellsDir[i][j] = {
-                east: 0,
-                west: 0,
-                north: 0,
-                south: 0
+                rx: (j === MAP_DIM-1) ? false : this.checkCell(mapDesc, i, j+1),
+                lx: (j === 0) ? false : this.checkCell(mapDesc, i, j-1),
+                up: (i === 0) ? false : this.checkCell(mapDesc, i-1, j),
+                dw: (i === MAP_DIM-1) ? false : this.checkCell(mapDesc, i+1, j)
             };
-            this.cellsDir[i][j].west = this.checkCell(mapDesc, i, j - 1);
-            this.cellsDir[i][j].east = this.checkCell(mapDesc, i, j + 1);
-            this.cellsDir[i][j].north = this.checkCell(mapDesc, i - 1, j);
-            this.cellsDir[i][j].south = this.checkCell(mapDesc, i + 1, j);
         }
     }
-    console.log("w: ", this.cellsDir[1][0].west);
-    console.log("n: ", this.cellsDir[1][0].north);
-    console.log("e: ", this.cellsDir[1][0].east);
-    console.log("s: ", this.cellsDir[1][0].south);
 }
 
 Map.prototype.checkCell = function(mapDesc, i, j){
     const v = mapDesc[i * MAP_DIM + j];
-    
+
     switch(v){
         case BIGF:
         case TUNN:
