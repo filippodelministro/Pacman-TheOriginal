@@ -21,6 +21,7 @@ const DOWN = 503;
 // ------  POSITIONING  ------
 const PACMAN_X = 8;
 const PACMAN_Y = 12;
+const MOVING_PIXELS = 3;
 // const GHOST_X = 
 
 // ------  TIME VALUES ------

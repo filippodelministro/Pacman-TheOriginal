@@ -40,9 +40,7 @@ Pacman.prototype.initPosition = function(){
 Pacman.prototype.startMoving = function(){
     if (!this.moving) {
         console.log("startMoving");
-        this.moveInterval = setInterval(this.movePacman1.bind(this), this.speed);
-        // this.checkDirectionInterval = setInterval(this.checkDirectionPacman.bind(this), CHECK_DIRECTION_CLOCK);
-        // this.moveInterval = setInterval(this.movePacman.bind(this), this.speed);
+        this.moveInterval = setInterval(this.movePacman.bind(this), this.speed);
         this.moving = true;
     }
 }
@@ -61,66 +59,6 @@ Pacman.prototype.changeDirection = function(e){
     }
 }
 
-Pacman.prototype.movePacman = function(){
-
-    if(game.checkPacmanCollision()){
-        this.PacmanHit();
-    }
-
-
-    let posX = this.x;
-    let posY = this.y;
-
-    switch(this.direction){
-        case LEFT : posX -= 1; break;
-        case UP : posY -= 1; break;
-        case RIGHT : posX += 1; break;
-        case DOWN : posY += 1; break;
-    }
-
-    let next = game.getCell(posX, posY);
-
-    switch(next){
-        case FOOD: {
-            this.x = posX;
-            this.y = posY;
-            moveElement(this, this.x, this.y);
-            game.remove("food", this.x, this.y);
-            game.addPoints(FOOD);
-            break;
-        }
-        case CRSS:{
-            this.x = posX;
-            this.y = posY;
-            moveElement(this, this.x, this.y);
-            game.remove("food", this.x, this.y);
-            game.addPoints(FOOD);
-            break;
-        }
-        case EMPTY: {
-            this.x = posX;
-            this.y = posY;
-            moveElement(this, this.x, this.y);
-            break;
-        }
-        case TUNN: {
-            if(this.x == 1)
-                this.x = MAP_DIM - 1;
-            else this.x = 0;
-            moveElement(this, this.x, this.y);
-            break;
-        }
-        case BIGF: {
-            this.x = posX;
-            this.y = posY;
-            moveElement(this, this.x, this.y);
-            game.remove("bigFood", this.x, this.y);
-            game.GhostVulnerable();
-        }
-        default: break;
-    }
-}    
-
 Pacman.prototype.PacmanHit = function(){
     this.life -= 1;
     life = document.getElementById("life");
@@ -133,8 +71,7 @@ Pacman.prototype.PacmanHit = function(){
     this.initPosition();
 }
 
-
-Pacman.prototype.movePacman1 = function(){
+Pacman.prototype.movePacman = function(){
     //check if Pacman can change direction
     var coord = (this.direction.x == 0) ? this.y : this.x;
     if(coord % CELL_SIZE == 0){
@@ -147,7 +84,7 @@ Pacman.prototype.movePacman1 = function(){
         case BIGF:
         case CRSS:
         case FOOD:{
-            moveElement1(this);
+            moveElement1(this);                 //todo: change in moveElement
             //todo: cambiare game.remove
             // game.remove("food", this.x/CELL_SIZE, this.y/CELL_SIZE);
             //fix: addPoints each pixel
