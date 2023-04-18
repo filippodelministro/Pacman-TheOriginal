@@ -55,9 +55,9 @@ Pacman.prototype.stopMoving = function(){
 Pacman.prototype.changeDirection = function(e){
     switch(e.keyCode){
         case 37: this.nextDirection.x = -1; this.nextDirection.y = 0; break;    //left
-        case 38: this.nextDirection.x = 0; this.nextDirection.y = -1; break;    //
-        case 39: this.nextDirection.x = 1; this.nextDirection.y = 0; break;
-        case 40: this.nextDirection.x = 0; this.nextDirection.y = 1; break;
+        case 38: this.nextDirection.x = 0; this.nextDirection.y = -1; break;    //top
+        case 39: this.nextDirection.x = 1; this.nextDirection.y = 0; break;     //right
+        case 40: this.nextDirection.x = 0; this.nextDirection.y = 1; break;     //down
     }
 }
 
@@ -135,29 +135,35 @@ Pacman.prototype.PacmanHit = function(){
 
 
 Pacman.prototype.movePacman1 = function(){
-    var nextCell;
-
-    //check just the right coordination (using direction) to keep Pacman in column/rows of the grid
+    //check if Pacman can change direction
     var coord = (this.direction.x == 0) ? this.y : this.x;
-    
-    console.log("x: ",  this.x, " y: ", this.y);
     if(coord % CELL_SIZE == 0){
-        console.log("!!");
         this.checkDirectionPacman();
-        // next = checkNextCell(this, signX, signY);
+        next = checkNextCell(this);   
     }
 
-
-    moveElement1(this);
+    switch(next){
+        //BigFood, Croos & Food are handled in the same way
+        case BIGF:
+        case CRSS:
+        case FOOD:{
+            moveElement1(this);
+            //todo: cambiare game.remove
+            // game.remove("food", this.x/CELL_SIZE, this.y/CELL_SIZE);
+            //fix: addPoints each pixel
+            game.addPoints(FOOD);
+            break;
+        }
+        //fix TUNN
+        // case TUNN: {
+        //     this.x = (this.x/CELL_SIZE == 1) ? (MAP_DIM - 1)/CELL_SIZE : 1;
+        //     moveElement1(this);
+        //     break;
+        // }
+        case EMPTY: {moveElement1(this); break;}
+        default : break;
+    }
 }    
-
-function checkNextCell(el, sign){
-    const nextX = this.x + sign * CELL_SIZE;
-    const nextY = this.y + sign * CELL_SIZE;
-
-    return game.getCell(nextX, nextY);
-}
-
 
 Pacman.prototype.checkDirectionPacman = function(){
     this.direction.x = this.nextDirection.x;

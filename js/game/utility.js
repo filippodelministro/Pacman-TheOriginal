@@ -50,3 +50,10 @@ function moveElement1(el) {
     // }
 
 }
+
+function checkNextCell(el){
+    const nextX = el.x + el.direction.x * CELL_SIZE;
+    const nextY = el.y + el.direction.y * CELL_SIZE;
+
+    return game.getCell(nextX/CELL_SIZE, nextY/CELL_SIZE);
+}
