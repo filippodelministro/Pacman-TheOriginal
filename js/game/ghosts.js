@@ -33,7 +33,7 @@ Ghost.prototype.initPosition = function(){
 
 Ghost.prototype.startMoving = function(){
     if (!this.moving) {
-        this.moveInterval = setInterval(this.moveGhost1.bind(this), this.speed);
+        this.moveInterval = setInterval(this.moveGhost.bind(this), this.speed);
         this.moving = true;
     }
 }
@@ -41,57 +41,6 @@ Ghost.prototype.stopMoving = function(){
     clearInterval(this.moveInterval);
     this.moving = false;
 }
-
-Ghost.prototype.moveGhost = function(){
-    
-    //check if the ghost is the spawn:
-    let on = game.getCell(this.x, this.y);
-
-    //FIX
-    if(on == SPWN){
-        setTimeout(this.leaveSpawn(), 5000);
-        // return;
-    }
-
-    if(on == CRSS)
-        this.randomDirection();
-
-    
-    let posX = this.x;
-    let posY = this.y;
-    switch(this.direction){
-        case LEFT : posX -= 1; break;
-        case UP : posY -= 1; break;
-        case RIGHT : posX += 1; break;
-        case DOWN : posY += 1; break;
-    }
-
-    let next = game.getCell(posX, posY);
-
-    switch(next){
-        case FOOD: {
-            this.x = posX;
-            this.y = posY;
-            moveElement(this, this.x, this.y);
-        }
-        case CRSS: {
-            this.x = posX;
-            this.y = posY;
-            moveElement(this, this.x, this.y);
-        }
-        case EMPTY:{
-            this.x = posX;
-            this.y = posY;
-            moveElement(this, this.x, this.y);
-        }
-        case BIGF: {
-            this.x = posX;
-            this.y = posY;
-            moveElement(this, this.x, this.y);
-        }
-        default: this.changeDirection();
-    }   
-}    
 
 Ghost.prototype.randomDirection = function(direction){
     const randomIndex = Math.floor(Math.random() * 10); 
@@ -112,24 +61,19 @@ Ghost.prototype.changeDirection = function(){
     }
 }
 
-Ghost.prototype.leaveSpawn = function(){
-    moveElement(this, this.x, this.y - 1);
-    moveElement(this, this.x, this.y - 1);
-    this.randomDirection();
-}
+//todo
+// Ghost.prototype.leaveSpawn = function(){
+//     moveElement(this, this.x, this.y - 1);
+//     moveElement(this, this.x, this.y - 1);
+//     this.randomDirection();
+// }
 
-
-Ghost.prototype.getNewDirection = function(type){
-
-}
-
-Ghost.prototype.moveGhost1 = function(){
+Ghost.prototype.moveGhost = function(){
     var next = over = null;
     var coord = (this.direction.x == 0) ? this.y : this.x;      //use just the X or Y direction
 
     //for each new cell check the over cell and the next one
     if(coord % CELL_SIZE == 0){                 
-        console.log("CELLLL");             
         over = checkCell(this);
         next = checkNextCell(this);
     
@@ -157,5 +101,5 @@ Ghost.prototype.moveGhost1 = function(){
             }
         }
     }
-    moveElement1(this);
+    moveElement(this);
 }    

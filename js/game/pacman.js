@@ -70,34 +70,33 @@ Pacman.prototype.PacmanHit = function(){
 
 Pacman.prototype.movePacman = function(){
     var next = over = null;
-    var coord = (this.direction.x == 0) ? this.y : this.x;      //use just the X or Y direction
 
-    //for each new cell check the over cell and the next one
+    //for each new cell check the over cell and the next one (check just the intereset diredction)
+    var coord = (this.direction.x == 0) ? this.y : this.x;
     if(coord % CELL_SIZE == 0){                 
         this.checkDirectionPacman();
         over = checkCell(this);
         next = checkNextCell(this);
     }
 
-    if(over == TUNN){
-        tunnel(this);
-        return;
-    }
-
-    //add points if the element pass over the food      //todo: make a switch
-    if(over == BIGF || over == FOOD || over == CRSS){
-        game.remove(over, this.x, this.y);
-        game.addPoints(FOOD);
-        if(over == BIGF){
-            game.GhostVulnerable();
+    //handle Pacman based on the element it passes over
+    switch(over){
+        //BIFG, CRSS & FOOD are handled in the same way (`break` at FOOD)
+        case BIGF: game.GhostVulnerable();
+        case CRSS:
+        case FOOD: {
+            game.remove(over, this.x, this.y);
+            game.addPoints(FOOD);
+            break;
         }
+        case TUNN: tunnel(this); return;
     }
 
     switch(next){
-        //Element always move except if it hits the WALL or the SPWAN element
+        //Pacman always move except if it hits the WALL or the SPWAN
         case SPWN:
         case WALL: break;
-        default : moveElement1(this);
+        default : moveElement(this);
     }
 }    
 

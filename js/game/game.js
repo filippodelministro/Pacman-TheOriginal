@@ -38,7 +38,7 @@ function Game(){
     this.foodRemaining = this.map.foodElements;
     this.pacman = new Pacman();
     this.ghosts = [
-        new Ghost('blue-ghost', 5, 8),
+        new Ghost('blue-ghost', 7, 9),
         new Ghost('orange-ghost', 8, 9),
         new Ghost('pink-ghost', 9, 9),
         new Ghost('red-ghost', 8, 6)
@@ -145,7 +145,6 @@ Game.prototype.remove = function(type, x, y){
     this.map.cells[y/CELL_SIZE * MAP_DIM + x/CELL_SIZE] = EMPTY;
 }
 
-//fix: need implementation
 Game.prototype.checkPacmanCollision = function(){
     if(this.vulnerability){
         //todo: vulnerability
