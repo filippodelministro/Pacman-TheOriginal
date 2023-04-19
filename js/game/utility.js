@@ -22,6 +22,9 @@ function moveElement1(el) {
 //todo: make it easier
 function tunnel(el) {
     const currLeft = parseInt(el.element.style.left, 10) || 0;
+    
+    console.log("tunnerl> x:", el.x, " y:", el.y);
+
     if(el.x == CELL_SIZE){
         el.element.style.left = currLeft +  15 * CELL_SIZE + 'px';
         el.x = el.x + 15 * CELL_SIZE;
@@ -37,4 +40,8 @@ function checkNextCell(el){
     const nextY = el.y + el.direction.y * CELL_SIZE;
 
     return game.getCell(nextX/CELL_SIZE, nextY/CELL_SIZE);
+}
+
+function checkCell(el){
+    return game.getCell(el.x/CELL_SIZE, el.y/CELL_SIZE);
 }

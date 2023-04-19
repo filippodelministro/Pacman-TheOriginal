@@ -9,7 +9,7 @@ class Pacman{
         this.checkDirectionInterval = null;
         this.moveInterval = null;
         this.life;
-        this.speed = 20;
+        this.speed = 30;
         this.element = null;
         this.init();
     }    
@@ -72,34 +72,24 @@ Pacman.prototype.PacmanHit = function(){
 }
 
 Pacman.prototype.movePacman = function(){
-    //check if Pacman can change direction
-    var next = null;
+    var next = over = null;
     var coord = (this.direction.x == 0) ? this.y : this.x;
     if(coord % CELL_SIZE == 0){
         this.checkDirectionPacman();
-        next = checkNextCell(this);   
+        over = checkCell(this);
+        next = checkNextCell(this);
+    }
+
+    //add points if the element pass over the food
+    if(over == BIGF || over == FOOD || over == CRSS){
+        game.remove(over, this.x, this.y);
+        game.addPoints(FOOD);
     }
 
     switch(next){
-        //BigFood, Croos & Food are handled in the same way
-        case BIGF:
-        case CRSS:
-        case FOOD:{
-            moveElement1(this);                 //todo: change in moveElement
-            //todo: cambiare game.remove
-            // game.remove("food", this.x/CELL_SIZE, this.y/CELL_SIZE);
-            //fix: addPoints each pixel
-            game.addPoints(FOOD);
-            break;
-        }
-        case TUNN: {
-            tunnel(this);
-            // moveElement1(this);
-            break;
-        }
+        //Element always move except if it hits the WALL or the SPWAN element
         case SPWN:
         case WALL: break;
-        case EMPTY:
         default : moveElement1(this);
     }
 }    

@@ -130,12 +130,20 @@ Game.prototype.getCell = function(x, y){
 }
 
 Game.prototype.remove = function(type, x, y){
-    this.map.cells[y * MAP_DIM + x] = EMPTY;
+    console.log("remove> type: " + type, "x: " + x/CELL_SIZE, "y: " + y/CELL_SIZE);
+
+    var t;
+    switch(type){
+        case CRSS:
+        case FOOD: t = "food"; break;
+        case BIGF: t = "bigFood"; break;
+    }
 
     //remove food from HTML
     const grid = document.querySelector('.map');
     const cells = grid.querySelectorAll('.cell');
-    cells[y * MAP_DIM + x].classList.remove(type);
+    cells[y/CELL_SIZE * MAP_DIM + x/CELL_SIZE].classList.remove(t);
+    this.map.cells[y/CELL_SIZE * MAP_DIM + x/CELL_SIZE] = EMPTY;
 }
 
 //fix: need implementation
