@@ -63,30 +63,24 @@ Pacman.prototype.changeDirection = function(e){
         case 40: this.nextDirection.x = 0; this.nextDirection.y = 1; break;     //down
     }
 
-    
-    switch(e.keyCode){
-        case 37: this.nextDirection.x = -1; this.nextDirection.y = 0; break;    //left
-        case 38: this.nextDirection.x = 0; this.nextDirection.y = -1; break;    //top
-        case 39: this.nextDirection.x = 1; this.nextDirection.y = 0; break;     //right
-        case 40: this.nextDirection.x = 0; this.nextDirection.y = 1; break;     //down
-    }
-
+    if(this.isMoving){
     var next = checkNextDirection(this);
 
-    // console.log("changeDirection", next);
-    switch(next){
-        //BigFood, Croos & Food are handled in the same way
-        case BIGF:
-        case CRSS:
-        case EMPTY:
-        case TUNN: 
-        case FOOD: break;
-        
-        
-        case SPWN:
-        case WALL: this.nextDirection.x = oldDirection.x; this.nextDirection.y = oldDirection.y; break;
+        // console.log("changeDirection", next);
+        switch(next){
+            //BigFood, Croos & Food are handled in the same way
+            case BIGF:
+            case CRSS:
+            case EMPTY:
+            case TUNN: 
+            case FOOD: break;
+            
+            
+            case SPWN:
+            case WALL: this.nextDirection.x = oldDirection.x; this.nextDirection.y = oldDirection.y; break;
+        }
     }
-
+    else this.isMoving = true;
 }
 
 Pacman.prototype.PacmanHit = function(){
@@ -127,7 +121,7 @@ Pacman.prototype.movePacman = function(){
             break;
         }
         case SPWN:
-        case WALL: break;
+        case WALL: this.isMoving = false; break;
         case EMPTY:
         default : moveElement1(this);
     }
