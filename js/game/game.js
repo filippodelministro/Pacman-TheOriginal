@@ -130,13 +130,14 @@ Game.prototype.getCell = function(x, y){
     return this.map.cells[y * MAP_DIM + x];
 }
 
-Game.prototype.getCell1 = function(x, y){
+Game.prototype.getCellDirection = function(x, y, dir){
     //return cell number if position passed is valid
-    if(x < 0 || x >= MAP_DIM || y < 0 || y >= MAP_DIM){
-        return null;
-    }
+    // if(x < 0 || x >= MAP_DIM || y < 0 || y >= MAP_DIM){
+    //     return null;
+    // }
 
-    return this.map.cells[y * MAP_DIM + x];
+    console.log("getCellDirection", "x: " + x + ", y: " + y + ", dir.x: " + dir.x, "dir.y: " + dir.y);
+    // return this.map.cellsDir[y * MAP_DIM + x];
 }
 
 Game.prototype.remove = function(type, x, y){

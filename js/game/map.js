@@ -62,16 +62,13 @@ Map.prototype.checkCell = function(mapDesc, i, j){
     }
 }
 
-Map.prototype.getDirectionsAvailable = function(i, j){
-    // console.log(this.cellsDir[i][j]);
+Map.prototype.getDirectionsAvailable = function(i, j, dir){
+    console.log("getDirectionsAvailable> x: " + i + " y: " + j + " dir.x: " + dir.x + " dir.y: " + dir.y);
 
-    // var dirAvail = new Array(4);
-    // if(this.cellsDir[i][j].rx) dirAvail[0] = true; else dirAvail[0] = false;
-    // if(this.cellsDir[i][j].lx) dirAvail[1] = true; else dirAvail[1] = false;
-    // if(this.cellsDir[i][j].up) dirAvail[2] = true; else dirAvail[2] = false;
-    // if(this.cellsDir[i][j].dw) dirAvail[3] = true; else dirAvail[3] = false;
-    
-    // return dirAvail;
+    // console.log(this.cellsDir[(i+dir.x) * MAP_DIM + (j+dir.j)]);
+    console.log(this.cellsDir[i][j].rx);
+    // console.log(this.cellsDir[0][0]);
+
 }
 
 const map1 = [
