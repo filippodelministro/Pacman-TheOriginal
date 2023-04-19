@@ -22,19 +22,16 @@ Pacman.prototype.init = function(){
     playground.appendChild(this.element);
 
     this.initPosition();
-    this.element.style.left = (this.x * CELL_SIZE) + "px";
-    this.element.style.top = (this.y * CELL_SIZE) + "px";
+    this.element.style.left = (this.x) + "px";
+    this.element.style.top = (this.y) + "px";
     this.direction = {x:1, y:0};
     this.nextDirection = {x:1, y:0};
     this.life = MAX_LIFE;
-    this.x = this.x * CELL_SIZE;
-    this.y = this.y * CELL_SIZE;
-
 }
 
 Pacman.prototype.initPosition = function(){
-    this.x = PACMAN_X;
-    this.y = PACMAN_Y;
+    this.x = PACMAN_X * CELL_SIZE;
+    this.y = PACMAN_Y * CELL_SIZE;
 }
 
 Pacman.prototype.startMoving = function(){

@@ -1,17 +1,17 @@
 class Ghost {
     constructor(name, x, y) {
         this.id = name;
-        this.x = x;
-        this.y = y;
+        this.startingX = x * CELL_SIZE;
+        this.startingY = y * CELL_SIZE;
         this.moving = false;
         this.direction;
-        this.speed = 200;
-        this.initPosition();
+        this.speed = 30;
+        this.init();
     }
 }
 
 
-Ghost.prototype.initPosition = function(){
+Ghost.prototype.init = function(){
     this.element = document.createElement("div");
     this.element.setAttribute("id", this.id);
     this.element.classList.add(this.id);
@@ -19,14 +19,22 @@ Ghost.prototype.initPosition = function(){
     this.element.classList.add("ghost");
     playground.appendChild(this.element);
 
-    this.element.style.left = (this.x * CELL_SIZE) + "px";
-    this.element.style.top = (this.y * CELL_SIZE) + "px";
+    this.initPosition();
+    this.element.style.left = (this.x) + "px";
+    this.element.style.top = (this.y) + "px";
     this.moving = false;
-    this.changeDirection();
+    this.direction = {x:1, y:0};
+    // this.changeDirection();
 }
+
+Ghost.prototype.initPosition = function(){
+    this.x = this.startingX;
+    this.y = this.startingY;
+}
+
 Ghost.prototype.startMoving = function(){
     if (!this.moving) {
-        this.moveInterval = setInterval(this.moveGhost.bind(this), this.speed);
+        this.moveInterval = setInterval(this.moveGhost1.bind(this), this.speed);
         this.moving = true;
     }
 }
@@ -95,7 +103,14 @@ Ghost.prototype.randomDirection = function(direction){
 Ghost.prototype.changeDirection = function(){
     const directions = [UP, DOWN, RIGHT, LEFT];
     const randomIndex = Math.floor(Math.random() * 4); 
-    this.direction = directions[randomIndex];
+    var dir  = directions[randomIndex];
+
+    switch(dir){
+        case LEFT: this.direction.x = -1; this.direction.y = 0; break;    //left
+        case UP: this.direction.x = 0; this.direction.y = -1; break;    //top
+        case RIGHT: this.direction.x = 1; this.direction.y = 0; break;     //right
+        case DOWN: this.direction.x = 0; this.direction.y = 1; break;     //down
+    }
 }
 
 Ghost.prototype.leaveSpawn = function(){
@@ -103,3 +118,37 @@ Ghost.prototype.leaveSpawn = function(){
     moveElement(this, this.x, this.y - 1);
     this.randomDirection();
 }
+
+
+
+
+Ghost.prototype.moveGhost1 = function(){
+    var next = over = null;
+    var coord = (this.direction.x == 0) ? this.y : this.x;      //use just the X or Y direction
+
+    //for each new cell check the over cell and the next one
+    if(coord % CELL_SIZE == 0){    
+        console.log("CELLLL");             
+        // this.checkDirectionPacman();
+        // over = checkCell(this);
+        next = checkNextCell(this);
+    }
+
+    //add points if the element pass over the food      //todo: make a switch
+    // if(over == BIGF || over == FOOD || over == CRSS){
+    //     game.remove(over, this.x, this.y);
+    //     game.addPoints(FOOD);
+    //     if(over == BIGF){
+    //         game.GhostVulnerable();
+    //     }
+    // }
+
+    console.log("moveGhost1: id: ", this.id, "x: ", this.x, "y: ", this.y, "next:" + next);
+
+    switch(next){
+        //Element always move except if it hits the WALL or the SPWAN element
+        case SPWN:
+        case WALL: this.changeDirection();
+        default : moveElement1(this);
+    }
+}    
