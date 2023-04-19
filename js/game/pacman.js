@@ -6,7 +6,7 @@ class Pacman{
         this.y;
         this.nextDirection = null;
         this.direction;
-        this.checkDirectionInterval = null;
+        this.checkDirectionInterval = null;         //?
         this.moveInterval = null;
         this.life;
         this.speed = 30;
@@ -73,17 +73,22 @@ Pacman.prototype.PacmanHit = function(){
 
 Pacman.prototype.movePacman = function(){
     var next = over = null;
-    var coord = (this.direction.x == 0) ? this.y : this.x;
-    if(coord % CELL_SIZE == 0){
+    var coord = (this.direction.x == 0) ? this.y : this.x;      //use just the X or Y direction
+
+    //for each new cell check the over cell and the next one
+    if(coord % CELL_SIZE == 0){                 
         this.checkDirectionPacman();
         over = checkCell(this);
         next = checkNextCell(this);
     }
 
-    //add points if the element pass over the food
+    //add points if the element pass over the food      //todo: make a switch
     if(over == BIGF || over == FOOD || over == CRSS){
         game.remove(over, this.x, this.y);
         game.addPoints(FOOD);
+        if(over == BIGF){
+            game.GhostVulnerable();
+        }
     }
 
     switch(next){

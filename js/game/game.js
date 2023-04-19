@@ -130,13 +130,12 @@ Game.prototype.getCell = function(x, y){
 }
 
 Game.prototype.remove = function(type, x, y){
-    console.log("remove> type: " + type, "x: " + x/CELL_SIZE, "y: " + y/CELL_SIZE);
-
     var t;
     switch(type){
         case CRSS:
         case FOOD: t = "food"; break;
         case BIGF: t = "bigFood"; break;
+        default: return;
     }
 
     //remove food from HTML
