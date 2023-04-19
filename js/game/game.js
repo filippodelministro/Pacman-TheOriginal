@@ -38,10 +38,10 @@ function Game(){
     this.foodRemaining = this.map.foodElements;
     this.pacman = new Pacman();
     this.ghosts = [
-        new Ghost('blue-ghost', 7, 9),
-        // new Ghost('orange-ghost', 8, 9),
-        // new Ghost('pink-ghost', 9, 9),
-        // new Ghost('red-ghost', 8, 6)
+        // new Ghost('blue-ghost', 5, 8),
+        new Ghost('orange-ghost', 8, 9),
+        new Ghost('pink-ghost', 9, 9),
+        new Ghost('red-ghost', 8, 6)
     ];  
 }
 

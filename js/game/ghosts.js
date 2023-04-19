@@ -23,8 +23,7 @@ Ghost.prototype.init = function(){
     this.element.style.left = (this.x) + "px";
     this.element.style.top = (this.y) + "px";
     this.moving = false;
-    this.direction = {x:1, y:0};
-    // this.changeDirection();
+    this.direction = {x:-1, y:0};
 }
 
 Ghost.prototype.initPosition = function(){
@@ -101,15 +100,15 @@ Ghost.prototype.randomDirection = function(direction){
 }
 
 Ghost.prototype.changeDirection = function(){
-    const directions = [UP, DOWN, RIGHT, LEFT];
+    const directions = [LEFT, UP, RIGHT, DOWN];
     const randomIndex = Math.floor(Math.random() * 4); 
     var dir  = directions[randomIndex];
 
     switch(dir){
-        case LEFT: this.direction.x = -1; this.direction.y = 0; break;    //left
-        case UP: this.direction.x = 0; this.direction.y = -1; break;    //top
-        case RIGHT: this.direction.x = 1; this.direction.y = 0; break;     //right
-        case DOWN: this.direction.x = 0; this.direction.y = 1; break;     //down
+        case LEFT: this.direction.x = -1; this.direction.y = 0; break;    
+        case UP: this.direction.x = 0; this.direction.y = -1; break;    
+        case RIGHT: this.direction.x = 1; this.direction.y = 0; break;     
+        case DOWN: this.direction.x = 0; this.direction.y = 1; break;     
     }
 }
 
@@ -120,35 +119,43 @@ Ghost.prototype.leaveSpawn = function(){
 }
 
 
+Ghost.prototype.getNewDirection = function(type){
 
+}
 
 Ghost.prototype.moveGhost1 = function(){
     var next = over = null;
     var coord = (this.direction.x == 0) ? this.y : this.x;      //use just the X or Y direction
 
     //for each new cell check the over cell and the next one
-    if(coord % CELL_SIZE == 0){    
+    if(coord % CELL_SIZE == 0){                 
         console.log("CELLLL");             
-        // this.checkDirectionPacman();
-        // over = checkCell(this);
+        over = checkCell(this);
         next = checkNextCell(this);
+    
+        //if thorough the tunnel move the element and return
+        if(over == TUNN){
+            tunnel(this);
+            return;
+        }
+
+        //using CRSS to make ghost move randomly
+        if(over == CRSS){
+            this.randomDirection();
+            next = checkNextCell(this);                 //recheck next cell to avoid walking over the wall
+            while (next == WALL || next == SPWN) {
+                this.changeDirection()
+                next = checkNextCell(this);
+            }
+        }
+
+        //in any case check teh next cell to avoid walking over the wall
+        if(next == WALL || next == SPWN){
+            while (next == WALL || next == SPWN) {
+                this.changeDirection()
+                next = checkNextCell(this);
+            }
+        }
     }
-
-    //add points if the element pass over the food      //todo: make a switch
-    // if(over == BIGF || over == FOOD || over == CRSS){
-    //     game.remove(over, this.x, this.y);
-    //     game.addPoints(FOOD);
-    //     if(over == BIGF){
-    //         game.GhostVulnerable();
-    //     }
-    // }
-
-    console.log("moveGhost1: id: ", this.id, "x: ", this.x, "y: ", this.y, "next:" + next);
-
-    switch(next){
-        //Element always move except if it hits the WALL or the SPWAN element
-        case SPWN:
-        case WALL: this.changeDirection();
-        default : moveElement1(this);
-    }
+    moveElement1(this);
 }    

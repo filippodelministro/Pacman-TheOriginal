@@ -25,7 +25,7 @@ function tunnel(el) {
     
     console.log("tunnerl> x:", el.x, " y:", el.y);
 
-    if(el.x == CELL_SIZE){
+    if(el.x == 0){
         el.element.style.left = currLeft +  15 * CELL_SIZE + 'px';
         el.x = el.x + 15 * CELL_SIZE;
     }
