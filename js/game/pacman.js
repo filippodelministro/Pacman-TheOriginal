@@ -50,37 +50,13 @@ Pacman.prototype.stopMoving = function(){
     this.moving = false;
 }
 
-Pacman.prototype.changeDirection = function(e){    
-    //saving old direction to restore in case th new one is not available
-    var oldDirection = this.direction;
-
-    // var nextDirection
-
+Pacman.prototype.changeDirection = function(e){
     switch(e.keyCode){
         case 37: this.nextDirection.x = -1; this.nextDirection.y = 0; break;    //left
         case 38: this.nextDirection.x = 0; this.nextDirection.y = -1; break;    //top
         case 39: this.nextDirection.x = 1; this.nextDirection.y = 0; break;     //right
         case 40: this.nextDirection.x = 0; this.nextDirection.y = 1; break;     //down
     }
-
-    if(this.isMoving){
-    var next = checkNextDirection(this);
-
-        // console.log("changeDirection", next);
-        switch(next){
-            //BigFood, Croos & Food are handled in the same way
-            case BIGF:
-            case CRSS:
-            case EMPTY:
-            case TUNN: 
-            case FOOD: break;
-            
-            
-            case SPWN:
-            case WALL: this.nextDirection.x = oldDirection.x; this.nextDirection.y = oldDirection.y; break;
-        }
-    }
-    else this.isMoving = true;
 }
 
 Pacman.prototype.PacmanHit = function(){
@@ -101,7 +77,7 @@ Pacman.prototype.movePacman = function(){
     var coord = (this.direction.x == 0) ? this.y : this.x;
     if(coord % CELL_SIZE == 0){
         this.checkDirectionPacman();
-        next = checkNextCell(this);
+        next = checkNextCell(this);   
     }
 
     switch(next){
@@ -118,10 +94,11 @@ Pacman.prototype.movePacman = function(){
         }
         case TUNN: {
             tunnel(this);
+            // moveElement1(this);
             break;
         }
         case SPWN:
-        case WALL: this.isMoving = false; break;
+        case WALL: break;
         case EMPTY:
         default : moveElement1(this);
     }
