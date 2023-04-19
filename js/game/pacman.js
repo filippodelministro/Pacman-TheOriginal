@@ -79,6 +79,11 @@ Pacman.prototype.movePacman = function(){
         next = checkNextCell(this);
     }
 
+    if(over == TUNN){
+        tunnel(this);
+        return;
+    }
+
     //add points if the element pass over the food      //todo: make a switch
     if(over == BIGF || over == FOOD || over == CRSS){
         game.remove(over, this.x, this.y);
