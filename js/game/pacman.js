@@ -22,16 +22,16 @@ Pacman.prototype.init = function(){
     playground.appendChild(this.element);
 
     this.initPosition();
-    this.element.style.left = (this.x) + "px";
-    this.element.style.top = (this.y) + "px";
-    this.direction = {x:1, y:0};
-    this.nextDirection = {x:1, y:0};
     this.life = MAX_LIFE;
 }
 
 Pacman.prototype.initPosition = function(){
     this.x = PACMAN_X * CELL_SIZE;
     this.y = PACMAN_Y * CELL_SIZE;
+    this.element.style.left = (this.x) + "px";
+    this.element.style.top = (this.y) + "px";
+    this.direction = {x:1, y:0};
+    this.nextDirection = {x:1, y:0};
 }
 
 Pacman.prototype.startMoving = function(){
@@ -60,15 +60,17 @@ Pacman.prototype.PacmanHit = function(){
     this.life -= 1;
     life = document.getElementById("life");
     life.textContent = this.life;
-
-    if(!this.life) 
-        game.lose();
-        // game.gameOver("lose");
-
-    this.initPosition();
+    
+    if(!this.life){
+        game.gameOver(false);
+        return;
+    }   
 }
 
 Pacman.prototype.movePacman = function(){
+    if(game.checkPacmanCollision())
+        this.PacmanHit();
+
     var next = over = null;
 
     //for each new cell check the over cell and the next one (check just the intereset diredction)

@@ -109,11 +109,11 @@ Game.prototype.addPoints = function(type){
         this.foodRemaining--;
     }
 
-    // if(!this.foodRemaining){
-    // // if(this.foodRemaining == this.map.foodElements - 3){     //!levare: è per testare
-    //     // this.gameOver("win");
-    //     this.win();
-    // }
+    if(!this.foodRemaining){
+    // if(this.foodRemaining == this.map.foodElements - 3){     //!levare: è per testare
+        // this.gameOver("win");
+        this.gameover(true);
+    }
     
 }
 
@@ -146,17 +146,28 @@ Game.prototype.remove = function(type, x, y){
 }
 
 Game.prototype.checkPacmanCollision = function(){
-    if(this.vulnerability){
-        //todo: vulnerability
-        
-    }
-
-    if(this.pacman.x == this.ghosts[0].x && this.pacman.y == this.ghosts[0].y) return true;
-    if(this.pacman.x == this.ghosts[1].x && this.pacman.y == this.ghosts[1].y) return true;
-    if(this.pacman.x == this.ghosts[2].x && this.pacman.y == this.ghosts[2].y) return true;
-    if(this.pacman.x == this.ghosts[3].x && this.pacman.y == this.ghosts[3].y) return true;
+    var ret = false;
     
-    return false;   
+    //todo: make it better
+    if(this.pacman.x == this.ghosts[0].x && this.pacman.y == this.ghosts[0].y) ret = true;
+    if(this.pacman.x == this.ghosts[1].x && this.pacman.y == this.ghosts[1].y) ret = true;
+    if(this.pacman.x == this.ghosts[2].x && this.pacman.y == this.ghosts[2].y) ret = true;
+    if(this.pacman.x == this.ghosts[3].x && this.pacman.y == this.ghosts[3].y) ret = true;
+    
+    if(ret){   
+        if(this.vulnerability){
+            //todo: vulnerability
+            
+        }
+        else{
+            //todo: add animation    
+            for(let i = 0; i < this.ghosts.length; i++)
+                this.ghosts[i].initPosition();
+    
+            this.pacman.initPosition();
+        }
+    }
+    return ret;
 }
 
 Game.prototype.GhostVulnerable = function(){
@@ -180,16 +191,24 @@ Game.prototype.GhostVulnerableOff = function(){
 
 
 //* ------------ GAMEOVER FUNCTIONS ------------
-Game.prototype.win = function(){
+
+//todo: make a gameover(win/lose) function
+Game.prototype.gameover = function(win){
+    
     this.gameover = true;
     this.clearPlayground();
     this.showStatistics();
 
     var menu = document.getElementById("end-game-menu");
     menu.style.visibility = "visible";
+
+    if(win){
+        //handle menu
+    }
+    else{
+        //handle other menu
+    }
 }
-
-
 Game.prototype.clearPlayground = function(){
     this.pacman.stopMoving();
     this.stopMovingGhosts();

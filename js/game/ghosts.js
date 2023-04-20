@@ -20,15 +20,15 @@ Ghost.prototype.init = function(){
     playground.appendChild(this.element);
 
     this.initPosition();
-    this.element.style.left = (this.x) + "px";
-    this.element.style.top = (this.y) + "px";
     this.moving = false;
-    this.direction = {x:-1, y:0};
 }
 
 Ghost.prototype.initPosition = function(){
     this.x = this.startingX;
     this.y = this.startingY;
+    this.element.style.left = (this.x) + "px";
+    this.element.style.top = (this.y) + "px";
+    this.direction = {x:-1, y:0};
 }
 
 Ghost.prototype.startMoving = function(){
