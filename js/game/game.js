@@ -32,6 +32,8 @@ function Game(){
     this.gameover = false;
     this.score = 0;
     this.ghostsKilled = 0;
+    this.level = 0;         //todo
+    this.timer = 0;         //todo
 
     this.vulnerability = false;
     this.map = new Map();
@@ -109,8 +111,9 @@ Game.prototype.addPoints = function(type){
     if(type == FOOD){
         this.foodRemaining--;
         
-        if(!this.foodRemaining){
-        // if(this.foodRemaining == this.map.foodElements - 20){     //!levare: è per testare
+        // if(!this.foodRemaining){
+        if(this.foodRemaining == this.map.foodElements - 3){     //!levare: è per testare
+            this.level++;
             this.gameOver(true);
         }
     }
@@ -199,20 +202,23 @@ Game.prototype.GhostVulnerableOff = function(){
 
 //* ------------ GAMEOVER FUNCTIONS ------------
 Game.prototype.gameOver = function(win){
-    
+    var m = (win ? "end-game-menu-win" : "end-game-menu-lose");
+
     this.gameover = true;
     this.clearPlayground();
     this.showStatistics();
+    this.showMenu(win);
 
-    var menu = document.getElementById("end-game-menu");
-    menu.style.visibility = "visible";
+    // // var menu = document.getElementById("end-game-menu-win");
+    // var menu = document.getElementById(m);
+    // menu.style.display = "block";
 
-    if(win){
-        //handle menu
-    }
-    else{
-        //handle other menu
-    }
+    // if(win){
+    //     //handle menu
+    // }
+    // else{
+    //     //handle other menu
+    // }
 }
 Game.prototype.clearPlayground = function(){
     this.pacman.stopMoving();
@@ -227,18 +233,43 @@ Game.prototype.showStatistics = function() {
     var ul = document.createElement("ul");
     
     var scoreLi = document.createElement("li");
-    scoreLi.textContent = `Score: ${this.score}`;
+    scoreLi.textContent = `Score:................ ${this.score}`;
     ul.appendChild(scoreLi);
     
     var ghostKilledLi = document.createElement("li");
-    ghostKilledLi.textContent = `Ghosts killed: ${this.ghostsKilled}`;
+    ghostKilledLi.textContent = `Ghosts killed:........ ${this.ghostsKilled}`;
     ul.appendChild(ghostKilledLi);
 
     var levelLi = document.createElement("li");
-    levelLi.textContent = `Livel passed: ${this.level}`;
+    levelLi.textContent = `Level passed:......... ${this.level}`;
     ul.appendChild(levelLi);
     
-    section.appendChild(ul);
+    var timerLi = document.createElement("li");
+    timerLi.textContent = `Timer:............... ${this.timer}`;
+    ul.appendChild(timerLi);
     
+
+    section.appendChild(ul);
     document.body.appendChild(section);
-  }
+}
+
+Game.prototype.showMenu = function(win) {
+    var section = document.createElement("div");
+    section.classList.add("end-game-menu");
+    
+{/* <nav class="pause-menu">
+                <a href="">next level</a>                       //todo
+                <a href="./pacman-game.php">restart</a> <br>
+                <a href="./../index.php">exit</a> <br>
+            </nav>
+ */}
+
+
+    var nav = document.createElement("nav");
+
+    var elem = document.createElement("a");
+    nav.appendChild(elem);
+
+    section.appendChild(nav);
+    document.body.appendChild(section);
+}

@@ -47,12 +47,21 @@
         </div>
         <div class="pause-menu-overlay"></div> 
         
-        <div id="end-game-menu" class="end-game-menu">
+        <!-- <div id="end-game-menu-win" class="end-game-menu">
+            <h4>YOU WON!</h4>
             <nav class="pause-menu">
+                <a href="">next level</a>                       //todo
                 <a href="./pacman-game.php">restart</a> <br>
                 <a href="./../index.php">exit</a> <br>
             </nav>
         </div>
+        <div id="end-game-menu-lose" class="end-game-menu">
+            <h4>GAME OVER</h4>
+            <nav class="pause-menu">
+                <a href="./pacman-game.php">restart</a> <br>
+                <a href="./../index.php">exit</a> <br>
+            </nav>
+        </div> -->
 
     </body>
     <?php    
