@@ -90,6 +90,7 @@ Game.prototype.startMovingGhosts = function(){
 Game.prototype.stopMovingGhosts = function(){
     for (let i = 0; i < this.ghosts.length; i++) {
         this.ghosts[i].stopMoving();
+        //todo: handle vulnerabilities              //??
     } 
 }    
 
@@ -107,14 +108,15 @@ Game.prototype.addPoints = function(type){
 
     if(type == FOOD){
         this.foodRemaining--;
+        
+        if(!this.foodRemaining){
+        // if(this.foodRemaining == this.map.foodElements - 20){     //!levare: è per testare
+            this.gameOver(true);
+        }
     }
-
-    if(!this.foodRemaining){
-    // if(this.foodRemaining == this.map.foodElements - 3){     //!levare: è per testare
-        // this.gameOver("win");
-        this.gameover(true);
+    else if(type == GHOST_POINTS){
+        this.ghostsKilled++;
     }
-    
 }
 
 
@@ -146,29 +148,34 @@ Game.prototype.remove = function(type, x, y){
 }
 
 Game.prototype.checkPacmanCollision = function(){
-    var ret = false;
-    
-    //todo: make it better
-    if(this.pacman.x == this.ghosts[0].x && this.pacman.y == this.ghosts[0].y) ret = true;
-    if(this.pacman.x == this.ghosts[1].x && this.pacman.y == this.ghosts[1].y) ret = true;
-    if(this.pacman.x == this.ghosts[2].x && this.pacman.y == this.ghosts[2].y) ret = true;
-    if(this.pacman.x == this.ghosts[3].x && this.pacman.y == this.ghosts[3].y) ret = true;
-    
-    if(ret){   
+    var ghostHit = -1;  //not a valid ID ghost
+    //check for collision between Pacman and ghosts
+
+    if(this.pacman.x/CELL_SIZE == this.ghosts[0].x/CELL_SIZE && this.pacman.y/CELL_SIZE == this.ghosts[0].y/CELL_SIZE) ghostHit = 0
+    if(this.pacman.x/CELL_SIZE == this.ghosts[1].x/CELL_SIZE && this.pacman.y/CELL_SIZE == this.ghosts[1].y/CELL_SIZE) ghostHit = 1
+    if(this.pacman.x/CELL_SIZE == this.ghosts[2].x/CELL_SIZE && this.pacman.y/CELL_SIZE == this.ghosts[2].y/CELL_SIZE) ghostHit = 2
+    if(this.pacman.x/CELL_SIZE == this.ghosts[3].x/CELL_SIZE && this.pacman.y/CELL_SIZE == this.ghosts[3].y/CELL_SIZE) ghostHit = 3
+
+        
+    //check if vulnerability (of ghost) is active or not 
+    if(ghostHit != -1){   
         if(this.vulnerability){
-            //todo: vulnerability
-            
+            console.log("VULNERABILITY");
+            this.addPoints(GHOST_POINTS);
+            this.ghosts[ghostHit].initPosition();
         }
         else{
-            //todo: add animation    
+            //todo: add animation   
+            this.pacman.PacmanHit();
             for(let i = 0; i < this.ghosts.length; i++)
                 this.ghosts[i].initPosition();
     
-            this.pacman.initPosition();
         }
     }
-    return ret;
 }
+
+
+//* ------------ VULNERABILITY FUNCTIONS ------------
 
 Game.prototype.GhostVulnerable = function(){
     this.vulnerability = true;
@@ -176,7 +183,7 @@ Game.prototype.GhostVulnerable = function(){
         const ghost = document.getElementById(this.ghosts[i].id);
         ghost.classList.add('vulnerable');
         ghost.classList.remove(this.ghosts[i].id);
-        setTimeout(this.GhostVulnerableOff.bind(this), VULNERABILITY_TIME);
+        this.ghosts[i].vulnerabilityInterval = setTimeout(this.GhostVulnerableOff.bind(this), VULNERABILITY_TIME);
     }
 }
 
@@ -191,9 +198,7 @@ Game.prototype.GhostVulnerableOff = function(){
 
 
 //* ------------ GAMEOVER FUNCTIONS ------------
-
-//todo: make a gameover(win/lose) function
-Game.prototype.gameover = function(win){
+Game.prototype.gameOver = function(win){
     
     this.gameover = true;
     this.clearPlayground();

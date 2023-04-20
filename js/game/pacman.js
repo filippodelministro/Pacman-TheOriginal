@@ -8,6 +8,7 @@ class Pacman{
         this.direction;
         this.checkDirectionInterval = null;         //?
         this.moveInterval = null;
+        this.checkInterval = null;  
         this.life;
         this.speed = 30;
         this.element = null;
@@ -38,12 +39,14 @@ Pacman.prototype.startMoving = function(){
     if (!this.moving) {
         console.log("startMoving");
         this.moveInterval = setInterval(this.movePacman.bind(this), this.speed);
+        // this.checkInterval = setInterval(game.checkPacmanCollision.bind(this), 10);
         this.moving = true;
     }
 }
 
 Pacman.prototype.stopMoving = function(){
     clearInterval(this.moveInterval);
+    clearInterval(this.checkInterval);
     this.moving = false;
 }
 
@@ -65,17 +68,17 @@ Pacman.prototype.PacmanHit = function(){
         game.gameOver(false);
         return;
     }   
+    this.initPosition();
 }
 
 Pacman.prototype.movePacman = function(){
-    if(game.checkPacmanCollision())
-        this.PacmanHit();
-
     var next = over = null;
+    
+    game.checkPacmanCollision();
 
     //for each new cell check the over cell and the next one (check just the intereset diredction)
     var coord = (this.direction.x == 0) ? this.y : this.x;
-    if(coord % CELL_SIZE == 0){                 
+    if(coord % CELL_SIZE == 0){       
         this.checkDirectionPacman();
         over = checkCell(this);
         next = checkNextCell(this);

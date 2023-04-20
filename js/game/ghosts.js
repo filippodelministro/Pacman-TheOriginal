@@ -4,6 +4,8 @@ class Ghost {
         this.startingX = x * CELL_SIZE;
         this.startingY = y * CELL_SIZE;
         this.moving = false;
+        this.moveInterval = null;
+        this.vulnerabilityInterval = null;
         this.direction;
         this.speed = 30;
         this.init();
