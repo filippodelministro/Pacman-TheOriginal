@@ -40,5 +40,8 @@ function checkData(){
         psw1.setAttribute("class", "valid");
         psw2.setAttribute("class", "valid");
         document.RegisterForm.submit();
+        return true
     }
+
+    return false;
 }

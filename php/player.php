@@ -44,18 +44,13 @@
             </div>
 
             <div id="register" class="input-container">
-                <form method="POST" name="RegisterForm">
+                <form action="player.php" method="POST" name="RegisterForm">
                     <input type="text" placeholder="username" id="RegisterUsername"/>
                     <input type="password" placeholder="password" id="RegisterPassword"/>
                     <input type="password" placeholder="confirm password" id="RegisterConfirm"/>
                     <button type="button" onclick="checkData()" >SIGN UP</button>
                 </form>
             </div>
-
-
-
-
-            
 
             <button title="Click here for DarkMode" onclick="changeView()" >
                 <span id="darkmode" class="material-icons icons">dark_mode</span>
@@ -65,5 +60,56 @@
         <?php    
             include "./utility/footer.php";
         ?>
+
+        
     </body>
-</html>         
+</html> 
+
+<?php
+   
+
+$uname = $_POST["uname"];
+$psw = $_POST["psw1"];
+
+if (empty($uname)) {
+    echo ("<script>alert('Errore: il nome utente non può essere vuoto'); 
+                    window.history.back();
+            </script>");
+    exit();
+}
+// Una password costituita dal solo carattere 0 non è considerata valida
+if (empty($psw)) {
+    echo ("<script>alert('Errore: la password non può essere vuota'); 
+                    window.history.back();
+            </script>");
+    exit();
+}
+registrazione($uname, $psw);
+
+function registrazione($uname, $psw)
+{
+    require_once "./connection.php";
+
+    if (!$connection) {
+        die("Connessione al database fallita: " . mysqli_connect_error());
+    } else {
+        echo "Connessione al database stabilita con successo.";
+    }
+
+
+    // $pswHashed = password_hash($psw, PASSWORD_BCRYPT);
+    // $sql = "INSERT INTO user VALUES (?, ?, 1, 1)";
+    // $statement = mysqli_prepare($connection, $sql);
+    // mysqli_stmt_bind_param($statement, 'ss', $uname, $pswHashed);
+    // if (!mysqli_stmt_execute($statement)) {
+    //     echo ("<script>alert('Errore: utente già registrato'); window.history.back(); </script>");
+    //     exit();
+    // }
+    // $sql = "INSERT INTO sbloccato VALUE(" . "'" . $uname . "'" . ", 1, null)";
+    // mysqli_query($connection, $sql);
+    // echo ("<script>alert('Utente registrato con successo'); window.history.back(); </script>");
+    // $_SESSION["username"] = $uname;
+    // header("location: menu.php");
+    exit();
+}
+?>
