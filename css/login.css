@@ -102,6 +102,7 @@ input {
     color: black;
 }
 
+
 input:hover{
     color: black;
 }
@@ -109,6 +110,15 @@ input:hover{
 input:focus {
     border-bottom: 5px solid #00c2d7;
 }
+
+.error{
+    border-bottom: 5px solid #d70000;
+}
+
+.valid{
+    border-bottom: 5px solid #00aa4c;
+}
+
 
 .input-container button {
     display: block;
