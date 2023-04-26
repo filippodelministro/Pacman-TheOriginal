@@ -3,7 +3,7 @@ function validateRegisterForm(){
     var username = document.forms["registerForm"]["username"].value;
     // var email = document.forms["registerForm"]["email"].value;
     // var telefono = document.forms["registerForm"]["telefono"].value;
-    // var password = document.forms["registerForm"]["password"].value;
+    var password = document.forms["registerForm"]["password"].value;
     var confirmPassword = document.forms["registerForm"]["confirmPassword"].value;
 
     //RegExp
@@ -14,23 +14,25 @@ function validateRegisterForm(){
 
     //username check
     if (/\s/.test(username)) {
-        window.alert("L'username non può contenere spazi");
+        window.alert("username cannot contain spaces");
         return false;
     }
 
     if(username.charAt(0) >= 0 || username.charAt(0) <= 9){
-        window.alert("L'username non può iniziare con un numero");
-        return false;
-    }
-    if(username.length < 3){
-        window.alert("L'username deve avere almeno 3 caratteri");
+        window.alert("username cannot begin with numbers");
         return false;
     }
     
     if(!patternUsername.test(username)){
-        window.alert("L'username non deve contenere caratteri speciali");
+        window.alert("usernam cannot contain special characters");
         return false;
     }
+
+    if(username.length < 3){
+        window.alert("username must be at least 3 characters long");
+        return false;
+    }
+    
     
     //email check
     // if (!patternEmail.test(email)) {
@@ -46,22 +48,22 @@ function validateRegisterForm(){
 
     //password check    
     if (/\s/.test(password)) {
-        window.alert("La password non può contenere spazi");
+        window.alert("password cannot contain spaces");
         return false;
     }
 
     if(password.length < 8){
-        window.alert("La password deve avere almeno 8 caratteri");
+        window.alert("password must be at least 8 characters long");
         return false;
     }
     
     if(patternPassword.test(password)){
-        window.alert("La password deve contenere almeno un carattere speciale");
+        window.alert("password have to contain special characters");
         return false;
     }  
     
     if(password != confirmPassword ){
-        window.alert("Le password non corrispondono");
+        window.alert("passwords dont match!");
         return false;
     }
     return true;

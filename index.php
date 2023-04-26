@@ -45,7 +45,7 @@
             
 
             <div id="login" class="input-container appear">
-            <form name="login" action="./php/login.php" method="post" onSubmit="return validateLoginForm()">
+                <form name="loginForm" action="./php/login.php" method="post" onSubmit="return validateLoginForm()">
                     <input type="text" placeholder="username" id="LoginUsername" required autofocus/>
                     <input type="password" placeholder="password" id="LoginPassword" required/>
                     <button type="submit">LOGIN</button>    
@@ -53,11 +53,11 @@
             </div>
 
             <div id="register" class="input-container">
-                <form name="register" action="./php/register.php" method="post" onSubmit="return validateRegisterForm()">
+                <form name="registerForm" action="./php/register.php" method="post" onSubmit="return validateRegisterForm()">
                     <input type="text" placeholder="username" name="username" required autofocus/>
                     <input type="password" placeholder="password" name="password" required/>
-                    <input type="password" placeholder="confirm password" id="RegisterConfirm" required/>
-                    <button type="submit">SIGN UP</button>
+                    <input type="password" placeholder="confirm password" name="confirmPassword" required/>
+                    <button type="submit" name="submit">SIGN UP</button>
                 </form>
             </div>
 
