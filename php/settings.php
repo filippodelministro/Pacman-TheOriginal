@@ -39,7 +39,7 @@
                 <h2>PACMAN: Settings</h2>
                 <p>[...]</p>
             </section>
-            <a id="settings" href="./home.php" class="icons">
+            <a id="back" href="./home.php" class="icons">
                 <span class="material-icons">
                     arrow_back_ios
                 </span>

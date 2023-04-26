@@ -17,7 +17,9 @@
         <link rel="stylesheet" href="./../css/material/materialMutual.css"> 
         <link rel="stylesheet" href="./../css/home.css">
         
+        <!-- //todo: add settings  -->
         <script src="./../js/effects/home.js"></script>
+
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
@@ -26,42 +28,25 @@
     <body>
         <header>
             <nav>
+                <!-- //todo: change -->
                 <button class="menu-item" onclick="appear('about')">about</button>  
-                <button class="menu-item" onclick="appear('command')">command</button> 
-                <button class="menu-item" onclick="appear('instructions')">instructions</button> 
+                <button class="menu-item" onclick="appear('command')">rankings</button> 
+                <button class="menu-item" onclick="appear('instructions')">your statistics</button> 
             </nav>
         </header>
         <main id="container" class="container">
             <section class="title-section">
-                <h2>PACMAN: THE ORIGINAL.</h2>
-                <p>The most played game in the '80</p>
+                <h2>PACMAN: Leaderboard</h2>
+                <p>Check out rankings and statistics</p>
             </section>
-            <!-- <a id="account" href="./php/player.php" class="icons">
+            <a id="back" href="./home.php" class="icons">
                 <span class="material-icons">
-                    account_circle
-                </span>
-            </a> -->
-            <a id="settings" href="./settings.php" class="icons">
-                <span class="material-icons">
-                    settings
+                    arrow_back_ios
                 </span>
             </a>
-            <a id="leaderboard" href="./leaderboard.php" class="icons">
-                <span class="material-icons">
-                    leaderboard
-                </span>
-            </a>
-            <!-- //todo: banner to confirm logout -->
-            <a title='click here for logout' id="logout" href="./logout.php" class="icons">
-               <span class="material-icons">
-                   logout
-               </span>
-           </a>
-            
 
 
-
-            <section id="about" class="menu-section">
+            <section id="about" class="menu-section appear">
                 <h4>about</h4>
                 <p><mark>Pac-Man</mark> is one of the most known game in the world: surely one of the most played inside americans arcade in '90.<br>
                     Released in Japan <b>by NAMCO</b> it immediately become famous worldwide for his simple layout and his challenging gameplay.
@@ -84,15 +69,7 @@
                     Eat <b>cherry</b> to make ghosts harmless and eat them to gain extra points! 
                 </p>
             </section>
-            
 
-
-            <section class="main-section" id="main-section">
-            
-                <img id="ghost" src="./../images/ghost.png" alt="ghost">
-                    <a href="./pacman-game.php"><h2>Play here</h2></a>
-
-            </section>
 
             <!-- //todo: -->
             <button title="Click here for DarkMode" onclick="changeView()" >

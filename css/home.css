@@ -13,11 +13,17 @@
     color: grey;
     cursor: pointer;
 }
-#account{
+#logout{
     left: 90%;
 }
-#settings{
+#back{
+    left: 90%;
+}
+#leaderboard{
     left: 87%;
+}
+#settings{
+    left: 84%;
 }
 #darkmode{
     left: 90%;

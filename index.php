@@ -65,14 +65,14 @@
                 <span id="darkmode" class="material-icons icons">dark_mode</span>
             </button>
             
-            
-            <?php
+            <!-- //?? -->
+            <!-- <?php
                 if (isset($_GET['errorMessage'])){
                     echo '<div class="sign_in_error">';
                     echo $_GET['errorMessage']  ;
                     echo '</div>';
                 }
-            ?>
+            ?> -->
         </main>
 
 
