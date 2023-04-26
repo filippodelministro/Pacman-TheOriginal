@@ -1,3 +1,14 @@
+<?php
+	session_start();
+    include "./utility/sessionUtil.php";
+
+    if (!isLogged()){
+        header('Location: ./../index.php');
+        exit;
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="it-IT">
     <head>
@@ -26,7 +37,8 @@
             <div id="map" class="map"></div>
 
             <div id="gameinfo">
-                <h3>PLAYERNAME</h3>
+                <h3><?php echo ($_SESSION["username"]) ?></h3>
+                <h3><?php echo ($_SESSION["highscore"]) ?></h3>
                 <p class="score">score: </p>
                 <p id="score" class="score">0</p>
 
