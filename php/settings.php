@@ -19,7 +19,7 @@
         
         <main id="container" class="container">
 
-            <a id="settings" href="./../index.php" class="icons">
+            <a id="settings" href="./home.php" class="icons">
                 <span class="material-icons">
                     arrow_back_ios
                 </span>

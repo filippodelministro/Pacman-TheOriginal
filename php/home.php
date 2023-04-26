@@ -31,7 +31,7 @@
                     account_circle
                 </span>
             </a> -->
-            <a id="settings" href=".//settings.php" class="icons">
+            <a id="settings" href="./settings.php" class="icons">
                 <span class="material-icons">
                     settings
                 </span>

@@ -18,7 +18,7 @@
         <link rel="stylesheet" href="./css/material/materialMutual.css"> 
         <link rel="stylesheet" href="./css/login.css">
         
-        <script src="./js/effects/login.js"></script>
+        <script src="./js/effects/account.js"></script>
         <script src="./js/account/checkData.js"></script>
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -28,7 +28,7 @@
     <body>
         <header>
             <nav>
-                <button class="menu-item" onclick="appear('register')">register now</button>  
+                <button class="menu-item" onclick="changeSection()">signup/login</button>  
             </nav>
         </header>
 

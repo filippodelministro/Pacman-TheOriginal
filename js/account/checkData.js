@@ -13,6 +13,7 @@ function validateRegisterForm(){
     var patternPassword = /^[A-Za-z0-9 ]+$/;    //almeno una carattere speciale
 
     //username check
+    //todo: change CSS to highlight errors
     if (/\s/.test(username)) {
         window.alert("username cannot contain spaces");
         return false;
