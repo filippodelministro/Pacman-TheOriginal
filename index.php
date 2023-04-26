@@ -46,8 +46,8 @@
 
             <div id="login" class="input-container appear">
                 <form name="loginForm" action="./php/login.php" method="post" onSubmit="return validateLoginForm()">
-                    <input type="text" placeholder="username" id="LoginUsername" required autofocus/>
-                    <input type="password" placeholder="password" id="LoginPassword" required/>
+                    <input type="text" placeholder="username" name="username" required autofocus/>
+                    <input type="password" placeholder="password" name="password" required/>
                     <button type="submit">LOGIN</button>    
                 </form>
             </div>
@@ -57,7 +57,7 @@
                     <input type="text" placeholder="username" name="username" required autofocus/>
                     <input type="password" placeholder="password" name="password" required/>
                     <input type="password" placeholder="confirm password" name="confirmPassword" required/>
-                    <button type="submit" name="submit">SIGN UP</button>
+                    <button type="submit">SIGN UP</button>
                 </form>
             </div>
 
