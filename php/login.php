@@ -1,5 +1,5 @@
 <?php
-    require_once "./utility/PacmanDBManager.php"; 
+    require_once "./utility/pacmanDBManager.php"; 
     require_once "./utility/sessionUtil.php";
 
 	$username = $_POST['username'];
@@ -15,13 +15,11 @@
 	function login($username, $password){   
 		if ($username != null && $password != null){
 			$password = md5($password);
-			// echo $password;
-			// echo '<br>';
 			$userRow = authenticate($username, $password);
-			// echo $userRow['password'];
 			$userId = $userRow['userId'];
 			$userType = $userRow['userType'];
 
+			//check if userID is valid
     		if ($userId > 0){
     			session_start();
     			setSession($username, $userId, $userType);

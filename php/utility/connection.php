@@ -1,3 +1,5 @@
+
+<!-- //!levare -->
 <?php
     $host = "localhost";
     $database = "pacman";

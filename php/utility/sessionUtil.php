@@ -1,5 +1,4 @@
 <?php
-	
 	//setSession: set $_SESSION properly
 	function setSession($username, $userId, $userType){
 		$_SESSION['userId'] = $userId;

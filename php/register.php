@@ -1,5 +1,5 @@
 <?php
-  require_once "./utility/PacmanDBManager.php"; 
+  require_once "./utility/pacmanDBManager.php"; 
   require_once "./utility/sessionUtil.php";
   
   $username = $_POST['username'];
@@ -29,8 +29,8 @@ function register($username, $password){
     } 
 
     // Registrazione effettiva del nuovo utente
-    $newUserId = newUserId();  //serve per settare la sessione
-    $cryptpassword = md5($password);//encrypt the password before saving in the database COPIATO
+    $newUserId = newUserId();  
+    $cryptpassword = md5($password);
 
   	$query = 'INSERT INTO user VALUES(NULL, \'' . $username . '\', \'' . $cryptpassword . '\')';
   	$PacmanDB->performQuery($query);

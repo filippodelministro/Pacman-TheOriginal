@@ -1,7 +1,7 @@
 <?php  
 
     require "dbConfig.php"; 			// includes database class
-    $PacmanDB = new PacmanDBManager(); // creates a new istance of Database Class
+    $PacmanDB = new PacmanDBManager();
 
 	class PacmanDBManager {
 		private $mysqli_conn = null;
