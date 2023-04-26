@@ -48,8 +48,8 @@
         </div>
 
 
-        <div id="pause-menu-container">
-            <nav class="pause-menu">
+        <div id="pause-container" class="menu-container hidden">
+            <nav class="menu">
                 <a onclick="game.resume()">resume</a> <br>
                 <a href="./pacman-game.php">restart</a> <br>
                 <a href="./../index.php">exit</a> <br>
@@ -57,25 +57,16 @@
             <h3 class="blink">PAUSE</h3>
             <p class="blink">[press ESC to resume]</p>
         </div>
-        <div class="pause-menu-overlay"></div> 
         
-        <!-- <div id="end-game-menu-win" class="end-game-menu">
-            <h4>YOU WON!</h4>
-            <nav class="pause-menu">
-                <a href="">next level</a>                       //todo
+        <div id="endGame-container" class="menu-container hidden">
+            <nav class="menu">
                 <a href="./pacman-game.php">restart</a> <br>
                 <a href="./../index.php">exit</a> <br>
             </nav>
         </div>
-        <div id="end-game-menu-lose" class="end-game-menu">
-            <h4>GAME OVER</h4>
-            <nav class="pause-menu">
-                <a href="./pacman-game.php">restart</a> <br>
-                <a href="./../index.php">exit</a> <br>
-            </nav>
-        </div> -->
 
     </body>
+
     <?php    
         include "./utility/footer.php";
     ?>

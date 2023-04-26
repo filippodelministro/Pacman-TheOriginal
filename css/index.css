@@ -69,7 +69,7 @@ header{
 
     width: 300px;
     height: 270px;
-    box-shadow: 6px 6px 1px #00c2d7; /*? ??*/
+    box-shadow: 6px 6px 1px #00c2d7;
     padding: 2%;
     opacity: 0;
     padding: 50px 50px;
@@ -111,15 +111,6 @@ input:focus {
     border-bottom: 5px solid #00c2d7;
 }
 
-.error{
-    border-bottom: 5px solid #d70000;
-}
-
-.valid{
-    border-bottom: 5px solid #00aa4c;
-}
-
-
 .input-container button {
     display: block;
     margin: 0 auto;
@@ -135,9 +126,9 @@ input:focus {
     color: white;
 }
 
-.sign_in_error{
-    position: flex;
-    margin-top: 10%; 
+.error{
+    position: absolute;
+    margin-top: 60px;
     width: 300px; 
     font-size: 12px;  
     color: rgb(255, 64, 0);

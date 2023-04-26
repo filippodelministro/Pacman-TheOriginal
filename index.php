@@ -68,7 +68,7 @@
             <!-- //?? -->
             <?php
                 if (isset($_GET['errorMessage'])){
-                    echo '<div class="sign_in_error">';
+                    echo '<div class="error">';
                     echo $_GET['errorMessage']  ;
                     echo '</div>';
                 }

@@ -17,11 +17,10 @@ function keyPressed(e) {
 }
 
 Game.prototype.startGame = function(e){
-    document.getElementById("pause-menu-container").style.visibility = "hidden";
+    this.hydeMenu("pause-container");
+
     document.getElementById("startinfo").style.visibility = "hidden";
-
     document.removeEventListener('keydown', keyPressed);
-
     document.addEventListener('keydown', this.keyPressedonGame.bind(this));
     this.pacman.startMoving();
     this.startMovingGhosts();
@@ -72,15 +71,13 @@ Game.prototype.keyPressedonGame = function(e){
 Game.prototype.pause = function(e){
     this.pause_on = true;
 
-    document.getElementById("pause-menu-container").style.visibility = "visible";
+    this.showMenu("pause-container");
     this.pacman.stopMoving();
     this.stopMovingGhosts();
 }
 Game.prototype.resume = function(e){
     this.pause_on = false;
-
-    document.getElementById("pause-menu-container").style.visibility = "hidden";
-
+    this.hydeMenu("pause-container");
     this.pacman.startMoving();
     this.startMovingGhosts();
 }
@@ -201,24 +198,23 @@ Game.prototype.GhostVulnerableOff = function(){
 
 
 //* ------------ GAMEOVER FUNCTIONS ------------
-Game.prototype.gameOver = function(win){
-    var m = (win ? "end-game-menu-win" : "end-game-menu-lose");
+Game.prototype.gameOver = function(result){
 
     this.gameover = true;
     this.clearPlayground();
     this.showStatistics();
-    this.showMenu(win);
+    this.showMenu("endGame-container");
+    
+    var text = (result) ? 'YOU WIN!' : 'GAME OVER!';
+    var color = (result) ? 'win' : 'lose';
+    var res = document.createElement("h3");
+    res.classList.add('blink');
+    res.classList.add('end-message');
+    res.classList.add(color);    
 
-    // // var menu = document.getElementById("end-game-menu-win");
-    // var menu = document.getElementById(m);
-    // menu.style.display = "block";
+    res.textContent = text;
+    document.body.appendChild(res);
 
-    // if(win){
-    //     //handle menu
-    // }
-    // else{
-    //     //handle other menu
-    // }
 }
 Game.prototype.clearPlayground = function(){
     this.pacman.stopMoving();
@@ -227,6 +223,10 @@ Game.prototype.clearPlayground = function(){
 }
 
 Game.prototype.showStatistics = function() {
+
+    //todo: show usernames
+
+    //create statistics: score | ghost killed | level passed | timer
     var section = document.createElement("div");
     section.classList.add("game-stats");
     
@@ -253,23 +253,16 @@ Game.prototype.showStatistics = function() {
     document.body.appendChild(section);
 }
 
-Game.prototype.showMenu = function(win) {
-    var section = document.createElement("div");
-    section.classList.add("end-game-menu");
-    
-{/* <nav class="pause-menu">
-                <a href="">next level</a>                       //todo
-                <a href="./pacman-game.php">restart</a> <br>
-                <a href="./../index.php">exit</a> <br>
-            </nav>
- */}
+Game.prototype.showMenu = function(type){
+    menu = document.getElementById(type);
 
+    menu.classList.remove('hidden');
+    menu.classList.add('appear');
+}
 
-    var nav = document.createElement("nav");
+Game.prototype.hydeMenu = function(type){
+    var menu = document.getElementById(type);
 
-    var elem = document.createElement("a");
-    nav.appendChild(elem);
-
-    section.appendChild(nav);
-    document.body.appendChild(section);
+    menu.classList.add('hidden');
+    menu.classList.remove('appear');
 }
