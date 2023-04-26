@@ -16,7 +16,7 @@
         <link rel="icon" type="image/png" href="./images/ghost.png"/>
         <link rel="stylesheet" href="./css/material/materialLight.css">
         <link rel="stylesheet" href="./css/material/materialMutual.css"> 
-        <link rel="stylesheet" href="./css/login.css">
+        <link rel="stylesheet" href="./css/index.css">
         
         <script src="./js/effects/account.js"></script>
         <script src="./js/account/checkData.js"></script>
@@ -47,14 +47,14 @@
             <div id="login" class="input-container appear">
                 <form name="loginForm" action="./php/login.php" method="post" onSubmit="return validateLoginForm()">
                     <input type="text" placeholder="username" name="username" required autofocus/>
-                    <input type="password" placeholder="password" name="password" required/>
+                    <input type="password" placeholder="password" name="password" required />
                     <button type="submit">LOGIN</button>    
                 </form>
             </div>
 
             <div id="register" class="input-container">
                 <form name="registerForm" action="./php/register.php" method="post" onSubmit="return validateRegisterForm()">
-                    <input type="text" placeholder="username" name="username" required autofocus/>
+                    <input type="text" placeholder="username" name="username" required/>
                     <input type="password" placeholder="password" name="password" required/>
                     <input type="password" placeholder="confirm password" name="confirmPassword" required/>
                     <button type="submit">SIGN UP</button>
@@ -66,13 +66,13 @@
             </button>
             
             <!-- //?? -->
-            <!-- <?php
+            <?php
                 if (isset($_GET['errorMessage'])){
                     echo '<div class="sign_in_error">';
                     echo $_GET['errorMessage']  ;
                     echo '</div>';
                 }
-            ?> -->
+            ?>
         </main>
 
 

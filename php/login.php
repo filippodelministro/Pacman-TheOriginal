@@ -28,9 +28,8 @@
     			return null;
     		}
 
-    	} else
-    		return 'Type something to login';
-    	
+    	}
+		
     	return 'Authentication failed: retry';
 	}
 	
