@@ -1,7 +1,7 @@
 <?php
-  require_once "./utility/PacmanDBManager.php"; //includes Database Class
-  require_once "./utility/sessionUtil.php"; //includes sessinUtil.php"; //includes session login
-
+  require_once "./utility/PacmanDBManager.php"; 
+  require_once "./utility/sessionUtil.php";
+  
   $username = $_POST['username'];
   $password = $_POST['password'];
 
@@ -24,7 +24,7 @@ function register($username, $password){
       
     if ($user) {
       if ($user['username'] === $username) {
-        return 'Username già esistente';
+        return 'username already exists';
       }
     } 
 
