@@ -12,13 +12,14 @@
 <html lang="it-IT">
     <head>
         <title>Pacman</title>
-        <link rel="icon" type="image/png" href="./../images/ghost.png"/>
+
+        <link rel="icon" type="image/png" href="./images/ghost.png"/>
         <link rel="stylesheet" href="./css/material/materialLight.css">
         <link rel="stylesheet" href="./css/material/materialMutual.css"> 
         <link rel="stylesheet" href="./css/login.css">
         
         <script src="./js/effects/login.js"></script>
-        <script src="./js/player/checkData.js"></script>
+        <script src="./js/account/checkData.js"></script>
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
@@ -44,19 +45,19 @@
             
 
             <div id="login" class="input-container appear">
-                <form>
-                    <input type="text" placeholder="username" id="LoginUsername"/>
-                    <input type="password" placeholder="password" id="LoginPassword"/>
-                    <button type="button">LOGIN</button>
+            <form name="login" action="./php/login.php" method="post" onSubmit="return validateLoginForm()">
+                    <input type="text" placeholder="username" id="LoginUsername" required autofocus/>
+                    <input type="password" placeholder="password" id="LoginPassword" required/>
+                    <button type="submit">LOGIN</button>    
                 </form>
             </div>
 
             <div id="register" class="input-container">
-                <form action="player.php" method="POST" name="RegisterForm">
-                    <input type="text" placeholder="username" id="RegisterUsername"/>
-                    <input type="password" placeholder="password" id="RegisterPassword"/>
-                    <input type="password" placeholder="confirm password" id="RegisterConfirm"/>
-                    <button type="button" onclick="checkData()" >SIGN UP</button>
+                <form name="register" action="./php/register.php" method="post" onSubmit="return validateRegisterForm()">
+                    <input type="text" placeholder="username" name="username" required autofocus/>
+                    <input type="password" placeholder="password" name="password" required/>
+                    <input type="password" placeholder="confirm password" id="RegisterConfirm" required/>
+                    <button type="submit">SIGN UP</button>
                 </form>
             </div>
 
@@ -64,9 +65,17 @@
                 <span id="darkmode" class="material-icons icons">dark_mode</span>
             </button>
             
+            
+            <?php
+                if (isset($_GET['errorMessage'])){
+                    echo '<div class="sign_in_error">';
+                    echo $_GET['errorMessage']  ;
+                    echo '</div>';
+                }
+            ?>
         </main>
 
-        
+
         <?php    
             include "./php/utility/footer.php";
         ?>       

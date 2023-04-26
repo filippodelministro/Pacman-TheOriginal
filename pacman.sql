@@ -13,13 +13,10 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `username` varchar(50) NOT NULL,
-  `hash_psw` varchar(256) NOT NULL,
---   `playerskin` int(11) DEFAULT NULL,
---   `ballskin` int(11) DEFAULT NULL,
-  PRIMARY KEY (`username`),
+  `userId` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(32) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  PRIMARY KEY (`userId`),
   UNIQUE KEY `username_UNIQUE` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
+) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */

@@ -1,7 +1,7 @@
 <?php  
 
     require "dbConfig.php"; 			// includes database class
-    $ScoreXDb = new PacmanDBManager(); // creates a new istance of Database Class
+    $PacmanDB = new PacmanDBManager(); // creates a new istance of Database Class
 
 	class PacmanDBManager {
 		private $mysqli_conn = null;

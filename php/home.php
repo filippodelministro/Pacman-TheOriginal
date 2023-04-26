@@ -2,12 +2,12 @@
 <html lang="it-IT">
     <head>
         <title>Pacman</title>
-        <link rel="icon" type="image/png" href="./images/ghost.png"/>
-        <link rel="stylesheet" href="./css/material/materialLight.css">
-        <link rel="stylesheet" href="./css/material/materialMutual.css"> 
-        <link rel="stylesheet" href="./css/index.css">
+        <link rel="icon" href="./../images/ghost.png"/>
+        <link rel="stylesheet" href="./../css/material/materialLight.css">
+        <link rel="stylesheet" href="./../css/material/materialMutual.css"> 
+        <link rel="stylesheet" href="./../css/index.css">
         
-        <script src="./js/effects/home.js"></script>
+        <script src="./../js/effects/home.js"></script>
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
@@ -26,12 +26,12 @@
                 <h2>PACMAN: THE ORIGINAL.</h2>
                 <p>The most played game in the '80</p>
             </section>
-            <a id="account" href="./php/player.php" class="icons">
+            <!-- <a id="account" href="./php/player.php" class="icons">
                 <span class="material-icons">
                     account_circle
                 </span>
-            </a>
-            <a id="settings" href="./php/settings.php" class="icons">
+            </a> -->
+            <a id="settings" href=".//settings.php" class="icons">
                 <span class="material-icons">
                     settings
                 </span>
@@ -68,14 +68,12 @@
 
             <section class="main-section" id="main-section">
             
-                <img id="ghost" src="./images/ghost.png" alt="ghost">
-                    <a href="./php/pacman-game.php"><h2>Play here</h2></a>
+                <img id="ghost" src="./../images/ghost.png" alt="ghost">
+                    <a href="./pacman-game.php"><h2>Play here</h2></a>
 
             </section>
 
-
-            
-
+            //todo:
             <button title="Click here for DarkMode" onclick="changeView()" >
                 <span id="darkmode" class="material-icons icons">dark_mode</span>
             </button>
@@ -83,7 +81,7 @@
         </main>
         
         <?php    
-            include "./php/utility/footer.php";
+            include "./utility/footer.php";
         ?>
     </body>
 </html>         
