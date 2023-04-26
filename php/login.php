@@ -15,10 +15,10 @@
 	function login($username, $password){   
 		if ($username != null && $password != null){
 			$password = md5($password);
-			echo $password;
-			echo '<br>';
+			// echo $password;
+			// echo '<br>';
 			$userRow = authenticate($username, $password);
-			echo $userRow['password'];
+			// echo $userRow['password'];
 			$userId = $userRow['userId'];
 			$userType = $userRow['userType'];
 

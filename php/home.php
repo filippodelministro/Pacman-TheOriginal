@@ -1,3 +1,13 @@
+<?php
+	session_start();
+    include "./utility/sessionUtil.php";
+
+    if (!isLogged()){
+        header('Location: ./../index.php');
+        exit;
+    }	
+?>
+
 <!DOCTYPE html>
 <html lang="it-IT">
     <head>
@@ -5,7 +15,7 @@
         <link rel="icon" href="./../images/ghost.png"/>
         <link rel="stylesheet" href="./../css/material/materialLight.css">
         <link rel="stylesheet" href="./../css/material/materialMutual.css"> 
-        <link rel="stylesheet" href="./../css/index.css">
+        <link rel="stylesheet" href="./../css/home.css">
         
         <script src="./../js/effects/home.js"></script>
         
@@ -36,6 +46,12 @@
                     settings
                 </span>
             </a>
+            <!-- //todo: banner to confirm logout -->
+            <a title='click here for logout' id="account" href="./logout.php" class="icons">
+               <span class="material-icons">
+                   logout
+               </span>
+           </a>
             
 
 
