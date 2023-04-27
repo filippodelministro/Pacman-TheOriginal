@@ -22,7 +22,7 @@
 			//check if userID is valid
     		if ($userId > 0){
     			session_start();
-    			setSession($username, $userId, $userType);
+    			setSession($username, $userId);
     			return null;
     		}
 
