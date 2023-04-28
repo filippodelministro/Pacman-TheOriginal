@@ -10,7 +10,9 @@
     
     $highscore = getUserHighscore($userId);
     $gamePlayed = getGamePlayed($userId);
-
+    $duration = getUserDuration($userId);
+    $minutes = floor($duration / 60); 
+    $seconds = $duration % 60;
 
     function getGamePlayed($user){
         global $PacmanDB;
@@ -36,6 +38,20 @@
         if ($result->num_rows > 0) {
             while ($row = $result->fetch_assoc()) {
               return $row["highscore"];
+            }
+          } else {
+            echo "Nessun risultato trovato";
+        }
+    }
+
+    function getUserDuration($user){
+        global $PacmanDB;
+        $sql = "SELECT sum(m.duration) AS totDuration FROM matches m WHERE m.user = $user";
+        $result = $PacmanDB->performQuery($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+              return $row["totDuration"];
             }
           } else {
             echo "Nessun risultato trovato";
@@ -109,8 +125,7 @@
                 <ul>
                     <li>highscore: <?php echo $highscore?></li>
                     <li>game played: <?php echo $gamePlayed?> </li>
-                    <li>time spent: //todo </li>
-                </ul>
+                    <li>time spent: <?php echo $minutes . "' " . $seconds . "''"; ?> </li>                </ul>
             </section>
 
 
