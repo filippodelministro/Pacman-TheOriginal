@@ -2,61 +2,22 @@
 	session_start();
     require_once "./utility/pacmanDbManager.php";
     require_once "./utility/sessionUtil.php";
+    include "./rank.php";
 
     global $PacmanDB;
     $username = $_SESSION['username'];
     $userId = $_SESSION['userId']; 
 
-    
+    //get user data: for rewiew box
     $highscore = getUserHighscore($userId);
     $gamePlayed = getGamePlayed($userId);
     $duration = getUserDuration($userId);
     $minutes = floor($duration / 60); 
     $seconds = $duration % 60;
 
-    function getGamePlayed($user){
-        global $PacmanDB;
-        $sql = "SELECT count(*) as numMatches
-                FROM matches m
-                WHERE m.user = $user;";
-        $result = $PacmanDB->performQuery($sql);
+    //get rankings 
+    $rank = getRank();
 
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-              return $row["numMatches"];
-            }
-          } else {
-            echo "Nessun risultato trovato";
-        }
-    }
-
-    function getUserHighscore($user){
-        global $PacmanDB;
-        $sql = "SELECT max(m.score) AS highscore FROM matches m WHERE m.user = $user";
-        $result = $PacmanDB->performQuery($sql);
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-              return $row["highscore"];
-            }
-          } else {
-            echo "Nessun risultato trovato";
-        }
-    }
-
-    function getUserDuration($user){
-        global $PacmanDB;
-        $sql = "SELECT sum(m.duration) AS totDuration FROM matches m WHERE m.user = $user";
-        $result = $PacmanDB->performQuery($sql);
-
-        if ($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-              return $row["totDuration"];
-            }
-          } else {
-            echo "Nessun risultato trovato";
-        }
-    }
 ?>
 
 <!DOCTYPE html>
@@ -99,14 +60,26 @@
 
 
             <section id="command" class="menu-section leaderboard">
-                <h4>commands</h4>
-                <p id="command">
-                    <span class="material-icons key">north</span> :UP <br>
-                    <span class="material-icons key">west</span> :LEFT <br>
-                    <span class="material-icons key">east</span> :RIGHT <br>
-                    <span class="material-icons key">south</span> :DOWN <br>
-                    <span class="material-icons key">space_bar</span> :pause/resume <br>
-                </p>
+                <h4>general ranking</h4>
+                <table class='classifica'>
+                <?php
+
+                    for ($i = 1; $i <= 7; $i++) {
+                        if ($row = mysqli_fetch_assoc($rank)) {
+                            $username = $row["username"];
+                            $highscore = $row["highscore"];
+                        } else {
+                            $username = '-';
+                            $highscore = '-';
+                        }
+                        echo ("<tr class='classifica'>");
+                        echo ("<td class='classifica'>" . $i . "</td>");
+                        echo ("<td class='classifica'>" . $username . "</td>");
+                        echo ("<td class='classifica'>" . $highscore . "</td>");
+                        echo ("</tr>");
+                    }
+                    ?>
+                </table>
             </section>
             <section id="instructions" class="menu-section leaderboard">
                 <h4>instructions</h4>
