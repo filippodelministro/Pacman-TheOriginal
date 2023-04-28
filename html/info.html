@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="it-IT">
+    <head>
+        <title>Pacman</title>
+        <link rel="stylesheet" href="./../css/material/materialLight.css">
+        <link rel="stylesheet" href="./../css/material/materialMutual.css"> 
+        <link rel="stylesheet" href="./../css/home.css">
+        <link rel="stylesheet" href="./../css/info.css">
+        
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
+        <meta charset="utf-8" />            
+    </head>    
+    <body>
+        <main id="container" class="container">
+            <section class="title-section">
+                <h2>PACMAN: info</h2>
+                <p>University project: PWeb course</p>
+            </section>
+            <a id="back" href="./../php/home.php" class="icons">
+                <span class="material-icons">
+                    arrow_back_ios
+                </span>
+            </a>
+
+            <!-- //todo: add info -->
+            <section class="review-section" id="main-section">
+                <h4>instructions</h4>
+                <p>Move Pacman and try to eat all the food in the map. <br> Pay attention to the <mark>ghost</mark>! They can also move
+                    around the map trying to catch you: if they do, you will lose a life. <br>
+                    Eat <b>cherry</b> to make ghosts harmless and eat them to gain extra points! 
+                </p>
+            </section>
+        </main>
+        
+        <?php    
+            include "./utility/footer.php";
+        ?>
+    </body>
+</html>         

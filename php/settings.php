@@ -81,13 +81,6 @@
                     <li>time spent: </li>
                 </ul>
             </section>
-
-
-            <!-- //todo: -->
-            <button title="Click here for DarkMode" onclick="changeView()" >
-                <span id="darkmode" class="material-icons icons">dark_mode</span>
-            </button>
-            
         </main>
         
         <?php    

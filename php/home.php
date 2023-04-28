@@ -95,9 +95,9 @@
             </section>
 
             <!-- //todo: -->
-            <button title="Click here for DarkMode" onclick="changeView()" >
-                <span id="darkmode" class="material-icons icons">dark_mode</span>
-            </button>
+            <a id="info" href="./../html/info.html" class="icons">
+                <span id="darkmode" class="material-icons icons">info</span>
+            </a>
             
         </main>
         
