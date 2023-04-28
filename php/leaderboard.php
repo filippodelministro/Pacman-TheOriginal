@@ -62,23 +62,22 @@
 
             <section id="rankings" class="menu-section leaderboard">
                 <h4>general ranking</h4>
-                <table class='classifica'>
-                <?php
-
-                    for ($i = 1; $i <= 7; $i++) {
-                        if ($row = mysqli_fetch_assoc($rank)) {
-                            $username = $row["username"];
-                            $hs = $row["highscore"];
-                        } else {
-                            $username = '-';
-                            $hs = '-';
+                <table class='ranking'>
+                    <?php
+                        for ($i = 1; $i <= 10; $i++) {
+                            if ($row = mysqli_fetch_assoc($rank)) {
+                                $username = $row["username"];
+                                $hs = $row["highscore"];
+                            } else {
+                                $username = '-';
+                                $hs = '-';
+                            }
+                            echo ("<tr class='ranking'>");
+                            echo ("<td class='ranking pos'>" . $i . ".</td>");
+                            echo ("<td class='ranking'>" . $username . "</td>");
+                            echo ("<td class='ranking'>" . $hs . "</td>");
+                            echo ("</tr>");
                         }
-                        echo ("<tr class='classifica'>");
-                        echo ("<td class='classifica'>" . $i . "</td>");
-                        echo ("<td class='classifica'>" . $username . "</td>");
-                        echo ("<td class='classifica'>" . $hs . "</td>");
-                        echo ("</tr>");
-                    }
                     ?>
                 </table>
             </section>
