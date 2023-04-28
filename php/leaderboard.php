@@ -4,22 +4,42 @@
     require_once "./utility/sessionUtil.php";
 
     global $PacmanDB;
+    $username = $_SESSION['username'];
     $userId = $_SESSION['userId']; 
 
     
-    $res = getHighscore();
+    $highscore = getUserHighscore($userId);
+    $gamePlayed = getGamePlayed($userId);
 
-    echo $res;
 
-    function getHighscore(){
+    function getGamePlayed($user){
         global $PacmanDB;
-        $sql = 'SELECT max(m.score) FROM matches';
-
+        $sql = "SELECT count(*) as numMatches
+                FROM matches m
+                WHERE m.user = $user;";
         $result = $PacmanDB->performQuery($sql);
 
-        $row = $result->fetch_row();
-        $highscore = $row[0];
-        echo $highscore;
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+              return $row["numMatches"];
+            }
+          } else {
+            echo "Nessun risultato trovato";
+        }
+    }
+
+    function getUserHighscore($user){
+        global $PacmanDB;
+        $sql = "SELECT max(m.score) AS highscore FROM matches m WHERE m.user = $user";
+        $result = $PacmanDB->performQuery($sql);
+
+        if ($result->num_rows > 0) {
+            while ($row = $result->fetch_assoc()) {
+              return $row["highscore"];
+            }
+          } else {
+            echo "Nessun risultato trovato";
+        }
     }
 ?>
 
@@ -46,7 +66,6 @@
         <header>
             <nav>
                 <!-- //todo: change -->
-                <button class="menu-item" onclick="appear('about')">about</button>  
                 <button class="menu-item" onclick="appear('command')" onclick="showUsers()">rankings</button> 
                 <button class="menu-item" onclick="appear('instructions')">your statistics</button> 
             </nav>
@@ -63,9 +82,6 @@
             </a>
 
 
-            <section id="about" class="menu-section leaderboard">
-                
-            </section>
             <section id="command" class="menu-section leaderboard">
                 <h4>commands</h4>
                 <p id="command">
@@ -89,11 +105,11 @@
             <section class="review-section" id="main-section">
                 
                 <!-- //todo -->
-                <h4><?php echo ($_SESSION["username"]) ?></h4>
+                <h4><?php echo $username ?></h4>
                 <ul>
-                    <li>signup date: </li>
-                    <li>game played: </li>
-                    <li>time spent: </li>
+                    <li>highscore: <?php echo $highscore?></li>
+                    <li>game played: <?php echo $gamePlayed?> </li>
+                    <li>time spent: //todo </li>
                 </ul>
             </section>
 
