@@ -1,11 +1,26 @@
 <?php
 	session_start();
-    include "./utility/sessionUtil.php";
+    require_once "./utility/pacmanDbManager.php";
+    require_once "./utility/sessionUtil.php";
 
-    if (!isLogged()){
-        header('Location: ./../index.php');
-        exit;
-    }	
+    global $PacmanDB;
+    $userId = $_SESSION['userId']; 
+
+    
+    $res = getHighscore();
+
+    echo $res;
+
+    function getHighscore(){
+        global $PacmanDB;
+        $sql = 'SELECT max(m.score) FROM matches';
+
+        $result = $PacmanDB->performQuery($sql);
+
+        $row = $result->fetch_row();
+        $highscore = $row[0];
+        echo $highscore;
+    }
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +47,7 @@
             <nav>
                 <!-- //todo: change -->
                 <button class="menu-item" onclick="appear('about')">about</button>  
-                <button class="menu-item" onclick="appear('command')">rankings</button> 
+                <button class="menu-item" onclick="appear('command')" onclick="showUsers()">rankings</button> 
                 <button class="menu-item" onclick="appear('instructions')">your statistics</button> 
             </nav>
         </header>

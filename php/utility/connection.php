@@ -1,6 +1,8 @@
 
 <!-- //!levare -->
 <?php
+    include "./utility/dbConfig.php";
+
     $host = "localhost";
     $database = "pacman";
     $user = "root";
