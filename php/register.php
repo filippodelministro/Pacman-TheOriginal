@@ -30,8 +30,6 @@ function register($username, $password){
 
     // Registrazione effettiva del nuovo utente
     $newUserId = newUserId();
-    //!levare
-    // $cryptpassword = $password;
     $cryptpassword = md5($password);
 
   	$query = 'INSERT INTO user VALUES(NULL, \'' . $username . '\', \'' . $cryptpassword . '\')';
