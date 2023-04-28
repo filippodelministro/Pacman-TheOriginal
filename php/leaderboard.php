@@ -10,10 +10,12 @@
 
     //get user data: for rewiew box
     $highscore = getUserHighscore($userId);
+    $totalPoints = getUserTotPoints($userId);
+    $ghostKilled = getUserGhostKilled($userId);
     $gamePlayed = getGamePlayed($userId);
+    $win = getUserWin($userId);
     $duration = getUserDuration($userId);
-    $minutes = floor($duration / 60); 
-    $seconds = $duration % 60;
+    $fastest = getUserMinDuration($userId);
 
     //get rankings 
     $rank = getRank();
@@ -42,9 +44,8 @@
     <body>
         <header>
             <nav>
-                <!-- //todo: change -->
-                <button class="menu-item" onclick="appear('command')" onclick="showUsers()">rankings</button> 
-                <button class="menu-item" onclick="appear('instructions')">your statistics</button> 
+                <button class="menu-item" onclick="appear('rankings')">rankings</button> 
+                <button class="menu-item" onclick="appear('statistics')">statistics</button> 
             </nav>
         </header>
         <main id="container" class="container">
@@ -59,7 +60,7 @@
             </a>
 
 
-            <section id="command" class="menu-section leaderboard">
+            <section id="rankings" class="menu-section leaderboard">
                 <h4>general ranking</h4>
                 <table class='classifica'>
                 <?php
@@ -67,38 +68,49 @@
                     for ($i = 1; $i <= 7; $i++) {
                         if ($row = mysqli_fetch_assoc($rank)) {
                             $username = $row["username"];
-                            $highscore = $row["highscore"];
+                            $hs = $row["highscore"];
                         } else {
                             $username = '-';
-                            $highscore = '-';
+                            $hs = '-';
                         }
                         echo ("<tr class='classifica'>");
                         echo ("<td class='classifica'>" . $i . "</td>");
                         echo ("<td class='classifica'>" . $username . "</td>");
-                        echo ("<td class='classifica'>" . $highscore . "</td>");
+                        echo ("<td class='classifica'>" . $hs . "</td>");
                         echo ("</tr>");
                     }
                     ?>
                 </table>
             </section>
-            <section id="instructions" class="menu-section leaderboard">
-                <h4>instructions</h4>
-                <p>Move Pacman and try to eat all the food in the map. <br> Pay attention to the <mark>ghost</mark>! They can also move
-                    around the map trying to catch you: if they do, you will lose a life. <br>
-                    Eat <b>cherry</b> to make ghosts harmless and eat them to gain extra points! 
-                </p>
+            <section id="statistics" class="menu-section leaderboard">
+                <h4>your statistics</h4>
+                <ul>
+                    <li>total points: <?php echo $totalPoints ?> </li>
+                    <li>total ghost killed: <?php echo $ghostKilled ?> </li>
+
+                    <li>match played: <?php echo $gamePlayed?> </li>
+                    <li>match won: <?php echo $win?> </li>
+                    <li>fastest match:<?php 
+                        $minutes = floor($fastest / 60); 
+                        $seconds = $fastest % 60;
+                        echo $minutes . "' " . $seconds . "''";?> 
+                    </li>
+                </ul>
             </section>
             
 
 
             <section class="review-section" id="main-section">
-                
-                <!-- //todo -->
-                <h4><?php echo $username ?></h4>
+                <h4><?php echo $_SESSION['username']?></h4>
                 <ul>
-                    <li>highscore: <?php echo $highscore?></li>
-                    <li>game played: <?php echo $gamePlayed?> </li>
-                    <li>time spent: <?php echo $minutes . "' " . $seconds . "''"; ?> </li>                </ul>
+                    <li>highscore: <?php echo $highscore ?> </li>
+                    <li>match won: <?php echo $win?> </li>
+                    <li>time spent:<?php 
+                        $minutes = floor($duration / 60); 
+                        $seconds = $duration % 60;
+                        echo $minutes . "' " . $seconds . "''";?> 
+                    </li>
+                </ul>
             </section>
         </main>
         
