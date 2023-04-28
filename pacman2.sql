@@ -12,7 +12,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8;
 
 insert into`user` values
-  (100001, 'pweb', MD5('pweb')),
+  (100001, 'pweb', MD5('test')),
   (100002, 'filippo', MD5('filippo')),
   (100003, 'francesco', MD5('francesco')),
   (100004, 'franco', MD5('franco')),
