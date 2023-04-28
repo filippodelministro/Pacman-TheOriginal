@@ -223,15 +223,16 @@ Game.prototype.clearPlayground = function(){
 }
 
 Game.prototype.showStatistics = function() {
-
-    //todo: show usernames
-
     //create statistics: score | ghost killed | level passed | timer
     var section = document.createElement("div");
     section.classList.add("game-stats");
     
+    var name = document.createElement("h3");
+    name.classList.add('name'); //todo
+    name.textContent = '<?php echo "($_SESSION["username"]);" ?>';
+
+    //statistics list
     var ul = document.createElement("ul");
-    
     var scoreLi = document.createElement("li");
     scoreLi.textContent = `Score:................ ${this.score}`;
     ul.appendChild(scoreLi);
@@ -247,8 +248,9 @@ Game.prototype.showStatistics = function() {
     var timerLi = document.createElement("li");
     timerLi.textContent = `Timer:............... ${this.timer}`;
     ul.appendChild(timerLi);
-    
 
+    //add section to document
+    section.appendChild(name);
     section.appendChild(ul);
     document.body.appendChild(section);
 }

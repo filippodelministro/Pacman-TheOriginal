@@ -6,6 +6,34 @@
         header('Location: ./../index.php');
         exit;
     }
+
+    $servername = "localhost";
+    $username = "root";
+    $password = "";
+    $dbname = "pacman";
+    
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    
+    // Verifica la connessione
+    if ($conn->connect_error) {
+      die("Connessione fallita: " . $conn->connect_error);
+    }
+    
+    // Esecuzione di una semplice query
+    $sql = "SELECT * FROM user";
+    $result = $conn->query($sql);
+    
+    // Verifica il risultato della query e stampa i dati
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+        echo "ID: " . $row["userId"] . " - username: " . $row["username"] . "<br>";
+        }
+    } else {
+        echo "Nessun risultato trovato";
+    }
+    
+    // Chiudi la connessione al database
+    $conn->close();
 ?>
 
 

@@ -31,8 +31,8 @@ insert into`user` values
 
 
   
-DROP TABLE IF EXISTS `game`;
-CREATE TABLE `game` (
+DROP TABLE IF EXISTS `matches`;
+CREATE TABLE `matches` (
   `user` int(11) NOT NULL,
   `date` date NOT NULL,
   `time` time NOT NULL,
@@ -42,7 +42,8 @@ CREATE TABLE `game` (
   PRIMARY KEY (`user`, `date`, `time`),  
     FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8;
-INSERT INTO game VALUES
+
+INSERT INTO matches VALUES
   (100001, '2022-05-10', '15:24:18', 400, 0, 203),
   (100007, '2022-06-25', '08:51:12', 120, 2, 417),
   (100003, '2022-08-04', '11:15:34', 780, 0, 296),
@@ -82,3 +83,4 @@ INSERT INTO game VALUES
   (100003, '2023-09-04', '17:40:34', 940, 0, 600),
   (100001, '2023-09-10', '02:28:21', 530, 2, 420),
   (100002, '2023-09-16', '11:16:07', 120, 1, 207);
+  
