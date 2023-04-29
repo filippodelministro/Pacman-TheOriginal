@@ -101,7 +101,7 @@ function getUserMinDuration($user){
     }
 }
 
-function getRank(){
+function getToprank(){
     global $PacmanDB;
     $sql = "SELECT D.*
             FROM
@@ -113,6 +113,20 @@ function getRank(){
             ORDER BY D.highscore DESC";
 
     return $PacmanDB->performQuery($sql);
+}
+
+function getUserrank(){
+  global $PacmanDB;
+  $sql = "SELECT D.*
+          FROM
+          (
+              SELECT u.username, max(m.score) AS highscore
+              FROM matches m INNER JOIN user u ON m.user = u.userId
+              GROUP BY m.user
+          ) AS D
+          ORDER BY D.highscore DESC";
+
+  return $PacmanDB->performQuery($sql);
 }
 
 ?>
