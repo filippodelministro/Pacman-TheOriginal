@@ -62,8 +62,9 @@
 
             <section id="rankings" class="menu-section leaderboard">
                 <h4>general ranking</h4>
-                <table class='ranking'>
-                    <?php
+                <div class='ranking-container'>
+                    <table class='ranking'>
+                        <?php
                         for ($i = 1; $i <= 10; $i++) {
                             if ($row = mysqli_fetch_assoc($rank)) {
                                 $username = $row["username"];
@@ -78,8 +79,9 @@
                             echo ("<td class='ranking'>" . $hs . "</td>");
                             echo ("</tr>");
                         }
-                    ?>
-                </table>
+                        ?>
+                    </table>
+                </div>
             </section>
             <section id="statistics" class="menu-section leaderboard">
                 <h4>your statistics</h4>
