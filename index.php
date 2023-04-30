@@ -61,10 +61,7 @@
                 </form>
             </div>
 
-            <button title="Click here for DarkMode" onclick="changeView()" >
-                <span id="darkmode" class="material-icons icons">dark_mode</span>
-            </button>
-            
+        
             <!-- //?? -->
             <?php
                 if (isset($_GET['errorMessage'])){
@@ -75,6 +72,9 @@
             ?>
         </main>
 
+        <a id="info" href="./html/info.html" class="icons">
+            <span id="darkmode" class="material-icons icons">info</span>
+        </a>
 
         <?php    
             include "./php/utility/footer.php";

@@ -94,7 +94,6 @@
 
             </section>
 
-            <!-- //todo: -->
             <a id="info" href="./../html/info.html" class="icons">
                 <span id="darkmode" class="material-icons icons">info</span>
             </a>
