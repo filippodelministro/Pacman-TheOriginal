@@ -14,8 +14,7 @@
         <title>Pacman</title>
 
         <link rel="icon" type="image/png" href="./images/ghost.png"/>
-        <link rel="stylesheet" href="./css/material/materialLight.css">
-        <link rel="stylesheet" href="./css/material/materialMutual.css"> 
+        <link rel="stylesheet" href="./css/mutual.css"> 
         <link rel="stylesheet" href="./css/index.css">
         
         <script src="./js/effects/account.js"></script>

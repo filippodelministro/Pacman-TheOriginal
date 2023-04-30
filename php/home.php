@@ -13,8 +13,7 @@
     <head>
         <title>Pacman</title>
         <link rel="icon" href="./../images/ghost.png"/>
-        <link rel="stylesheet" href="./../css/material/materialLight.css">
-        <link rel="stylesheet" href="./../css/material/materialMutual.css"> 
+        <link rel="stylesheet" href="./../css/mutual.css"> 
         <link rel="stylesheet" href="./../css/home.css">
         
         <script src="./../js/effects/home.js"></script>

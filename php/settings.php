@@ -13,8 +13,7 @@
     <head>
         <title>Pacman</title>
         <link rel="icon" href="./../images/ghost.png"/>
-        <link rel="stylesheet" href="./../css/material/materialLight.css">
-        <link rel="stylesheet" href="./../css/material/materialMutual.css"> 
+        <link rel="stylesheet" href="./../css/mutual.css"> 
         <link rel="stylesheet" href="./../css/home.css">
         <link rel="stylesheet" href="./../css/settings.css">
 
@@ -73,7 +72,7 @@
 
             <section class="review-section" id="main-section">
                 
-                <!-- //todo -->
+                <!-- //todo: change in using setup -->
                 <h4><?php echo ($_SESSION["username"]) ?></h4>
                 <ul>
                     <li>signup date: </li>

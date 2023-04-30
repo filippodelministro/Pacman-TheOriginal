@@ -35,18 +35,43 @@ button{
     height: 80%;
     padding: 10px;
 }
+html{
+    background-color: rgb(226, 226, 226);
+    color: black;
+}
+
+a{
+    color: black;
+}
+
+button{
+    color: black;
+}
+
 
 /** --------------------- ICONS --------------------- */
 .icons{
     position: absolute;
 }
 
-#darkmode{
+#info{
     left: 90%;
     top: 85%
 }
 
-#info{
+.icons:hover{
+    color: grey;
+    cursor: pointer;
+}
+#logout{
     left: 90%;
-    top: 85%
+}
+#back{
+    left: 90%;
+}
+#leaderboard{
+    left: 87%;
+}
+#settings{
+    left: 84%;
 }

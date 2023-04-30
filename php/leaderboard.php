@@ -28,15 +28,11 @@
     <head>
         <title>Pacman</title>
         <link rel="icon" href="./../images/ghost.png"/>
-        <link rel="stylesheet" href="./../css/material/materialLight.css">
-        <link rel="stylesheet" href="./../css/material/materialMutual.css"> 
+        <link rel="stylesheet" href="./../css/mutual.css"> 
         <link rel="stylesheet" href="./../css/home.css">
         <link rel="stylesheet" href="./../css/leaderboard.css">
 
-        
-        <!-- //todo: add settings  -->
         <script src="./../js/effects/leaderboard.js"></script>
-
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
