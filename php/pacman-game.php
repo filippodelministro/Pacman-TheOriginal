@@ -51,13 +51,10 @@
             <div id="map" class="map"></div>
 
             <div id="gameinfo">
-                <h3><?php echo $username ?></h3>
+                <h1><?php echo $username ?></h1>
                 <h3> highscore:<?php echo $highscore?></h3>
-                <p class="score">score: </p>
-                <p id="score" class="score">0</p>
-
-                <p class="life">life: </p>
-                <p id="life" class="life">5</p>
+                <p id="score" class="score">score: 0</p>
+                <p class="life">life: 5</p>
             </div>
         </div>
 

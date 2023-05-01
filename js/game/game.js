@@ -103,7 +103,7 @@ Game.prototype.addPoints = function(type){
     this.score += points;
 
     points = document.getElementById("score");
-    points.textContent = this.score;
+    points.textContent = "score: " + this.score;
 
     if(type == FOOD){
         this.foodRemaining--;

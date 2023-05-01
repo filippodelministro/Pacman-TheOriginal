@@ -62,7 +62,7 @@ Pacman.prototype.changeDirection = function(e){
 Pacman.prototype.PacmanHit = function(){
     this.life -= 1;
     life = document.getElementById("life");
-    life.textContent = this.life;
+    life.textContent = "life:" + this.life;
     
     if(!this.life){
         game.gameOver(false);
