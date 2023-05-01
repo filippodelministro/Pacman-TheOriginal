@@ -1,11 +1,22 @@
 <?php
 	session_start();
-    include "./utility/sessionUtil.php";
+    require_once "./utility/pacmanDbManager.php";
+    require_once "./utility/sessionUtil.php";
+    // include "./updateDB.php";
+    include "./rank.php";
 
     if (!isLogged()){
         header('Location: ./../index.php');
         exit;
     }
+
+    
+    global $PacmanDB;
+    $username = $_SESSION['username'];
+    $userId = $_SESSION['userId']; 
+    $highscore = getUserHighscore($userId);
+
+
 ?>
 
 
@@ -20,6 +31,9 @@
         <script src="./../js/game/pacman.js"></script>
         <script src="./../js/game/ghosts.js"></script>
         <script src="./../js/game/utility.js"></script>
+
+        <script src="./../js/ajax/updateDB.js"></script>
+
 
         <link rel="stylesheet" href="./../css/pacman-game.css"> 
         <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
@@ -37,8 +51,8 @@
             <div id="map" class="map"></div>
 
             <div id="gameinfo">
-                <h3><?php echo ($_SESSION["username"]) ?></h3>
-                <h3><?php echo ($_SESSION["highscore"]) ?></h3>
+                <h3><?php echo $username ?></h3>
+                <h3> highscore:<?php echo $highscore?></h3>
                 <p class="score">score: </p>
                 <p id="score" class="score">0</p>
 
@@ -62,6 +76,7 @@
             <nav class="menu">
                 <a href="./pacman-game.php">restart</a> <br>
                 <a href="./../index.php">exit</a> <br>
+                <!-- <?php updateMatches($user) ?> -->
             </nav>
         </div>
 

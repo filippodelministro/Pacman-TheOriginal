@@ -9,7 +9,7 @@ function init(){
 }
 function keyPressed(e) {
     if (e.keyCode == 8) // backspace
-    window.location = './home.html';
+    window.location = './home.php';
     
     else{
         game.startGame();
@@ -108,8 +108,8 @@ Game.prototype.addPoints = function(type){
     if(type == FOOD){
         this.foodRemaining--;
         
-        if(!this.foodRemaining){
-        // if(this.foodRemaining == this.map.foodElements - 3){     //!levare: è per testare
+        // if(!this.foodRemaining){
+        if(this.foodRemaining == this.map.foodElements - 3){     //!levare: è per testare
             this.level++;
             this.gameOver(true);
         }
@@ -215,6 +215,10 @@ Game.prototype.gameOver = function(result){
     res.textContent = text;
     document.body.appendChild(res);
 
+    // //call AJAX function to update database
+    //todo: fix timer
+    this.timer = 0;
+    updateMatches(this.score, this.ghostsKilled, this.timer, result);
 }
 Game.prototype.clearPlayground = function(){
     this.pacman.stopMoving();
@@ -229,7 +233,7 @@ Game.prototype.showStatistics = function() {
     
     var name = document.createElement("h3");
     name.classList.add('name'); //todo
-    name.textContent = '<?php echo "($_SESSION["username"]);" ?>';
+    // name.textContent = '<?php echo "($_SESSION["username"]);" ?>';
 
     //statistics list
     var ul = document.createElement("ul");
@@ -268,3 +272,19 @@ Game.prototype.hydeMenu = function(type){
     menu.classList.add('hidden');
     menu.classList.remove('appear');
 }
+
+
+//* ------------ AJAX ------------
+
+// function updateMatches(score, ghost, timer, res) {
+//     console.log("DIOBOIA");
+
+//     var query = 'score=' + score + '&ghostKilled=' + ghost + '&timer=' + timer + '&result=' + res;
+//     console.log("Stringa di query inviata con la richiesta AJAX: " + query); // Visualizza la stringa di query nella console
+    
+//     var xmlHttp = new XMLHttpRequest();
+//     xmlHttp.open('POST', './../php/updateDB.php', true);
+//     xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+//     xmlHttp.send(query);
+//     xmlHttp.onload = function (){}
+// }
