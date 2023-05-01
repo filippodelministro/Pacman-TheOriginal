@@ -41,8 +41,8 @@
     <body>
         <header>
             <nav>
-                <button class="menu-item" onclick="appear('top_rank')">top ranking</button> 
                 <button class="menu-item" onclick="appear('user_rank')">your position</button> 
+                <button class="menu-item" onclick="appear('top_rank')">top ranking</button> 
             </nav>
         </header>
         <main id="container" class="container">
@@ -82,7 +82,7 @@
             </section>
 
             <section id="user_rank" class="menu-section leaderboard">
-                <h4>your ranking</h4>
+                <h4>your position</h4>
                 <div class='ranking-container'>
                     <table class='ranking'>
                         <?php
