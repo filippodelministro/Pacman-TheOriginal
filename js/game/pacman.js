@@ -39,7 +39,7 @@ Pacman.prototype.startMoving = function(){
     if (!this.moving) {
         console.log("startMoving");
         this.moveInterval = setInterval(this.movePacman.bind(this), this.speed);
-        // this.checkInterval = setInterval(game.checkPacmanCollision.bind(this), 10);
+        this.checkInterval = setInterval(game.checkPacmanCollision(), 1);
         this.moving = true;
     }
 }
@@ -75,6 +75,7 @@ Pacman.prototype.movePacman = function(){
     var next = over = null;
     
     game.checkPacmanCollision();
+    console.log()
 
     //for each new cell check the over cell and the next one (check just the intereset diredction)
     var coord = (this.direction.x == 0) ? this.y : this.x;

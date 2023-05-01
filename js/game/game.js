@@ -24,6 +24,7 @@ Game.prototype.startGame = function(e){
     document.addEventListener('keydown', this.keyPressedonGame.bind(this));
     this.pacman.startMoving();
     this.startMovingGhosts();
+    this.timer.start();
 }
 
 function Game(){
@@ -32,7 +33,8 @@ function Game(){
     this.score = 0;
     this.ghostsKilled = 0;
     this.level = 0;         //todo
-    this.timer = 0;         //todo
+    this.timer = new Timer;
+
 
     this.vulnerability = false;
     this.map = new Map();
@@ -74,12 +76,14 @@ Game.prototype.pause = function(e){
     this.showMenu("pause-container");
     this.pacman.stopMoving();
     this.stopMovingGhosts();
+    this.timer.stop();
 }
 Game.prototype.resume = function(e){
     this.pause_on = false;
     this.hydeMenu("pause-container");
     this.pacman.startMoving();
     this.startMovingGhosts();
+    this.timer.start();
 }
 Game.prototype.startMovingGhosts = function(){
     for (let i = 0; i < this.ghosts.length; i++) {
@@ -108,14 +112,16 @@ Game.prototype.addPoints = function(type){
     if(type == FOOD){
         this.foodRemaining--;
         
-        // if(!this.foodRemaining){
-        if(this.foodRemaining == this.map.foodElements - 3){     //!levare: è per testare
+        if(!this.foodRemaining){
+        // if(this.foodRemaining == this.map.foodElements - 3){     //!levare: è per testare
             this.level++;
             this.gameOver(true);
         }
     }
     else if(type == GHOST_POINTS){
         this.ghostsKilled++;
+        ghostK = document.getElementById("ghostK");
+        ghostK.textContent = "ghost-killed: " + this.ghostsKilled;
     }
 }
 
@@ -216,9 +222,7 @@ Game.prototype.gameOver = function(result){
     document.body.appendChild(res);
 
     // //call AJAX function to update database
-    //todo: fix timer
-    this.timer = 0;
-    updateMatches(this.score, this.ghostsKilled, this.timer, result);
+    updateMatches(this.score, this.ghostsKilled, this.timer.time, result);
 }
 Game.prototype.clearPlayground = function(){
     this.pacman.stopMoving();
@@ -231,10 +235,6 @@ Game.prototype.showStatistics = function() {
     var section = document.createElement("div");
     section.classList.add("game-stats");
     
-    var name = document.createElement("h3");
-    name.classList.add('name'); //todo
-    // name.textContent = '<?php echo "($_SESSION["username"]);" ?>';
-
     //statistics list
     var ul = document.createElement("ul");
     var scoreLi = document.createElement("li");
