@@ -10,6 +10,7 @@
 
    //get user data: for rewiew box
    $coins = getUserCoins($userId);
+   $skins = getUserSkins($userId);
 ?>
 
 <!DOCTYPE html>
@@ -76,13 +77,13 @@
 
             <section class="review-section" id="main-section">
                 
-                <!-- //todo: change in using setup -->
                 <h4><?php echo ($_SESSION["username"]) ?></h4>
                 <ul>
                     <li>coins: <?php echo $coins ?></li><hr>
-                    <li>pacman: </li>
-                    <li>ghosts: </li>
-                    <li>map: </li>
+                    <li>pacman: <?php echo $skins['pacman']?> </li>
+                    <li>ghosts: <?php echo $skins['ghosts']?> </li>
+                    <li>map: <?php echo $skins['map']?> </li>
+
                 </ul>
             </section>
         </main>
