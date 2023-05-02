@@ -3,7 +3,7 @@
     require_once "./utility/pacmanDbManager.php";
     require_once "./utility/sessionUtil.php";
     // include "./updateDB.php";
-    include "./rank.php";
+    include "./handle_leaderboard.php";
 
     if (!isLogged()){
         header('Location: ./../index.php');

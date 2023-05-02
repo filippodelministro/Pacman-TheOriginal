@@ -2,7 +2,7 @@
 	session_start();
     require_once "./utility/pacmanDbManager.php";
     require_once "./utility/sessionUtil.php";
-    include "./rank.php";
+    include "./handle_leaderboard.php";
 
     global $PacmanDB;
     $username = $_SESSION['username'];

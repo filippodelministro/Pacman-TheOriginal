@@ -126,27 +126,27 @@ INSERT INTO `matches` VALUES
 
 DROP TABLE IF EXISTS `wallet`;
 CREATE TABLE `wallet` (
-  `userId` int(11) NOT NULL ,
+  `user` int(11) NOT NULL ,
   `coins` varchar(32) NOT NULL,
-  PRIMARY KEY (`userId`)
+  PRIMARY KEY (`user`),
+  FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 insert into`wallet` values
-  (100001, 0),
-  (100002, 0),
-  (100003, 0),
-  (100004, 0),
-  (100005, 0),
-  (100006, 0),
-  (100007, 0),
-  (100008, 0),
-  (100009, 0),
-  (100010, 0),
-  (100011, 0),
-  (100012, 0),
-  (100013, 0),
-  (100014, 0),
-  (100015, 0),
-  (100016, 0);
-
+  (100001, 120),
+  (100002, 95),
+  (100003, 50),
+  (100004, 200),
+  (100005, 75),
+  (100006, 150),
+  (100007, 80),
+  (100008, 110),
+  (100009, 40),
+  (100010, 90),
+  (100011, 30),
+  (100012, 100),
+  (100013, 60),
+  (100014, 85),
+  (100015, 170),
+  (100016, 120);

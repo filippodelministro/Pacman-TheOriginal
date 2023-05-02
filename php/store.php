@@ -1,11 +1,15 @@
 <?php
 	session_start();
-    include "./utility/sessionUtil.php";
+    require_once "./utility/pacmanDbManager.php";
+    require_once "./utility/sessionUtil.php";
+    include "./handle_store.php";
 
-    if (!isLogged()){
-        header('Location: ./../index.php');
-        exit;
-    }	
+    global $PacmanDB;
+    $username = $_SESSION['username'];
+    $userId = $_SESSION['userId'];
+
+   //get user data: for rewiew box
+   $coins = getUserCoins($userId);
 ?>
 
 <!DOCTYPE html>
@@ -67,7 +71,7 @@
                 <!-- //todo: change in using setup -->
                 <h4><?php echo ($_SESSION["username"]) ?></h4>
                 <ul>
-                    <li>signup date: </li>
+                    <li>coins: <?php echo $coins ?></li><hr>
                     <li>game played: </li>
                     <li>time spent: </li>
                 </ul>
