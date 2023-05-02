@@ -40,9 +40,9 @@
                     account_circle
                 </span>
             </a> -->
-            <a id="settings" href="./settings.php" class="icons">
+            <a id="store" href="./store.php" class="icons">
                 <span class="material-icons">
-                    settings
+                    shopping_bag
                 </span>
             </a>
             <a id="leaderboard" href="./leaderboard.php" class="icons">
@@ -94,7 +94,7 @@
             </section>
 
             <a id="info" href="./../html/info.html" class="icons">
-                <span id="darkmode" class="material-icons icons">info</span>
+                <span id="darkmode" class="material-icons icons">help</span>
             </a>
             
         </main>

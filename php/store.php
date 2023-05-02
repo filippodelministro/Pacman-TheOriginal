@@ -15,12 +15,9 @@
         <link rel="icon" href="./../images/ghost.png"/>
         <link rel="stylesheet" href="./../css/mutual.css"> 
         <link rel="stylesheet" href="./../css/home.css">
-        <link rel="stylesheet" href="./../css/settings.css">
+        <link rel="stylesheet" href="./../css/store.css">
 
-        
-        <!-- //todo: add settings  -->
-        <script src="./../js/effects/settings.js"></script>
-
+        <script src="./../js/effects/store.js"></script>
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
@@ -29,16 +26,14 @@
     <body>
         <header>
             <nav>
-                <!-- //todo: change -->
-                <button class="menu-item" onclick="appear('about')">about</button>  
-                <button class="menu-item" onclick="appear('command')">rankings</button> 
-                <button class="menu-item" onclick="appear('instructions')">your statistics</button> 
+                <button class="menu-item" onclick="appear('map')">map</button> 
+                <button class="menu-item" onclick="appear('player')">player</button> 
             </nav>
         </header>
         <main id="container" class="container">
             <section class="title-section">
-                <h2>PACMAN: Leaderboard</h2>
-                <p>Check out rankings and statistics</p>
+                <h2>PACMAN: Store</h2>
+                <p>Buy new skin and personlize your Pacman!</p>
             </section>
             <a id="back" href="./home.php" class="icons">
                 <span class="material-icons">
@@ -47,12 +42,9 @@
             </a>
 
 
-            <section id="about" class="menu-section leaderboard">
-                
-            </section>
-            <section id="command" class="menu-section leaderboard">
+            <section id="player" class="menu-section store">
                 <h4>commands</h4>
-                <p id="command">
+                <p id="player">
                     <span class="material-icons key">north</span> :UP <br>
                     <span class="material-icons key">west</span> :LEFT <br>
                     <span class="material-icons key">east</span> :RIGHT <br>
@@ -60,7 +52,7 @@
                     <span class="material-icons key">space_bar</span> :pause/resume <br>
                 </p>
             </section>
-            <section id="instructions" class="menu-section leaderboard">
+            <section id="map" class="menu-section store">
                 <h4>instructions</h4>
                 <p>Move Pacman and try to eat all the food in the map. <br> Pay attention to the <mark>ghost</mark>! They can also move
                     around the map trying to catch you: if they do, you will lose a life. <br>
