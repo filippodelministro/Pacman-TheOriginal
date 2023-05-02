@@ -39,7 +39,7 @@
         <main id="container" class="container">
             <section class="title-section">
                 <h2>PACMAN: Store</h2>
-                <p>Buy new skin and personlize your Pacman!</p>
+                <p>Buy new skin and customize your Pacman!</p>
             </section>
             <a id="back" href="./home.php" class="icons">
                 <span class="material-icons">
