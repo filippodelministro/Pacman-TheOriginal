@@ -39,7 +39,6 @@ function Game(){
     this.vulnerability = false;
     this.map = new Map();
     this.foodRemaining = this.map.foodElements;
-    console.log(this.foodRemaining);
     this.pacman = new Pacman();
     this.ghosts = [
         new Ghost('blue-ghost', 7, 9),
@@ -55,18 +54,12 @@ Game.prototype.keyPressedonGame = function(e){
         if(!this.pause_on){     //in game
             if(e.keyCode == 32 || e.keyCode == 27)            
                 this.pause(e);
-            else{
-                this.pacman.changeDirection(e);
-            }
-        }
-        else{                   //in pause
-            if(e.keyCode == 32 || e.keyCode == 27)
-                this.resume();
             else
-                this.handlePauseMenu(e);    //todo
+                this.pacman.changeDirection(e);
         }
+        else if(e.keyCode == 32 || e.keyCode == 27) 
+            this.resume();
     }
-
 }
 
 
@@ -99,10 +92,6 @@ Game.prototype.stopMovingGhosts = function(){
         this.ghosts[i].stopMoving();
     } 
 }    
-
-Game.prototype.handlePauseMenu = function(e){
-    console.log("TODO: handle pause menu");
-}
 
 //* ------------ POINTS FUNCTIONS ------------
 Game.prototype.addPoints = function(type){
@@ -169,7 +158,6 @@ Game.prototype.checkPacmanCollision = function(){
     //check if vulnerability (of ghost) is active or not 
     if(ghostHit != -1){   
         if(this.vulnerability){
-            console.log("VULNERABILITY");
             this.addPoints(GHOST_POINTS);
             this.ghosts[ghostHit].initPosition();
         }
@@ -178,7 +166,6 @@ Game.prototype.checkPacmanCollision = function(){
             this.pacman.PacmanHit();
             for(let i = 0; i < this.ghosts.length; i++)
                 this.ghosts[i].initPosition();
-    
         }
     }
 }
@@ -278,19 +265,3 @@ Game.prototype.hydeMenu = function(type){
     menu.classList.add('hidden');
     menu.classList.remove('appear');
 }
-
-
-//* ------------ AJAX ------------
-
-// function updateMatches(score, ghost, timer, res) {
-//     console.log("DIOBOIA");
-
-//     var query = 'score=' + score + '&ghostKilled=' + ghost + '&timer=' + timer + '&result=' + res;
-//     console.log("Stringa di query inviata con la richiesta AJAX: " + query); // Visualizza la stringa di query nella console
-    
-//     var xmlHttp = new XMLHttpRequest();
-//     xmlHttp.open('POST', './../php/updateDB.php', true);
-//     xmlHttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-//     xmlHttp.send(query);
-//     xmlHttp.onload = function (){}
-// }

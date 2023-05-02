@@ -36,7 +36,6 @@ Map.prototype.fillMap = function(mapDesc){
         }
         map.appendChild(cell);
     }
-    console.log("map.js> ", this.foodElements);
 }
 
 const map1 = [

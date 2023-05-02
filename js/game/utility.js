@@ -10,12 +10,8 @@ function moveElement(el) {
     el.element.style.top = currTop + el.direction.y * MOVING_PIXELS + 'px';
 }
 
-//todo: make it easier
 function tunnel(el) {
     const currLeft = parseInt(el.element.style.left, 10) || 0;
-    
-    console.log("tunnerl> x:", el.x, " y:", el.y);
-
     if(el.x == 0){
         el.element.style.left = currLeft +  15 * CELL_SIZE + 'px';
         el.x = el.x + 15 * CELL_SIZE;
