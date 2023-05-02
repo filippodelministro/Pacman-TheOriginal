@@ -240,19 +240,20 @@ Game.prototype.showStatistics = function() {
     scoreLi.textContent = `Score:................ ${this.score}`;
     ul.appendChild(scoreLi);
     
-    var ghostKilledLi = document.createElement("li");
-    ghostKilledLi.textContent = `Ghosts killed:........ ${this.ghostsKilled}`;
-    ul.appendChild(ghostKilledLi);
-
     var timerLi = document.createElement("li");
     var minutes = Math.floor(this.timer.time / 60);
     var seconds = this.timer.time % 60;
     var timeString = minutes.toString() + "'" + ('0' + seconds.toString()).slice(-2) + "''";
     timerLi.textContent = `Timer:................ ` + timeString;
     ul.appendChild(timerLi);
+    
+    var ghostKilledLi = document.createElement("li");
+    ghostKilledLi.textContent = `Ghosts killed:........ ${this.ghostsKilled}`;
+    ul.appendChild(ghostKilledLi);
 
     var coinsLi = document.createElement("li");
-    coinsLi.textContent = `Coins earned:......... ${this.coins}`;
+    coinsLi.classList.add("coins");
+    coinsLi.textContent = `Coins earned:.........  +${this.coins}`;
     ul.appendChild(coinsLi);
 
     //add section to document

@@ -238,3 +238,7 @@ body {
     list-style: none;
 }
 
+.coins{
+    padding-top: 10%;
+    color: rgb(0, 181, 87);
+}
