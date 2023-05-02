@@ -23,6 +23,8 @@
         <link rel="stylesheet" href="./../css/store.css">
 
         <script src="./../js/effects/store.js"></script>
+        <link rel="stylesheet" href="./skins.php">
+
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
@@ -49,8 +51,10 @@
 
 
             <section id="pacman" class="menu-section store">
-                <h4>player</h4>
+                <h4>pacman</h4>
                 <p id="pacman">
+                    <div id="pacman"></div>  
+
                     <span class="material-icons key">north</span> :UP <br>
                     <span class="material-icons key">west</span> :LEFT <br>
                     <span class="material-icons key">east</span> :RIGHT <br>
