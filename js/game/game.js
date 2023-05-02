@@ -105,8 +105,8 @@ Game.prototype.addPoints = function(type){
     if(type == FOOD){
         this.foodRemaining--;
         
-        if(!this.foodRemaining){
-        // if(this.foodRemaining == this.map.foodElements - 5){     //!levare: è per testare
+        // if(!this.foodRemaining){
+        if(this.foodRemaining == this.map.foodElements - 5){     //!levare: è per testare
             this.level++;
             this.gameOver(true);
         }
@@ -200,8 +200,8 @@ Game.prototype.GhostVulnerableOff = function(){
 Game.prototype.gameOver = function(result){
 
     this.gameover = true;
-    this.coinsEarned(res);
     this.clearPlayground();
+    this.coinsEarned(result);
     this.showStatistics();
     this.showMenu("endGame-container");
     
@@ -237,7 +237,7 @@ Game.prototype.showStatistics = function() {
     //statistics list
     var ul = document.createElement("ul");
     var scoreLi = document.createElement("li");
-    scoreLi.textContent = `Score:................ ${this.score}`;
+    scoreLi.textContent = `Score:................ ${this.score} `;
     ul.appendChild(scoreLi);
     
     var timerLi = document.createElement("li");
@@ -279,6 +279,7 @@ Game.prototype.coinsEarned = function(res){
     // more points more coins
     this.coins = Math.floor(this.score / 100);
     
-    if(res) //if win add coins: less time more coins 
+    if(res){
         this.coins += 300 - this.timer.time;         //average game take 5 minutes to finish
+    } //if win add coins: less time more coins 
 }
