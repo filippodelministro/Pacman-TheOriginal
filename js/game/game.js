@@ -33,12 +33,12 @@ function Game(){
     this.score = 0;
     this.ghostsKilled = 0;
     this.level = 0;         //todo
-    this.timer = new Timer;
-
-
     this.vulnerability = false;
+
+    this.timer = new Timer;
     this.map = new Map();
     this.foodRemaining = this.map.foodElements;
+    
     this.pacman = new Pacman();
     this.ghosts = [
         new Ghost('blue-ghost', 7, 9),
@@ -105,7 +105,7 @@ Game.prototype.addPoints = function(type){
         this.foodRemaining--;
         
         if(!this.foodRemaining){
-        // if(this.foodRemaining == this.map.foodElements - 10){     //!levare: è per testare
+        // if(this.foodRemaining == this.map.foodElements - 5){     //!levare: è per testare
             this.level++;
             this.gameOver(true);
         }
@@ -148,12 +148,14 @@ Game.prototype.remove = function(type, x, y){
 Game.prototype.checkPacmanCollision = function(){
     var ghostHit = -1;  //not a valid ID ghost
     //check for collision between Pacman and ghosts
+    
+    var x = this.pacman.x;
+    var y = this.pacman.y;
 
-    if(this.pacman.x/CELL_SIZE == this.ghosts[0].x/CELL_SIZE && this.pacman.y/CELL_SIZE == this.ghosts[0].y/CELL_SIZE) ghostHit = 0
-    if(this.pacman.x/CELL_SIZE == this.ghosts[1].x/CELL_SIZE && this.pacman.y/CELL_SIZE == this.ghosts[1].y/CELL_SIZE) ghostHit = 1
-    if(this.pacman.x/CELL_SIZE == this.ghosts[2].x/CELL_SIZE && this.pacman.y/CELL_SIZE == this.ghosts[2].y/CELL_SIZE) ghostHit = 2
-    if(this.pacman.x/CELL_SIZE == this.ghosts[3].x/CELL_SIZE && this.pacman.y/CELL_SIZE == this.ghosts[3].y/CELL_SIZE) ghostHit = 3
-
+    if((x >= this.ghosts[0].x - MOVABLE_DIM && x <= this.ghosts[0].x + MOVABLE_DIM) && (y >= this.ghosts[0].y - MOVABLE_DIM && y <= this.ghosts[0].y + MOVABLE_DIM)) ghostHit = 0;
+    if((x >= this.ghosts[1].x - MOVABLE_DIM && x <= this.ghosts[1].x + MOVABLE_DIM) && (y >= this.ghosts[1].y - MOVABLE_DIM && y <= this.ghosts[1].y + MOVABLE_DIM)) ghostHit = 1;
+    if((x >= this.ghosts[2].x - MOVABLE_DIM && x <= this.ghosts[2].x + MOVABLE_DIM) && (y >= this.ghosts[2].y - MOVABLE_DIM && y <= this.ghosts[2].y + MOVABLE_DIM)) ghostHit = 2;
+    if((x >= this.ghosts[3].x - MOVABLE_DIM && x <= this.ghosts[3].x + MOVABLE_DIM) && (y >= this.ghosts[3].y - MOVABLE_DIM && y <= this.ghosts[3].y + MOVABLE_DIM)) ghostHit = 3;
         
     //check if vulnerability (of ghost) is active or not 
     if(ghostHit != -1){   
@@ -211,9 +213,10 @@ Game.prototype.gameOver = function(result){
     res.textContent = text;
     document.body.appendChild(res);
 
-    // //call AJAX function to update database
-    updateMatches(this.score, this.ghostsKilled, this.timer.time, result);
+    //todo: call AJAX function to update database
+    // updateMatches(this.score, this.ghostsKilled, this.timer.time, result);
 }
+
 Game.prototype.clearPlayground = function(){
     this.pacman.stopMoving();
     this.stopMovingGhosts();

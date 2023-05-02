@@ -38,7 +38,7 @@ Pacman.prototype.initPosition = function(){
 Pacman.prototype.startMoving = function(){
     if (!this.moving) {
         this.moveInterval = setInterval(this.movePacman.bind(this), this.speed);
-        this.checkInterval = setInterval(game.checkPacmanCollision(), 1);
+        this.checkInterval = setInterval(game.checkPacmanCollision(), 5);
         this.moving = true;
     }
 }

@@ -1,6 +1,7 @@
 const MAX_LIFE = 3;
 const MAP_DIM = 17;
 const CELL_SIZE = 30;
+const MOVABLE_DIM = 20;
 
 const FOOD = 1;
 const WALL = 2;
