@@ -131,8 +131,6 @@ CREATE TABLE `wallet` (
   PRIMARY KEY (`user`),
   FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-
 insert into`wallet` values
   (100001, 120),
   (100002, 95),
@@ -150,3 +148,32 @@ insert into`wallet` values
   (100014, 85),
   (100015, 170),
   (100016, 120);
+  
+  
+DROP TABLE IF EXISTS `skins`;
+CREATE TABLE `skins` (
+	`user` int(11) NOT NULL ,
+	`pacman` int(11) NOT NULL,
+    `ghosts` int(11) NOT NULL,
+	`map` int(11) NOT NULL,
+  PRIMARY KEY (`user`),
+  FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+  insert into`skins` values
+  (100001, 1, 1, 1),
+  (100002, 1, 1, 1),
+  (100003, 1, 1, 1),
+  (100004, 1, 1, 1),
+  (100005, 1, 1, 1),
+  (100006, 1, 1, 1),
+  (100007, 1, 1, 1),
+  (100008, 1, 1, 1),
+  (100009, 1, 1, 1),
+  (100010, 1, 1, 1),
+  (100011, 1, 1, 1),
+  (100012, 1, 1, 1),
+  (100013, 1, 1, 1),
+  (100014, 1, 1, 1),
+  (100015, 1, 1, 1),
+  (100016, 1, 1, 1);

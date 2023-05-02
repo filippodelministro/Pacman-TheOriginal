@@ -36,8 +36,12 @@ function register($username, $password){
   	$query = 'INSERT INTO user VALUES(NULL, \'' . $username . '\', \'' . $cryptpassword . '\')';
   	$PacmanDB->performQuery($query);
 
-    //handle his wallet: 0 coins at signup
+    //handle wallet: 0 coins at signup
   	$query = "INSERT INTO wallet VALUES ('" . $newUserId . "', 0)";
+    $PacmanDB->performQuery($query);
+
+    //handle skins: default at signup
+  	$query = "INSERT INTO skins VALUES ('" . $newUserId . "', 1, 1, 1)";
     $PacmanDB->performQuery($query);
 
     session_start();

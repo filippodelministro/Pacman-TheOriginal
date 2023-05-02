@@ -31,7 +31,8 @@
         <header>
             <nav>
                 <button class="menu-item" onclick="appear('map')">map</button> 
-                <button class="menu-item" onclick="appear('player')">player</button> 
+                <button class="menu-item" onclick="appear('ghosts')">ghosts</button> 
+                <button class="menu-item" onclick="appear('pacman')">pacman</button> 
             </nav>
         </header>
         <main id="container" class="container">
@@ -46,9 +47,9 @@
             </a>
 
 
-            <section id="player" class="menu-section store">
-                <h4>commands</h4>
-                <p id="player">
+            <section id="pacman" class="menu-section store">
+                <h4>player</h4>
+                <p id="pacman">
                     <span class="material-icons key">north</span> :UP <br>
                     <span class="material-icons key">west</span> :LEFT <br>
                     <span class="material-icons key">east</span> :RIGHT <br>
@@ -57,7 +58,14 @@
                 </p>
             </section>
             <section id="map" class="menu-section store">
-                <h4>instructions</h4>
+                <h4>map</h4>
+                <p>Move Pacman and try to eat all the food in the map. <br> Pay attention to the <mark>ghost</mark>! They can also move
+                    around the map trying to catch you: if they do, you will lose a life. <br>
+                    Eat <b>cherry</b> to make ghosts harmless and eat them to gain extra points! 
+                </p>
+            </section>
+            <section id="ghosts" class="menu-section store">
+                <h4>ghosts</h4>
                 <p>Move Pacman and try to eat all the food in the map. <br> Pay attention to the <mark>ghost</mark>! They can also move
                     around the map trying to catch you: if they do, you will lose a life. <br>
                     Eat <b>cherry</b> to make ghosts harmless and eat them to gain extra points! 
@@ -72,8 +80,9 @@
                 <h4><?php echo ($_SESSION["username"]) ?></h4>
                 <ul>
                     <li>coins: <?php echo $coins ?></li><hr>
-                    <li>game played: </li>
-                    <li>time spent: </li>
+                    <li>pacman: </li>
+                    <li>ghosts: </li>
+                    <li>map: </li>
                 </ul>
             </section>
         </main>
