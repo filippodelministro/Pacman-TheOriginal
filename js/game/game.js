@@ -34,6 +34,7 @@ function Game(){
     this.ghostsKilled = 0;
     this.level = 0;         //todo
     this.vulnerability = false;
+    this.coins = 0;
 
     this.timer = new Timer;
     this.map = new Map();
@@ -199,6 +200,7 @@ Game.prototype.GhostVulnerableOff = function(){
 Game.prototype.gameOver = function(result){
 
     this.gameover = true;
+    this.coinsEarned(res);
     this.clearPlayground();
     this.showStatistics();
     this.showMenu("endGame-container");
@@ -213,8 +215,11 @@ Game.prototype.gameOver = function(result){
     res.textContent = text;
     document.body.appendChild(res);
 
+
     //todo: call AJAX function to update database
     // updateMatches(this.score, this.ghostsKilled, this.timer.time, result);
+    // updateWallet(this.coins);
+
 }
 
 Game.prototype.clearPlayground = function(){
@@ -239,16 +244,16 @@ Game.prototype.showStatistics = function() {
     ghostKilledLi.textContent = `Ghosts killed:........ ${this.ghostsKilled}`;
     ul.appendChild(ghostKilledLi);
 
-    var levelLi = document.createElement("li");
-    levelLi.textContent = `Level passed:......... ${this.level}`;
-    ul.appendChild(levelLi);
-    
     var timerLi = document.createElement("li");
     var minutes = Math.floor(this.timer.time / 60);
     var seconds = this.timer.time % 60;
     var timeString = minutes.toString() + "'" + ('0' + seconds.toString()).slice(-2) + "''";
     timerLi.textContent = `Timer:................ ` + timeString;
     ul.appendChild(timerLi);
+
+    var coinsLi = document.createElement("li");
+    coinsLi.textContent = `Coins earned:......... ${this.coins}`;
+    ul.appendChild(coinsLi);
 
     //add section to document
     section.appendChild(ul);
@@ -267,4 +272,12 @@ Game.prototype.hydeMenu = function(type){
 
     menu.classList.add('hidden');
     menu.classList.remove('appear');
+}
+
+Game.prototype.coinsEarned = function(res){
+    // more points more coins
+    this.coins = Math.floor(this.score / 100);
+    
+    if(res) //if win add coins: less time more coins 
+        this.coins += 300 - this.timer.time;         //average game take 5 minutes to finish
 }
