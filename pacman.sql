@@ -122,3 +122,31 @@ INSERT INTO `matches` VALUES
 (100014, '2022-03-27', '06:10:19', 970, 0, 600, true),
 (100015, '2022-04-02', '14:58:06', 250, 1, 223, false),
 (100016, '2022-04-08', '23:45:52', 690, 3, 343, false);
+
+
+DROP TABLE IF EXISTS `wallet`;
+CREATE TABLE `wallet` (
+  `userId` int(11) NOT NULL ,
+  `coins` varchar(32) NOT NULL,
+  PRIMARY KEY (`userId`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+insert into`wallet` values
+  (100001, 0),
+  (100002, 0),
+  (100003, 0),
+  (100004, 0),
+  (100005, 0),
+  (100006, 0),
+  (100007, 0),
+  (100008, 0),
+  (100009, 0),
+  (100010, 0),
+  (100011, 0),
+  (100012, 0),
+  (100013, 0),
+  (100014, 0),
+  (100015, 0),
+  (100016, 0);
+
