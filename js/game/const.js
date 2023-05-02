@@ -1,4 +1,4 @@
-const MAX_LIFE = 5;
+const MAX_LIFE = 3;
 const MAP_DIM = 17;
 const CELL_SIZE = 30;
 

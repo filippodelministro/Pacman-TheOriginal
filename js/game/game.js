@@ -39,6 +39,7 @@ function Game(){
     this.vulnerability = false;
     this.map = new Map();
     this.foodRemaining = this.map.foodElements;
+    console.log(this.foodRemaining);
     this.pacman = new Pacman();
     this.ghosts = [
         new Ghost('blue-ghost', 7, 9),
@@ -92,8 +93,10 @@ Game.prototype.startMovingGhosts = function(){
 }    
 Game.prototype.stopMovingGhosts = function(){
     for (let i = 0; i < this.ghosts.length; i++) {
+        if(this.GhostVulnerable)
+            this.GhostVulnerableOff
+
         this.ghosts[i].stopMoving();
-        //todo: handle vulnerabilities              //??
     } 
 }    
 
@@ -113,7 +116,7 @@ Game.prototype.addPoints = function(type){
         this.foodRemaining--;
         
         if(!this.foodRemaining){
-        // if(this.foodRemaining == this.map.foodElements - 3){     //!levare: è per testare
+        // if(this.foodRemaining == this.map.foodElements - 10){     //!levare: è per testare
             this.level++;
             this.gameOver(true);
         }
@@ -227,6 +230,7 @@ Game.prototype.gameOver = function(result){
 Game.prototype.clearPlayground = function(){
     this.pacman.stopMoving();
     this.stopMovingGhosts();
+    this.timer.stop();
     playground.remove();
 }
 
@@ -250,11 +254,13 @@ Game.prototype.showStatistics = function() {
     ul.appendChild(levelLi);
     
     var timerLi = document.createElement("li");
-    timerLi.textContent = `Timer:............... ${this.timer}`;
+    var minutes = Math.floor(this.timer.time / 60);
+    var seconds = this.timer.time % 60;
+    var timeString = minutes.toString() + "'" + ('0' + seconds.toString()).slice(-2) + "''";
+    timerLi.textContent = `Timer:................ ` + timeString;
     ul.appendChild(timerLi);
 
     //add section to document
-    section.appendChild(name);
     section.appendChild(ul);
     document.body.appendChild(section);
 }

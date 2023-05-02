@@ -57,7 +57,7 @@
                 <h3> highscore:<?php echo $highscore?></h3>
                 <p id="score" class="score">score: 0</p>
                 <p id="ghostK" class="ghostK">ghost-Kill: 0</p>
-                <p id="life" class="life">life: 5</p>
+                <p id="life" class="life">life: 3</p>
                 <p id="timer" class="timer">timer: 0'00''</p>
             </div>
         </div>

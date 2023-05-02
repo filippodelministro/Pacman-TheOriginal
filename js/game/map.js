@@ -26,12 +26,17 @@ Map.prototype.fillMap = function(mapDesc){
                 this.foodElements++;
                 break;
             }
-            case BIGF: cell.classList.add('bigFood'); break;
+            case BIGF:{
+                this.foodElements++;
+                cell.classList.add('bigFood');
+                break;
+            }  
             case TUNN: cell.classList.add('tunnel'); break;
             case SPWN: cell.classList.add('spawn'); break;
         }
         map.appendChild(cell);
     }
+    console.log("map.js> ", this.foodElements);
 }
 
 const map1 = [
