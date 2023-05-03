@@ -33,9 +33,9 @@
     <body>
         <header>
             <nav>
-                <button class="menu-item" onclick="appear('map')">map</button> 
-                <button class="menu-item" onclick="appear('ghosts')">ghosts</button> 
-                <button class="menu-item" onclick="appear('pacman')">pacman</button> 
+                <button class="menu-item" onclick="appear('map-section')">map</button> 
+                <button class="menu-item" onclick="appear('ghosts-section')">ghosts</button> 
+                <button class="menu-item" onclick="appear('pacman-section')">pacman</button> 
             </nav>
         </header>
         <main id="container" class="container">
@@ -50,31 +50,42 @@
             </a>
 
 
-            <section id="pacman" class="menu-section store">
+            <section id="pacman-section" class="menu-section store">
                 <h4>pacman</h4>
-                <p id="pacman">
-                    <div id="pacman"></div>  
-
-                    <span class="material-icons key">north</span> :UP <br>
-                    <span class="material-icons key">west</span> :LEFT <br>
-                    <span class="material-icons key">east</span> :RIGHT <br>
-                    <span class="material-icons key">south</span> :DOWN <br>
-                    <span class="material-icons key">space_bar</span> :pause/resume <br>
-                </p>
+                <div>
+                    <ul>
+                        <li>classic: </li><hr>
+                        <li>red: </li><hr>
+                        <li>green: </li><hr>
+                        <li>fuscia: </li><hr>
+                        <li>white: </li><hr>
+                    </ul>
+                </div>
             </section>
-            <section id="map" class="menu-section store">
-                <h4>map</h4>
-                <p>Move Pacman and try to eat all the food in the map. <br> Pay attention to the <mark>ghost</mark>! They can also move
-                    around the map trying to catch you: if they do, you will lose a life. <br>
-                    Eat <b>cherry</b> to make ghosts harmless and eat them to gain extra points! 
-                </p>
+            <section id="map-section" class="menu-section store">
+                <h4>pacman</h4>
+                <div>
+                    <ul>
+                        <li>classic: </li><hr>
+                        <li>desert: </li><hr>
+                        <li>artic: </li><hr>
+                        <li>Mars: </li><hr>
+                        <li>black&white: </li><hr>
+                        <li>lollipop: </li><hr>
+                    </ul>
+                </div>
             </section>
-            <section id="ghosts" class="menu-section store">
-                <h4>ghosts</h4>
-                <p>Move Pacman and try to eat all the food in the map. <br> Pay attention to the <mark>ghost</mark>! They can also move
-                    around the map trying to catch you: if they do, you will lose a life. <br>
-                    Eat <b>cherry</b> to make ghosts harmless and eat them to gain extra points! 
-                </p>
+            <section id="ghosts-section" class="menu-section store">
+                <h4>pacman</h4>
+                <div>
+                    <ul>
+                        <li>classic: </li><hr>
+                        <li>black&white: </li><hr>
+                        <li>aiens: </li><hr>
+                        <li>vintage: </li><hr>
+                        <li>daltonic: </li><hr>
+                    </ul>
+                </div>
             </section>
             
 

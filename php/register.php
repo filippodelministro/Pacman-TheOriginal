@@ -40,8 +40,8 @@ function register($username, $password){
   	$query = "INSERT INTO wallet VALUES ('" . $newUserId . "', 0)";
     $PacmanDB->performQuery($query);
 
-    //handle skins: default at signup
-  	$query = "INSERT INTO skins VALUES ('" . $newUserId . "', 1, 1, 1)";
+    //handle skins: classic at signup
+  	$query = "INSERT INTO skins VALUES ('" . $newUserId . "', 'classic', 'classic','classic')";
     $PacmanDB->performQuery($query);
 
     session_start();

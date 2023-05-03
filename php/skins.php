@@ -12,7 +12,7 @@ $userId = $_SESSION['userId'];
 $skins = getUserSkins($userId);
 
 switch ($skins['pacman']) {
-    case 'red': $pacman = "rgb(203, 0,  0);"; break;                //dark red
+    case 'red': $pacman = "rgb(203, 0,  0);"; break;                //red
     case 'green': $pacman = "rgb(0, 255,  0);"; break;              //green
     case 'fucsia': $pacman = "rgb(255, 0,  239);"; break;           //fuscia
     case 'white': $pacman = "rgb(255, 255,  255);"; break;          //white
@@ -61,7 +61,7 @@ switch ($skins['map']) {
 }
 
 switch ($skins['ghosts']) {
-    case 'gray':                                    //grey
+    case 'black&white':                                    //black&white
         $ghost1 = "rgb(100, 100, 100)";
         $ghost2 = "rgb(150, 150, 150);";
         $ghost3 = "rgb(200, 200, 200);";
