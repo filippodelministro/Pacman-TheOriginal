@@ -154,7 +154,7 @@ DROP TABLE IF EXISTS `skins`;
 CREATE TABLE `skins` (
 	`user` int(11) NOT NULL ,
 	`pacman` int(11) NOT NULL,
-    `ghosts` int(11) NOT NULL,
+  `ghosts` int(11) NOT NULL,
 	`map` int(11) NOT NULL,
   PRIMARY KEY (`user`),
   FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION
@@ -162,18 +162,18 @@ CREATE TABLE `skins` (
 
   insert into`skins` values
   (100001, 2, 1, 1),
-  (100002, 1, 2, 1),
-  (100003, 3, 1, 1),
+  (100002, 1, 2, 2),
+  (100003, 3, 1, 3),
   (100004, 1, 3, 1),
-  (100005, 2, 1, 1),
-  (100006, 1, 2, 1),
+  (100005, 2, 1, 2),
+  (100006, 1, 2, 3),
   (100007, 4, 1, 1),
-  (100008, 2, 3, 1),
-  (100009, 1, 1, 1),
+  (100008, 2, 3, 2),
+  (100009, 1, 1, 3),
   (100010, 1, 2, 1),
-  (100011, 3, 1, 1),
-  (100012, 1, 3, 1),
+  (100011, 3, 1, 2),
+  (100012, 1, 3, 3),
   (100013, 5, 1, 1),
-  (100014, 1, 2, 1),
-  (100015, 5, 1, 1),
+  (100014, 1, 2, 2),
+  (100015, 5, 1, 3),
   (100016, 1, 3, 1);
