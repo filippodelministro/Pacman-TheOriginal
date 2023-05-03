@@ -162,18 +162,18 @@ CREATE TABLE `skins` (
 
   insert into`skins` values
 (100001, 'red', 'classic', 'classic'),
-(100002, 'classic', 'black&white', 'desert'),
-(100003, 'green', 'space', 'Mars'),
+(100002, 'classic', 'vintage', 'black&white'),
+(100003, 'green', 'monocolor', 'seaside'),
 (100004, 'red', 'vintage', 'classic'),
 (100005, 'red', 'classic', 'black&white'),
-(100006, 'classic', 'vintage', 'lollipop'),
+(100006, 'classic', 'monocolor', 'seaside'),
 (100007, 'fucsia', 'classic', 'artic'),
 (100008, 'red', 'space', 'black&white'),
 (100009, 'fucsia', 'classic', 'Mars'),
 (100010, 'green', 'black&white', 'classic'),
-(100011, 'green', 'classic', 'artic'),
+(100011, 'green', 'monocolor', 'artic'),
 (100012, 'classic', 'space', 'lollipop'),
 (100013, 'white', 'classic', 'classic'),
-(100014, 'fucsia', 'black&white', 'artic'),
-(100015, 'white', 'classic', 'space'),
-(100016, 'classic', 'vintage', 'artic');
+(100014, 'fucsia', 'black&white', 'seaside'),
+(100015, 'white', 'classic', 'lollipop'),
+(100016, 'classic', 'monocolor', 'artic');
