@@ -11,9 +11,9 @@ USE pacman;
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE `user` (
-  `userId` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(32) NOT NULL,
-  `password` varchar(255) NOT NULL,
+  `userId` INT(11) NOT NULL AUTO_INCREMENT,
+  `username` VARCHAR(32) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`userId`),
   UNIQUE KEY `username_UNIQUE` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8;
@@ -40,13 +40,13 @@ insert into`user` values
   
 DROP TABLE IF EXISTS `matches`;
 CREATE TABLE `matches` (
-  `user` int(11) NOT NULL,
-  `date` date NOT NULL,
-  `time` time NOT NULL,
-  `score` int(11) DEFAULT 0,
-  `ghostKilled` int(11) default 0,
-  `duration` int(11) default 0,
-  `win` bool default false,
+  `user` INT(11) NOT NULL,
+  `date` DATE NOT NULL,
+  `time` TIME NOT NULL,
+  `score` INT(11) DEFAULT 0,
+  `ghostKilled` INT(11) DEFAULT 0,
+  `duration` INT(11) DEFAULT 0,
+  `win` bool DEFAULT false,
   PRIMARY KEY (`user`, `date`, `time`),  
     FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8;
@@ -126,8 +126,8 @@ INSERT INTO `matches` VALUES
 
 DROP TABLE IF EXISTS `wallet`;
 CREATE TABLE `wallet` (
-  `user` int(11) NOT NULL ,
-  `coins` varchar(32) NOT NULL,
+  `user` INT(11) NOT NULL ,
+  `coins` INT(11) NOT NULL,
   PRIMARY KEY (`user`),
   FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -152,28 +152,28 @@ insert into`wallet` values
   
 DROP TABLE IF EXISTS `skins`;
 CREATE TABLE `skins` (
-	`user` int(11) NOT NULL ,
-	`pacman` int(11) NOT NULL,
-  `ghosts` int(11) NOT NULL,
-	`map` int(11) NOT NULL,
+	`user` INT(11) NOT NULL ,
+	`pacman` VARCHAR(32) NOT NULL,
+  `ghosts` VARCHAR(32) NOT NULL,
+	`map` VARCHAR(32) NOT NULL,
   PRIMARY KEY (`user`),
   FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
   insert into`skins` values
-  (100001, 2, 1, 1),
-  (100002, 1, 2, 2),
-  (100003, 3, 1, 3),
-  (100004, 1, 3, 1),
-  (100005, 2, 1, 2),
-  (100006, 1, 2, 3),
-  (100007, 4, 1, 1),
-  (100008, 2, 3, 2),
-  (100009, 1, 1, 3),
-  (100010, 1, 2, 1),
-  (100011, 3, 1, 2),
-  (100012, 1, 3, 3),
-  (100013, 5, 1, 1),
-  (100014, 1, 2, 2),
-  (100015, 5, 1, 3),
-  (100016, 1, 3, 1);
+(100001, 'red', 'classic', 'classic'),
+(100002, 'classic', 'red', 'desert'),
+(100003, 'green', 'classic', 'Mars'),
+(100004, 'classic', 'artic', 'classic'),
+(100005, 'red', 'classic', 'grey'),
+(100006, 'classic', 'red', 'vintage'),
+(100007, 'fucsia', 'classic', 'classic'),
+(100008, 'red', 'green', 'grey'),
+(100009, 'classic', 'classic', 'Mars'),
+(100010, 'classic', 'red', 'classic'),
+(100011, 'green', 'classic', 'desert'),
+(100012, 'classic', 'artic', 'vintage'),
+(100013, 'white', 'classic', 'classic'),
+(100014, 'classic', 'red', 'desert'),
+(100015, 'white', 'classic', 'daltonic'),
+(100016, 'classic', 'artic', 'classic');
