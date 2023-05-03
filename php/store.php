@@ -54,42 +54,119 @@
                 <h4>pacman</h4>
                 <div>
                     <ul>
-                        <li>classic: </li><hr>
-                        <li>red: </li><hr>
-                        <li>green: </li><hr>
-                        <li>fuscia: </li><hr>
-                        <li>white: </li><hr>
-                    </ul>
-                </div>
-            </section>
-            <section id="map-section" class="menu-section store">
-                <h4>pacman</h4>
-                <div>
-                    <ul>
-                        <li>classic: </li><hr>
-                        <li>desert: </li><hr>
-                        <li>artic: </li><hr>
-                        <li>Mars: </li><hr>
-                        <li>black&white: </li><hr>
-                        <li>lollipop: </li><hr>
+                        <li>classic: <div class='palette-container'><div class='palette-square' style='background-color:rgb(255, 200, 0)'></div></div></li><hr>
+                        <li>red: <div class='palette-container'><div class='palette-square' style='background-color:rgb(203, 0,  0);'></div></div></li><hr>
+                        <li>green: <div class='palette-container'><div class='palette-square' style='background-color:rgb(0, 255,  0)'></div></div></li><hr>
+                        <li>fucsia: <div class='palette-container'><div class='palette-square' style='background-color:rgb(255, 0,  239)'></div></div></li><hr>
+                        <li>white: <div class='palette-container'><div class='palette-square' style='background-color:rgb(255, 255, 255)'></div></div></li><hr>
                     </ul>
                 </div>
             </section>
             <section id="ghosts-section" class="menu-section store">
-                <h4>pacman</h4>
+                <h4>ghosts</h4>
                 <div>
                     <ul>
-                        <li>classic: </li><hr>
-                        <li>black&white: </li><hr>
-                        <li>aiens: </li><hr>
-                        <li>vintage: </li><hr>
-                        <li>daltonic: </li><hr>
+                        <li>classic:
+                            <div class='palette-container'>
+                                <div class='palette-square' style='background-color:blue'></div>
+                                <div class='palette-square' style='background-color:red'></div>
+                                <div class='palette-square' style='background-color:orange'></div>
+                                <div class='palette-square' style='background-color:pink'></div>
+                            </div>
+                        </li><hr>
+                        <li>vintage:
+                            <div class='palette-container'>
+                                <div class='palette-square' style='background-color:rgb(50, 150, 200)'></div>
+                                <div class='palette-square' style='background-color:rgb(200, 50, 50)'></div>
+                                <div class='palette-square' style='background-color:rgb(200, 200, 50)'></div>
+                                <div class='palette-square' style='background-color:rgb(50, 200, 50)'></div>
+                            </div>
+                        </li><hr>
+                        <li>space:
+                            <div class='palette-container'>
+                                <div class='palette-square' style='background-color:rgb(0, 0, 102)'></div>
+                                <div class='palette-square' style='background-color:rgb(51, 255, 255)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 51, 153)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 255, 0)'></div>
+                            </div>
+                        </li><hr>
+                        <li>black&white:
+                            <div class='palette-container'>
+                                <div class='palette-square' style='background-color:rgb(100, 100, 100)'></div>
+                                <div class='palette-square' style='background-color:rgb(150, 150, 150)'></div>
+                                <div class='palette-square' style='background-color:rgb(200, 200, 200)'></div>
+                                <div class='palette-square' style='background-color:rgb(250, 250, 250)'></div>
+                            </div>
+                        </li><hr>
+                        <li>monocolor:
+                            <div class='palette-container'>
+                                <div class='palette-square' style='background-color:rgb(255, 0, 0)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 0, 0)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 0, 0)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 0, 0)'></div>
+                            </div>
+                        </li><hr>
+                    </ul>
+                </div>
+            </section>
+            <section id="map-section" class="menu-section store">
+                <h4>map</h4>
+                <div>
+                    <ul>
+                        <li>classic:
+                            <div class='palette-container'>
+                                <div class='palette-square' style='background-color:rgb(0, 0, 0)'></div>
+                                <div class='palette-square' style='background-color:rgb(0, 0, 105)'></div>
+                                <div class='palette-square' style='background-color:rgb(0, 0, 67)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 255, 255)'></div>
+                            </div>
+                        </li><hr>
+                        <li>artic:
+                            <div class='palette-container'>
+                                <div class='palette-square' style='background-color:rgb(160, 210, 230)'></div>
+                                <div class='palette-square' style='background-color:rgb(92, 122, 129)'></div>
+                                <div class='palette-square' style='background-color:rgb(169, 183, 198)'></div>
+                                <div class='palette-square' style='background-color:rgb(242, 242, 247)'></div>
+                            </div>
+                        </li><hr>
+                        <li>Mars CHANGE:
+                            <div class='palette-container'>
+                                <div class='palette-square' style='background-color:rgb(255, 200, 0)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 200, 0)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 200, 0)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 200, 0)'></div>
+                            </div>
+                        </li><hr>
+                        <li>lollipop:
+                            <div class='palette-container'>
+                                <div class='palette-square' style='background-color:rgb(255, 153, 153)'></div>
+                                <div class='palette-square' style='background-color:rgb(153, 51, 255)'></div>
+                                <div class='palette-square' style='background-color:rgb(102, 178, 255)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 255, 102)'></div>
+                            </div>
+                        </li><hr>
+                        <li>seaside:
+                            <div class='palette-container'>
+                                <div class='palette-square' style='background-color:rgb(51, 153, 255)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 188, 0)'></div>
+                                <div class='palette-square' style='background-color:rgb(0, 76, 153)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 128, 0)'></div>
+                            </div>
+                        </li><hr>
+                        <li>black&white:
+                            <div class='palette-container'>
+                                <div class='palette-square' style='background-color:rgb(0, 0, 0)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 255, 255)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 255, 255)'></div>
+                                <div class='palette-square' style='background-color:rgb(100, 100, 100)'></div>
+                            </div>
+                        </li><hr>
+                       
+                        
                     </ul>
                 </div>
             </section>
             
-
-
             <section class="review-section" id="main-section">
                 
                 <h4><?php echo ($_SESSION["username"]) ?></h4>

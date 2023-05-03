@@ -21,11 +21,11 @@ switch ($skins['pacman']) {
 }
 
 switch ($skins['map']) {
-    case 'desert':                              // desert
-        $map = "rgb(154, 130, 92)";
-        $wall = "rgb(231, 199, 135)";
-        $spawn = "rgb(104, 42, 12)";
-        $tunnel = "rgb(243, 238, 224)";
+    case 'Mars':                              // desert
+        $map = "rgb(0, 153, 0)";
+        $wall = "rgb(102, 51, 0)";
+        $spawn = "rgb(0, 128, 255)";
+        $tunnel = "rgb(0, 204, 0)";
         break;
     case 'artic':                               // artic
         $map = "rgb(160, 210, 230)";
@@ -33,17 +33,17 @@ switch ($skins['map']) {
         $spawn = "rgb(169, 183, 198)";
         $tunnel = "rgb(242, 242, 247)";
         break;
-    case 'Mars':                                 // Mars
-        $map = "rgb(225, 96, 15)";
-        $wall = "rgb(152, 51, 0)";
-        $spawn = "rgb(250, 128, 114)";
-        $tunnel = "rgb(255, 228, 196)";
+    case 'seaside':                                 // Mars
+        $map = "rgb(51, 153, 255)";
+        $wall = "rgb(255, 188, 0)";
+        $spawn = "rgb(0, 76, 153)";
+        $tunnel = "rgb(255, 128, 0)";
         break;
     case 'black&white':                           //black&white
         $map = "rgb(0, 0, 0)";
-        $wall = "rgb(150, 150, 150)";
-        $spawn = "rgb(80, 80, 80)";
-        $tunnel = "rgb(230, 230, 230)";
+        $wall = "rgb(255, 255, 255)";
+        $spawn = "rgb(255, 255, 255)";
+        $tunnel = "rgb(100, 100, 100)";
         break;
     case 'lollipop':                              //lollipop
         $map = "rgb(255, 153, 153)";
@@ -61,29 +61,29 @@ switch ($skins['map']) {
 }
 
 switch ($skins['ghosts']) {
-    case 'black&white':                                    //black&white
-        $ghost1 = "rgb(100, 100, 100)";
+    case 'black&white':                             //black&white
+        $ghost1 = "rgb(100, 100, 100);";
         $ghost2 = "rgb(150, 150, 150);";
         $ghost3 = "rgb(200, 200, 200);";
         $ghost4 = "rgb(250, 250, 250);";
         break;
-    case 'aliens':                                  //aliens          
-        $ghost1 = "rgb(50, 200, 50)";
-        $ghost2 = "rgb(200, 200, 50);";
-        $ghost3 = "rgb(50, 150, 200);";
-        $ghost4 = "rgb(200, 50, 50);";
-        break;
     case 'vintage':                                 //vintage
-        $ghost1 = "rgb(215, 163, 126)";
-        $ghost2 = "rgb(194, 118, 108)";
-        $ghost3 = "rgb(150, 92, 75)";
-        $ghost4 = "rgb(107, 71, 63)";
+        $ghost1 = "rgb(50, 150, 200)";
+        $ghost2 = "rgb(200, 50, 50)";
+        $ghost3 = "rgb(200, 200, 50)";
+        $ghost4 = "rgb(50, 200, 50)";
         break;
-    case 'daltonic':                                //daltonic
-        $ghost1 = "rgb(0, 0, 255)";
-        $ghost2 = "rgb(255, 0, 0)";
-        $ghost3 = "rgb(0, 255, 0)";
+    case 'space':                                   //space
+        $ghost1 = "rgb(0, 0, 102)";
+        $ghost2 = "rgb(51, 255, 255)";
+        $ghost3 = "rgb(255, 51, 153)";
         $ghost4 = "rgb(255, 255, 0)";
+        break;
+    case 'monocolor':                                   //space
+        $ghost1 = "rgb(255, 0, 0)";
+        $ghost2 = "rgb(255, 0, 0)";
+        $ghost3 = "rgb(255, 0, 0)";
+        $ghost4 = "rgb(255, 0, 0)";
         break;
     case 'classic':                                 //classic
     default:
