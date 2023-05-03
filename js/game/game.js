@@ -41,11 +41,17 @@ function Game(){
     this.foodRemaining = this.map.foodElements;
     
     this.pacman = new Pacman();
+    // this.ghosts = [
+    //     new Ghost('blue-ghost', 7, 9),
+    //     new Ghost('orange-ghost', 8, 9),
+    //     new Ghost('pink-ghost', 9, 9),
+    //     new Ghost('red-ghost', 8, 6)
+    // ];  
     this.ghosts = [
-        new Ghost('blue-ghost', 7, 9),
-        new Ghost('orange-ghost', 8, 9),
-        new Ghost('pink-ghost', 9, 9),
-        new Ghost('red-ghost', 8, 6)
+        new Ghost('ghost1', 7, 9),
+        new Ghost('ghost2', 8, 9),
+        new Ghost('ghost3', 9, 9),
+        new Ghost('ghost4', 8, 6)
     ];  
 }
 

@@ -33,17 +33,23 @@ switch ($skins['map']) {
         $spawn = "rgb(169, 183, 198)";
         $tunnel = "rgb(242, 242, 247)";
         break;
-    case 4:                                         // grass
-        $map = "rgb(124, 186, 90)";
-        $wall = "rgb(34, 139, 34)";
-        $spawn = "rgb(60, 179, 113)";
-        $tunnel = "rgb(144, 238, 144)";
-        break;
-    case 5:                                         // Mars
+    case 4:                                         // Mars
         $map = "rgb(225, 96, 15)";
         $wall = "rgb(152, 51, 0)";
         $spawn = "rgb(250, 128, 114)";
         $tunnel = "rgb(255, 228, 196)";
+        break;
+    case 5:                                         //B-W
+        $map = "rgb(0, 0, 0)";
+        $wall = "rgb(150, 150, 150)";
+        $spawn = "rgb(80, 80, 80)";
+        $tunnel = "rgb(230, 230, 230)";
+        break;
+    case 6:                                         //lollipop
+        $map = "rgb(255, 153, 153)";
+        $wall = "rgb(153, 51, 255)";
+        $spawn = "rgb(102, 178, 255)";
+        $tunnel = "rgb(255, 255, 102)";
         break;
     case 1:                                         // default
     default:
@@ -53,6 +59,41 @@ switch ($skins['map']) {
         $tunnel = "white";
         break;
 }
+
+switch ($skins['ghosts']) {
+    case 2:                                        //grey
+        $ghost1 = "rgb(100, 100, 100)";
+        $ghost2 = "rgb(150, 150, 150);";
+        $ghost3 = "rgb(200, 200, 200);";
+        $ghost4 = "rgb(250, 250, 250);";
+        break;
+    case 3:                                         //aliens          
+        $ghost1 = "rgb(50, 200, 50)";
+        $ghost2 = "rgb(200, 200, 50);";
+        $ghost3 = "rgb(50, 150, 200);";
+        $ghost4 = "rgb(200, 50, 50);";
+        break;
+    case 4:                                        //vintage
+        $ghost1 = "rgb(215, 163, 126)";
+        $ghost2 = "rgb(194, 118, 108)";
+        $ghost3 = "rgb(150, 92, 75)";
+        $ghost4 = "rgb(107, 71, 63)";
+        break;
+    case 5:                                         //daltonic
+        $ghost1 = "rgb(0, 0, 255)";
+        $ghost2 = "rgb(255, 0, 0)";
+        $ghost3 = "rgb(0, 255, 0)";
+        $ghost4 = "rgb(255, 255, 0)";
+        break;
+    case 1:                                         // default
+    default:
+        $ghost1 = "blue;";
+        $ghost2 = "red;";
+        $ghost3 = "orange;";
+        $ghost4 = "pink;";
+        break;
+}
+
 
 
 ?>
@@ -72,4 +113,18 @@ switch ($skins['map']) {
 }
 .tunnel{
     background-color: <?=$tunnel?>
+}
+
+
+.ghost1{
+    background-color: <?=$ghost1?>
+}
+.ghost2{
+    background-color: <?=$ghost2?>
+}
+.ghost3{
+    background-color: <?=$ghost3?>
+}
+.ghost4{
+    background-color: <?=$ghost4?>
 }
