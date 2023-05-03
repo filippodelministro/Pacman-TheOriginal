@@ -29,13 +29,15 @@ body {
     grid-template-rows: repeat(17, 30px);
     width: 510px;
     height: 510px;
-    background-color: black;
+    /* background-color: black; */
 }  
 .cell {
     width: 30px;
     height: 30px;
 }
-.wall{
+
+/* setup in skins.php  */
+/* .wall{
     background-color: rgb(0, 0, 105);
 }
 .tunnel{
@@ -43,7 +45,7 @@ body {
 }
 .spawn{
     background-color: rgb(0, 0, 67);
-}
+} */
 
 .food {
     background-color: white;
