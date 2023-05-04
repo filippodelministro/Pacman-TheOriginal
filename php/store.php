@@ -125,24 +125,24 @@
                             <div class='palette-container'>
                                 <div class='palette-square' style='background-color:rgb(160, 210, 230)'></div>
                                 <div class='palette-square' style='background-color:rgb(92, 122, 129)'></div>
-                                <div class='palette-square' style='background-color:rgb(169, 183, 198)'></div>
                                 <div class='palette-square' style='background-color:rgb(242, 242, 247)'></div>
+                                <div class='palette-square' style='background-color:rgb(169, 183, 198)'></div>
                             </div>
                         </li><hr>
-                        <li>Mars CHANGE:
+                        <li>desert:
                             <div class='palette-container'>
-                                <div class='palette-square' style='background-color:rgb(255, 200, 0)'></div>
-                                <div class='palette-square' style='background-color:rgb(255, 200, 0)'></div>
-                                <div class='palette-square' style='background-color:rgb(255, 200, 0)'></div>
-                                <div class='palette-square' style='background-color:rgb(255, 200, 0)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 153, 0)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 51, 0)'></div>
+                                <div class='palette-square' style='background-color:rgb(200, 130, 0)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 255, 0)'></div>
                             </div>
                         </li><hr>
-                        <li>lollipop:
+                        <li>jungle:
                             <div class='palette-container'>
-                                <div class='palette-square' style='background-color:rgb(255, 153, 153)'></div>
-                                <div class='palette-square' style='background-color:rgb(153, 51, 255)'></div>
-                                <div class='palette-square' style='background-color:rgb(102, 178, 255)'></div>
-                                <div class='palette-square' style='background-color:rgb(255, 255, 102)'></div>
+                                <div class='palette-square' style='background-color:rgb(0, 170, 120)'></div>
+                                <div class='palette-square' style='background-color:rgb(0, 255, 30)'></div>
+                                <div class='palette-square' style='background-color:rgb(10, 70, 30)'></div>
+                                <div class='palette-square' style='background-color:rgb(20, 120, 20)'></div>
                             </div>
                         </li><hr>
                         <li>seaside:
@@ -151,6 +151,14 @@
                                 <div class='palette-square' style='background-color:rgb(255, 188, 0)'></div>
                                 <div class='palette-square' style='background-color:rgb(0, 76, 153)'></div>
                                 <div class='palette-square' style='background-color:rgb(255, 128, 0)'></div>
+                            </div>
+                        </li><hr>
+                        <li>lollipop:
+                            <div class='palette-container'>
+                                <div class='palette-square' style='background-color:rgb(255, 153, 153)'></div>
+                                <div class='palette-square' style='background-color:rgb(153, 51, 255)'></div>
+                                <div class='palette-square' style='background-color:rgb(102, 178, 255)'></div>
+                                <div class='palette-square' style='background-color:rgb(255, 255, 102)'></div>
                             </div>
                         </li><hr>
                         <li>black&white:

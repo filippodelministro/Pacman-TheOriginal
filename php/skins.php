@@ -21,19 +21,25 @@ switch ($skins['pacman']) {
 }
 
 switch ($skins['map']) {
-    case 'Mars':                              // desert
-        $map = "rgb(0, 153, 0)";
-        $wall = "rgb(102, 51, 0)";
-        $spawn = "rgb(0, 128, 255)";
-        $tunnel = "rgb(0, 204, 0)";
-        break;
-    case 'artic':                               // artic
+    case 'artic':                                  // artic
         $map = "rgb(160, 210, 230)";
         $wall = "rgb(92, 122, 129)";
-        $spawn = "rgb(169, 183, 198)";
-        $tunnel = "rgb(242, 242, 247)";
+        $spawn = "rgb(242, 242, 247)";
+        $tunnel = "rgb(169, 183, 198)";
         break;
-    case 'seaside':                                 // Mars
+    case 'desert':                                   // desert
+        $map = "rgb(255, 153, 0)";
+        $wall = "rgb(255, 51, 0)";
+        $spawn = "rgb(200, 130, 0)";
+        $tunnel = "rgb(255, 255, 0)";
+        break;
+    case 'jungle':                                   // jungle
+        $map = "rgb(0, 170, 120)";
+        $wall = "rgb(0, 255, 30)";
+        $spawn = "rgb(10, 70, 30)";
+        $tunnel = "rgb(120, 120, 20)";
+        break;
+    case 'seaside':                                // Mars
         $map = "rgb(51, 153, 255)";
         $wall = "rgb(255, 188, 0)";
         $spawn = "rgb(0, 76, 153)";
