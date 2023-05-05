@@ -76,7 +76,6 @@
             <nav class="menu">
                 <a href="./pacman-game.php">restart</a> <br>
                 <a href="./../index.php">exit</a> <br>
-                <!-- <?php updateMatches($user) ?> -->
             </nav>
         </div>
 

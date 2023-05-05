@@ -10,18 +10,18 @@
 
     echo "Dati inviati tramite la richiesta AJAX:\n";
     var_dump($_POST);
-    if($_POST){
-        $score = $_POST['score'];
-        $ghostKilled = $_POST['ghostKilled'];
-        $timer = $_POST['timer'];
-        $result = $_POST['result'];
-        updateMatches();
-    }
+//     if($_POST){
+//         $score = $_POST['score'];
+//         $ghostKilled = $_POST['ghostKilled'];
+//         $timer = $_POST['timer'];
+//         $result = $_POST['result'];
+//         updateMatches();
+//     }
         
 
-function updateMatches() {
-    global $PacmanDB;
-    $sql = "INSERT INTO matches VALUES ($userId, current_date(), current_time(), $score, $ghostKilled, $timer, $result)";
-    $PacmanDB->performQuery($sql);
-}
+// function updateMatches() {
+//     global $PacmanDB;
+//     $sql = "INSERT INTO matches VALUES ($userId, current_date(), current_time(), $score, $ghostKilled, $timer, $result)";
+//     $PacmanDB->performQuery($sql);
+// }
 ?>
