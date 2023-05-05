@@ -17,7 +17,7 @@
 			$password = md5($password);
 			$userRow = authenticate($username, $password);
 			$userId = $userRow['userId'];
-			$userType = $userRow['userType'];
+			// $userType = $userRow['userType'];
 
 			//check if userID is valid
     		if ($userId > 0){

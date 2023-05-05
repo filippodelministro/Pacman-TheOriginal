@@ -60,8 +60,6 @@
                 </form>
             </div>
 
-        
-            <!-- //?? -->
             <?php
                 if (isset($_GET['errorMessage'])){
                     echo '<div class="error">';
@@ -72,7 +70,7 @@
         </main>
 
         <a id="info" href="./html/info.html" class="icons">
-            <span id="darkmode" class="material-icons icons">info</span>
+            <span id="info" class="material-icons icons">info</span>
         </a>
 
         <?php    
