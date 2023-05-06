@@ -79,6 +79,13 @@
             </nav>
         </div>
 
+        <form action="">
+            <label for="fname">First name:</label>
+            <input type="text" id="fname" name="fname" onkeyup="showHint(this.value)">
+        </form>
+        <p>Suggestions: <span id="txtHint"></span></p>
+
+
     </body>
 
     <?php    

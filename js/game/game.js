@@ -221,7 +221,7 @@ Game.prototype.gameOver = function(result){
     res.textContent = text;
     document.body.appendChild(res);
 
-
+    
     //todo: call AJAX function to update database
     // updateMatches(this.score, this.ghostsKilled, this.timer.time, result);
     // updateWallet(this.coins);
