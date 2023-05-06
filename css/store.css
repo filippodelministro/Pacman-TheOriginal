@@ -61,5 +61,12 @@ ul{
     margin-left: 5px;
     width: 20px;
     height: 20px;
-    border: 1px solid black;
+    border: 1px solid rgb(47, 47, 47);
+}
+.pacman{
+    border-radius: 50%;
+}
+
+.ghost{
+    border-radius: 60px 60px 0 0;
 }

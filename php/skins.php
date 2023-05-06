@@ -13,7 +13,7 @@ $skins = getUserSkins($userId);
 
 switch ($skins['pacman']) {
     case 'red': $pacman = "rgb(203, 0,  0);"; break;                //red
-    case 'green': $pacman = "rgb(0, 255,  0);"; break;              //green
+    case 'green': $pacman = "rgb(26, 205,  80);"; break;           //green
     case 'fucsia': $pacman = "rgb(255, 0,  239);"; break;           //fuscia
     case 'white': $pacman = "rgb(255, 255,  255);"; break;          //white
     case 'classic':                                                 //classic
