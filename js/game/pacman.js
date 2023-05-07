@@ -85,14 +85,14 @@ Pacman.prototype.movePacman = function(){
 
     //handle Pacman based on the element it passes over
     switch(over){
-        //BIFG, CRSS & FOOD are handled in the same way (`break` at FOOD)
+        //BIFG and FOOD are handled in the same way (`break` at FOOD)
         case BIGF: game.GhostVulnerable();
-        case CRSS:
         case FOOD: {
             game.remove(over, this.x, this.y);
             game.addPoints(FOOD);
             break;
         }
+        case CRSS: game.remove(over, this.x, this.y); break;
         case TUNN: tunnel(this); return;
     }
 

@@ -23,7 +23,7 @@ Map.prototype.fillMap = function(mapDesc){
             } 
             case CRSS: {                        //used to make ghost moving in random direction
                 cell.classList.add('food');
-                this.foodElements++;
+                // this.foodElements++;
                 break;
             }
             case BIGF:{

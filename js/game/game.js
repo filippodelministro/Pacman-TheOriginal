@@ -149,7 +149,10 @@ Game.prototype.remove = function(type, x, y){
     const grid = document.querySelector('.map');
     const cells = grid.querySelectorAll('.cell');
     cells[y/CELL_SIZE * MAP_DIM + x/CELL_SIZE].classList.remove(t);
-    this.map.cells[y/CELL_SIZE * MAP_DIM + x/CELL_SIZE] = EMPTY;
+
+    //remove if not CRSS to make ghosts move randomly for the entire game
+    if(this.map.cells[y/CELL_SIZE * MAP_DIM + x/CELL_SIZE] != CRSS)
+        this.map.cells[y/CELL_SIZE * MAP_DIM + x/CELL_SIZE] = EMPTY;
 }
 
 Game.prototype.checkPacmanCollision = function(){
