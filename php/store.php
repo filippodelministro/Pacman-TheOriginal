@@ -10,7 +10,10 @@
 
    //get user data: for rewiew box
    $coins = getUserCoins($userId);
-   $skins = getUserSkins($userId);
+   $skinsUsed = getUserSkins($userId);
+
+   //get skins prices
+   $pacmanSkins = getPacmanSkins($userId);
 ?>
 
 <!DOCTYPE html>
@@ -54,11 +57,51 @@
                 <h4>pacman</h4>
                 <div>
                     <ul>
-                        <li>classic: <div class='palette-container'><div class='palette-square pacman' style='background-color:rgb(255, 200, 0)'></div></div></li><hr>
+                        <?php
+                            for ($i = 1; $i <= 5; $i++) {
+                                if ($row = mysqli_fetch_assoc($pacmanSkins)) {
+                                    $name = $row["name"];
+                                    $status = $row["status"];
+                                    $price = $row["price"];
+                                } else {
+                                    $name = '-';
+                                    $price = '-';
+                                }
+                                
+                                if($status){    //user already has unlocked the skin
+                                    echo ("<li>" . $name .
+                                        "<div class='palette-container'>
+                                            <div class='palette-square pacman " . $name . "'></div>
+                                            <div class='select'></div>
+
+                                            
+                                        </div>
+                                    </li><hr>");
+                                }
+                                else {          //user has to unlock the skin
+                                    echo ("<li>" . $name .
+                                        "<div class='palette-container'>
+                                            <div class='palette-square pacman " . $name . "'></div>
+                                            <div class='locked'></div>
+
+                                            <div class='price'>" . $price . "¢</div>
+                                            
+                                        </div>
+                                    </li><hr>");
+                                }
+
+                                    // echo ("<li class='ranking'>");
+                                // echo ("<td class='ranking pos'>" . $i . ".</td>");
+                                // echo ("<td class='ranking'>" . $username . "</td>");
+                                // echo ("<td class='ranking'>" . $hs . "</td>");
+                                // echo ("</tr>");
+                            }
+                        ?>
+                        <!-- <li>classic: <div class='palette-container'><div class='palette-square pacman' style='background-color:rgb(255, 200, 0)'></div></div></li><hr>
                         <li>red: <div class='palette-container'><div class='palette-square pacman' style='background-color:rgb(203, 0,  0);'></div></div></li><hr>
                         <li>green: <div class='palette-container'><div class='palette-square pacman' style='background-color:rgb(0, 255,  0)'></div></div></li><hr>
                         <li>fucsia: <div class='palette-container'><div class='palette-square pacman' style='background-color:rgb(255, 0,  239)'></div></div></li><hr>
-                        <li>white: <div class='palette-container'><div class='palette-square pacman' style='background-color:rgb(255, 255, 255)'></div></div></li><hr>
+                        <li>white: <div class='palette-container'><div class='palette-square pacman' style='background-color:rgb(255, 255, 255)'></div></div></li><hr> -->
                     </ul>
                 </div>
             </section>
@@ -180,9 +223,9 @@
                 <h4><?php echo ($_SESSION["username"]) ?></h4>
                 <ul>
                     <li>coins: <?php echo $coins ?></li><hr>
-                    <li>pacman: <?php echo $skins['pacman']?> </li>
-                    <li>ghosts: <?php echo $skins['ghosts']?> </li>
-                    <li>map: <?php echo $skins['map']?> </li>
+                    <li>pacman: <?php echo $skinsUsed['pacman']?> </li>
+                    <li>ghosts: <?php echo $skinsUsed['ghosts']?> </li>
+                    <li>map: <?php echo $skinsUsed['map']?> </li>
 
                 </ul>
             </section>

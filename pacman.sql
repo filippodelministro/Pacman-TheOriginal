@@ -149,18 +149,50 @@ insert into`wallet` values
   (100015, 170),
   (100016, 120);
   
-  
+
+
 DROP TABLE IF EXISTS `skins`;
 CREATE TABLE `skins` (
+  `type` varchar(32) NOT NULL,
+	`name` varchar(32) NOT NULL,
+	`price` int(11) NOT NULL ,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+insert into`skins` values
+("pacman", "classic", 0),
+("pacman", "red", 20),
+("pacman", "green", 50),
+("pacman", "fucsia", 80),
+("pacman", "white", 100);
+  
+  
+DROP TABLE IF EXISTS `unlocked`;
+CREATE TABLE `unlocked` (
 	`user` int(11) NOT NULL ,
-	`pacman` varchar(32) NOT NULL,
-  `ghosts` varchar(32) NOT NULL,
-	`map` varchar(32) NOT NULL,
-  PRIMARY KEY (`user`),
+	`type` varchar(32) NOT NULL,
+	`name` varchar(32) NOT NULL,
+  PRIMARY KEY (`user`, `type`, `name`),
   FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-  insert into`skins` values
+insert into`unlocked` values
+(100002, 'pacman', 'classic'),
+(100002, 'pacman', 'fucsia'),
+(100002, 'pacman', 'green');
+
+DROP TABLE IF EXISTS `skinsApplied`;
+CREATE TABLE `skinsApplied` (
+	`user` int(11) NOT NULL ,
+	`pacman` varchar(32) NOT NULL,
+	`ghosts` varchar(32) NOT NULL,
+	`map` varchar(32) NOT NULL,
+  PRIMARY KEY (`user`),
+  FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  FOREIGN KEY (`pacman`) REFERENCES `AllSkins` (`name`) ON DELETE NO ACTION ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+  insert into`skinsApplied` values
 (100001, 'red', 'classic', 'classic'),
 (100002, 'classic', 'vintage', 'black&white'),
 (100003, 'green', 'monocolor', 'desert'),
@@ -177,3 +209,6 @@ CREATE TABLE `skins` (
 (100014, 'fucsia', 'black&white', 'seaside'),
 (100015, 'white', 'classic', 'lollipop'),
 (100016, 'classic', 'monocolor', 'artic');
+
+
+

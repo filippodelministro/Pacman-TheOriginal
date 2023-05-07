@@ -17,7 +17,7 @@ function getUserCoins($user){
 
 function getUserSkins($user){
   global $PacmanDB;
-  $sql = "SELECT s.pacman, s.ghosts, s.map FROM skins s WHERE s.user = $user";
+  $sql = "SELECT s.pacman, s.ghosts, s.map FROM skinsApplied s WHERE s.user = $user";
   $result = $PacmanDB->performQuery($sql);
 
   if ($result->num_rows > 0) {
@@ -29,4 +29,28 @@ function getUserSkins($user){
     return 0;
   }
 }
+
+
+function getPacmanSkins($user){
+  global $PacmanDB;
+  $sql = "SELECT s.name, if(D.user is null, false, true) as status, s.price
+          from
+          (
+            select *
+            from unlocked u
+            where u.user = 100002
+          ) as D right outer join skins s on s.type = D.type and s.name = D.name";
+
+  return $PacmanDB->performQuery($sql);
+}
+
+// function getPacmanUnlocked($user){
+//   global $PacmanDB;
+//   $sql = "SELECT *
+//           from unlocked u
+//           where u.type = 'pacman' and u.user = $user";
+
+//   return $PacmanDB->performQuery($sql);
+// }
+
 ?>

@@ -70,3 +70,52 @@ ul{
 .ghost{
     border-radius: 60px 60px 0 0;
 }
+
+.classic{
+    background-color: rgb(255, 200, 0);
+}
+.red{
+    background-color: rgb(203, 0, 0);
+}
+.green{
+    background-color: rgb(0, 255,  0);
+}
+.fucsia{
+    background-color: rgb(255, 0,  239);
+}
+.white{
+    background-color: rgb(255, 255, 255);
+}
+
+
+
+/* prices */
+.price{
+    display: inline-block;
+    margin-left: 50px;
+    /* width: 200px; */
+    padding-left: 2px;
+    padding-right: 2px;
+    height: 20px;
+
+}
+
+.select{
+    display: inline-block;
+    margin-left: 50px;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(190, 190, 190);
+    border: 1px solid rgb(47, 47, 47);
+
+    cursor: pointer;
+}
+
+.locked{
+    display: inline-block;
+    margin-left: 50px;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(255, 11, 11);
+    border: 1px solid rgb(47, 47, 47);
+}
