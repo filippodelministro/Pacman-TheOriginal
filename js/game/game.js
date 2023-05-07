@@ -111,8 +111,8 @@ Game.prototype.addPoints = function(type){
     if(type == FOOD){
         this.foodRemaining--;
         
-        // if(!this.foodRemaining){
-        if(this.foodRemaining == this.map.foodElements - 5){     //!levare: è per testare
+        if(!this.foodRemaining){
+        // if(this.foodRemaining == this.map.foodElements - 5){     //!levare: è per testare
             this.level++;
             this.gameOver(true);
         }

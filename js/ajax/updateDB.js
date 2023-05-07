@@ -5,8 +5,6 @@ function updateMatches(score, ghost, timer, res) {
             console.log(this.responseText)
     };
 
-    
-    //todo: need to pass all the values, not just score
-    xmlhttp.open("GET", "./../php/updateDB.php?score=" + score, true);
+    xmlhttp.open("GET", "./../php/updateDB.php?score=" + score + "&ghost=" + ghost + "&timer=" + timer + "&res=" + res, true);
     xmlhttp.send();
 }

@@ -7,13 +7,14 @@
     global $PacmanDB;
     $userId = $_SESSION["userId"];
 
-if(!empty($_REQUEST)){
+if(!empty($_GET)){
 
-    //todo: need to get all th values, not just the score
-    $score = $_REQUEST["score"];
-    //   $ghost = $_REQUEST["ghost"];
+    $score = $_GET["score"];
+    $ghost = $_GET["ghost"];
+    $timer = $_GET["timer"];
+    $res = $_GET["res"];
 
-    $query = "INSERT into matches values ($userId, current_date(), current_time(), $score, 2, 300, 0)";
+    $query = "INSERT into matches values ($userId, current_date(), current_time(), $score, $ghost, $timer, $res)";
     $PacmanDB->performQuery($query);
 }
 ?> 
