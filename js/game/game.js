@@ -222,7 +222,7 @@ Game.prototype.gameOver = function(result){
     document.body.appendChild(res);
 
     updateMatches(this.score, this.ghostsKilled, this.timer.time, result);
-    // updateWallet(this.coins);
+    updateWallet(this.coins, "add");
 }
 
 Game.prototype.clearPlayground = function(){

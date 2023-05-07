@@ -22,7 +22,7 @@ function updateMatches(score, ghost, timer, res) {
 }
 
 
-function updateWallet(coins) {
+function updateWallet(coins, fun) {
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200)
@@ -31,6 +31,6 @@ function updateWallet(coins) {
     
     xmlhttp.open("POST", "./../php/updateDB.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("coins=" + coins);
+    xmlhttp.send("coins=" + coins + "&fun=" + fun);
 }
 

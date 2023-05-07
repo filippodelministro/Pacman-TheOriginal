@@ -31,7 +31,7 @@ insert into`user` values
   (100010, 'marco', MD5('marco')),
   (100011, 'paolo', MD5('paolo')),
   (100012, 'simone', MD5('simone')),
-  (100013, 'andrea', MD5('andrea')),
+  (100013, 'cecilia :)', MD5('cecilia')),
   (100014, 'giuseppe', MD5('giuseppe')),
   (100015, 'antonio', MD5('antonio')),
   (100016, 'riccardo', MD5('riccardo'));
@@ -173,7 +173,7 @@ CREATE TABLE `skins` (
 (100010, 'green', 'black&white', 'classic'),
 (100011, 'green', 'monocolor', 'artic'),
 (100012, 'classic', 'space', 'lollipop'),
-(100013, 'white', 'classic', 'classic'),
+(100013, 'fucsia', 'space', 'lollipop'),
 (100014, 'fucsia', 'black&white', 'seaside'),
 (100015, 'white', 'classic', 'lollipop'),
 (100016, 'classic', 'monocolor', 'artic');
