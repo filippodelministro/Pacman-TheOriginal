@@ -38,7 +38,7 @@ function getPacmanSkins($user){
           (
             select *
             from unlocked u
-            where u.user = 100002
+            where u.user = $user
           ) as D right outer join skins s on s.type = D.type and s.name = D.name";
 
   return $PacmanDB->performQuery($sql);

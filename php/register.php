@@ -41,8 +41,13 @@ function register($username, $password){
     $PacmanDB->performQuery($query);
 
     //handle skins: classic at signup
-  	$query = "INSERT INTO skins VALUES ('" . $newUserId . "', 'classic', 'classic','classic')";
+    $query = "INSERT INTO unlocked VALUES ('" . $newUserId . "', 'pacman', 'classic')";
     $PacmanDB->performQuery($query);
+    $query = "INSERT INTO unlocked VALUES ('" . $newUserId . "', 'ghost', 'classic')";
+    $PacmanDB->performQuery($query);
+    $query = "INSERT INTO unlocked VALUES ('" . $newUserId . "', 'map', 'classic')";
+    $PacmanDB->performQuery($query);   
+  	$query = "INSERT INTO skinsApplied VALUES ('" . $newUserId . "', 'classic', 'classic','classic')";
 
     session_start();
     setSession($username, $newUserId);  
