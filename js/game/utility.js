@@ -1,6 +1,5 @@
-
-
 function moveElement(el) {
+    //move the element using his coordinates and his direction
     el.x = el.x + el.direction.x * MOVING_PIXELS;
     el.y = el.y + el.direction.y * MOVING_PIXELS;
     
@@ -11,12 +10,13 @@ function moveElement(el) {
 }
 
 function tunnel(el) {
+    //move elements through the tunnel
     const currLeft = parseInt(el.element.style.left, 10) || 0;
-    if(el.x == 0){
+    if(el.x == 0){  //left side
         el.element.style.left = currLeft +  15 * CELL_SIZE + 'px';
         el.x = el.x + 15 * CELL_SIZE;
     }
-    else {
+    else {          //right side
         el.element.style.left = currLeft - 15 * CELL_SIZE + 'px';
         el.x = el.x - 15 * CELL_SIZE;
     }

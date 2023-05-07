@@ -63,12 +63,6 @@ Ghost.prototype.changeDirection = function(){
     }
 }
 
-//todo
-// Ghost.prototype.leaveSpawn = function(){
-//     moveElement(this, this.x, this.y - 1);
-//     moveElement(this, this.x, this.y - 1);
-//     this.randomDirection();
-// }
 
 Ghost.prototype.moveGhost = function(){
     var next = over = null;

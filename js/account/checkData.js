@@ -1,19 +1,15 @@
 
 function validateRegisterForm(){
     var username = document.forms["registerForm"]["username"].value;
-    // var email = document.forms["registerForm"]["email"].value;
-    // var telefono = document.forms["registerForm"]["telefono"].value;
     var password = document.forms["registerForm"]["password"].value;
     var confirmPassword = document.forms["registerForm"]["confirmPassword"].value;
 
     //RegExp
-    var patternUsername = /^[A-Za-z0-9 ]+$/;    //no carattere speciali
-    // var patternEmail = /^[a-zA-Z0-9\-_]+(\.[a-zA-Z0-9\-_]+)*@[a-z0-9]+(\-[a-z0-9]+)*(\.[a-z0-9]+(\-[a-z0-9]+)*)*\.[a-z]{2,4}$/; //RegExp COPIATA
-    // var patternTelefono = /^\d+$/;              //solo numeri
-    var patternPassword = /^[A-Za-z0-9 ]+$/;    //almeno una carattere speciale
+    var patternUsername = /^[A-Za-z0-9 ]+$/;    //no special characters
+    var patternPassword = /^[A-Za-z0-9 ]+$/;    //at least one special character
 
-    //username check
     //todo: change CSS to highlight errors
+    //username check
     if (/\s/.test(username)) {
         window.alert("username cannot contain spaces");
         return false;
@@ -34,19 +30,6 @@ function validateRegisterForm(){
         return false;
     }
     
-    
-    //email check
-    // if (!patternEmail.test(email)) {
-    //     window.alert("Indirizzo email non valido");
-    //     return false;
-    // }
-
-    // //telefono check
-    // if (!patternTelefono.test(telefono) || telefono.length != 10 ) {
-    //     window.alert("Numero di telefono non valido");
-    //     return false;
-    // }
-
     //password check    
     if (/\s/.test(password)) {
         window.alert("password cannot contain spaces");

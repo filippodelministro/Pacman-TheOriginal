@@ -41,12 +41,6 @@ function Game(){
     this.foodRemaining = this.map.foodElements;
     
     this.pacman = new Pacman();
-    // this.ghosts = [
-    //     new Ghost('blue-ghost', 7, 9),
-    //     new Ghost('orange-ghost', 8, 9),
-    //     new Ghost('pink-ghost', 9, 9),
-    //     new Ghost('red-ghost', 8, 6)
-    // ];  
     this.ghosts = [
         new Ghost('ghost1', 7, 9),
         new Ghost('ghost2', 8, 9),
@@ -284,8 +278,10 @@ Game.prototype.hydeMenu = function(type){
 Game.prototype.coinsEarned = function(res){
     // more points more coins
     this.coins = Math.floor(this.score / 100);
+    this.coins += this.ghostsKilled * 20;           //20 coins each ghost killed
     
+    //if win add coins: less time more coins
     if(res){
         this.coins += 300 - this.timer.time;         //average game take 5 minutes to finish
-    } //if win add coins: less time more coins 
+    }  
 }

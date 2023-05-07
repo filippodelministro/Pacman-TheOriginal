@@ -4,6 +4,7 @@ function Timer() {
 }
 
 Timer.prototype.ticTac = function () {
+    //handle timer and print in game-info section
     this.time++;
 
     var minutes = Math.floor(this.time / 60);

@@ -1,13 +1,4 @@
 
-//todo: create a global var for all the pages
-// onload=init;
-
-//fix: dont work as a global var
-var lightmode;
-function init(){
-    lightmode = true;
-}
-
 function changeView(){
     if(lightmode){
         lightmode = false;

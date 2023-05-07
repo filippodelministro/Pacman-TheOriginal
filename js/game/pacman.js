@@ -1,12 +1,9 @@
-
-
 class Pacman{
     constructor(){
         this.x;
         this.y;
         this.nextDirection = null;
         this.direction;
-        this.checkDirectionInterval = null;         //?
         this.moveInterval = null;
         this.checkInterval = null;  
         this.life;

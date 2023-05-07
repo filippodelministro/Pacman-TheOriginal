@@ -1,6 +1,5 @@
 
 function Map(){
-    // this.element = null;
     this.cells = [MAP_DIM * MAP_DIM];
     this.foodElements = 0;
     this.fillMap(map1);
@@ -23,7 +22,6 @@ Map.prototype.fillMap = function(mapDesc){
             } 
             case CRSS: {                        //used to make ghost moving in random direction
                 cell.classList.add('food');
-                // this.foodElements++;
                 break;
             }
             case BIGF:{
