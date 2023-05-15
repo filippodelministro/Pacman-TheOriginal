@@ -12,8 +12,12 @@ if(!empty($_POST)){
     $coins = $_POST["coins"];
     $fun = $_POST["fun"];
 
+    $type = $_POST["type"];
+    $skin = $_POST["skin"];
+
     updateMatches($score, $ghost, $timer, $res);
     updateWallet($coins, $fun);
+    selectSkin($type, $skin);
 }
 
 function updateMatches($score, $ghost, $timer, $res){    
@@ -39,6 +43,11 @@ function updateWallet($coins, $fun){
     $PacmanDB->performQuery($query);
 }
 
+function selectSkin($type, $skin){
+    global $PacmanDB;
+    $userId = $_SESSION["userId"];
 
-
+    $query = "UPDATE skinsApplied SET $type = '$skin' WHERE user = $userId;";
+    $PacmanDB->performQuery($query);
+}
 ?> 
