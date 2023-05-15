@@ -26,6 +26,7 @@
         <link rel="stylesheet" href="./../css/store.css">
 
         <script src="./../js/effects/store.js"></script>
+        <script src="./../js/ajax/updateDB.js"></script>
         <link rel="stylesheet" href="./skins.php">
 
         
@@ -70,13 +71,11 @@
                                 
                                 if($status){    //user already has unlocked the skin
                                     echo ("<li>" . $name .
-                                        "<div class='palette-container'>
-                                            <div class='palette-square pacman " . $name . "'></div>
-                                            <div class='select'></div>
-
-                                            
-                                        </div>
-                                    </li><hr>");
+    "<div class='palette-container'>
+        <div class='palette-square pacman " . $name . "'></div>
+        <div class='select " . ($name == $skinsUsed['pacman'] ? "using" : "") . "' onclick='myFunction()'></div>
+    </div>
+</li><hr>");
                                 }
                                 else {          //user has to unlock the skin
                                     echo ("<li>" . $name .

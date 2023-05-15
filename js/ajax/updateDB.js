@@ -25,3 +25,6 @@ function updateWallet(coins, fun) {
     xmlhttp.send("coins=" + coins + "&fun=" + fun);
 }
 
+function myFunction(){
+    console.log("myFunction");
+}
