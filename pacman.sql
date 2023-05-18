@@ -175,11 +175,55 @@ CREATE TABLE `unlocked` (
   PRIMARY KEY (`user`, `type`, `name`),
   FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
-insert into`unlocked` values
+INSERT INTO `unlocked` VALUES
+(100001, 'pacman', 'classic'),
+(100001, 'ghosts', 'classic'),
+(100001, 'map', 'classic'),
 (100002, 'pacman', 'classic'),
-(100002, 'pacman', 'fucsia'),
-(100002, 'pacman', 'green');
+(100002, 'ghosts', 'classic'),
+(100002, 'map', 'classic'),
+(100003, 'pacman', 'classic'),
+(100003, 'ghosts', 'classic'),
+(100003, 'map', 'classic'),
+(100004, 'pacman', 'classic'),
+(100004, 'ghosts', 'classic'),
+(100004, 'map', 'classic'),
+(100005, 'pacman', 'classic'),
+(100005, 'ghosts', 'classic'),
+(100005, 'map', 'classic'),
+(100006, 'pacman', 'classic'),
+(100006, 'ghosts', 'classic'),
+(100006, 'map', 'classic'),
+(100007, 'pacman', 'classic'),
+(100007, 'ghosts', 'classic'),
+(100007, 'map', 'classic'),
+(100008, 'pacman', 'classic'),
+(100008, 'ghosts', 'classic'),
+(100008, 'map', 'classic'),
+(100009, 'pacman', 'classic'),
+(100009, 'ghosts', 'classic'),
+(100009, 'map', 'classic'),
+(100010, 'pacman', 'classic'),
+(100010, 'ghosts', 'classic'),
+(100010, 'map', 'classic'),
+(100011, 'pacman', 'classic'),
+(100011, 'ghosts', 'classic'),
+(100011, 'map', 'classic'),
+(100012, 'pacman', 'classic'),
+(100012, 'ghosts', 'classic'),
+(100012, 'map', 'classic'),
+(100013, 'pacman', 'classic'),
+(100013, 'ghosts', 'classic'),
+(100013, 'map', 'classic'),
+(100014, 'pacman', 'classic'),
+(100014, 'ghosts', 'classic'),
+(100014, 'map', 'classic'),
+(100015, 'pacman', 'classic'),
+(100015, 'ghosts', 'classic'),
+(100015, 'map', 'classic'),
+(100016, 'pacman', 'classic'),
+(100016, 'ghosts', 'classic'),
+(100016, 'map', 'classic');
 
 DROP TABLE IF EXISTS `skinsApplied`;
 CREATE TABLE `skinsApplied` (
@@ -192,23 +236,21 @@ CREATE TABLE `skinsApplied` (
   FOREIGN KEY (`pacman`) REFERENCES `Skins` (`name`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-  insert into`skinsApplied` values
-(100001, 'red', 'classic', 'classic'),
-(100002, 'classic', 'vintage', 'black&white'),
-(100003, 'green', 'monocolor', 'desert'),
-(100004, 'red', 'vintage', 'classic'),
-(100005, 'red', 'classic', 'black&white'),
-(100006, 'classic', 'monocolor', 'seaside'),
-(100007, 'fucsia', 'classic', 'artic'),
-(100008, 'red', 'space', 'desert'),
-(100009, 'fucsia', 'classic', 'desert'),
-(100010, 'green', 'black&white', 'classic'),
-(100011, 'green', 'monocolor', 'artic'),
-(100012, 'classic', 'space', 'lollipop'),
-(100013, 'fucsia', 'space', 'lollipop'),
-(100014, 'fucsia', 'black&white', 'seaside'),
-(100015, 'white', 'classic', 'lollipop'),
-(100016, 'classic', 'monocolor', 'artic');
-
-
+INSERT INTO `skinsApplied` VALUES
+(100001, 'classic', 'classic', 'classic'),
+(100002, 'classic', 'classic', 'classic'),
+(100003, 'classic', 'classic', 'classic'),
+(100004, 'classic', 'classic', 'classic'),
+(100005, 'classic', 'classic', 'classic'),
+(100006, 'classic', 'classic', 'classic'),
+(100007, 'classic', 'classic', 'classic'),
+(100008, 'classic', 'classic', 'classic'),
+(100009, 'classic', 'classic', 'classic'),
+(100010, 'classic', 'classic', 'classic'),
+(100011, 'classic', 'classic', 'classic'),
+(100012, 'classic', 'classic', 'classic'),
+(100013, 'classic', 'classic', 'classic'),
+(100014, 'classic', 'classic', 'classic'),
+(100015, 'classic', 'classic', 'classic'),
+(100016, 'classic', 'classic', 'classic');
 

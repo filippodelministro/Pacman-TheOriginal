@@ -28,10 +28,9 @@ function updateWallet(coins, fun) {
 function handleSkin(buy, type, skin, coins, price){
     if(buy){
         //if buying new skin, check the wallet and update
-        console.log("handleSkin: buy: " + buy + " type: " + type + " skin: " + skin + " coins: " + coins + " price:" + price);
+        console.log("handleSkin:    buy: " + buy + " type: " + type + " skin: " + skin + " coins: " + coins + " price:" + price);
         if(coins >= price){
             console.log("buying");
-
             updateWallet(price, "remove")
         }
         else{

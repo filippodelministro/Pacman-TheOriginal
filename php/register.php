@@ -48,6 +48,7 @@ function register($username, $password){
     $query = "INSERT INTO unlocked VALUES ('" . $newUserId . "', 'map', 'classic')";
     $PacmanDB->performQuery($query);   
   	$query = "INSERT INTO skinsApplied VALUES ('" . $newUserId . "', 'classic', 'classic','classic')";
+    $PacmanDB->performQuery($query);   
 
     session_start();
     setSession($username, $newUserId);  
