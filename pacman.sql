@@ -189,7 +189,7 @@ CREATE TABLE `skinsApplied` (
 	`map` varchar(32) NOT NULL,
   PRIMARY KEY (`user`),
   FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  FOREIGN KEY (`pacman`) REFERENCES `AllSkins` (`name`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  FOREIGN KEY (`pacman`) REFERENCES `Skins` (`name`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
   insert into`skinsApplied` values

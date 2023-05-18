@@ -69,12 +69,11 @@
                                     $name = '-';
                                     $price = '-';
                                 }
-                                
                                 if($status){    //user already has unlocked the skin
                                     echo ("<li>" . $name .
                                         "<div class='palette-container'>
                                             <div class='palette-square pacman " . $name . "'></div>
-                                            <div class='select " . ($name == $skinsUsed['pacman'] ? "using" : "") . "' onclick='handleSkin(\"false\", \"pacman\", \"$name\")'></div>
+                                            <div class='select " . ($name == $skinsUsed['pacman'] ? "using" : "") . "' onclick='handleSkin(false, \"pacman\", \"$name\", \"$coins\", \"$price\")'></div>
                                         </div>
                                     </li><hr>");                                
                                 }
@@ -82,13 +81,12 @@
                                     echo ("<li>" . $name .
                                         "<div class='palette-container'>
                                             <div class='palette-square pacman " . $name . "'></div>
-                                            <div class='locked' onclick='handleSkin(\"true\", \"pacman\", \"$name\")'></div>
+                                            <div class='locked' onclick='handleSkin(true, \"pacman\", \"$name\", \"$coins\", \"$price\")'></div>
                                             <div class='price'>" . $price . "¢</div>
                                             
                                         </div>
                                     </li><hr>");
                                 }
-
                                     // echo ("<li class='ranking'>");
                                 // echo ("<td class='ranking pos'>" . $i . ".</td>");
                                 // echo ("<td class='ranking'>" . $username . "</td>");
