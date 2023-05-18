@@ -72,18 +72,17 @@
                                 
                                 if($status){    //user already has unlocked the skin
                                     echo ("<li>" . $name .
-                                    "<div class='palette-container'>
-                                        <div class='palette-square pacman " . $name . "'></div>
-                                        <div class='select " . ($name == $skinsUsed['pacman'] ? "using" : "") . "' onclick='selectSkin(\"pacman\", \"$name\")'></div>
-                                    </div>
-                                </li><hr>");                                
+                                        "<div class='palette-container'>
+                                            <div class='palette-square pacman " . $name . "'></div>
+                                            <div class='select " . ($name == $skinsUsed['pacman'] ? "using" : "") . "' onclick='handleSkin(\"false\", \"pacman\", \"$name\")'></div>
+                                        </div>
+                                    </li><hr>");                                
                                 }
                                 else {          //user has to unlock the skin
                                     echo ("<li>" . $name .
                                         "<div class='palette-container'>
                                             <div class='palette-square pacman " . $name . "'></div>
-                                            <div class='locked'></div>
-
+                                            <div class='locked' onclick='handleSkin(\"true\", \"pacman\", \"$name\")'></div>
                                             <div class='price'>" . $price . "¢</div>
                                             
                                         </div>

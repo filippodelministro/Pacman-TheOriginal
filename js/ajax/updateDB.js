@@ -25,7 +25,7 @@ function updateWallet(coins, fun) {
     xmlhttp.send("coins=" + coins + "&fun=" + fun);
 }
 
-function selectSkin(type, skin){
+function handleSkin(buy, type, skin){
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200){
@@ -39,7 +39,7 @@ function selectSkin(type, skin){
     
     xmlhttp.open("POST", "./../php/updateDB.php", true);
     xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-    xmlhttp.send("type=" + type + "&skin=" + skin);
+    xmlhttp.send("buy=" + buy + "&type=" + type + "&skin=" + skin);
 }
 
 //todo: try to remove reload

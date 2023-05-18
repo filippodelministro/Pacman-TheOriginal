@@ -12,12 +12,13 @@ if(!empty($_POST)){
     $coins = $_POST["coins"];
     $fun = $_POST["fun"];
 
+    $buy = $_POST["buy"];       //true or false to handle buy or select
     $type = $_POST["type"];
     $skin = $_POST["skin"];
 
     updateMatches($score, $ghost, $timer, $res);
     updateWallet($coins, $fun);
-    selectSkin($type, $skin);
+    handleSkin($buy, $type, $skin);
 }
 
 function updateMatches($score, $ghost, $timer, $res){    
@@ -43,11 +44,19 @@ function updateWallet($coins, $fun){
     $PacmanDB->performQuery($query);
 }
 
-function selectSkin($type, $skin){
+function handleSkin($buy, $type, $skin){
+    //handle buy skin and change skin
     global $PacmanDB;
     $userId = $_SESSION["userId"];
+
+    if($buy == true){
+        $query = "INSERT INTO unlocked values ($userId, '$type', '$skin');";
+        $PacmanDB->performQuery($query);
+    }
 
     $query = "UPDATE skinsApplied SET $type = '$skin' WHERE user = $userId;";
     $PacmanDB->performQuery($query);
 }
+
+
 ?> 
