@@ -93,9 +93,9 @@
 
             </section>
 
-            <a id="info" href="./../html/info.html" class="icons">
+            <!-- <a id="info" href="./../html/info.html" class="icons">
                 <span id="darkmode" class="material-icons icons">help</span>
-            </a>
+            </a> -->
             
         </main>
         
