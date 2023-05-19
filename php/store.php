@@ -14,6 +14,8 @@
 
    //get skins prices
    $pacmanSkins = getPacmanSkins($userId);
+   $ghostSkins = getGhostSkins($userId);
+   $mapSkins = getMapSkins($userId);
 ?>
 
 <!DOCTYPE html>
@@ -61,6 +63,7 @@
                     <ul>
                         <?php
                             for ($i = 1; $i <= 5; $i++) {
+                                //get skin info
                                 if ($row = mysqli_fetch_assoc($pacmanSkins)) {
                                     $name = $row["name"];
                                     $status = $row["status"];
@@ -73,7 +76,9 @@
                                     echo ("<li>" . $name .
                                         "<div class='palette-container'>
                                             <div class='palette-square pacman " . $name . "'></div>
-                                            <div class='select " . ($name == $skinsUsed['pacman'] ? "using" : "") . "' onclick='handleSkin(false, \"pacman\", \"$name\", \"$coins\", \"$price\")'></div>
+                                            <div class='select " . ($name == $skinsUsed['pacman'] ? "using" : "") . "
+                                                'onclick='handleSkin(false, \"pacman\", \"$name\", \"$coins\", \"$price\")'>
+                                            </div>
                                         </div>
                                     </li><hr>");                                
                                 }
@@ -87,11 +92,6 @@
                                         </div>
                                     </li><hr>");
                                 }
-                                    // echo ("<li class='ranking'>");
-                                // echo ("<td class='ranking pos'>" . $i . ".</td>");
-                                // echo ("<td class='ranking'>" . $username . "</td>");
-                                // echo ("<td class='ranking'>" . $hs . "</td>");
-                                // echo ("</tr>");
                             }
                         ?>
                         <!-- <li>classic: <div class='palette-container'><div class='palette-square pacman' style='background-color:rgb(255, 200, 0)'></div></div></li><hr>
@@ -106,7 +106,43 @@
                 <h4>ghosts</h4>
                 <div>
                     <ul>
-                        <li>classic:
+                        <?php
+                            for ($i = 1; $i <= 5; $i++) {
+                                //get skin info
+                                if ($row = mysqli_fetch_assoc($ghostSkins)) {
+                                    $name = $row["name"];
+                                    $status = $row["status"];
+                                    $price = $row["price"];
+                                } else {
+                                    $name = '-';
+                                    $price = '-';
+                                }
+
+                                if($status){    //user already has unlocked the skin
+                                    echo ("<li>" . $name .
+                                        "<div class='palette-container'>
+                                            <div class='palette-square ghost " . $name . "'></div>
+                                            <div class='select " . ($name == $skinsUsed['ghosts'] ? "using" : "") . "
+                                                'onclick='handleSkin(false, \"ghosts\", \"$name\", \"$coins\", \"$price\")'>
+                                            </div>
+                                        </div>
+                                    </li><hr>");                                
+                                }
+                                else {          //user has to unlock the skin
+                                    echo ("<li>" . $name .
+                                        "<div class='palette-container'>
+                                            <div class='palette-square ghost " . $name . "'></div>
+                                            <div class='locked' onclick='handleSkin(true, \"ghosts\", \"$name\", \"$coins\", \"$price\")'></div>
+                                            <div class='price'>" . $price . "¢</div>
+                                            
+                                        </div>
+                                    </li><hr>");
+                                }
+                            }
+                        ?>
+
+
+                        <!-- <li>classic:
                             <div class='palette-container'>
                                 <div class='palette-square ghost' style='background-color:blue'></div>
                                 <div class='palette-square ghost' style='background-color:red'></div>
@@ -145,7 +181,7 @@
                                 <div class='palette-square ghost' style='background-color:rgb(255, 0, 0)'></div>
                                 <div class='palette-square ghost' style='background-color:rgb(255, 0, 0)'></div>
                             </div>
-                        </li><hr>
+                        </li><hr> -->
                     </ul>
                 </div>
             </section>
@@ -153,7 +189,42 @@
                 <h4>map</h4>
                 <div>
                     <ul>
-                        <li>classic:
+                        <?php
+                            for ($i = 1; $i <= 7; $i++) {
+                                //get skin info
+                                if ($row = mysqli_fetch_assoc($mapSkins)) {
+                                    $name = $row["name"];
+                                    $status = $row["status"];
+                                    $price = $row["price"];
+                                } else {
+                                    $name = '-';
+                                    $price = '-';
+                                }
+
+                                if($status){    //user already has unlocked the skin
+                                    echo ("<li>" . $name .
+                                        "<div class='palette-container'>
+                                            <div class='palette-square " . $name . "'></div>
+                                            <div class='select " . ($name == $skinsUsed['map'] ? "using" : "") . "
+                                                'onclick='handleSkin(false, \"map\", \"$name\", \"$coins\", \"$price\")'>
+                                            </div>
+                                        </div>
+                                    </li><hr>");                                
+                                }
+                                else {          //user has to unlock the skin
+                                    echo ("<li>" . $name .
+                                        "<div class='palette-container'>
+                                            <div class='palette-square " . $name . "'></div>
+                                            <div class='locked' onclick='handleSkin(true, \"map\", \"$name\", \"$coins\", \"$price\")'></div>
+                                            <div class='price'>" . $price . "¢</div>
+                                        </div>
+                                    </li><hr>");
+                                }
+                            }
+                        ?>
+
+
+                        <!-- <li>classic:
                             <div class='palette-container'>
                                 <div class='palette-square' style='background-color:rgb(0, 0, 0)'></div>
                                 <div class='palette-square' style='background-color:rgb(0, 0, 105)'></div>
@@ -208,7 +279,7 @@
                                 <div class='palette-square' style='background-color:rgb(255, 255, 255)'></div>
                                 <div class='palette-square' style='background-color:rgb(100, 100, 100)'></div>
                             </div>
-                        </li><hr>
+                        </li><hr> -->
                        
                         
                     </ul>

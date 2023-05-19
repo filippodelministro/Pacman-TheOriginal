@@ -40,6 +40,37 @@ function getPacmanSkins($user){
             from unlocked u
             where u.user = $user
           ) as D right outer join skins s on s.type = D.type and s.name = D.name
+          where s.type = 'pacman'
+          order by s.price";
+
+  return $PacmanDB->performQuery($sql);
+}
+
+function getGhostSkins($user){
+  global $PacmanDB;
+  $sql = "SELECT s.name, if(D.user is null, false, true) as status, s.price
+          from
+          (
+            select *
+            from unlocked u
+            where u.user = $user
+          ) as D right outer join skins s on s.type = D.type and s.name = D.name
+          where s.type = 'ghosts'
+          order by s.price";
+
+  return $PacmanDB->performQuery($sql);
+}
+
+function getMapSkins($user){
+  global $PacmanDB;
+  $sql = "SELECT s.name, if(D.user is null, false, true) as status, s.price
+          from
+          (
+            select *
+            from unlocked u
+            where u.user = $user
+          ) as D right outer join skins s on s.type = D.type and s.name = D.name
+          where s.type = 'map'
           order by s.price";
 
   return $PacmanDB->performQuery($sql);

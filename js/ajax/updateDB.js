@@ -26,11 +26,11 @@ function updateWallet(coins, fun) {
 }
 
 function handleSkin(buy, type, skin, coins, price){
+    window.alert("handleSkin>    buy: " + buy + "  type: " + type + "  skin: " + skin + "  coins: " + coins + "  price: " + price);
+    
     if(buy){
         //if buying new skin, check the wallet and update
-        console.log("handleSkin:    buy: " + buy + " type: " + type + " skin: " + skin + " coins: " + coins + " price:" + price);
         if(coins >= price){
-            console.log("buying");
             updateWallet(price, "remove")
         }
         else{
@@ -39,6 +39,8 @@ function handleSkin(buy, type, skin, coins, price){
         }
     }
 
+    window.alert("diocane");
+     
     var xmlhttp = new XMLHttpRequest();
     xmlhttp.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200){
