@@ -166,7 +166,7 @@
                                 <div class='palette-square ghost' style='background-color:rgb(255, 255, 0)'></div>
                             </div>
                         </li><hr>
-                        <li>black&white:
+                        <li>blackandwhite:
                             <div class='palette-container'>
                                 <div class='palette-square ghost' style='background-color:rgb(100, 100, 100)'></div>
                                 <div class='palette-square ghost' style='background-color:rgb(150, 150, 150)'></div>
@@ -272,7 +272,7 @@
                                 <div class='palette-square' style='background-color:rgb(255, 255, 102)'></div>
                             </div>
                         </li><hr>
-                        <li>black&white:
+                        <li>blackandwhite:
                             <div class='palette-container'>
                                 <div class='palette-square' style='background-color:rgb(0, 0, 0)'></div>
                                 <div class='palette-square' style='background-color:rgb(255, 255, 255)'></div>

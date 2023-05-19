@@ -43,7 +43,7 @@ function register($username, $password){
     //handle skins: classic at signup
     $query = "INSERT INTO unlocked VALUES ('" . $newUserId . "', 'pacman', 'classic')";
     $PacmanDB->performQuery($query);
-    $query = "INSERT INTO unlocked VALUES ('" . $newUserId . "', 'ghost', 'classic')";
+    $query = "INSERT INTO unlocked VALUES ('" . $newUserId . "', 'ghosts', 'classic')";
     $PacmanDB->performQuery($query);
     $query = "INSERT INTO unlocked VALUES ('" . $newUserId . "', 'map', 'classic')";
     $PacmanDB->performQuery($query);   

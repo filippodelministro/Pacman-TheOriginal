@@ -45,7 +45,7 @@ switch ($skins['map']) {
         $spawn = "rgb(0, 76, 153)";
         $tunnel = "rgb(255, 128, 0)";
         break;
-    case 'black&white':                           //black&white
+    case 'blackandwhite':                           //blackandwhite
         $map = "rgb(0, 0, 0)";
         $wall = "rgb(255, 255, 255)";
         $spawn = "rgb(255, 255, 255)";
@@ -67,7 +67,7 @@ switch ($skins['map']) {
 }
 
 switch ($skins['ghosts']) {
-    case 'black&white':                             //black&white
+    case 'blackandwhite':                             //blackandwhite
         $ghost1 = "rgb(100, 100, 100);";
         $ghost2 = "rgb(150, 150, 150);";
         $ghost3 = "rgb(200, 200, 200);";

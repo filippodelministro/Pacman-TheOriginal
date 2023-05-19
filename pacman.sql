@@ -19,7 +19,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8;
 
 insert into`user` values
-  (100001, 'pweb', md5('pweb'))
+  (100001, 'pweb', md5('pweb'));
   -- ,(100002, 'filippo', md5('filippo')),
   -- (100003, 'frank', md5('frank')),
   -- (100004, 'franco', md5('franco')),
@@ -50,8 +50,8 @@ CREATE TABLE `matches` (
   PRIMARY KEY (`user`, `date`, `time`),  
     FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8;
--- INSERT INTO `matches` VALUES
--- (100001, '2022-05-10', '15:24:18', 500, 1, 660, false),
+INSERT INTO `matches` VALUES
+(100001, '2022-05-10', '15:24:18', 500, 1, 660, false);
 -- (100007, '2022-06-25', '08:51:12', 50, 0, 360, false),
 -- (100003, '2022-08-04', '11:15:34', 1100, 3, 780, true),
 -- (100005, '2022-09-19', '22:47:42', 120, 0, 900, false),
@@ -132,7 +132,7 @@ CREATE TABLE `wallet` (
   FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 insert into`wallet` values
-  (100001, 120)
+  (100001, 120);
   -- ,(100002, 95),
   -- (100003, 50),
   -- (100004, 200),
@@ -156,7 +156,7 @@ CREATE TABLE `skins` (
   `type` varchar(32) NOT NULL,
 	`name` varchar(32) NOT NULL,
 	`price` int(11) NOT NULL ,
-  PRIMARY KEY (`name`)
+  PRIMARY KEY (`type`, `name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 insert into`skins` values
@@ -164,8 +164,21 @@ insert into`skins` values
 ("pacman", "red", 20),
 ("pacman", "green", 50),
 ("pacman", "fucsia", 80),
-("pacman", "white", 100);
+("pacman", "white", 100),
+
+("ghosts", "classic", 0),
+("ghosts", "vintage", 20),
+("ghosts", "space", 50),
+("ghosts", "blackandwhite", 80),
+("ghosts", "monocolor", 100),
   
+("map", "classic", 0),
+("map", "artic", 20),
+("map", "desert", 50),
+("map", "jungle", 100),
+("map", "seaside", 80),
+("map", "lollipop", 100),
+("map", "blackandwhite", 100);
   
 DROP TABLE IF EXISTS `unlocked`;
 CREATE TABLE `unlocked` (
@@ -178,7 +191,8 @@ CREATE TABLE `unlocked` (
 INSERT INTO `unlocked` VALUES
 (100001, 'pacman', 'classic'),
 (100001, 'ghosts', 'classic'),
-(100001, 'map', 'classic')
+(100001, 'map', 'classic');
+-- (100001, 'map', 'classic');
 -- ,(100002, 'pacman', 'classic'),
 -- (100002, 'ghosts', 'classic'),
 -- (100002, 'map', 'classic'),
@@ -232,12 +246,11 @@ CREATE TABLE `skinsApplied` (
 	`ghosts` varchar(32) NOT NULL,
 	`map` varchar(32) NOT NULL,
   PRIMARY KEY (`user`),
-  FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  FOREIGN KEY (`pacman`) REFERENCES `Skins` (`name`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `skinsApplied` VALUES
-(100001, 'classic', 'classic', 'classic')
+(100001, 'classic', 'classic', 'classic');
 -- ,(100002, 'classic', 'classic', 'classic'),
 -- (100003, 'classic', 'classic', 'classic'),
 -- (100004, 'classic', 'classic', 'classic'),
