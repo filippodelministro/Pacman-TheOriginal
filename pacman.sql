@@ -22,8 +22,8 @@ insert into`user` values
   (100001, 'pweb', md5('pweb')),
   (100002, 'filippo', md5('filippo')),
   (100003, 'frank', md5('frank')),
-  (100004, 'sperix', md5('sperix')),
-  (100005, 'ciccio', md5('ciccio')),
+  (100004, 'franco', md5('franco')),
+  (100005, 'gabriele', md5('gabriele')),
   (100006, 'gianfranco', md5('gianfranco')),
   (100007, 'gingi', md5('gingi')),
   (100008, 'giulio', md5('giulio')),
@@ -44,7 +44,7 @@ CREATE TABLE `matches` (
     FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=10000 DEFAULT CHARSET=utf8;
 INSERT INTO `matches` VALUES
-(100001, '2022-05-10', '15:24:18', 500, 1, 660, false);
+(100001, '2022-05-10', '15:24:18', 500, 1, 660, false),
 (100007, '2022-06-25', '08:51:12', 50, 0, 360, false),
 (100003, '2022-08-04', '11:15:34', 1100, 3, 780, true),
 (100005, '2022-09-19', '22:47:42', 120, 0, 900, false),
@@ -207,7 +207,7 @@ CREATE TABLE `skinsApplied` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 INSERT INTO `skinsApplied` VALUES
-(100001, 'classic', 'classic', 'classic');
+(100001, 'classic', 'classic', 'classic'),
 (100002, 'classic', 'classic', 'classic'),
 (100003, 'classic', 'classic', 'classic'),
 (100004, 'classic', 'classic', 'classic'),
