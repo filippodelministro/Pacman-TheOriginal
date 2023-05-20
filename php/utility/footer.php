@@ -17,7 +17,6 @@
     }
 
     .retro-footer a:hover {
-        /* color: rgb(0, 195, 255); */
         color: white;
     }
 </style>

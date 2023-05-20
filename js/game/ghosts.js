@@ -12,7 +12,6 @@ class Ghost {
     }
 }
 
-
 Ghost.prototype.init = function(){
     this.element = document.createElement("div");
     this.element.setAttribute("id", this.id);

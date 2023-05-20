@@ -88,7 +88,6 @@ header{
 
 
 input {
-    /* display: block; */
     width: 100%;
     font-size: 14pt;
     line-height: 28pt;
@@ -101,7 +100,6 @@ input {
     outline: none;
     color: black;
 }
-
 
 input:hover{
     color: black;

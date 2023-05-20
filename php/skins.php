@@ -39,7 +39,7 @@ switch ($skins['map']) {
         $spawn = "rgb(10, 70, 30)";
         $tunnel = "rgb(120, 120, 20)";
         break;
-    case 'seaside':                                // Mars
+    case 'seaside':                                // seaside
         $map = "rgb(51, 153, 255)";
         $wall = "rgb(255, 188, 0)";
         $spawn = "rgb(0, 76, 153)";

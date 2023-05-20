@@ -2,7 +2,6 @@
 	session_start();
     require_once "./utility/pacmanDbManager.php";
     require_once "./utility/sessionUtil.php";
-    // include "./updateDB.php";
     include "./handle_leaderboard.php";
 
     if (!isLogged()){
@@ -10,13 +9,10 @@
         exit;
     }
 
-    
     global $PacmanDB;
     $username = $_SESSION['username'];
     $userId = $_SESSION['userId']; 
     $highscore = getUserHighscore($userId);
-
-
 ?>
 
 

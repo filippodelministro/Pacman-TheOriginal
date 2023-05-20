@@ -35,11 +35,7 @@
                 <h2>PACMAN: THE ORIGINAL.</h2>
                 <p>The most played game in the '80</p>
             </section>
-            <!-- <a id="account" href="./php/player.php" class="icons">
-                <span class="material-icons">
-                    account_circle
-                </span>
-            </a> -->
+            
             <a id="store" href="./store.php" class="icons">
                 <span class="material-icons">
                     shopping_bag
@@ -50,15 +46,11 @@
                     leaderboard
                 </span>
             </a>
-            <!-- //todo: banner to confirm logout -->
             <a title='click here for logout' id="logout" href="./logout.php" class="icons">
                <span class="material-icons">
                    logout
                </span>
            </a>
-            
-
-
 
             <section id="about" class="menu-section">
                 <h4>about</h4>
@@ -84,8 +76,6 @@
                 </p>
             </section>
             
-
-
             <section class="main-section" id="main-section">
             
                 <img id="ghost" src="./../images/ghost.png" alt="ghost">
@@ -93,12 +83,7 @@
 
             </section>
 
-            <!-- <a id="info" href="./../html/info.html" class="icons">
-                <span id="darkmode" class="material-icons icons">help</span>
-            </a> -->
-            
         </main>
-        
         <?php    
             include "./utility/footer.php";
         ?>

@@ -36,12 +36,6 @@
                 <h2>PACMAN: Welcome</h2>
                 <p>Login to enjoy the game</p>
             </section>
-            <!-- <a id="back" href="./../index.php" class="icons">
-                <span class="material-icons">
-                    arrow_back_ios
-                </span>
-            </a> -->
-            
 
             <div id="login" class="input-container appear">
                 <form name="loginForm" action="./php/login.php" method="post" onSubmit="return validateLoginForm()">
