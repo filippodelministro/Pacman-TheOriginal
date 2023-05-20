@@ -67,27 +67,147 @@ ul{
     border-radius: 50%;
 }
 
-.ghost{
-    border-radius: 60px 60px 0 0;
-}
-
-.classic{
+.pacman.classic{
     background-color: rgb(255, 200, 0);
 }
-.red{
+.pacman.red{
     background-color: rgb(203, 0, 0);
 }
-.green{
+.pacman.green{
     background-color: rgb(0, 255,  0);
 }
-.fucsia{
+.pacman.fucsia{
     background-color: rgb(255, 0,  239);
 }
-.white{
+.pacman.white{
     background-color: rgb(255, 255, 255);
 }
 
+.ghosts.classic.g1{
+    background-color: blue;
+}
+.ghosts.classic.g2{
+    background-color: red;
+}
+.ghosts.classic.g3{
+    background-color: orange;
+}
+.ghosts.classic.g4{
+    background-color: pink;
+}
 
+.ghosts.vintage.g1{
+    background-color: rgb(50, 150, 200);
+}
+.ghosts.vintage.g2{
+    background-color: rgb(200, 50, 50);
+}
+.ghosts.vintage.g3{
+    background-color: rgb(200, 200, 50);
+}
+.ghosts.vintage.g4{
+    background-color: rgb(50, 200, 50);
+}
+
+.ghosts.space.g1{
+    background-color: rgb(0, 0, 102);
+}
+.ghosts.space.g2{
+    background-color: rgb(51, 255, 255);
+}
+.ghosts.space.g3{
+    background-color: rgb(255, 51, 153);
+}
+.ghosts.space.g4{
+    background-color: rgb(255, 255, 0);
+}
+.ghosts.blackandwhite.g1{    
+    background-color: rgb(250, 250, 250);
+}
+.ghosts.blackandwhite.g2{    
+    background-color: rgb(200, 200, 200);
+}
+.ghosts.blackandwhite.g3{    
+    background-color: rgb(150, 150, 150);
+}
+.ghosts.blackandwhite.g4{    
+    background-color: rgb(100, 100, 100);
+}
+.ghosts.monocolor.g1{
+    background-color: rgb(255, 0, 0);
+}
+.ghosts.monocolor.g2{
+    background-color: rgb(255, 0, 0);
+}
+.ghosts.monocolor.g3{
+    background-color: rgb(255, 0, 0);
+}
+.ghosts.monocolor.g4{
+    background-color: rgb(255, 0, 0);
+}
+
+.map.classic.m1{
+    background-color: blue;
+}
+.map.classic.m2{
+    background-color: red;
+}
+.map.classic.m3{
+    background-color: orange;
+}
+.map.classic.m4{
+    background-color: pink;
+}
+
+.map.desert.m1{
+    background-color: rgb(50, 150, 200);
+}
+.map.desert.m2{
+    background-color: rgb(200, 50, 50);
+}
+.map.desert.m3{
+    background-color: rgb(200, 200, 50);
+}
+.map.desert.m4{
+    background-color: rgb(50, 200, 50);
+}
+
+.map.space.m1{
+    background-color: rgb(0, 0, 102);
+}
+.map.space.m2{
+    background-color: rgb(51, 255, 255);
+}
+.map.space.m3{
+    background-color: rgb(255, 51, 153);
+}
+.map.space.m4{
+    background-color: rgb(255, 255, 0);
+}
+.map.blackandwhite.m1{    
+    background-color: rgb(250, 250, 250);
+}
+.map.blackandwhite.m2{    
+    background-color: rgb(200, 200, 200);
+}
+.map.blackandwhite.m3{    
+    background-color: rgb(150, 150, 150);
+}
+.map.blackandwhite.m4{    
+    background-color: rgb(100, 100, 100);
+}
+.map.monocolor.m1{
+    background-color: rgb(255, 0, 0);
+}
+.map.monocolor.m2{
+    background-color: rgb(255, 0, 0);
+}
+.map.monocolor.m3{
+    background-color: rgb(255, 0, 0);
+}
+.map.monocolor.m4{
+    background-color: rgb(255, 0, 0);
+}
 
 /* prices */
 .price{
@@ -126,5 +246,8 @@ ul{
     background-color: rgb(255, 64, 0);
     border: 1px solid rgb(47, 47, 47);
     cursor: pointer;
+}
 
+.ghosts{
+    border-radius: 60px 60px 0 0;
 }

@@ -26,13 +26,10 @@ function updateWallet(coins, fun) {
 }
 
 function handleSkin(buy, type, skin, coins, price){
-    window.alert("handleSkin>    buy: " + buy + "  type: " + type + "  skin: " + skin + "  coins: " + coins + "  price: " + price);
-    
     if(buy){
         //if buying new skin, check the wallet and update
-        if(+coins >= +price){
+        if(+coins >= +price)
             updateWallet(+price, "remove")
-        }
         else{
             window.alert("Low budget!");
             return;
