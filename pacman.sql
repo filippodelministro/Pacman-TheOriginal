@@ -113,7 +113,7 @@ CREATE TABLE `wallet` (
   FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 insert into`wallet` values
-  (100001, 400),
+  (100001, 120),
   (100002, 95),
   (100003, 50),
   (100004, 200),

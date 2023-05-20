@@ -39,7 +39,7 @@ switch ($skins['map']) {
         $spawn = "rgb(10, 70, 30)";
         $tunnel = "rgb(120, 120, 20)";
         break;
-    case 'seaside':                                 // seaside
+    case 'seaside':                                // Mars
         $map = "rgb(51, 153, 255)";
         $wall = "rgb(255, 188, 0)";
         $spawn = "rgb(0, 76, 153)";
@@ -51,7 +51,7 @@ switch ($skins['map']) {
         $spawn = "rgb(255, 255, 255)";
         $tunnel = "rgb(100, 100, 100)";
         break;
-    case 'lollipop':                                //lollipop
+    case 'lollipop':                              //lollipop
         $map = "rgb(255, 153, 153)";
         $wall = "rgb(153, 51, 255)";
         $spawn = "rgb(102, 178, 255)";
@@ -73,25 +73,25 @@ switch ($skins['ghosts']) {
         $ghost3 = "rgb(200, 200, 200);";
         $ghost4 = "rgb(250, 250, 250);";
         break;
-    case 'vintage':                                   //vintage
+    case 'vintage':                                 //vintage
         $ghost1 = "rgb(50, 150, 200)";
         $ghost2 = "rgb(200, 50, 50)";
         $ghost3 = "rgb(200, 200, 50)";
         $ghost4 = "rgb(50, 200, 50)";
         break;
-    case 'space':                                     //space
+    case 'space':                                   //space
         $ghost1 = "rgb(0, 0, 102)";
         $ghost2 = "rgb(51, 255, 255)";
         $ghost3 = "rgb(255, 51, 153)";
         $ghost4 = "rgb(255, 255, 0)";
         break;
-    case 'monocolor':                                 //monocolor
+    case 'monocolor':                                   //space
         $ghost1 = "rgb(255, 0, 0)";
         $ghost2 = "rgb(255, 0, 0)";
         $ghost3 = "rgb(255, 0, 0)";
         $ghost4 = "rgb(255, 0, 0)";
         break;
-    case 'classic':                                   //classic
+    case 'classic':                                 //classic
     default:
         $ghost1 = "blue;";
         $ghost2 = "red;";
@@ -99,10 +99,11 @@ switch ($skins['ghosts']) {
         $ghost4 = "pink;";
         break;
 }
+
+
+
 ?>
 
-
-<!-- assign right values to see skin in game -->
 #pacman{
     background-color: <?=$pacman?>
 }

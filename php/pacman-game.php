@@ -9,12 +9,16 @@
         header('Location: ./../index.php');
         exit;
     }
+
     
     global $PacmanDB;
     $username = $_SESSION['username'];
     $userId = $_SESSION['userId']; 
     $highscore = getUserHighscore($userId);
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="it-IT">

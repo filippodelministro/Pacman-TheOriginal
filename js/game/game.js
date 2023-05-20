@@ -106,6 +106,7 @@ Game.prototype.addPoints = function(type){
         this.foodRemaining--;
         
         if(!this.foodRemaining){
+        // if(this.foodRemaining == this.map.foodElements - 5){     //!levare: è per testare
             this.level++;
             this.gameOver(true);
         }
@@ -167,6 +168,7 @@ Game.prototype.checkPacmanCollision = function(){
             this.ghosts[ghostHit].initPosition();
         }
         else{
+            //todo: add animation   
             this.pacman.PacmanHit();
             for(let i = 0; i < this.ghosts.length; i++)
                 this.ghosts[i].initPosition();

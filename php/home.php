@@ -35,6 +35,11 @@
                 <h2>PACMAN: THE ORIGINAL.</h2>
                 <p>The most played game in the '80</p>
             </section>
+            <!-- <a id="account" href="./php/player.php" class="icons">
+                <span class="material-icons">
+                    account_circle
+                </span>
+            </a> -->
             <a id="store" href="./store.php" class="icons">
                 <span class="material-icons">
                     shopping_bag
@@ -87,7 +92,13 @@
                     <a href="./pacman-game.php"><h2>Play here</h2></a>
 
             </section>
+
+            <!-- <a id="info" href="./../html/info.html" class="icons">
+                <span id="darkmode" class="material-icons icons">help</span>
+            </a> -->
+            
         </main>
+        
         <?php    
             include "./utility/footer.php";
         ?>
