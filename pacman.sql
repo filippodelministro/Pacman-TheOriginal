@@ -113,7 +113,7 @@ CREATE TABLE `wallet` (
   FOREIGN KEY (`user`) REFERENCES `user` (`userID`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 insert into`wallet` values
-  (100001, 120),
+  (100001, 1000),
   (100002, 95),
   (100003, 50),
   (100004, 200),
@@ -136,25 +136,25 @@ CREATE TABLE `skins` (
 
 insert into`skins` values
 ("pacman", "classic", 0),
-("pacman", "red", 20),
 ("pacman", "green", 50),
-("pacman", "fucsia", 80),
-("pacman", "white", 100),
+("pacman", "fucsia", 100),
+("pacman", "white", 150),
+("pacman", "red", 200),
 
 ("ghosts", "classic", 0),
-("ghosts", "vintage", 20),
-("ghosts", "space", 50),
-("ghosts", "blackandwhite", 80),
-("ghosts", "monocolor", 100),
-  
+("ghosts", "vintage", 50),
+("ghosts", "space", 100),
+("ghosts", "blackandwhite", 150),
+("ghosts", "monocolor", 200),
+
 ("map", "classic", 0),
-("map", "artic", 20),
 ("map", "desert", 50),
-("map", "jungle", 100),
-("map", "seaside", 80),
-("map", "lollipop", 100),
-("map", "blackandwhite", 100);
-  
+("map", "jungle", 80),
+("map", "seaside", 100),
+("map", "artic", 150),
+("map", "blackandwhite", 180),
+ ("map", "lollipop", 200); 
+ 
 DROP TABLE IF EXISTS `unlocked`;
 CREATE TABLE `unlocked` (
 	`user` int(11) NOT NULL ,
