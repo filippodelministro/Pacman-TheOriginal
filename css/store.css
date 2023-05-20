@@ -27,7 +27,7 @@ hr {
     border-top: 1px solid #5f5f5f;
     margin: 5px 0;
     height: 1px;
-    width: 90%;
+    width: 93%;
     background-color: transparent;
 }
 
@@ -41,6 +41,44 @@ hr {
     text-decoration: underline;
 }
 
+/** ------------ STORE BLOCKS ------------ */
+.price{
+    display: inline-block;
+    margin-left: 10px;
+    /* width: 200px; */
+    padding-left: 2px;
+    padding-right: 2px;
+    height: 20px;
+
+}
+
+.select{
+    display: inline-block;
+    margin-left: 50px;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(190, 190, 190);
+    border: 1px solid rgb(47, 47, 47);
+
+    cursor: pointer;
+}
+.using{
+    display: inline-block;
+    margin-left: 50px;
+    width: 10px;
+    height: 10px;
+    background-color: #00c2d7;
+    border: 1px solid rgb(47, 47, 47);
+}
+.locked{
+    display: inline-block;
+    margin-left: 50px;
+    width: 10px;
+    height: 10px;
+    background-color: rgb(255, 64, 0);
+    border: 1px solid rgb(47, 47, 47);
+    cursor: pointer;
+}
 
 /** ------------ SKINS ------------ */
 
@@ -66,7 +104,11 @@ ul{
 .pacman{
     border-radius: 50%;
 }
+.ghosts{
+    border-radius: 60px 60px 0 0;
+}
 
+/** ------------------ PACMAN SKINS ------------------ */
 .pacman.classic{
     background-color: rgb(255, 200, 0);
 }
@@ -83,6 +125,8 @@ ul{
     background-color: rgb(255, 255, 255);
 }
 
+
+/** ------------------ GHOSTS SKINS ------------------ */
 .ghosts.classic.g1{
     background-color: blue;
 }
@@ -95,7 +139,6 @@ ul{
 .ghosts.classic.g4{
     background-color: pink;
 }
-
 .ghosts.vintage.g1{
     background-color: rgb(50, 150, 200);
 }
@@ -108,7 +151,6 @@ ul{
 .ghosts.vintage.g4{
     background-color: rgb(50, 200, 50);
 }
-
 .ghosts.space.g1{
     background-color: rgb(0, 0, 102);
 }
@@ -146,108 +188,88 @@ ul{
     background-color: rgb(255, 0, 0);
 }
 
+/** ------------------ MAP SKINS ------------------ */
 .map.classic.m1{
-    background-color: blue;
+    background-color: black;
 }
 .map.classic.m2{
-    background-color: red;
+    background-color: rgb(0, 0, 105);
 }
 .map.classic.m3{
-    background-color: orange;
+    background-color: rgb(0, 0, 67);
 }
 .map.classic.m4{
-    background-color: pink;
+    background-color: white;
 }
-
+.map.artic.m1{
+    background-color: rgb(160, 210, 230);
+}
+.map.artic.m2{
+    background-color: rgb(92, 122, 129);
+}
+.map.artic.m3{
+    background-color: rgb(242, 242, 247);
+}
+.map.artic.m4{
+    background-color: rgb(169, 183, 198);
+}
 .map.desert.m1{
-    background-color: rgb(50, 150, 200);
+    background-color: rgb(255, 153, 0);
 }
 .map.desert.m2{
-    background-color: rgb(200, 50, 50);
+    background-color: rgb(255, 51, 0);
 }
 .map.desert.m3{
-    background-color: rgb(200, 200, 50);
+    background-color: rgb(200, 130, 0);
 }
 .map.desert.m4{
-    background-color: rgb(50, 200, 50);
-}
-
-.map.space.m1{
-    background-color: rgb(0, 0, 102);
-}
-.map.space.m2{
-    background-color: rgb(51, 255, 255);
-}
-.map.space.m3{
-    background-color: rgb(255, 51, 153);
-}
-.map.space.m4{
     background-color: rgb(255, 255, 0);
 }
+.map.jungle.m1{
+    background-color: rgb(0, 170, 120);
+}
+.map.jungle.m2{
+    background-color: rgb(0, 255, 30);
+}
+.map.jungle.m3{
+    background-color: rgb(10, 70, 30);
+}
+.map.jungle.m4{
+    background-color: rgb(20, 120, 20);
+}
+.map.seaside.m1{
+    background-color: rgb(51, 153, 255);
+}
+.map.seaside.m2{
+    background-color: rgb(255, 188, 0);
+}
+.map.seaside.m3{
+    background-color: rgb(0, 76, 153);
+}
+.map.seaside.m4{
+    background-color: rgb(255, 128, 0);
+}
+.map.lollipop.m1{
+    background-color: rgb(255, 153, 153);
+}
+.map.lollipop.m2{
+    background-color: rgb(153, 51, 255);
+}
+.map.lollipop.m3{
+    background-color: rgb(102, 178, 255);
+}
+.map.lollipop.m4{
+    background-color: rgb(255, 255, 102);
+}
 .map.blackandwhite.m1{    
-    background-color: rgb(250, 250, 250);
+    background-color: black;
 }
 .map.blackandwhite.m2{    
-    background-color: rgb(200, 200, 200);
+    background-color: white;
 }
 .map.blackandwhite.m3{    
-    background-color: rgb(150, 150, 150);
+    background-color: white;
 }
 .map.blackandwhite.m4{    
     background-color: rgb(100, 100, 100);
-}
-.map.monocolor.m1{
-    background-color: rgb(255, 0, 0);
-}
-.map.monocolor.m2{
-    background-color: rgb(255, 0, 0);
-}
-.map.monocolor.m3{
-    background-color: rgb(255, 0, 0);
-}
-.map.monocolor.m4{
-    background-color: rgb(255, 0, 0);
-}
-
-/* prices */
-.price{
-    display: inline-block;
-    margin-left: 50px;
-    /* width: 200px; */
-    padding-left: 2px;
-    padding-right: 2px;
-    height: 20px;
-
-}
-
-.select{
-    display: inline-block;
-    margin-left: 50px;
-    width: 10px;
-    height: 10px;
-    background-color: rgb(190, 190, 190);
-    border: 1px solid rgb(47, 47, 47);
-
-    cursor: pointer;
-}
-.using{
-    display: inline-block;
-    margin-left: 50px;
-    width: 10px;
-    height: 10px;
-    background-color: #00c2d7;
-    border: 1px solid rgb(47, 47, 47);
-}
-.locked{
-    display: inline-block;
-    margin-left: 50px;
-    width: 10px;
-    height: 10px;
-    background-color: rgb(255, 64, 0);
-    border: 1px solid rgb(47, 47, 47);
-    cursor: pointer;
-}
-
-.ghosts{
-    border-radius: 60px 60px 0 0;
 }
