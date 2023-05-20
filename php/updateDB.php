@@ -31,7 +31,6 @@ function updateMatches($score, $ghost, $timer, $res){
 
 function updateWallet($coins, $fun){
     //add ore remove coins based on $fun value
-
     global $PacmanDB;
     $userId = $_SESSION["userId"];
 
@@ -39,7 +38,6 @@ function updateWallet($coins, $fun){
         $query = "UPDATE wallet SET coins = coins + $coins WHERE user = $userId;";
     else if($fun == "remove")
         $query = "UPDATE wallet SET coins = coins - $coins WHERE user = $userId;";
-
 
     $PacmanDB->performQuery($query);
 }
@@ -57,6 +55,4 @@ function handleSkin($buy, $type, $skin){
     $query = "UPDATE skinsApplied SET $type = '$skin' WHERE user = $userId;";
     $PacmanDB->performQuery($query);
 }
-
-
 ?> 

@@ -24,7 +24,7 @@
     background-color: rgb(210, 210, 210);
     border: 2px solid black;
 
-    width: 600px;
+    width: 700px;
     height: 400px;
     padding: 2%;
     font-size: 13px;
@@ -43,7 +43,7 @@ hr {
     border-top: 1px solid #5f5f5f;
     margin: 5px 0;
     height: 1px;
-    width: 90%;
+    width: 100%;
     background-color: transparent;
 }
 

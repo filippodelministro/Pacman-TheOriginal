@@ -17,7 +17,7 @@ function register($username, $password){
     $username = $PacmanDB->sqlInjectionFilter($username);
     $password = $PacmanDB->sqlInjectionFilter($password);
 
-    // controllo se username o email sono già associati ad un account
+    // check if username already exists
     $queryText = 'SELECT * FROM user WHERE username=\'' . $username . '\'';
     $result = $PacmanDB->performQuery($queryText);
     $user = mysqli_fetch_assoc($result);
@@ -28,7 +28,6 @@ function register($username, $password){
       }
     } 
 
-    // Registrazione effettiva del nuovo utente
     $newUserId = newUserId();
     $cryptpassword = md5($password);
 

@@ -22,7 +22,6 @@ function getUserSkins($user){
 
   if ($result->num_rows > 0) {
       while ($row = $result->fetch_assoc()) {
-        // return $row["skins"];
         return $row;
       }
     } else {
@@ -75,14 +74,4 @@ function getMapSkins($user){
 
   return $PacmanDB->performQuery($sql);
 }
-
-// function getPacmanUnlocked($user){
-//   global $PacmanDB;
-//   $sql = "SELECT *
-//           from unlocked u
-//           where u.type = 'pacman' and u.user = $user";
-
-//   return $PacmanDB->performQuery($sql);
-// }
-
 ?>
