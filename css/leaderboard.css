@@ -4,7 +4,6 @@
     height: 290px;
     top: 19%;
     transition: transform 0.3s ease;
-    /* background-color: rgb(210, 210, 210); */
     border: 2px solid black;
 }
 
@@ -38,7 +37,7 @@ hr {
 }
 
 
-/** ------------ ranking ------------ */
+/** ------------ RANKING ------------ */
 
 .ranking-container{
     display: flex;

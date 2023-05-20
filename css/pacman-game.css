@@ -1,7 +1,6 @@
 
 body {
     background-color: rgb(0, 0, 26);
-    /* background-color: rgb(226, 226, 226); */
 
     color: whitesmoke;
     font-family: monospace;
@@ -29,23 +28,11 @@ body {
     grid-template-rows: repeat(17, 30px);
     width: 510px;
     height: 510px;
-    /* background-color: black; */
 }  
 .cell {
     width: 30px;
     height: 30px;
 }
-
-/* setup in skins.php  */
-/* .wall{
-    background-color: rgb(0, 0, 105);
-}
-.tunnel{
-    background-color: gray;
-}
-.spawn{
-    background-color: rgb(0, 0, 67);
-} */
 
 .food {
     background-color: white;
@@ -67,12 +54,9 @@ body {
 .movable{
     position: absolute;
     z-index: 5;
-    /* left: 0;
-    top: 0; */
 }
 
 #pacman {
-    /* position: relative; */
     height: 20px;
     width: 20px;
     border-radius: 50%;
@@ -90,7 +74,6 @@ body {
 .vulnerable{
     animation: vulnerable 0.5s infinite;
     animation-timing-function: step-start;
-    /* background-color: blue; */
 }
 @keyframes vulnerable {
     0% {
@@ -104,34 +87,8 @@ body {
     }
   }
 
-/* .blue-ghost{
-    background-color: blue;
-}
-.red-ghost{
-    background-color: red;
-}
-.orange-ghost{
-    background-color: orange;
-}
-.pink-ghost{
-    background-color: pink;
-} */
-
-/* .ghost1{
-    background-color: blue;
-}
-.ghost2{
-    background-color: red;
-}
-.ghost3{
-    background-color: orange;
-}
-.ghost4{
-    background-color: pink;
-} */
 
 /** ------ MENU  ------ */
-
 .menu-container{
     position: absolute;     
     font-size: small;

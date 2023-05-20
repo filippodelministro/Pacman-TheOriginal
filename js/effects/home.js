@@ -14,7 +14,6 @@ function changeView(){
     }
 }
 
-
 function appear(sectionId) {
     var section = document.getElementById(sectionId);
     var isVisible = section.classList.contains('appear');
