@@ -115,16 +115,25 @@ function getToprank(){
     return $PacmanDB->performQuery($sql);
 }
 
-function getUserrank(){
+function getStats(){
   global $PacmanDB;
-  $sql = "SELECT D.*
-          FROM
-          (
-              SELECT u.username, max(m.score) AS highscore
-              FROM matches m INNER JOIN user u ON m.user = u.userId
-              GROUP BY m.user
-          ) AS D
-          ORDER BY D.highscore DESC";
+  $sql = "SELECT DD.username, DD.avgScore, DD.avgGhost, DD.avgWin
+            from
+            (
+            select u.username,
+              max(m.score) as highscore,
+              sum(m.score)/D.Nmatches as avgScore,
+              sum(m.ghostKilled)/D.Nmatches as avgGhost,
+              sum(m.win)/D.Nmatches as avgWin
+              from matches m inner join (
+              SELECT m.user, count(*) as Nmatches
+              FROM matches m 
+              group by m.user
+              ) as D on m.user = D.user
+              inner join user u on u.userId = m.user
+              group by m.user
+            ) as DD
+            order by DD.highscore desc";
 
   return $PacmanDB->performQuery($sql);
 }

@@ -19,7 +19,7 @@
 
     //get rankings 
     $topRank = getToprank();
-    $userRank = getUserrank();  //todo: change query
+    $stats = getStats();
 
 ?>
 
@@ -41,7 +41,7 @@
     <body>
         <header>
             <nav>
-                <button class="menu-item" onclick="appear('user_rank')">your position</button> 
+                <button class="menu-item" onclick="appear('user_rank')">statistics</button> 
                 <button class="menu-item" onclick="appear('top_rank')">top ranking</button> 
             </nav>
         </header>
@@ -61,6 +61,11 @@
                 <h4>top ranking</h4>
                 <div class='ranking-container'>
                     <table class='ranking'>
+                        <tr>
+                            <td class='ranking pos'>#</td>
+                            <td class='ranking pos'>user</td>
+                            <td class='ranking pos'>score</td>
+                        </tr>
                         <?php
                         for ($i = 1; $i <= 10; $i++) {
                             if ($row = mysqli_fetch_assoc($topRank)) {
@@ -70,10 +75,10 @@
                                 $username = '-';
                                 $hs = '-';
                             }
-                            echo ("<tr class='ranking'>");
-                            echo ("<td class='ranking pos'>" . $i . ".</td>");
-                            echo ("<td class='ranking'>" . $username . "</td>");
-                            echo ("<td class='ranking'>" . $hs . "</td>");
+                            echo ("<tr class='ranking ". ($username == $_SESSION["username"] ? "highlight" : "") ." '>");
+                                echo ("<td class='ranking pos'>" . $i . ".</td>");
+                                echo ("<td class='ranking'>" . $username . "</td>");
+                                echo ("<td class='ranking'>" . $hs . "</td>");
                             echo ("</tr>");
                         }
                         ?>
@@ -82,22 +87,33 @@
             </section>
 
             <section id="user_rank" class="menu-section leaderboard">
-                <h4>your position</h4>
+                <h4>statistics</h4>
                 <div class='ranking-container'>
                     <table class='ranking'>
+                        <tr>
+                            <td class='ranking pos'>#</td>
+                            <td class='ranking pos'>user</td>
+                            <td class='ranking pos'>score/match</td>
+                            <td class='ranking pos'>ghostK/match</td>
+                            <td class='ranking pos'>win/match</td>
+                        </tr>
                         <?php
                         for ($i = 1; $i <= 10; $i++) {
-                            if ($row = mysqli_fetch_assoc($userRank)) {
+                            if ($row = mysqli_fetch_assoc($stats)) {
                                 $username = $row["username"];
-                                $hs = $row["highscore"];
+                                $avgScore = $row["avgScore"];
+                                $avgGhost = $row["avgGhost"];
+                                $avgWin = $row["avgWin"];
                             } else {
                                 $username = '-';
                                 $hs = '-';
                             }
-                            echo ("<tr class='ranking'>");
+                            echo ("<tr class='ranking ". ($username == $_SESSION["username"] ? "highlight" : "") ." '>");
                             echo ("<td class='ranking pos'>" . $i . ".</td>");
                             echo ("<td class='ranking'>" . $username . "</td>");
-                            echo ("<td class='ranking'>" . $hs . "</td>");
+                            echo ("<td class='ranking'>" . $avgScore . "</td>");
+                            echo ("<td class='ranking'>" . $avgGhost . "</td>");
+                            echo ("<td class='ranking'>" . $avgWin . "</td>");
                             echo ("</tr>");
                         }
                         ?>

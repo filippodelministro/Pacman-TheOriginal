@@ -153,7 +153,7 @@ insert into`skins` values
 ("map", "seaside", 100),
 ("map", "artic", 150),
 ("map", "blackandwhite", 180),
- ("map", "lollipop", 200); 
+("map", "lollipop", 200); 
  
 DROP TABLE IF EXISTS `unlocked`;
 CREATE TABLE `unlocked` (
