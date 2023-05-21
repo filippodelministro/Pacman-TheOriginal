@@ -20,15 +20,15 @@ CREATE TABLE `user` (
 
 insert into`user` values
   (100001, 'pweb', md5('pweb')),
-  (100002, 'filippo', md5('filippo')),
+  (100002, 'jhon', md5('jhon')),
   (100003, 'frank', md5('frank')),
-  (100004, 'franco', md5('franco')),
-  (100005, 'gabriele', md5('gabriele')),
-  (100006, 'gianfranco', md5('gianfranco')),
-  (100007, 'gingi', md5('gingi')),
-  (100008, 'giulio', md5('giulio')),
-  (100009, 'luca', md5('luca')),
-  (100010, 'marco', MD5('marco'));
+  (100004, 'punk12', md5('punk12')),
+  (100005, 'luke', md5('luke')),
+  (100006, 'aaaa1', md5('aaaa1')),
+  (100007, 'cdm', md5('cdm')),
+  (100008, 'jules', md5('jules')),
+  (100009, 'kappa125', md5('kappa125')),
+  (100010, 'dmm', MD5('dmm'));
 
   
 DROP TABLE IF EXISTS `matches`;
@@ -153,8 +153,7 @@ insert into`skins` values
 ("map", "seaside", 100),
 ("map", "artic", 150),
 ("map", "blackandwhite", 180),
-("map", "lollipop", 200); 
- 
+ ("map", "lollipop", 200); 
 DROP TABLE IF EXISTS `unlocked`;
 CREATE TABLE `unlocked` (
 	`user` int(11) NOT NULL ,
