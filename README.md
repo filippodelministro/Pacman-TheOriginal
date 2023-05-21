@@ -18,8 +18,6 @@ Create your <strong>own account</strong> after the signup and try the game: the 
 2. Launch the pacman.sql file into your DB manager to setup the database. 
 3. Open your browser to access the website.
 
-<!-- Here's a tutorial on how to do it. -->
-
 <hr>
 
 Filippo Del Ministro, 03.05.23

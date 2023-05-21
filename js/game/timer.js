@@ -1,3 +1,6 @@
+// timer.js
+// Filippo Del Ministro, 21.05.23
+
 function Timer() {
     this.time = 0;
     this.interval = null;

@@ -1,3 +1,6 @@
+<!-- handle_store.php -->
+<!-- Filippo Del Ministro, 21.05.23 -->
+
 <?php
 
 function getUserCoins($user){

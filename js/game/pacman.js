@@ -1,3 +1,6 @@
+// pacman.js
+// Filippo Del Ministro, 21.05.23
+
 class Pacman{
     constructor(){
         this.x;

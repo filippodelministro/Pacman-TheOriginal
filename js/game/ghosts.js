@@ -1,3 +1,6 @@
+// ghosts.js
+// Filippo Del Ministro, 21.05.23
+
 class Ghost {
     constructor(name, x, y) {
         this.id = name;

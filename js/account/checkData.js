@@ -1,3 +1,5 @@
+// checkData.js
+// Filippo Del Ministro, 21.05.23
 
 function validateRegisterForm(){
     var username = document.forms["registerForm"]["username"].value;

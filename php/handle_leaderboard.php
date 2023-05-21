@@ -1,3 +1,6 @@
+<!-- handle_leaderboard.php -->
+<!-- Filippo Del Ministro, 21.05.23 -->
+
 <?php
 
 function getUserHighscore($user){

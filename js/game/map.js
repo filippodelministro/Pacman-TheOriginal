@@ -1,3 +1,6 @@
+// map.js
+// Filippo Del Ministro, 21.05.23
+
 
 function Map(){
     this.cells = [MAP_DIM * MAP_DIM];

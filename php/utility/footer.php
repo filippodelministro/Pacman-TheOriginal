@@ -1,3 +1,6 @@
+<!-- footer.php -->
+<!-- Filippo Del Ministro, 21.05.23 -->
+
 <style>
     .retro-footer {
         display: flex;

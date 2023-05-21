@@ -1,3 +1,5 @@
+// leaderboard.js
+// Filippo Del Ministro, 21.05.23
 
 function appear(sectionId) {
   var section = document.getElementById(sectionId);
