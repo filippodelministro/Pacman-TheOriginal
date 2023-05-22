@@ -22,4 +22,4 @@ Create your <strong>own account</strong> after the signup and try the game: the 
 
 <hr>
 
-Filippo Del Ministro, 03.05.23
+Filippo Del Ministro, 21.05.23
