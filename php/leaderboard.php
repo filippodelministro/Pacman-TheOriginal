@@ -113,7 +113,7 @@
                             echo ("<td class='ranking'>" . $username . "</td>");
                             echo ("<td class='ranking'>" . $avgScore . "</td>");
                             echo ("<td class='ranking'>" . $avgGhost . "</td>");
-                            echo ("<td class='ranking'>" . $avgWin . "</td>");
+                            echo ("<td class='ranking'>" . number_format($avgWin, 2) * 100 . "%</td>");
                             echo ("</tr>");
                         }
                         ?>
