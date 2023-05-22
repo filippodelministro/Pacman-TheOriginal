@@ -7,8 +7,6 @@ function updateMatches(score, ghost, timer, res) {
     xmlhttp.send("score=" + score + "&ghost=" + ghost + "&timer=" + timer + "&res=" + res);
 }
 
-// updateDB.js
-// Filippo Del Ministro, 21.05.23
 
 function updateWallet(coins, fun) {
     var xmlhttp = new XMLHttpRequest();

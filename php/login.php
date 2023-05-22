@@ -1,6 +1,3 @@
-<!-- login.php -->
-<!-- Filippo Del Ministro, 21.05.23 -->
-
 <?php
     require_once "./utility/pacmanDBManager.php"; 
     require_once "./utility/sessionUtil.php";

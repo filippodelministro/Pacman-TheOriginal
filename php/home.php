@@ -1,6 +1,3 @@
-<!-- home.php -->
-<!-- Filippo Del Ministro, 21.05.23 -->
-
 <?php
 	session_start();
     include "./utility/sessionUtil.php";

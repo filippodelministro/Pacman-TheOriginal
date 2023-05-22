@@ -1,6 +1,3 @@
-<!-- skins.php -->
-<!-- Filippo Del Ministro, 21.05.23 -->
-
 <?php header("Content-type: text/css");
 session_start();
 require_once "./utility/pacmanDbManager.php";

@@ -1,5 +1,3 @@
-// home.js
-// Filippo Del Ministro, 21.05.23
 
 function changeView(){
     if(lightmode){

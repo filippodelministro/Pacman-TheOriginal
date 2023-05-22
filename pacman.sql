@@ -1,6 +1,3 @@
--- pacman.sql
--- Filippo Del Ministro, 21.05.23
-
 -- Progettazione Web 
 DROP DATABASE if exists pacman; 
 CREATE DATABASE pacman; 

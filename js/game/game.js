@@ -1,6 +1,3 @@
-// game.js
-// Filippo Del Ministro, 21.05.23
-
 
 //init game to load elements, then wait for Keypress to start moving
 onload = init;

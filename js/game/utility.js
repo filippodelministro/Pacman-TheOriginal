@@ -1,6 +1,3 @@
-// utility.js
-// Filippo Del Ministro, 21.05.23
-
 function moveElement(el) {
     //move the element using his coordinates and his direction
     el.x = el.x + el.direction.x * MOVING_PIXELS;

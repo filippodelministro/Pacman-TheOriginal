@@ -1,5 +1,3 @@
-// account.js
-// Filippo Del Ministro, 21.05.23
 
 function changeSection(){
   var loginSection = document.getElementById("login");

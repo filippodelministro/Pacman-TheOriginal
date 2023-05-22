@@ -1,6 +1,3 @@
-<!-- PacmanDBManager.php -->
-<!-- Filippo Del Ministro, 21.05.23 -->
-
 <?php  
 
     require "dbConfig.php"; 			// includes database class
@@ -24,8 +21,8 @@
 				if ($this->mysqli_conn->connect_error) 
 					die('Connect Error (' . $this->mysqli_conn->connect_errno . ') ' . $this->mysqli_conn->connect_error);
 
-				// $this->mysqli_conn->select_db($dbName) or
-				// 	die ('Can\'t use pweb: ' . mysqli_error());
+				$this->mysqli_conn->select_db($dbName) or
+					die ('Can\'t use pweb: ' . mysqli_error());
 			}
     	}
     
