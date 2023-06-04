@@ -30,7 +30,6 @@ button{
 }
 
 .container{
-    position: flex;
     width: 80%;
     height: 80%;
     padding: 10px;

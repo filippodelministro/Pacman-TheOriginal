@@ -3,7 +3,6 @@
 /** --------------------- MENU --------------------- */
 header{
     margin-left: 7%;
-    margin-left: 0 auto;
     writing-mode:sideways-lr;
     text-align: center;
 }
@@ -30,7 +29,6 @@ header{
 
 .title-section h2, p{
     margin: auto;
-    padding: auto;
 }
 
 .title-section p{
@@ -92,7 +90,6 @@ header{
 
 #ghost{
     position: relative;
-    margin-top: 0 auto;
     width: 200px;
 }
 
@@ -104,5 +101,4 @@ header{
 
 .main-section h2, p{
     margin: auto;
-    padding: auto;
 }

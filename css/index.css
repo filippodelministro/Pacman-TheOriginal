@@ -1,5 +1,4 @@
 .container{
-    position: flex;
     width: 80%;
     height: 80%;
     padding: 10px;
@@ -25,7 +24,6 @@
 
 header{
     margin-left: 7%;
-    margin-left: 0 auto;
     writing-mode:sideways-lr;
     text-align: center;
 }
@@ -52,7 +50,6 @@ header{
 
 .title-section h2, p{
     margin: auto;
-    padding: auto;
 }
 
 .title-section p{
