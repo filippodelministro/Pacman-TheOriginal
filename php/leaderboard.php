@@ -126,7 +126,7 @@
             <section class="review-section" id="main-section">
                 <h4><?php echo $_SESSION['username']?></h4>
                 <ul>
-                    <li>highscore: <?php echo $highscore ?> <style></style> </li><hr>
+                    <li>highscore: <?php echo $highscore ?></li><hr>
                     <li>tot points: <?php echo $totalPoints ?> </li>
                     <li>tot ghost killed: <?php echo $ghostKilled ?> </li><hr>
                     <li>match played: <?php echo $gamePlayed?> </li>
