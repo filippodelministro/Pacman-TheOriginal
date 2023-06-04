@@ -22,9 +22,10 @@
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Roboto%20Mono' rel='stylesheet'>
-    <!-- <?php    
-        include "./utility/footer.php";
-    ?> -->
+        <?php    
+            include "./utility/footer.php";
+        ?>
+        
     </head>    
     <body>
         <header>
