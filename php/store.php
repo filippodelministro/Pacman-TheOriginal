@@ -22,7 +22,7 @@
 <html lang="it-IT">
     <head>
         <title>Pacman</title>
-        <link rel="icon" href="./../images/ghost.png"/>
+        <link rel="icon" href="./../images/ghost.png">
         <link rel="stylesheet" href="./../css/mutual.css"> 
         <link rel="stylesheet" href="./../css/home.css">
         <link rel="stylesheet" href="./../css/store.css">
@@ -34,8 +34,8 @@
 
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
-        <meta charset="utf-8" />            
+        <link href='https://fonts.googleapis.com/css?family=Roboto%20Mono' rel='stylesheet'>
+        <meta charset="utf-8">            
     </head>    
     <body>
         <header>
@@ -77,7 +77,7 @@
                                         "<div class='palette-container'>
                                             <div class='palette-square pacman " . $name . "'></div>
                                             <div class='select " . ($name == $skinsUsed['pacman'] ? "using" : "") . "
-                                                'onclick='handleSkin(false, \"pacman\", \"$name\", \"$coins\", \"$price\")'>
+                                                ' onclick='handleSkin(false, \"pacman\", \"$name\", \"$coins\", \"$price\")'>
                                             </div>
                                         </div>
                                     </li><hr>");                                
@@ -121,7 +121,7 @@
                                             <div class='palette-square ghosts " . $name . " g3'></div>
                                             <div class='palette-square ghosts " . $name . " g4'></div>
                                             <div class='select " . ($name == $skinsUsed['ghosts'] ? "using" : "") . "
-                                                'onclick='handleSkin(false, \"ghosts\", \"$name\", \"$coins\", \"$price\")'>
+                                                ' onclick='handleSkin(false, \"ghosts\", \"$name\", \"$coins\", \"$price\")'>
                                             </div>
                                         </div>
                                     </li><hr>");                                
@@ -167,7 +167,7 @@
                                             <div class='palette-square map " . $name . " m3'></div>
                                             <div class='palette-square map " . $name . " m4'></div>
                                             <div class='select " . ($name == $skinsUsed['map'] ? "using" : "") . "
-                                                'onclick='handleSkin(false, \"map\", \"$name\", \"$coins\", \"$price\")'>
+                                                ' onclick='handleSkin(false, \"map\", \"$name\", \"$coins\", \"$price\")'>
                                             </div>
                                         </div>
                                     </li><hr>");                                

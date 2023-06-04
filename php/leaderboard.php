@@ -27,7 +27,8 @@
 <html lang="it-IT">
     <head>
         <title>Pacman</title>
-        <link rel="icon" href="./../images/ghost.png"/>
+        <meta charset="utf-8">            
+        <link rel="icon" href="./../images/ghost.png">
         <link rel="stylesheet" href="./../css/mutual.css"> 
         <link rel="stylesheet" href="./../css/home.css">
         <link rel="stylesheet" href="./../css/leaderboard.css">
@@ -35,8 +36,7 @@
         <script src="./../js/effects/leaderboard.js"></script>
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
-        <meta charset="utf-8" />            
+        <link href='https://fonts.googleapis.com/css?family=Roboto%20Mono' rel='stylesheet'>
     </head>    
     <body>
         <header>
@@ -126,7 +126,7 @@
             <section class="review-section" id="main-section">
                 <h4><?php echo $_SESSION['username']?></h4>
                 <ul>
-                    <li>highscore: <?php echo $highscore ?></li><hr>
+                    <li>highscore: <?php echo $highscore ?> <style></style> </li><hr>
                     <li>tot points: <?php echo $totalPoints ?> </li>
                     <li>tot ghost killed: <?php echo $ghostKilled ?> </li><hr>
                     <li>match played: <?php echo $gamePlayed?> </li>

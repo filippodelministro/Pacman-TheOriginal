@@ -12,15 +12,19 @@
 <html lang="it-IT">
     <head>
         <title>Pacman</title>
-        <link rel="icon" href="./../images/ghost.png"/>
+        <meta charset="UTF-8">    
+        <link rel="icon" href="./../images/ghost.png">
         <link rel="stylesheet" href="./../css/mutual.css"> 
         <link rel="stylesheet" href="./../css/home.css">
+        
         
         <script src="./../js/effects/home.js"></script>
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-        <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
-        <meta charset="utf-8" />            
+        <link href='https://fonts.googleapis.com/css?family=Roboto%20Mono' rel='stylesheet'>
+    <!-- <?php    
+        include "./utility/footer.php";
+    ?> -->
     </head>    
     <body>
         <header>
@@ -60,7 +64,7 @@
             </section>
             <section id="command" class="menu-section">
                 <h4>commands</h4>
-                <p id="command">
+                <p>
                     <span class="material-icons key">north</span> :UP <br>
                     <span class="material-icons key">west</span> :LEFT <br>
                     <span class="material-icons key">east</span> :RIGHT <br>
@@ -84,8 +88,5 @@
             </section>
 
         </main>
-        <?php    
-            include "./utility/footer.php";
-        ?>
     </body>
 </html>         

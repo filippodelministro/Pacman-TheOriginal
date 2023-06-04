@@ -20,7 +20,7 @@
 <html lang="it-IT">
     <head>
         <title>Pacman</title>
-        <link rel="icon" type="image/png" href="./../images/ghost.png"/>
+        <link rel="icon" type="image/png" href="./../images/ghost.png">
         <script src="./../js/game/const.js"></script>
         <script src="./../js/game/game.js"></script>        
         <script src="./../js/game/map.js"></script>
@@ -33,9 +33,9 @@
         <link rel="stylesheet" href="./skins.php">
 
         <link rel="stylesheet" href="./../css/pacman-game.css"> 
-        <link href='https://fonts.googleapis.com/css?family=Roboto Mono' rel='stylesheet'>
-
-        <meta charset="utf-8" />
+        <link href='https://fonts.googleapis.com/css?family=Roboto%20Mono' rel='stylesheet'>
+        
+        <meta charset="utf-8">
     </head>
 
     <body>
