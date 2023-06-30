@@ -1,104 +1,39 @@
 <?php
 
 function getUserHighscore($user){
-    global $PacmanDB;
-    $sql = "SELECT max(m.score) AS highscore FROM matches m WHERE m.user = $user";
-    $result = $PacmanDB->performQuery($sql);
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-          return $row["highscore"];
-        }
-      } else {
-        return 0;
-    }
+  $sql = "SELECT max(m.score) AS highscore FROM matches m WHERE m.user = ?";
+  return sanitizeUser($sql, $user, "highscore");
 }
 
 function getUserTotPoints($user){
-    global $PacmanDB;
-    $sql = "SELECT sum(m.score) AS highscore FROM matches m WHERE m.user = $user";
-    $result = $PacmanDB->performQuery($sql);
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-          return $row["highscore"];
-        }
-      } else {
-        return 0;
-    }
+  $sql = "SELECT sum(m.score) AS totPoints FROM matches m WHERE m.user = ?";
+  return sanitizeUser($sql, $user, "totPoints");
 }
 
 function getUserGhostKilled($user){
-    global $PacmanDB;
-    $sql = "SELECT sum(m.ghostKilled) AS highscore FROM matches m WHERE m.user = $user";
-    $result = $PacmanDB->performQuery($sql);
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-          return $row["highscore"];
-        }
-      } else {
-        return 0;
-    }
+  $sql = "SELECT sum(m.ghostKilled) AS ghostKilled FROM matches m WHERE m.user = ?";
+  return sanitizeUser($sql, $user, "ghostKilled");
 }
 
 
 function getGamePlayed($user){
-    global $PacmanDB;
-    $sql = "SELECT count(*) as numMatches
-            FROM matches m
-            WHERE m.user = $user;";
-    $result = $PacmanDB->performQuery($sql);
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-          return $row["numMatches"];
-        }
-      } else {
-        return 0;
-    }
+  $sql = "SELECT count(*) as numMatches FROM matches m WHERE m.user = ?;";
+  return sanitizeUser($sql, $user, "numMatches");
 }
 
 function getUserDuration($user){
-    global $PacmanDB;
-    $sql = "SELECT sum(m.duration) AS totDuration FROM matches m WHERE m.user = $user";
-    $result = $PacmanDB->performQuery($sql);
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-          return $row["totDuration"];
-        }
-      } else {
-        return 0;
-    }
+  $sql = "SELECT sum(m.duration) AS totDuration FROM matches m WHERE m.user = ?";
+  return sanitizeUser($sql, $user, "totDuration");
 }
 
 function getUserWin($user){
-    global $PacmanDB;
-    $sql = "SELECT count(*) AS totWin FROM matches m WHERE m.user = $user AND m.win = true";
-    $result = $PacmanDB->performQuery($sql);
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-          return $row["totWin"];
-        }
-      } else {
-        return 0;
-    }
+  $sql = "SELECT count(*) AS totWin FROM matches m WHERE m.user = ? AND m.win = true";
+  return sanitizeUser($sql, $user, "totWin");
 }
 
 function getUserMinDuration($user){
-    global $PacmanDB;
-    $sql = "SELECT min(m.Duration) AS minTimer FROM matches m WHERE m.user = $user AND m.win = true";
-    $result = $PacmanDB->performQuery($sql);
-
-    if ($result->num_rows > 0) {
-        while ($row = $result->fetch_assoc()) {
-          return $row["minTimer"];
-        }
-      } else {
-        return 0;
-    }
+  $sql = "SELECT min(m.Duration) AS minTimer FROM matches m WHERE m.user = ? AND m.win = true";
+  return sanitizeUser($sql, $user, "minTimer");
 }
 
 function getToprank(){
@@ -136,6 +71,27 @@ function getStats(){
             order by DD.highscore desc";
 
   return $PacmanDB->performQuery($sql);
+}
+
+
+// ------------- SANITIZE FUNCTIONS ----------------
+
+//sanitize the value passed to server (just $user)
+function sanitizeUser($sql, $user, $type){
+  global $PacmanDB;
+
+  if ($statement = mysqli_prepare($PacmanDB->mysqli_conn, $sql)) {
+    mysqli_stmt_bind_param($statement, 'i', $user); 
+    mysqli_stmt_execute($statement);
+
+    $result = mysqli_stmt_get_result($statement);
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+        return $row[$type];
+        }
+    } else return 0;
+  }
+  else return 0;
 }
 
 ?>

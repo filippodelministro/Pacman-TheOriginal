@@ -3,8 +3,12 @@
 /** --------------------- MENU --------------------- */
 header{
     margin-left: 7%;
-    writing-mode:sideways-lr;
+    transform: rotate(-90deg);
     text-align: center;
+}
+
+nav{
+    display: flex;
 }
 
 .menu-item:hover{
@@ -12,7 +16,7 @@ header{
     background-color: #00c2d7;
     top: 3%; 
     font-weight: bolder;
-    
+    cursor: pointer;   
 }
 
 /** --------------------- SECTIONS --------------------- */

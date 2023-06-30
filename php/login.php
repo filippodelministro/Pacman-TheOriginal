@@ -2,50 +2,45 @@
     require_once "./utility/pacmanDBManager.php"; 
     require_once "./utility/sessionUtil.php";
 
-	$username = $_POST['username'];
-	$password = $_POST['password'];
-	
 	$errorMessage = login($username, $password);
 	if($errorMessage === null)
 		header('location: ./home.php');
 	else
 		header('location: ./../index.php?errorMessage=' . $errorMessage );
 
-
-	function login($username, $password){   
-		if ($username != null && $password != null){
-			$password = md5($password);
-			$userRow = authenticate($username, $password);
-			$userId = $userRow['userId'];
-
-			//check if userID is valid
-    		if ($userId > 0){
-    			session_start();
-    			setSession($username, $userId);
-    			return null;
-    		}
-
-    	}
+		function login($username, $password){
+			if(isset($_POST["username"]) && isset($_POST["password"])){
+				$username = $_POST['username'];
+				$password = $_POST['password'];
+				
+				if($username != null && $password != null){
+					global $PacmanDB;
 		
-    	return 'Authentication failed: retry';
-	}
-	
-	function authenticate ($username, $password){   
-		global $PacmanDB;
-		$username = $PacmanDB->sqlInjectionFilter($username);
-		$password = $PacmanDB->sqlInjectionFilter($password);
-
-		$queryText = 'SELECT * FROM user WHERE username = \'' . $username . '\' AND password=\'' . $password . '\'';
-
-		$result = $PacmanDB->performQuery($queryText);
-		$numRow = mysqli_num_rows($result);
-		if ($numRow != 1)
-			return -1;
+					$username = $PacmanDB->sqlInjectionFilter($username);
+					$password = $PacmanDB->sqlInjectionFilter($password);
 		
-		$PacmanDB->closeConnection();
-		$userRow = $result->fetch_assoc();
-		$PacmanDB->closeConnection();
-		return $userRow;
-	}
+					$sql = 'SELECT * FROM user WHERE username = ?';
+					// Sanitize the value passed to the server ($username)
+					if ($statement = mysqli_prepare($PacmanDB->mysqli_conn, $sql)) {
+						mysqli_stmt_bind_param($statement, 's', $username); 
+						mysqli_stmt_execute($statement);
+				
+						$result = mysqli_stmt_get_result($statement);
+						if ($result->num_rows > 0) {
+							$row = $result->fetch_assoc();
+							$hash_psw = $row['password'];
+							$userId = $row['userId'];
+																		//testing purposes
+							if(password_verify($password, $hash_psw) || ($username == "pweb" && $password == "pweb")){
+								session_start();
+								setSession($username, $userId);
+								return null;
+							}
+						}
+					} 
+					return 'Authentication failed: retry';
+				}
+			}			
+		}
 
 ?>

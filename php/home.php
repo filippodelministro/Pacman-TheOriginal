@@ -1,7 +1,6 @@
 <?php
+    require_once "./utility/sessionUtil.php";
 	session_start();
-    include "./utility/sessionUtil.php";
-
     if (!isLogged()){
         header('Location: ./../index.php');
         exit;
@@ -16,7 +15,7 @@
         <link rel="icon" href="./../images/ghost.png">
         <link rel="stylesheet" href="./../css/mutual.css"> 
         <link rel="stylesheet" href="./../css/home.css">
-        
+        <link rel="stylesheet" href="./../css/footer.css">       
         
         <script src="./../js/effects/home.js"></script>
         
@@ -89,5 +88,8 @@
             </section>
 
         </main>
+        <?php    
+            include "./utility/footer.php";
+        ?>
     </body>
 </html>         

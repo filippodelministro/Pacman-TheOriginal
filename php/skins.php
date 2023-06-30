@@ -1,8 +1,12 @@
 <?php header("Content-type: text/css");
-session_start();
 require_once "./utility/pacmanDbManager.php";
-require_once "./utility/sessionUtil.php";
 include "./handle_store.php";
+require_once "./utility/sessionUtil.php";
+session_start();
+if (!isLogged()){
+    header('Location: ./../index.php');
+    exit;
+}
 
 global $PacmanDB;
 $username = $_SESSION['username'];

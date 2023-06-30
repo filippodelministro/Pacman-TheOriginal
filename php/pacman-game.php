@@ -15,7 +15,6 @@
     $highscore = getUserHighscore($userId);
 ?>
 
-
 <!DOCTYPE html>
 <html lang="it-IT">
     <head>
@@ -32,7 +31,8 @@
 
         <link rel="stylesheet" href="./skins.php">
 
-        <link rel="stylesheet" href="./../css/pacman-game.css"> 
+        <link rel="stylesheet" href="./../css/pacman-game.css">
+        <link rel="stylesheet" href="./../css/footer.css">
         <link href='https://fonts.googleapis.com/css?family=Roboto%20Mono' rel='stylesheet'>
         
         <meta charset="utf-8">
@@ -74,9 +74,9 @@
                 <a href="./../index.php">exit</a> <br>
             </nav>
         </div>
+        <?php    
+            include "./utility/footer.php";
+        ?>
     </body>
-
-    <?php    
-        include "./utility/footer.php";
-    ?>
+    
 </html>         

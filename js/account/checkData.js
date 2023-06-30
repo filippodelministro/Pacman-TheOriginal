@@ -1,26 +1,26 @@
 
 function validateRegisterForm(){
-    var username = document.forms["registerForm"]["username"].value;
-    var password = document.forms["registerForm"]["password"].value;
-    var confirmPassword = document.forms["registerForm"]["confirmPassword"].value;
+    let username = document.forms["registerForm"]["username"].value;
+    let password = document.forms["registerForm"]["password"].value;
+    let confirmPassword = document.forms["registerForm"]["confirmPassword"].value;
 
     //RegExp
-    var patternUsername = /^[A-Za-z0-9 ]+$/;    //no special characters
-    var patternPassword = /^[A-Za-z0-9 ]+$/;    //at least one special character
+    let patternUsername = /^[A-Za-z0-9 ]+$/;    //no special characters
+    let patternPassword = /^[A-Za-z0-9 ]+$/;    //at least one special character
 
     //username check
     if (/\s/.test(username)) {
-        window.alert("username cannot contain spaces");
+        window.alert("username can not contain spaces");
         return false;
     }
 
     if(username.charAt(0) >= 0 || username.charAt(0) <= 9){
-        window.alert("username cannot begin with numbers");
+        window.alert("username can not begin with numbers");
         return false;
     }
     
     if(!patternUsername.test(username)){
-        window.alert("usernam cannot contain special characters");
+        window.alert("usernam can not contain special characters");
         return false;
     }
 
@@ -31,7 +31,7 @@ function validateRegisterForm(){
     
     //password check    
     if (/\s/.test(password)) {
-        window.alert("password cannot contain spaces");
+        window.alert("password can not contain spaces");
         return false;
     }
 

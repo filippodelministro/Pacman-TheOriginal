@@ -1,38 +1,41 @@
 
-function Map(){
-    this.cells = [MAP_DIM * MAP_DIM];
-    this.foodElements = 0;
-    this.fillMap(map1);
-}
+class Map{
+    //todo: change map
+    constructor(){
+        this.cells = [MAP_DIM * MAP_DIM];
+        this.foodElements = 0;
+        this.fillMap(map1);
+    }
 
-Map.prototype.fillMap = function(mapDesc){
-    const map = document.querySelector('.map');
-    for (let i = 0; i < MAP_DIM * MAP_DIM; i++) {
-        this.cells[i] = mapDesc[i];
+    fillMap(mapDesc){
+        const map = document.querySelector('.map');
+        for (let i = 0; i < MAP_DIM * MAP_DIM; i++) {
+            this.cells[i] = mapDesc[i];
 
-        //create HTML to visualize the map: each cell has different CSS based on its element
-        const cell = document.createElement('div');
-        cell.classList.add('cell');
-        switch(mapDesc[i]){
-            case WALL: cell.classList.add('wall'); break;
-            case FOOD:{
-                this.foodElements++;
-                cell.classList.add('food');
-                break
-            } 
-            case CRSS: {                        //used to make ghost moving in random direction
-                cell.classList.add('food');
-                break;
+            //create HTML to visualize the map: each cell has different CSS based on its element
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            switch(mapDesc[i]){
+                case WALL: cell.classList.add('wall'); break;
+                case FOOD:{
+                    this.foodElements++;
+                    cell.classList.add('food');
+                    break
+                } 
+                case CRSS: {                        //used to make ghost moving in random direction
+                    cell.classList.add('food');
+                    break;
+                }
+                case BIGF:{
+                    this.foodElements++;
+                    cell.classList.add('bigFood');
+                    break;
+                }  
+                case TUNN: cell.classList.add('tunnel'); break;
+                case SPWN: cell.classList.add('spawn'); break;
             }
-            case BIGF:{
-                this.foodElements++;
-                cell.classList.add('bigFood');
-                break;
-            }  
-            case TUNN: cell.classList.add('tunnel'); break;
-            case SPWN: cell.classList.add('spawn'); break;
+            map.appendChild(cell);
         }
-        map.appendChild(cell);
     }
 }
 

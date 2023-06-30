@@ -1,7 +1,7 @@
 
 function changeSection(){
-  var loginSection = document.getElementById("login");
-  var registerSection = document.getElementById("register");
+  let loginSection = document.getElementById("login");
+  let registerSection = document.getElementById("register");
 
   if(loginSection.classList.contains('appear')){
     registerSection.classList.add('appear');

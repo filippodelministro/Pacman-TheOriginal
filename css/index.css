@@ -24,16 +24,17 @@
 
 header{
     margin-left: 7%;
-    writing-mode:sideways-lr;
+    /* writing-mode:sideways-lr; */
+    transform: rotate(-90deg);
     text-align: center;
 }
 
 .menu-item:hover{
     position: relative;
-    background-color: #808080;
+    background-color: #00c2d7;
     top: 3%; 
     font-weight: bolder;
-    
+    cursor: pointer;
 }
 
 /** --------------------- SECTIONS --------------------- */

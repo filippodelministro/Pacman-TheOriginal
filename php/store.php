@@ -26,12 +26,12 @@
         <link rel="stylesheet" href="./../css/mutual.css"> 
         <link rel="stylesheet" href="./../css/home.css">
         <link rel="stylesheet" href="./../css/store.css">
+        <link rel="stylesheet" href="./../css/footer.css">       
 
         <script src="./../js/effects/store.js"></script>
         <script src="./../js/ajax/updateDB.js"></script>
 
         <link rel="stylesheet" href="./skins.php">
-
         
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href='https://fonts.googleapis.com/css?family=Roboto%20Mono' rel='stylesheet'>
@@ -76,7 +76,7 @@
                                     echo ("<li>" . $name .
                                         "<div class='palette-container'>
                                             <div class='palette-square pacman " . $name . "'></div>
-                                            <div class='select " . ($name == $skinsUsed['pacman'] ? "using" : "") . "
+                                            <div id=pacman-".$name." class='select " . ($name == $skinsUsed['pacman'] ? "using-pacman" : "") . "
                                                 ' onclick='handleSkin(false, \"pacman\", \"$name\", \"$coins\", \"$price\")'>
                                             </div>
                                         </div>
@@ -86,8 +86,8 @@
                                     echo ("<li>" . $name .
                                         "<div class='palette-container'>
                                             <div class='palette-square pacman " . $name . "'></div>
-                                            <div class='locked' onclick='handleSkin(true, \"pacman\", \"$name\", \"$coins\", \"$price\")'></div>
-                                            <div class='price'>" . $price . "¢</div>
+                                            <div id=pacman-".$name." class='locked' onclick='handleSkin(true, \"pacman\", \"$name\", \"$coins\", \"$price\")'></div>
+                                            <div id=pacman-price-".$name." class='price'>" . $price . "¢</div>
                                             
                                         </div>
                                     </li><hr>");
@@ -120,7 +120,7 @@
                                             <div class='palette-square ghosts " . $name . " g2'></div>
                                             <div class='palette-square ghosts " . $name . " g3'></div>
                                             <div class='palette-square ghosts " . $name . " g4'></div>
-                                            <div class='select " . ($name == $skinsUsed['ghosts'] ? "using" : "") . "
+                                            <div id=ghosts-".$name." class='select " . ($name == $skinsUsed['ghosts'] ? "using-ghosts" : "") . "
                                                 ' onclick='handleSkin(false, \"ghosts\", \"$name\", \"$coins\", \"$price\")'>
                                             </div>
                                         </div>
@@ -133,8 +133,8 @@
                                             <div class='palette-square ghosts " . $name . " g2'></div>
                                             <div class='palette-square ghosts " . $name . " g3'></div>
                                             <div class='palette-square ghosts " . $name . " g4'></div>
-                                            <div class='locked' onclick='handleSkin(true, \"ghosts\", \"$name\", \"$coins\", \"$price\")'></div>
-                                            <div class='price'>" . $price . "¢</div>
+                                            <div id=ghosts-".$name." class='locked' onclick='handleSkin(true, \"ghosts\", \"$name\", \"$coins\", \"$price\")'></div>
+                                            <div id=ghosts-price-".$name." class='price'>" . $price . "¢</div>
                                             
                                         </div>
                                     </li><hr>");
@@ -166,7 +166,7 @@
                                             <div class='palette-square map " . $name . " m2'></div>
                                             <div class='palette-square map " . $name . " m3'></div>
                                             <div class='palette-square map " . $name . " m4'></div>
-                                            <div class='select " . ($name == $skinsUsed['map'] ? "using" : "") . "
+                                            <div id=map-".$name." class='select " . ($name == $skinsUsed['map'] ? "using-map" : "") . "
                                                 ' onclick='handleSkin(false, \"map\", \"$name\", \"$coins\", \"$price\")'>
                                             </div>
                                         </div>
@@ -179,8 +179,8 @@
                                             <div class='palette-square map " . $name . " m2'></div>
                                             <div class='palette-square map " . $name . " m3'></div>
                                             <div class='palette-square map " . $name . " m4'></div>
-                                            <div class='locked' onclick='handleSkin(true, \"map\", \"$name\", \"$coins\", \"$price\")'></div>
-                                            <div class='price'>" . $price . "¢</div>
+                                            <div id=map-".$name." class='locked' onclick='handleSkin(true, \"map\", \"$name\", \"$coins\", \"$price\")'></div>
+                                            <div id=map-price-".$name." class='price'>" . $price . "¢</div>
                                         </div>
                                     </li><hr>");
                                 }
@@ -194,10 +194,11 @@
                 
                 <h4><?php echo ($_SESSION["username"]) ?></h4>
                 <ul>
-                    <li>coins: <?php echo $coins ?></li><hr>
-                    <li>pacman: <?php echo $skinsUsed['pacman']?> </li>
-                    <li>ghosts: <?php echo $skinsUsed['ghosts']?> </li>
-                    <li>map: <?php echo $skinsUsed['map']?> </li>
+                    <!--todo: cambiare coins all'aquisto -->
+                    <li id="user-coins">coins: <?php echo $coins ?></li><hr>                
+                    <li id="user-pacman-skin">pacman: <?php echo $skinsUsed['pacman']?> </li>
+                    <li id="user-ghosts-skin">ghosts: <?php echo $skinsUsed['ghosts']?> </li>
+                    <li id="user-map-skin">map: <?php echo $skinsUsed['map']?> </li>
 
                 </ul>
             </section>

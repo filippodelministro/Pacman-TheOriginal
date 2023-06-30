@@ -1,9 +1,14 @@
 <?php
-	session_start();
     require_once "./utility/pacmanDbManager.php";
     require_once "./utility/sessionUtil.php";
     include "./handle_leaderboard.php";
 
+	session_start();
+    if (!isLogged()){
+        header('Location: ./../index.php');
+        exit;
+    }	
+    
     global $PacmanDB;
     $username = $_SESSION['username'];
     $userId = $_SESSION['userId']; 
@@ -32,6 +37,7 @@
         <link rel="stylesheet" href="./../css/mutual.css"> 
         <link rel="stylesheet" href="./../css/home.css">
         <link rel="stylesheet" href="./../css/leaderboard.css">
+        <link rel="stylesheet" href="./../css/footer.css">       
 
         <script src="./../js/effects/leaderboard.js"></script>
         
@@ -41,8 +47,8 @@
     <body>
         <header>
             <nav>
-                <button class="menu-item" onclick="appear('user_rank')">statistics</button> 
-                <button class="menu-item" onclick="appear('top_rank')">top ranking</button> 
+                <button class="menu-item" onclick="appear('user_rank')">stats</button> 
+                <button class="menu-item" onclick="appear('top_rank')">ranking</button> 
             </nav>
         </header>
         <main id="container" class="container">
@@ -136,13 +142,11 @@
                         $seconds = $duration % 60;
                         echo $minutes . "' " . $seconds . "''";?> 
                     </li>
-                    <li>fastest match*:<?php 
+                    <li>fastest match:<?php 
                         $minutes = floor($fastest / 60); 
                         $seconds = $fastest % 60;
                         echo $minutes . "' " . $seconds . "''";?> 
                     </li>
-                    <span style="font-size: 10px;">*[based on matches won]</span>
-
                 </ul>
             </section>
         </main>

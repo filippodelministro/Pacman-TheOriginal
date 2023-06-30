@@ -1,9 +1,9 @@
 
 function appear(sectionId) {
-  var section = document.getElementById(sectionId);
-  var isVisible = section.classList.contains('appear');
+  let section = document.getElementById(sectionId);
+  let isVisible = section.classList.contains('appear');
 
-  var sections = document.querySelectorAll('.menu-section');
+  let sections = document.querySelectorAll('.menu-section');
   sections.forEach(function(section) {
     section.classList.remove('appear');
   });

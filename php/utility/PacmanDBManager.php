@@ -4,25 +4,19 @@
     $PacmanDB = new PacmanDBManager();
 
 	class PacmanDBManager {
-		private $mysqli_conn = null;
+		public $mysqli_conn = null;
 	
-		function PacmanDBManager(){
+		function __construct(){
 			$this->openConnection();
 		}
     
     	function openConnection(){
     		if (!$this->isOpened()){
-    			global $dbHostname;
-    			global $dbUsername;
-    			global $dbPassword;
-    			global $dbName;
-    			
-    			$this->mysqli_conn = new mysqli($dbHostname, $dbUsername, $dbPassword);
-				if ($this->mysqli_conn->connect_error) 
-					die('Connect Error (' . $this->mysqli_conn->connect_errno . ') ' . $this->mysqli_conn->connect_error);
+				
+				$this->mysqli_conn = mysqli_connect(DB_HOSTNAME, DB_USERNAME, DB_PASSWORD, DB_NAME);
 
-				$this->mysqli_conn->select_db($dbName) or
-					die ('Can\'t use pweb: ' . mysqli_error());
+				if(mysqli_connect_errno())
+					die('Connection error: ' . mysqli_connect_error());
 			}
     	}
     
